@@ -1,4 +1,4 @@
-# Client Meeting on 9/30/2019
+# Week of 9/30/2019 - 10/6/2019
 
 ## Meeting Start Time
 

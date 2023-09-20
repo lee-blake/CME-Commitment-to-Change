@@ -14,9 +14,10 @@ A web application for reviewing rentals near college campuses.
 
 ## **Client Partner Information**
 
-// Hidden until we get more details from the client.
+<!-- Hidden until we get more details from the client.
 //### *Company:*
-//WHATEVER COMPANY or CORRESPONDENCE
+-WHATEVER COMPANY or CORRESPONDENCE 
+-->
 
 ### *People:*
 - Howard Roark
@@ -32,5 +33,5 @@ A web application for reviewing rentals near college campuses.
 
 *None yet.*
 
-// This will be a bulleted list of links, like the Link section.
+<!-- This will be a bulleted list of links, like the Link section. -->
 

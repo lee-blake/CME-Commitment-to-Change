@@ -1,4 +1,4 @@
-# CapstoneProjectTemplate /* Replace this line with the title of your project */
+# CapstoneProjectTemplate /Rate-My-Rental/
 
 ## **Summary**
 
@@ -6,9 +6,11 @@ Put a very high-level summary of the project.
 
 ## **Team Members**
 
-- Joe Black
-- Joe Pesci
-- Joe Dalton
+- Kris Thurman
+- [Team Member #2]
+- [Team Member #3]
+- [Team Member #4]
+- [Team Member #5]
 
 ## **Client Partner Information**
 
@@ -16,8 +18,7 @@ Put a very high-level summary of the project.
 WHATEVER COMPANY or CORRESPONDENCE
 
 ### *People:*
-- Jane Fonda
-- Jane Lynch
+- Howard Roark
 
 ## **Links**
 

@@ -1,13 +1,13 @@
-# CapstoneProjectTemplate /Rate-My-Rental/
+# Rate My Rental
 
 ## **Summary**
 
-Put a very high-level summary of the project.
+A web application for reviewing rentals near college campuses.
 
 ## **Team Members**
 
 - Kris Thurman
-- [Team Member #2]
+- Lee Blake
 - [Team Member #3]
 - [Team Member #4]
 - [Team Member #5]

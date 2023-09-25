@@ -8,7 +8,7 @@ A web application for reviewing rentals near college campuses.
 
 - Kris Thurman
 - Lee Blake
-- [Team Member #3]
+- Noah May
 - [Team Member #4]
 - [Team Member #5]
 

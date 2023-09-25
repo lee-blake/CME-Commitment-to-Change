@@ -1,4 +1,4 @@
-# Rate My Rental
+# CME Commitment to Change
 
 ## **Summary**
 
@@ -9,7 +9,7 @@ A web application for reviewing rentals near college campuses.
 - Kris Thurman
 - Lee Blake
 - Noah May
-- [Team Member #4]
+- North Kaster
 - [Team Member #5]
 
 ## **Client Partner Information**
@@ -20,7 +20,7 @@ A web application for reviewing rentals near college campuses.
 -->
 
 ### *People:*
-- Howard Roark
+- Kurt Snyder
 
 ## **Links**
 

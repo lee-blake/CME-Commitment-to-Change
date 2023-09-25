@@ -2,7 +2,7 @@
 
 ## **Summary**
 
-A web application for reviewing rentals near college campuses.
+A social media platform for goal-setting in continuing medical education.
 
 ## **Team Members**
 
@@ -10,14 +10,13 @@ A web application for reviewing rentals near college campuses.
 - Lee Blake
 - Noah May
 - North Kaster
-- [Team Member #5]
+- Clayton Becker
 
 ## **Client Partner Information**
 
-<!-- Hidden until we get more details from the client.
-//### *Company:*
--WHATEVER COMPANY or CORRESPONDENCE 
--->
+<!-- May need updating after client meeting -->
+### *Company:*
+- Stanford CME
 
 ### *People:*
 - Kurt Snyder

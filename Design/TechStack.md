@@ -32,9 +32,9 @@ PostgreSQL is an open-source SQL database system. It is widely used and was one 
 
 Bootstrap is a CSS and Javascript framework that allows websites to scale well across for devices from desktop to mobile phones. Our mentor highly recommended it for responsive mobile design. Bootstrap speeds CSS development using SASS. Additionally, it can automate many JS behaviors using HTML data attributes. Bootstrap also works with jQuery, which will be important if we find that much of our frontend development could be sped up with jQuery. Bootstrap should enable us to design for different devices in an efficient and robust manner.
 
-## Cloud deployment: 
+## Cloud deployment: [AWS](https://aws.amazon.com/console/) or [Azure](https://azure.microsoft.com/en-us)
 
-<!-- TODO wait for response on whether we can list both AWS and Azure -->
+Both of these environments are well-documented and established. As the client has no preference, and as our tech stack should support either cloud computing environment, the choice between the two rests on which system is more comfortable for the team to use. We have elected to defer this decision until we have experimented with deployment on both platforms.
 
 ## Backend IDE: [PyCharm](https://www.jetbrains.com/pycharm/)
 

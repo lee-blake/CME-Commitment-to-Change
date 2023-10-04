@@ -20,9 +20,9 @@ Django is a well-established web server framework in Python. Our mentor recommen
 
 One advantage to using a Python-based web server over a PHP server is that both the server and business logic code can be written in the same language. Since Python is one of the languages our team is more familiar with, we should have a significantly easier time getting the project off the ground than if we were to choose something few of us had encountered. With support for object-oriented programming paradigms, extensive documentation and tutorials, and vast libraries of plugins, Python should be a solid choice for our business logic.
 
-## Unit Testing:
+## Unit Testing: [Pytest](https://docs.pytest.org/en/7.4.x/)
 
-<!-- TODO decide between unittest and pytest -->
+`pytest` is a framework for unit tests in Python. It has three main advantages over the JUnit-style `unittest` module. First, it allows the writing of more 'pythonic' tests, which makes for more readable testing code. Second, it has automatic test discovery, which makes writing testing scripts much easier. Finally, the support for test fixtures is more flexible and module than in `unittest` as it is based on annotations, rather than on specific method-name conventions.
 
 ## Database: [PostgreSQL](https://www.postgresql.org/)
 

@@ -33,16 +33,38 @@ commitment.
 media website.
   - (paragraph explaining why this is a use case)
 
-- UC2: Individual clinicians manage commitments
+- UC2: Individual clinicians change commitment details
   - BR3
   - Clinicians
   - Flow:
     1. Clinician logs in.
     2. Clinician navigates to the page displaying their commitments.
     3. Clinician clicks on a commitment to view details about it.
-    4. (Optional) Clinician may mark subgoals as complete.
-    5. (Optional) Clinician may change deadline.
-    6. (Optional) Clinician may mark the commitment as complete.
-    7. (Optional) Clinician may change the visibility of the commitment.
-    8. (Optional) Clinician may delete the commitment.
+    4. (Optional) Clinician may change deadline.
+    5. (Optional) Clinician may change the visibility of the commitment.
   - (paragraph explaining why this is a use case)
+
+- UC3: Individual clinicians mark commitments as complete
+  - BR2
+  - Clinicians
+  - Flow:
+    1. Clinician logs in.
+    2. Clinician navigates to the page displaying their commitments.
+    3. Clinician clicks on a commitment to view details about it.
+    4. (Optional) Clinician may mark subgoals as complete.
+    5. (Optional) Clinician may mark the commitment as complete.
+    6. (Optional) Clinician may delete the commitment.
+  - (paragraph explaining why this is a use case)
+
+- UC4: CME providers associate clinicians with a course
+  - BR4
+  - CME Providers, CME Educators, Clinicians
+  - Flow:
+    1. (Optional, may already be complete) CME provider creates a course.
+    2. (Optional, may already be complete) CME provider designates educators
+for a course.
+    3. CME Educator obtains invite link for a specific course.
+    4. CME Educator distributes invite link to clinicians.
+    5. Clinicians accept the link to join the course.
+  - (paragraph explaining why this is a use case)
+

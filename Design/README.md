@@ -2,6 +2,10 @@
 
 Design documents here... Explain each folder/file in this readme file.
 
+## [Architecture](Architecture.md)
+
+This file details the initial architecture for the project.
+
 ## [Business Requirements](BusinessRequirements.md)
 
 This file details the business requirements we have identified for our project.

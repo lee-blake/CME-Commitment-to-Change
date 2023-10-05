@@ -68,3 +68,23 @@ for a course.
     5. Clinicians accept the link to join the course.
   - (paragraph explaining why this is a use case)
 
+- UC5: CME providers gather relative course effectiveness data for commitments
+to change
+  - BR7 & BR8
+  - CME Providers
+  - Flow:
+    1. CME provider navigates to show the statistics for the course.
+    2. CME provider examines section "courses in same provider" to see average
+of their other courses.
+    3. CME provider examines section "similar courses" to see statistics for courses with similar tags. 
+  - (paragraph explaining why this is a use case)
+
+- UC6: Clinician receives reminder email 
+  - BR3
+  - Clinicians
+  - Flow:
+    1. Clinician creates a commitment with a deadline.
+    2. Time passes until some interval near deadline
+    3. Email is sent to clinician reminding them of the commitment deadline.
+  - (paragraph explaining why this is a use case)
+

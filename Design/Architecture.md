@@ -15,6 +15,8 @@ its own service that spends most of its time asleep. It can then check the
 database every 15 minutes or so to see if there are any commitments it needs 
 to send notification emails for.
 
+- SMTP server: Some SMTP server is necessary to send emails from Django. Since it must interact with both the reminder email daemon and the main server (account management emails), it should be its own module.
+
 - Statistics update daemon: While updating the statistics for a given course can be done when its page is accessed without performance hits, updating statistics of entire CME providers or courses with similar tags on every request will quickly grind the server to a halt. The solution is to allow them to a little out of date and recompute them at regular intervals, instead of on every request, so this should be its own daemon.
 
 - Database: Since multiple modules need access to the contents of the database,

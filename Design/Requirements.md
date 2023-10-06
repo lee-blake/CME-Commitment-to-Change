@@ -74,7 +74,7 @@ enrolled in.
 - FR12: Users can create and join groups.
   - Medium priority? Unless that's what CME providers are on the site, in which
 case, high.
-  -
+  - BR5
   
 
 - FR13: Admins can moderate by banning users.
@@ -136,10 +136,19 @@ case, high.
 
 - NR1: The software must be deployed to a cloud computing service.
   - High priority
-  -
+  - Whatever the "minimal effort for scaling" BR is
 - NR2: The software must support layouts for desktop, tablet, and mobile device
 sizes
   - High priority
-  -
+  - Whatever the "minimal effort for scaling" BR is
 
-- Feature expandable (there will be another team adding more stuff)
+
+- NR3: The software must scale well with users when deployed in a cloud environment.
+  - 
+  - Whatever the "minimal effort for scaling" BR is
+
+
+- Developer friendly
+  - 
+  - Whatever the "minimal effort for scaling" BR is
+

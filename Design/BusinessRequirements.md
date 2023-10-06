@@ -1,43 +1,41 @@
 # Business Requirements
 
-- **BR1: Improve patient care by holding clinicians accountable for the education they receive through CME courses.**
-  - I'm not actually sure this one meets the characteristics of excellent requirements (which the professor
-  - mentioned as necessary for business requirements on 10/05). See "verifiable". -Lee
+- **BR1: The software behind the application should support the growing field of CME without intervention from the client.**
+  - A facet that was implied when talking about an application to support numerous clinicians and CME providers was the fact that the amount 
+  of people using the application could go from tens or hundreds of users to thousands along the life of the application. Creating a modular
+  application that can be easily changed to support more users is a defining requirement behind the application.
   
 
 - **BR2: Improve application of CME by getting clinicians to make clear commitments to positively change their delivery of medical care.**
-  - CME providers have courses that clinicians can attend to continue their medical education outside of university gates. These courses
-  that clinicians attend teach new medical practices or procedures in the ever-changing world of the medical field. The clinicians are
-  typically asked to make a commitment to change to utilize the information presented in these CME courses to hold them accountable to make
-  a positive change in the medical care they give. These commitments hold weight and have the opportunity to affect the quality of medical
-  care that can be delivered through these commitments.  
+  - Clinicians are typically asked to make a commitment to change to utilize the information presented in the CME courses they take. These
+  commitments hold weight and have the opportunity to affect the quality of the medical care that can be delivered through these commitments.
+  These commitments are one of the most important things that clinicians can do after taking a course through a CME provider.
   
 
 - **BR3: Help keep clinicians motivated to stick to the commitments they make.**
-  - Through the use of game-like elements, notifications, and a user-based system; clinicians can make commitments with a user profile
-  alongside many other users. These commitments are goals that each clinician sets for themselves and can also include sub-goals to make
-  the commitment attainable to complete. By getting notified about the commitments made and by physically posting them to individual
-  profiles, clinicians are enabled with the tools to stay on top of the commitments they make. 
+  - Commitments clinicians make can be difficult to follow through with. Whether it be the goal is cumbersome or the commitment not defined well
+  enough, clinicians need a way to be reminded about the commitments they make to hold them accountable to these commitments. The goal is to 
+  get more commitments made and completed by these reminders. 
   
   
 - **BR4: Promote a community that allows both clinicians and CME providers to connect the education they deliver to the commitments clinicians make.**
   - CME providers want to stay engaged with clinicians during and after a CME course, and by allowing this connection after a course,
   CME providers can directly communicate this course related information through the commitments clinicians make as an individual but also
-  through the commitments made as a group under a specific course.
+  through the commitments made as a group under a specific course. Not only is this the mission of CME providers to provide a channel for
+  learning but it also keeps clinicians engaged in the education they receive by implementing it in their everyday roles.
   
 
 - **BR5: Provide a means for clinicians to get assistance in meeting their commitments.**
-  - Clinicians making and keeping commitments is the main goal for CME providers, and giving or receiving help should be as important as
-  initially creating the commitment. Clinicians should be able to lend help to one another by making the landscape surrounding commitments 
-  a social gathering. Offering a platform for this uplifting communication is an essential part in clinicians successfully keeping to
-  commitments they made.
+  - Receiving help on the commitments clinicians create for themselves is as important as initially creating the commitment. Clinicians and
+  CME providers should be able to lend help to one another by making the landscape surrounding commitments  a social gathering. Offering a 
+  platform for this uplifting communication is an essential part in clinicians successfully keeping to commitments they made.
   
 
 - **BR6: Enable clinicians to visually track progress for their commitments.**
   - Each commitment made is a goal; a promise that clinicians make to uphold the lessons learned through their CME courses. The 
   commitments they make should be ones that can be tracked and can show to the commitment maker their progress to their goal. Having a 
   way to show the milestones clinicians have met throughout their commitment makes these commitments more attainable and answers the
-  question of _how much longer_.
+  question of _how much longer until I reach my goal_.
   
 
 - **BR7: Enable CME providers to compare the effectiveness between their courses at effecting change through clinician commitments.**

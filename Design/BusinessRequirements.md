@@ -52,4 +52,9 @@
   in other areas just as well. Not only would CME providers be able to see commitments set and made locally, but they could also look
   at similar courses and compare their effectiveness with their own. CME providers can then talk to each other and get feedback on
   what is effective and what could be improved on in their own courses.
+  
+- **BR9: Provide a safe and respectable environment for clinicians and CME providers to communicate and connect in.**
+  - Safety amongst the community that wishes to improve themselves through making commitments and connections to one another
+  should be evident on the platform. This includes safeguarding accounts and account information, moderation of inappropriate
+  content, and controls disposable to the user to protect them from other malicious users.
 

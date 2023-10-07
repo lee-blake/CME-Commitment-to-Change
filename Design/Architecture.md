@@ -30,12 +30,12 @@ to send notification emails for.
 
 - SMTP server: Some SMTP server is necessary to send emails from Django. Since it must interact with both the reminder email daemon and the main server (account management emails), it should be its own module.
 
-- Statistics update daemon: While updating the statistics for a given course can be done when its page is accessed without performance hits, updating statistics of entire CME providers or courses with similar tags on every request will quickly grind the server to a halt. The solution is to allow them to a little out of date and recompute them at regular intervals, instead of on every request, so this should be its own daemon.
+- Aggregate statistics daemon: While updating the statistics for a given course can be done when its page is accessed without performance hits, updating statistics of entire CME providers or courses with similar tags on every request will quickly grind the server to a halt. The solution is to allow them to a little out of date and recompute them at regular intervals, instead of on every request, so this should be its own daemon.
 
-- Database: Since multiple modules need access to the contents of the database,
+- SQL Database: Since multiple modules need access to the contents of the database,
  it should be seperated into its own module.
 
-- Django content delivery server: Delivers the web page content by processing 
+- Content delivery server: Delivers the web page content by processing 
 templates. Distinct from templates in that it links them to the domain model 
 layer and may only need to return code to AJAX requests.
 

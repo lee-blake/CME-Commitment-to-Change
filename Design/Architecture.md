@@ -4,7 +4,20 @@ This file outlines the plans for the system architecture.
 
 ## Diagram
 
-TODO create this
+```mermaid
+graph TD;
+    frontend[<b>Bootstrap & JS frontend</b> <br> -Handles functionality that does not merit reloading the page <br> -Manages styling and layout across different devices] <-- HTML requests, AJAX --> delivery[<b>Content Delivery Server</b> <br> -Serves webpages and AJAX responses <br> -Connects domain model actions and templates to routes];
+    delivery -- Calls methods --> model[<b>Domain Model Layer</b> <br> -Create and manage commitments <br> -Create and manage courses <br> -User and account management <br> -etc.];
+    model -- Returns objects --> delivery
+    delivery -- Context object --> templates[<b>Templates</b> <br> -Defines webpage DOM <br> -Defines general styling for pages <br> -Puts domain object data in the correct part of the page];
+    templates -- Complete page/XML --> delivery
+    model <-- Schemas --> database(<b>SQL Database</b> <br> -Stores user data <br> -Stores commitment data <br> -Stores courses <br> -Stores aggregate statistics <br> -etc.);
+    database <-- Schemas --> statistics[<b>Aggregate statistics daemon</b> <br> -Updates statistics for CME providers <br> -Updates statistics for course tags <br> -Updates statistics for the site as a whole <br> -Does this at regular intervals, not continuously];;
+    database <-- Schemas --> reminder[<b>Reminder email daemon</b> <br> -Checks database for commitments nearing deadlines <br> -Sends out reminder emails to associated user <br> -Does this at regular intervals, not continuously];
+    reminder -- smtplib or django.core.mail --> smtp(<b>SMTP Server</b> <br> -Dispatches reminder and account management emails);
+    model -- django.core.mail --> smtp;
+    frontend -- Intent calls --> twitter><b>Twitter API</b> <br> -Posts tweets about commitments]
+```
 
 ## Modules
 

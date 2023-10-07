@@ -136,19 +136,21 @@ case, high.
 
 - NR1: The software must be deployed to a cloud computing service.
   - High priority
-  - Whatever the "minimal effort for scaling" BR is
-- NR2: The software must support layouts for desktop, tablet, and mobile device
-sizes
+  - BR1
+
+- NR2: The software must support layouts for desktop, tablet, and mobile device 
+sizes.
   - High priority
-  - Whatever the "minimal effort for scaling" BR is
+  - BR1
+
+- NR3: The software must scale well with users when deployed in a cloud 
+environment.
+  - High priority
+  - BR1
 
 
-- NR3: The software must scale well with users when deployed in a cloud environment.
-  - 
-  - Whatever the "minimal effort for scaling" BR is
-
-
-- Developer friendly
-  - 
-  - Whatever the "minimal effort for scaling" BR is
+- NR4: The software must be sufficiently clean and modular that another team 
+can add new features shortly after transfer.
+  - Medium priority?
+  - BR1
 

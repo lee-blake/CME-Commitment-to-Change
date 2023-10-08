@@ -3,7 +3,7 @@
 - Administrators
   - Administrators are appointed by the owner of the platform to manage it.
 - Clinicians
-  - Clinicians  are physicians and practicioners that use the platform to make 
+  - Clinicians  are physicians and practitioners that use the platform to make 
 and keep commitments. In most, but not all, cases, they will be in some form of 
 continuing medical education (CME).
 - CME Providers
@@ -25,13 +25,16 @@ of a CME provider organization.
     1. Clinician logs in. 
     2. Clinician navigates through interface to "make a new commitment" screen.
     3. Clinician gives a title describing the commitment.
-    4. (Optional) Clinician may add subgoals, a longer description, etc to 
+    4. (Optional) Clinician may add sub-goals, a longer description, etc to 
 commitment.
     5. Clinician sets a deadline for the commitment.
     6. Commitment is saved when the clinician hits the button to submit.
     7. (Optional) Clinician may share the newly-made commitment to a social 
 media website.
-  - (paragraph explaining why this is a use case)
+  - Creating commitments is the biggest feature of the application. CME providers
+  want clinicians to make these commitments to hold them accountable to the 
+  knowledge they obtained and to utilize it in their everyday practice. This
+  accountability safeguards the knowledge provided in a CME course.
 
 - UC2: Individual clinicians change commitment details
   - BR3
@@ -42,7 +45,10 @@ media website.
     3. Clinician clicks on a commitment to view details about it.
     4. (Optional) Clinician may change deadline.
     5. (Optional) Clinician may change the visibility of the commitment.
-  - (paragraph explaining why this is a use case)
+  - While creating commitments is a big part of the application, if a mistake
+  is made when initially creating a commitment or a clinician wants to change
+  a specific part of the commitment, there should be a channel to do so. This
+  use case covers this channel. 
 
 - UC3: Individual clinicians mark commitments as complete
   - BR2
@@ -51,7 +57,7 @@ media website.
     1. Clinician logs in.
     2. Clinician navigates to the page displaying their commitments.
     3. Clinician clicks on a commitment to view details about it.
-    4. (Optional) Clinician may mark subgoals as complete.
+    4. (Optional) Clinician may mark sub-goals as complete.
     5. (Optional) Clinician may mark the commitment as complete.
     6. (Optional) Clinician may delete the commitment.
   - (paragraph explaining why this is a use case)

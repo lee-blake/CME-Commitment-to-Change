@@ -1,10 +1,8 @@
 # Domain Model
 
+This file displays and describes the domain model for the project.
+
 ## Model Diagram
-
-- (Link to the domain model file)
-
-### Proof of concept: mermaid.js
 
 ```mermaid
 classDiagram

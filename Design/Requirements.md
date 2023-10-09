@@ -62,18 +62,17 @@ enrolled in.
   
 
 - FR10: CME providers can view a percentage breakdown of the state of commitments in a course (in progress, expired, completed)
-  - High priority?
+  - Medium priority
   - BR7
   
 
 - FR11: Users can change visibility of commitments made.
-  - Medium priority?
+  - Medium priority
   - BR9
   
 
 - FR12: Users can create and join groups.
-  - Medium priority? Unless that's what CME providers are on the site, in which
-case, high.
+  - Low priority
   - BR5
   
 
@@ -93,7 +92,7 @@ case, high.
   
 
 - FR16: Users can share their commitments through Twitter.
-  - Medium priority
+  - High priority
   - BR3
   
 
@@ -102,18 +101,18 @@ case, high.
   - BR6
   
 
-- FR18: Commitments can measure a performance metric against a baseline and provide data to the user.
-  - Low priority?
-  -BR6
+- FR18: Users should be able to create commitments with milestones.
+  - Medium priority
+  - BR6
   
 
 - FR19: CME providers can create badges for specific courses.
-  - Medium priority?
+  - Medium priority
   - BR3
   
 
 - FR20: Users can show their badges on their account
-  - Medium priority?
+  - Medium priority
   - BR3
   
 
@@ -128,8 +127,16 @@ case, high.
   
 
 - FR23: Optional content tags on courses to relate similar courses.
-  - Medium priority?
+  - Medium priority
   - BR8
+
+- FR24: Remind clinicians about SMART goals when creating commitments.
+
+- FR25: Remind clinicians about HIPAA(?) when creating commitments.
+
+- FR26: Rate commitments
+
+- FR27: Value commitments
 
   
 # Non-functional Requirements

@@ -79,6 +79,9 @@ classDiagram
   }
 
   Commitment "owner: 1" o-- "commitments: *" Clinician
+  Commitment "associatedCourse: ? (0..1)" o-- "associatedCommitments: *" Course
+  Clinician "coursesEnrolledIn: *, coursesTaught: *" o-- "instructors: *, students: *" Course
+  Course "provider: 1" o-- "courses: *" Provider
 
 ```
 

@@ -75,6 +75,7 @@ classDiagram
     - created: datetime
     - lastUpdated: datetime
     + name: String
+    - courses: List[Course]
     + createCourse(): Course
     + deleteCourse(Course)
     + getProviderSuccessRate(): double

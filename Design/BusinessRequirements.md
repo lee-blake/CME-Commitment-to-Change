@@ -56,3 +56,8 @@
   should be evident on the platform. This includes safeguarding accounts and account information, moderation of inappropriate
   content, and controls disposable to the user to protect them from other malicious users.
 
+# Proposed New Business Requirements
+
+- BR1: Motivate clinicians to make and keep commitments to positive change in the practice of medicine.
+
+- BR2: Enable CME providers to measure the relative effectiveness of their courses at creating changes in medical practice by their respective students.

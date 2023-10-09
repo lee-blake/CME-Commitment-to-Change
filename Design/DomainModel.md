@@ -17,9 +17,9 @@ classDiagram
     + email: String
     + firstName: String
     + lastName: String
-    - commitments: List<Commitment>
-    - coursesTaught: List<Course>
-    - coursesEnrolledIn: List<Course>	
+    - commitments: List[Commitment]
+    - coursesTaught: List[Course]
+    - coursesEnrolledIn: List[Course]
     + createCommitment(): Commitment
     + deleteCommitment(Commitment)
     + teach(Course)
@@ -56,9 +56,9 @@ classDiagram
     - lastUpdated: datetime
     + title: String
     + description: String
-    - instructors: List<User>
-    - students: List<User>
-    - associatedCommitments: List<Commitment>
+    - instructors: List[User]
+    - students: List[User]
+    - associatedCommitments: List[Commitment]
     + addInstructor(Clinician)
     + removeInstructor(Clinician)
     + addStudent(Clinician)

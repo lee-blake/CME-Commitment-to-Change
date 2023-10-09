@@ -48,6 +48,36 @@ classDiagram
     + associateWithCourse(Course)
     + removeAssociation()
     + sendReminderEmail()
+    + displayProgress(): double*
+  }
+
+  class CommitmentStatus{
+    <<Enumeration>>
+    SUCCESS
+    IN_PROGRESS
+    EXPIRED
+  }
+
+  class YesNoCommitment{
+    + displayProgess(): double
+  }
+
+  class MilestoneCommitment{
+    + milestones: List[Milestone]
+    + displayProgess(): double
+  }
+
+  class Milestone{
+    + uid: int
+    + isComplete: boolean
+  }
+
+  class ValueCommitment{
+    + targetValue: double
+    + currentValue: double
+    + displayProgress(): double
+    + addValue(double)
+    + removeValue(double)
   }
 
   class Course{
@@ -85,6 +115,11 @@ classDiagram
   Clinician "*, coursesTaught: *" o--o "*" Course
   Commitment "1" o-- "*" Clinician
   Commitment "0..1" o-- "*" Course
+  Commitment "1" --> CommitmentStatus
+  YesNoCommitment --!> Commitment
+  MilestoneCommitment --!> Commitment
+  ValueCommitment --!> Commitment
+  Milestone o-- "*" MilestoneCommitment
 
 ```
 

@@ -116,9 +116,9 @@ classDiagram
   Commitment "1" o-- "*" Clinician
   Commitment "0..1" o-- "*" Course
   Commitment "1" --> CommitmentStatus
-  YesNoCommitment --!> Commitment
-  MilestoneCommitment --!> Commitment
-  ValueCommitment --!> Commitment
+  YesNoCommitment --|> Commitment
+  MilestoneCommitment --|> Commitment
+  ValueCommitment --|> Commitment
   Milestone o-- "*" MilestoneCommitment
 
 ```

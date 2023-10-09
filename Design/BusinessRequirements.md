@@ -58,6 +58,6 @@
 
 # Proposed New Business Requirements
 
-- BR1: Motivate clinicians to make and keep commitments to positive change in the practice of medicine.
+- BR1: Motivate and enable clinicians to make and keep commitments to positive change in the practice of medicine.
 
 - BR2: Enable CME providers to measure the relative effectiveness of their courses at creating changes in medical practice by their respective students.

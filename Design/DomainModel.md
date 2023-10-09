@@ -8,6 +8,8 @@
 
 ```mermaid
 classDiagram
+  direction RL 
+
   class Clinician{
 	- uid: int
     - created: datetime

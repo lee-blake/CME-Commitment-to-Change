@@ -36,6 +36,10 @@ Bootstrap is a CSS and Javascript framework that allows websites to scale well a
 
 Both of these environments are well-documented and established. As the client has no preference, and as our tech stack should support either cloud computing environment, the choice between the two rests on which system is more comfortable for the team to use. We have elected to defer this decision until we have experimented with deployment on both platforms.
 
+## SMTP Server: [Gmail SMTP](https://support.google.com/a/answer/176600?hl=en)
+
+Gmail has a SMTP server and you can send 100 messages per day with a free account. The process is basically identical to that described in the link, but with lower numbers. For development and early deployment, this amount should be adequate with minimal setup required. However, we do need to be mindful of this low limit and find another solution as the platform is growing but before the limit is reached. One contingency we have for an explosion in numbers is Amazon's SES, which features linear scaling of cost with usage, and therefore serves well as a way to maintain service for a short period of exploring alternatives.
+
 ## Backend IDE: [PyCharm](https://www.jetbrains.com/pycharm/)
 
 PyCharm is an IDE for Python. While the professional version has a number of tools that might be helpful for our project, we plan on proceeding with the free community version. PyCharm is from the same developer as IntelliJ and has a similar layout. This should enable team members who have not used to before to adapt to it with relative ease. PyCharm has extensive plugin support and Python package/dependency management tools.
@@ -43,3 +47,4 @@ PyCharm is an IDE for Python. While the professional version has a number of too
 ## Frontend IDE: [VSCode](https://code.visualstudio.com/)
 
 VSCode is a much broader IDE that supports languages via extensions. Given the many languages involved in even our relatively basic frontend stack, this will be an advantage, as we can support any new additions simply by installing a respective language plugin. VSCode is cross-platform and has an open-source MIT licensed version, so all team members should be able to use it.
+

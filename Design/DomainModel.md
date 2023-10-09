@@ -80,10 +80,10 @@ classDiagram
     + getProviderSuccessRate(): double
   }
 
-  Commitment "owner: 1" o-- "commitments: *" Clinician
-  Commitment "associatedCourse: ? (0..1)" o-- "associatedCommitments: *" Course
-  Clinician "coursesEnrolledIn: *, coursesTaught: *" o-- "instructors: *, students: *" Course
-  Course "provider: 1" o-- "courses: *" Provider
+  Course "1" o-- "*" Provider
+  Clinician "*, coursesTaught: *" o--o "*" Course
+  Commitment "1" o-- "*" Clinician
+  Commitment "0..1" o-- "*" Course
 
 ```
 

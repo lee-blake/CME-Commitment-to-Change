@@ -68,7 +68,17 @@ of a CME provider organization.
     5. (Optional) Clinician may update values if it is a value commitment.
     6. (Optional) Clinician may comment on the commitment to note other 
 progress.
-  - (paragraph explaining why this is a use case)
+  - While this may help some clinicians organize their commitments and therefore
+    organize their progression towards completion, the real reason this is a 
+    use case is that it allows clinicians to demonstrate to peers on the site 
+    and patients on social media that they are progressing with their 
+    commitment. In particular, if clinicians can show their progress for their 
+    commitments, they will be more willing to share them to social media. They 
+    are then more likely to feel accountable to the public for their commitment,
+    and therefore will be motivated both to progress in it and to update 
+    progress for others to see. This is likely to be the primary form of 
+    engagement with the platform outside of the brief creation and completion 
+    of commitments.
 
 - UC4: Individual clinicians mark commitments as complete
   - BR2
@@ -87,14 +97,19 @@ as complete.
   - BR4
   - CME Providers, CME Educators, Clinicians
   - Flow:
-    1. (Optional, may already be complete) CME Provider creates a course.
-    2. (Optional, may already be complete) CME Provider designates educators
-for a course. Should they not wish to do so, CME Provider replaces CME educator
-in the steps below.
+    1. (May already be complete) CME Provider creates a course.
+    2. (Optional) CME Provider designates educators for a course. Should they
+    not wish to do so, CME Provider replaces CME educator in the steps below.
     3. CME Educator obtains invite link for a specific course.
     4. CME Educator distributes invite link to clinicians.
     5. Clinicians accept the link to join the course.
-  - (paragraph explaining why this is a use case)
+  - This interaction will be the one that CME providers spend most of their 
+    time performing. While their main goal is to get data about the courses, it
+    is first necessary to organize by course to create that data. Making this 
+    as easy on individual clinicians as possible will make them more likely to 
+    associate with a course and therefore generate that data; thus, it falls to
+    the CME Provider and potentially their Educators to perform the bulk of 
+    this step.
 
 - UC6: Clinician creates a commitment within a course
   - BR4
@@ -108,21 +123,59 @@ in the steps below.
     in the course.
     5. Clinician fills out or edits the usual details for a commitment.
     6. Upon submitting, the commitment is associated with the course.
-  - (paragraph explaining why this is a use case)
+  - For CME Providers to get data about the implementation of their education, 
+    it is necessary to connect clinician practice with the courses themselves. 
+    Since the way this platform determines implementation of practice is 
+    through commitments, it is necessary to associate the commitments with 
+    courses. In most circumstances, these commitments will come out of a 
+    course, and therefore it makes sense for the clinician to create them in 
+    the context of a course page.
 
-- UC7: CME providers gather relative course effectiveness data for commitments
+- UC7: Clinician asks for help in meeting a commitment
+  - BR2
+  - Clinicians
+  - Flow:
+    1. Clinician logs in 
+    2. Clinician navigates to the page displaying their commitments.
+    3. Clinician clicks on a commitment to view details about it.
+    4. Clinician comments on that commitment asking for help.
+    5. Other clinicians who are watching that commitment may see and offer help.
+    6. Clinician clicks on the course associated with the commitment.
+    7. Clinician comments in the course asking for assistance with completing 
+    the commitment.
+    8. Other clinicians in the course can see the comment and may offer help. 
+    This may include educators for that course.
+    9. Clinician shares the commitment to social media asking for help.
+    10. Other clinicians on social media may offer help.
+  - One of the benefits of associating clinicians into courses is that it 
+    socially connects them. Leveraging this to help them complete commitments 
+    furthers one of the main business requirements for the platform. Offering a
+    number of different methods to resolve difficulties is important, as we 
+    cannot be sure that all clinicians will interact in the same manner on the 
+    platform.
+
+- UC8: CME providers gather relative course effectiveness data for commitments
 to change
   - BR7 & BR8
   - CME Providers
   - Flow:
-    1. CME provider navigates to show the statistics for the course.
+    1. CME provider navigates to show the commitment statistics for the course.
     2. CME provider examines section "courses in same provider" to see average
     of their other courses.
     3. CME provider examines section "similar courses" to see statistics for 
     courses with similar tags. 
-  - (paragraph explaining why this is a use case)
+    4. CME provider repeats the process for any other courses of interest.
+    5. CME provider may make make note of unusually high or low relative rates
+    of commitment completion.
+  - The primary benefit to CME providers that this platform will provide is 
+    data about implementation of education through commitments. While this will
+    likely involve much less time than associating clinicians and courses, it 
+    is just as important and will be reason providers stay on the platform. 
+    Comparisons to other courses offered by the same provider and similar 
+    courses offered by other providers are both likely to occur, as both can 
+    offer significant lessons about which courses need the most improvement.
 
-- UC8: Clinician receives reminder email 
+- UC9: Clinician receives reminder email 
   - BR3
   - Clinicians
   - Flow:
@@ -130,18 +183,31 @@ to change
     2. Time passes until some interval near deadline or some time passes
     without updating commitment progress.
     3. Email is sent to Clinician reminding them of the commitment deadline.
-    4. Clinician revisits commitment page and is reminded of their goal.
-  - (paragraph explaining why this is a use case)
+    4. Clinician revisits commitment page.
+    5. Clinician is reminded of their commitment and how much time is left.
+  - Reminders are important in two cases. First, the clinician may have 
+    forgotten about their commitment. Second, the clinician may have made 
+    progress on the commitment, but simply not updated it. In the first case, 
+    reminding helps the clinician accomplish their commitment. In the second, 
+    it helps get more accurate data for CME providers. Automated reminders via 
+    email are an easy and relatively nonintrusive way to accomplish this 
+    important function.
 
-- UC9: Administrator moderates the website
+- UC10: Administrator moderates the website
   - BR9
   - Administrators
   - Flow:
     1. User disrupts other clinicians and the community.
-    2. Administrator logs in.
-    2. (optional) Admin may edit offending comments and commitments
-    3. (optional) Admin may delete offending comments and commitments
-    4. (optional) Admin may ban user for a period of time
-    5. (optional) Admin may ban user permanently
-  - (paragraph explaining why this is a use case)
+    2. User's comments or commitments are reported.
+    3. Administrator logs in.
+    4. (optional) Admin may edit offending comments and commitments
+    5. (optional) Admin may delete offending comments and commitments
+    6. (optional) Admin may ban user for a period of time
+    7. (optional) Admin may ban user permanently
+  - While it is unlikely that many clinicians will abuse the platform, the 
+    occasional bad actor will occur. It is necessary to handle these abuses 
+    promptly before they derail the main purposes of the platform - enabling 
+    clinicians to meet their commitments and gathering data for CME providers. 
+    This will likely occur occasionally and the administrator will be 
+    responding to reports.
 

@@ -153,6 +153,11 @@ in terms of a yes or no question.
 allows clinicians to break bigger goals into smaller ones and display their 
 progress, both to themself and to others in the community.
 
+- Milestone
+ - This class represents the individual milestones that make up a milestone
+commitment. They generally should not depend on each other - this adds
+needless complexity for the physician creating the commitment.
+
 - ValueCommitment
   - This models Commitments that consist of trying to reach a specific quantity.
 An example would be a commitment to hold a certain number of clinic hours 

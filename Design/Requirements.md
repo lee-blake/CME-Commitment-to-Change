@@ -67,6 +67,8 @@ enrolled in.
   - High priority
   - BR6
 
+- FR101: Users can edit the details of their commitments, including changing the type, deadline, title, description, etc.
+
 - FR6: Users can receive reminders via email for commitments approaching their deadlines.
   - Medium priority
   - BR3
@@ -76,25 +78,28 @@ enrolled in.
 - FR4: CME providers can create courses.
   - High priority
   - BR4
-  
 
-- FR5: CME providers can add users to courses.
+- FR5: CME providers can add users to courses via a code or link.
   - High priority
   - BR4
 
 - FR9: CME providers can view commitments created in the context of a course.
   - High priority
   - BR4
-  
 
 - FR10: CME providers can view a percentage breakdown of the state of commitments in a course (in progress, expired, completed)
   - Medium priority
   - BR7
 
-- FR23: Optional content tags on courses to relate similar courses.
+- FR23: Courses may have optional content tags relating to the subject matter.
   - Medium priority
   - BR8
 
+- FR102: Users can comment within a given course.
+
+- FR103: CME Providers can view a comparison of commitment success rates relative to their other courses.
+
+- FR104: 
 
 ## Gamification
 

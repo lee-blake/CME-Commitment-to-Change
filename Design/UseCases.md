@@ -19,7 +19,7 @@ of a CME provider organization.
 # Use Cases
 
 - UC1: Individual clinicians make commitments outside of a course
-  - BR2
+  - BR1
   - Clinicians
   - Flow:
     1. Clinician logs in. 
@@ -39,7 +39,7 @@ of a CME provider organization.
   accountability safeguards the knowledge provided in a CME course.
 
 - UC2: Individual clinicians change commitment details
-  - BR3
+  - BR1
   - Clinicians
   - Flow:
     1. Clinician logs in.
@@ -57,7 +57,7 @@ of a CME provider organization.
   use case covers this channel. 
 
 - UC3: Clinician updates progress on a commitment
-  - BR2
+  - BR1
   - Clinicians
   - Flow:
     1. Clinician logs in.
@@ -81,7 +81,7 @@ progress.
     of commitments.
 
 - UC4: Individual clinicians mark commitments as complete
-  - BR2
+  - BR1
   - Clinicians
   - Flow:
     1. Clinician logs in.
@@ -94,7 +94,7 @@ as complete.
   - (paragraph explaining why this is a use case)
 
 - UC5: CME Providers associate clinicians with a course
-  - BR4
+  - BR2
   - CME Providers, CME Educators, Clinicians
   - Flow:
     1. (May already be complete) CME Provider creates a course.
@@ -112,7 +112,7 @@ as complete.
     this step.
 
 - UC6: Clinician creates a commitment within a course
-  - BR4
+  - BR2
   - Clinicians
   - Flow:
     1. Clinician logs in.
@@ -132,7 +132,7 @@ as complete.
     the context of a course page.
 
 - UC7: Clinician asks for help in meeting a commitment
-  - BR2
+  - BR1
   - Clinicians
   - Flow:
     1. Clinician logs in 
@@ -156,7 +156,7 @@ as complete.
 
 - UC8: CME providers gather relative course effectiveness data for commitments
 to change
-  - BR7 & BR8
+  - BR2
   - CME Providers
   - Flow:
     1. CME provider navigates to show the commitment statistics for the course.
@@ -176,7 +176,7 @@ to change
     offer significant lessons about which courses need the most improvement.
 
 - UC9: Clinician receives reminder email 
-  - BR3
+  - BR1
   - Clinicians
   - Flow:
     1. Clinician creates a commitment with a deadline.
@@ -194,7 +194,7 @@ to change
     important function.
 
 - UC10: Administrator moderates the website
-  - BR9
+  - BR1
   - Administrators
   - Flow:
     1. User disrupts other clinicians and the community.

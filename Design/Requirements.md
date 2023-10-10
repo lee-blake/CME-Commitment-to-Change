@@ -16,126 +16,127 @@ Noah's notes:
 
 ## Platform (Registration, Moderation, etc)
 
-- FR1: Users can register for an account via email and log in using that email.
+- FR101: Users can register for an account via email and log in using that 
+email.
   - High priority
   - BR1 
 
-- FR13: Admins can moderate by banning users.
+- FR102: Admins can moderate by banning users.
   - Medium priority
   - BR1
   
-- FR14: Admins can moderate by editing content.
+- FR103: Admins can moderate by editing content.
   - Medium priority
   - BR1
 
-- FR15: Users can block other users.
+- FR104: Users can block other users.
   - Medium priority
   - BR1
 
 ## Commitment Creation
 
-- FR2: Users can create commitments to track their personal goals.
+- FR201: Users can create commitments to track their personal goals.
   - High priority
   - BR1
 
-- FR3: Users can create commitments in the context a CME course they are 
+- FR202: Users can create commitments in the context a CME course they are 
 enrolled in.
   - High priority
   - BR2
 
-- FR8: Users can create sub-goals for commitments.
+- FR203: Users can create sub-goals for commitments.
   - Medium priority
   - BR1 (Being able to show partial completion invokes the sunk-cost fallacy)
 
-- FR18: Users should be able to create commitments with milestones.
+- FR204: Users should be able to create commitments with milestones.
   - Medium priority
   - BR1
 
-- FR24: Remind clinicians about SMART goals when creating commitments.
+- FR205: Remind clinicians about SMART goals when creating commitments.
 
-- FR25: Remind clinicians about HIPAA(?) when creating commitments.
+- FR206: Remind clinicians about HIPAA(?) when creating commitments.
 
-- FR26: Rate commitments
+- FR207: Rate commitments
 
-- FR27: Value commitments
+- FR208: Value commitments
 
 
 ## Commitment Management
 
-- FR17: Users can track their own commitments and see their progress in completing their commitment.
+- FR301: Users can track their own commitments and see their progress in completing their commitment.
   - High priority
   - BR1
 
-- FR101: Users can edit the details of their commitments, including changing the type, deadline, title, description, etc.
+- FR302: Users can edit the details of their commitments, including changing the type, deadline, title, description, etc.
 
-- FR6: Users can receive reminders via email for commitments approaching their deadlines.
+- FR303: Users can receive reminders via email for commitments approaching their deadlines.
   - Medium priority
   - BR1
  
 ## CME Courses
 
-- FR4: CME providers can create courses.
+- FR401: CME providers can create courses.
   - High priority
   - BR2
 
-- FR5: CME providers can add users to courses via a code or link.
+- FR402: CME providers can add users to courses via a code or link.
   - High priority
   - BR2
 
-- FR9: CME providers can view commitments created in the context of a course.
+- FR403: CME providers can view commitments created in the context of a course.
   - High priority
   - BR2
 
-- FR10: CME providers can view a percentage breakdown of the state of commitments in a course (in progress, expired, completed)
+- FR404: CME providers can view a percentage breakdown of the state of commitments in a course (in progress, expired, completed)
   - Medium priority
   - BR2
 
-- FR23: Courses may have optional content tags relating to the subject matter.
+- FR405: Courses may have optional content tags relating to the subject matter.
   - Medium priority
   - BR2
 
-- FR102: Users can comment within a given course.
+- FR406: Users can comment within a given course.
 
-- FR103: CME Providers can view a comparison of commitment success rates relative to their other courses.
+- FR407: CME Providers can view a comparison of commitment success rates relative to their other courses.
 
-- FR104: 
+- FR408: 
 
 ## Gamification
 
-- FR19: CME providers can create badges for specific courses.
+- FR501: CME providers can create badges for specific courses.
   - Medium priority
   - BR1
   
 
-- FR20: Users can show their badges on their account
+- FR502: Users can show their badges on their account
   - Medium priority
   - BR1
   
 
-- FR21: Point system for users by doing and completing commitments
+- FR503: Point system for users by doing and completing commitments
   - Low priority
   - BR1
   
 
-- FR22: Users can share rewards or levels on social media.
+- FR504: Users can share rewards or levels on social media.
   - Low priority
   - BR1
  
 ## Other Social Elements
 
-- FR7: Users can comment on both their own commitments and those of others.
+- FR601: Users can comment on both their own commitments and those of others.
   - Medium priority
   - BR1 
 
-- FR11: Users can change visibility of commitments made.
+- FR602: Users can change visibility of commitments made.
   - Medium priority
   - BR1
 
-- FR12: Users can create and join groups.
+- FR603: Users can create and join groups.
   - Low priority
   - BR1
 
-- FR16: Users can share their commitments through Twitter.
+- FR604: Users can share their commitments through Twitter.
   - High priority
   - BR1
 

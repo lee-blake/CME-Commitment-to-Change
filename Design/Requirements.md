@@ -14,22 +14,64 @@ Noah's notes:
 
 # Functional Requirements
 
+## Platform (Registration, Moderation, etc)
+
 - FR1: Users can register for an account via email and log in using that email.
   - High priority
   - BR3 and others (we need some account to keep track of commitments made by
 a clinician, and visibility may be private)
+
+- FR13: Admins can moderate by banning users.
+  - Medium priority
+  - BR9
   
+- FR14: Admins can moderate by editing content.
+  - Medium priority
+  - BR9
+
+- FR15: Users can block other users.
+  - Medium priority
+  - BR9
+
+## Commitment Creation
 
 - FR2: Users can create commitments to track their personal goals.
   - High priority
   - BR2
-  
 
 - FR3: Users can create commitments in the context a CME course they are 
 enrolled in.
   - High priority
   - BR4
-  
+
+- FR8: Users can create sub-goals for commitments.
+  - Medium priority
+  - BR3 (Being able to show partial completion invokes the sunk-cost fallacy)
+
+- FR18: Users should be able to create commitments with milestones.
+  - Medium priority
+  - BR6
+
+- FR24: Remind clinicians about SMART goals when creating commitments.
+
+- FR25: Remind clinicians about HIPAA(?) when creating commitments.
+
+- FR26: Rate commitments
+
+- FR27: Value commitments
+
+
+## Commitment Management
+
+- FR17: Users can track their own commitments and see their progress in completing their commitment.
+  - High priority
+  - BR6
+
+- FR6: Users can receive reminders via email for commitments approaching their deadlines.
+  - Medium priority
+  - BR3
+ 
+## CME Courses
 
 - FR4: CME providers can create courses.
   - High priority
@@ -39,22 +81,6 @@ enrolled in.
 - FR5: CME providers can add users to courses.
   - High priority
   - BR4
-  
-
-- FR6: Users can receive reminders via email for commitments approaching their deadlines.
-  - Medium priority
-  - BR3
-  
-
-- FR7: Users can comment on both their own commitments and those of others.
-  - Medium priority
-  - BR5 
-  
-
-- FR8: Users can create sub-goals for commitments.
-  - Medium priority
-  - BR3 (Being able to show partial completion invokes the sunk-cost fallacy)
-  
 
 - FR9: CME providers can view commitments created in the context of a course.
   - High priority
@@ -64,47 +90,13 @@ enrolled in.
 - FR10: CME providers can view a percentage breakdown of the state of commitments in a course (in progress, expired, completed)
   - Medium priority
   - BR7
-  
 
-- FR11: Users can change visibility of commitments made.
+- FR23: Optional content tags on courses to relate similar courses.
   - Medium priority
-  - BR9
-  
+  - BR8
 
-- FR12: Users can create and join groups.
-  - Low priority
-  - BR5
-  
 
-- FR13: Admins can moderate by banning users.
-  - Medium priority
-  - BR9
-  
-
-- FR14: Admins can moderate by editing content.
-  - Medium priority
-  - BR9
-  
-
-- FR15: Users can block other users.
-  - Medium priority
-  - BR9
-  
-
-- FR16: Users can share their commitments through Twitter.
-  - High priority
-  - BR3
-  
-
-- FR17: Users can track their own commitments and see their progress in completing their commitment.
-  - High priority
-  - BR6
-  
-
-- FR18: Users should be able to create commitments with milestones.
-  - Medium priority
-  - BR6
-  
+## Gamification
 
 - FR19: CME providers can create badges for specific courses.
   - Medium priority
@@ -124,19 +116,24 @@ enrolled in.
 - FR22: Users can share rewards or levels on social media.
   - Low priority
   - BR3
-  
+ 
+## Other Social Elements
 
-- FR23: Optional content tags on courses to relate similar courses.
+- FR7: Users can comment on both their own commitments and those of others.
   - Medium priority
-  - BR8
+  - BR5 
 
-- FR24: Remind clinicians about SMART goals when creating commitments.
+- FR11: Users can change visibility of commitments made.
+  - Medium priority
+  - BR9
 
-- FR25: Remind clinicians about HIPAA(?) when creating commitments.
+- FR12: Users can create and join groups.
+  - Low priority
+  - BR5
 
-- FR26: Rate commitments
-
-- FR27: Value commitments
+- FR16: Users can share their commitments through Twitter.
+  - High priority
+  - BR3
 
   
 # Non-functional Requirements

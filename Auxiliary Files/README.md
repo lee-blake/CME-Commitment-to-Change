@@ -1,6 +1,7 @@
 # Auxiliary Files
 
-Any auxiliary files you see value will be put here with file name and explanation. Such as drawings, sketches, etc. Anything that the instructor specifically didn't tell where to put. And explain what this file is.
+- CMEClientMeeting1.mp4 [Auxiliary Files](Videos)
+  - Zoom recording of the client discovery meeting.
 
-- WhateverFile.jpg: Some drawing we made for the UI.
-- Etc.
+- DesignMeeting1.mp4, DesignMeeting2.mp4, DesignMeeting3.mp4 [Auxiliary Files](Videos)
+  - Split up Zoom recording of the client design meeting

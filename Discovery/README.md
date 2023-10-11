@@ -8,6 +8,6 @@ The raw minutes of the discovery meeting.
 
 A summary of project information gathered in the discovery meeting, loosely organized by topic.
 
-## [Meeting Video](../Auxiliary%20Files/CMEClientMeeting1.mp4)
+## [Meeting Video](../Auxiliary%20Files/Videos/CMEClientMeeting1.mp4)
 
 The Zoom meeting of the discovery meeting.

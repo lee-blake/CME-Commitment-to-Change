@@ -18,7 +18,7 @@ of a CME provider organization.
 
 # Use Cases
 
-- UC1: Individual clinicians make commitments outside of a course
+- UC1: Individual clinicians create individual commitments outside a course
   - BR1
   - Clinicians
   - Flow:
@@ -27,16 +27,20 @@ of a CME provider organization.
     3. Clinician gives a title describing the commitment.
     4. (Optional) Clinician may choose the type of commitment (yes/no, 
     milestone, value, etc)
-    4. (Optional) Clinician may add milestones, a longer description, etc to 
+    5. (Optional) Clinician may add milestones, a longer description, etc to 
     commitment.
-    5. Clinician sets a deadline for the commitment.
-    6. Commitment is saved when the clinician hits the button to submit.
-    7. (Optional) Clinician may share the newly-made commitment to a social 
+    6. Clinician sets a deadline for the commitment.
+    7. Commitment is saved when the clinician hits the button to submit.
+    8. (Optional) Clinician may share the newly-made commitment to a social 
     media website.
   - Creating commitments is the biggest feature of the application. CME providers
   want clinicians to make these commitments to hold them accountable to the 
-  knowledge they obtained and to utilize it in their everyday practice. This
-  accountability safeguards the knowledge provided in a CME course.
+  knowledge they obtained, and to utilize it in their everyday practice.The presence
+  of self-accountability safeguards the knowledge provided in a CME course. Clinicians
+  should also be able to make commitments to change regardless of whether they attended
+  a relevant course or not; if a clinician wants to make an improvement to themselves
+  and the care they provide, they should have the means to do so. 
+  
 
 - UC2: Individual clinicians change commitment details
   - BR1
@@ -55,6 +59,7 @@ of a CME provider organization.
   is made when initially creating a commitment or a clinician wants to change
   a specific part of the commitment, there should be a channel to do so. This
   use case covers this channel. 
+  
 
 - UC3: Clinician updates progress on a commitment
   - BR1
@@ -77,8 +82,9 @@ progress.
     are then more likely to feel accountable to the public for their commitment,
     and therefore will be motivated both to progress in it and to update 
     progress for others to see. This is likely to be the primary form of 
-    engagement with the platform outside of the brief creation and completion 
+    engagement with the platform outside the brief creation and completion 
     of commitments.
+  
 
 - UC4: Individual clinicians mark commitments as complete
   - BR1
@@ -91,7 +97,13 @@ progress.
 as complete.
     5. (Optional) Clinician may mark the commitment as complete.
     6. (Optional) Clinician may delete the commitment.
-  - (paragraph explaining why this is a use case)
+  - Commitment completion should be based on the honor system as the only way
+    to verify completion is through the clinician who created the commitment.
+    A commitment can have various ways to mark completion based on which kind
+    of commitment was made and how its progress is tracked. Whether this be a 
+    certain kind of limit or number, milestones, or a yes or no; there should
+    be a way to assert completion by the clinician.
+  
 
 - UC5: CME Providers associate clinicians with a course
   - BR2
@@ -110,6 +122,7 @@ as complete.
     associate with a course and therefore generate that data; thus, it falls to
     the CME Provider and potentially their Educators to perform the bulk of 
     this step.
+  
 
 - UC6: Clinician creates a commitment within a course
   - BR2
@@ -130,6 +143,7 @@ as complete.
     courses. In most circumstances, these commitments will come out of a 
     course, and therefore it makes sense for the clinician to create them in 
     the context of a course page.
+  
 
 - UC7: Clinician asks for help in meeting a commitment
   - BR1
@@ -153,6 +167,7 @@ as complete.
     number of different methods to resolve difficulties is important, as we 
     cannot be sure that all clinicians will interact in the same manner on the 
     platform.
+  
 
 - UC8: CME providers gather relative course effectiveness data for commitments
 to change
@@ -165,7 +180,7 @@ to change
     3. CME provider examines section "similar courses" to see statistics for 
     courses with similar tags. 
     4. CME provider repeats the process for any other courses of interest.
-    5. CME provider may make make note of unusually high or low relative rates
+    5. CME provider may make note of unusually high or low relative rates
     of commitment completion.
   - The primary benefit to CME providers that this platform will provide is 
     data about implementation of education through commitments. While this will
@@ -174,6 +189,7 @@ to change
     Comparisons to other courses offered by the same provider and similar 
     courses offered by other providers are both likely to occur, as both can 
     offer significant lessons about which courses need the most improvement.
+  
 
 - UC9: Clinician receives reminder email 
   - BR1
@@ -190,8 +206,9 @@ to change
     progress on the commitment, but simply not updated it. In the first case, 
     reminding helps the clinician accomplish their commitment. In the second, 
     it helps get more accurate data for CME providers. Automated reminders via 
-    email are an easy and relatively nonintrusive way to accomplish this 
+    email are an easy and relatively non-intrusive way to accomplish this 
     important function.
+  
 
 - UC10: Administrator moderates the website
   - BR1

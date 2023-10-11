@@ -18,11 +18,11 @@ email.
   - High priority
   - BR1 
 
-- FR102: Admins can moderate by banning users.
+- FR102: Admins can moderate by banning user accounts.
   - Medium priority
   - BR1
   
-- FR103: Admins can moderate by editing content.
+- FR103: Admins can moderate by editing commitments and comments.
   - Medium priority
   - BR1
 
@@ -33,12 +33,12 @@ email.
 ## Commitment Creation
 
 - FR201: Users can create commitments to track their personal goals in changing
-medical practice.
+their medical practice.
   - High priority
   - BR1
 
-- FR202: Users can create commitments in the context a CME course they are 
-enrolled in.
+- FR202: Users can create commitments so that they are associate with a CME 
+course on the site.
   - High priority
   - BR2
 
@@ -71,11 +71,13 @@ certain value over a period (for example, 20 clinic hours in the next month).
 
 ## Commitment Management
 
-- FR301: Users can track their own commitments and see their progress in completing their commitment.
+- FR301: Users can view a list of their commitments that also displays their deadlines and the progress the user has made in completing them.
   - High priority
   - BR1
 
-- FR302: Users can edit the details of their commitments, including changing the type, deadline, title, description, etc.
+- FR302: Users can edit every field of a commitment that they can set during 
+creation. This includes changing the type of commitment (for example, from 
+milestone to value).
   - High priority
   - BR1
 
@@ -98,7 +100,7 @@ complete.
 
 - FR 307: Users can opt out of receiving email reminders for a commitment when 
 they create or edit it.
-  - Medium priority (but should go with FR306!!!)
+  - Medium priority (but should go with FR306!)
   - BR1
  
 ## CME Courses
@@ -107,41 +109,57 @@ they create or edit it.
   - High priority
   - BR2
 
-- FR402: CME providers can add users to courses via a code or link.
+- FR402: CME providers can edit every field of a course that they can set 
+during creation. Editing should not disenroll students or instructors.
+
+- FR403: CME providers can add users to courses via a code or link. Clicking 
+the link should prompt the user to log in and add them to the course once they
+have registered or logged in. Entering the code should enroll the user the same
+way as the link.
   - High priority
   - BR2
 
-- FR403: CME providers can view commitments that clinicians associate with a 
-course.
+- FR404: CME providers can view commitments that clinicians associate with a 
+course offered by that provider.
   - High priority
   - BR2
 
-- FR404: CME providers can view a percentage breakdown of the state of 
-commitments in a course (in progress, expired, completed)
+- FR405: CME providers can view a percentage breakdown of the state (in 
+progress, expired, complete) of commitments in a given course they offer.
   - Medium priority
   - BR2
 
-- FR405: Courses may have optional content tags relating to the subject matter.
+- FR406: During course creation or editing, optional content tags can be added 
+to the course.
   - Medium priority
   - BR2
 
-- FR406: Users can comment within a given course.
+- FR407: Users can add comments within a given course.
   - Low priority
   - BR1
 
-- FR407: CME Providers can view a comparison of commitment success rates 
+- FR408: CME Providers can view a comparison of commitment success rates 
 relative to the average of their other courses.
   - Medium priority
   - BR2
 
-- FR408: CME Providers can view a comparison of commitment success rates 
+- FR409: CME Providers can view a comparison of commitment success rates 
 relative to other courses with the same tag.
   - Medium priority
   - BR2
 
+- FR410: CME Providers can create 'suggested commitments' for a course that 
+users can join. Joining a commitment takes the user to commitment creation and 
+auto-populates all fields the provider has specified, including the course, but
+allows the user to make any modifications before they finalize the commitment.
+  - Medium priority
+  - BR1
+
 ## Gamification
 
-- FR501: CME providers can create badges for specific courses.
+- FR501: CME providers can create badges for specific courses. These badges are
+awarded to users when they successfully complete a commitment associate with 
+the resepctive course.
   - Medium priority
   - BR1
   

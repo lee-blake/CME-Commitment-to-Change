@@ -1,7 +1,16 @@
 # Business Requirements
 
-- **BR1: Motivate and enable clinicians to make and keep commitments to positive change in the practice of medicine.**
-  - With the exception of data-gathering requirements, virtually every feature mentioned in the proposal and the discovery meeting focuses on getting clincians to make and keep commitments. The reason for this is that three things are necessary for changes in medical practice: education, the desire to change, and the commitment to see that change through. At the end of a CME course, the first two can be assume to be present (the desire to change can be assumed from the enrollment and attendance of the course itself). Thus, this requirement is a realization of the fundamental need that motivates the project, with the sole distinction that the commitments in the project itself are made public. Thus, it is a business requirement.
+- **BR1: Motivate and enable clinicians to make and keep commitments to enact positive change in the practice of medicine.**
+  - Except for data-gathering requirements, virtually every feature mentioned
+    in the proposal and the discovery meeting focuses on getting clinicians to
+    make and keep commitments. The reason for this is that three things are
+    necessary for changes in medical practice: education, the desire to change,
+    and the commitment to see that change through. At the end of a CME course,
+    the first two can be assumed to be present (the desire to change can be assumed
+    from the enrollment and attendance of the course itself). Thus, this requirement
+    is a realization of the fundamental need that motivates the project, with the
+    sole distinction that the commitments in the project itself are made public.
+    Thus, it is a business requirement.
 
 - **BR2: Enable CME providers to measure the relative effectiveness of their courses at creating changes in medical practice by their respective students.**
   - In the discovery meeting and project proposal, the client discussed how 

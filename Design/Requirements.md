@@ -62,28 +62,36 @@ milestone to value).
   - High priority
   - BR1
 
-- FR303: Users can mark the individual milestones of a milestone commitment as 
+- FR303: Users can mark a commitment as complete.
+  - High priority
+  - BR1
+
+- FR304: Users can mark the individual milestones of a milestone commitment as 
 complete.
   - Medium priority
   - BR1
 
-- FR304: Users update the rate achieved so far for a rate commitment.
+- FR305: Users update the rate achieved so far for a rate commitment.
   - Medium priority
   - BR1
 
-- FR305: Users update the total quantity achieved so far for a value commitment.
+- FR306: Users update the total quantity achieved so far for a value commitment.
   - Medium priority
   - BR1
 
-- FR306: Users can receive reminders via email for commitments approaching their deadlines.
+- FR307: Users can receive reminders via email for commitments approaching their deadlines.
   - Medium priority
   - BR1
 
-- FR 307: Users can opt out of receiving email reminders for a commitment when 
+- FR308: Users can opt out of receiving email reminders for a commitment when 
 they create or edit it.
   - Medium priority (but should go with FR306!)
   - BR1
- 
+
+- FR309: Users can view single commitments in a non-editable display view.
+  - High Priority
+  - BR1
+
 ## CME Courses
 
 - FR401: CME providers can create courses.

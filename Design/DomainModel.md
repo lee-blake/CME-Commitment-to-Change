@@ -127,12 +127,12 @@ classDiagram
 ## Classes
 - Clinician
   - A medical professional, usually a physician and in continuing medical 
-education. These are the main users of the platform who use to to make 
+education. These are the main users of the platform who use to make 
 commitments. Medical educators are also modeled as this class, as they may also
 make commitments and/or be taking CME courses.
 
 - Commitment
-  - A goal to positively change delivery of patient care that is made by a 
+  - A goal to positively change the delivery of patient care that is made by a 
 clinician. Most of these commitments should take place in the context of 
 implementing practices learned in a CME course and therefore will have an 
 associated Course. Note that several examples of commitment types are listed

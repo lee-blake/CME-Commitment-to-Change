@@ -1,9 +1,9 @@
 # Prototype
-This file contains a link to our figma prototype file, as well as a Youtube video walking through our initial Prototype.
+
 
 ## Figma link
 
-Figma Link: https://www.figma.com/file/pi2Ydgt5OfaNCFoo20qA4S/Course-View?type=design&node-id=0%3A1&mode=design&t=sW8ywMJS8rCWZlnr-1
+Figma Link: https://www.figma.com/file/pi2Ydgt5OfaNCFoo20qA4S/Prototype?type=design&node-id=92-149&mode=design
 
 ## Youtube walkthrough video
 

@@ -1,5 +1,7 @@
 # Functional Requirements
 
+The functional requirements are loosely grouped by concept.
+
 ## Platform (Registration, Moderation, etc)
 
 - FR101: Users can register for an account via email and log in using that 

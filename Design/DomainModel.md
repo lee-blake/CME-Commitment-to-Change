@@ -68,6 +68,8 @@ classDiagram
   class Milestone{
     + uid: int
     + isComplete: boolean
+    + title: String
+    + description: String
   }
 
   class ValueCommitment{

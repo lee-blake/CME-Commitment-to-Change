@@ -10,6 +10,10 @@ This file details the initial architecture for the project.
 
 This file details the business requirements we have identified for our project.
 
+## [Domain Model](DomainModel.md)
+
+This file details the classes that model the domain.
+
 ## [Feature Management System](https://github.com/users/lee-blake/projects/1)
 
 This link is to the project that organizes our features.

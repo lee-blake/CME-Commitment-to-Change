@@ -1,14 +1,3 @@
-# Characteristics of Excellent Requirements (REMOVE ME BEFORE SUBMITTING!)
-
-1. Complete
-2. Correct
-3. Feasible
-4. Necessary
-5. Prioritized
-6. Unambiguous
-7. Verifiable
-
-
 # Functional Requirements
 
 ## Platform (Registration, Moderation, etc)
@@ -37,7 +26,7 @@ their medical practice.
   - High priority
   - BR1
 
-- FR202: Users can create commitments so that they are associate with a CME 
+- FR202: Users can create commitments so that they are associated with a CME 
 course on the site.
   - High priority
   - BR2
@@ -148,7 +137,7 @@ allows the user to make any modifications before they finalize the commitment.
 ## Gamification
 
 - FR501: CME providers can create badges for specific courses. These badges are
-awarded to users when they successfully complete a commitment associate with 
+awarded to users when they successfully complete a commitment associated with 
 the resepctive course.
   - Medium priority
   - BR1

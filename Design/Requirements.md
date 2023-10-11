@@ -44,21 +44,25 @@ enrolled in.
   - High priority
   - BR2
 
-- FR203: Users can create sub-goals for commitments.
-  - Medium priority
-  - BR1 (Being able to show partial completion invokes the sunk-cost fallacy)
+- FR203: Remind clinicians about SMART goals when creating commitments.
+  - High priority
+  - BR1
+
+- FR204: Remind clinicians about HIPAA when creating commitments.
+  - High priority(!!!)
+  - BR1 (more a legal constraint)
 
 - FR204: Users should be able to create commitments with milestones.
   - Medium priority
   - BR1
 
-- FR205: Remind clinicians about SMART goals when creating commitments.
+- FR205: Rate commitments
+  - Medium priority
+  - BR1 
 
-- FR206: Remind clinicians about HIPAA(?) when creating commitments.
-
-- FR207: Rate commitments
-
-- FR208: Value commitments
+- FR206: Value commitments
+  - Medium priority
+  - BR1
 
 
 ## Commitment Management
@@ -68,6 +72,8 @@ enrolled in.
   - BR1
 
 - FR302: Users can edit the details of their commitments, including changing the type, deadline, title, description, etc.
+  - High priority
+  - BR1
 
 - FR303: Users can receive reminders via email for commitments approaching their deadlines.
   - Medium priority
@@ -96,10 +102,16 @@ enrolled in.
   - BR2
 
 - FR406: Users can comment within a given course.
+  - Low priority
+  - BR1
 
 - FR407: CME Providers can view a comparison of commitment success rates relative to their other courses.
+  - Medium priority
+  - BR2
 
-- FR408: 
+- FR408: CME Providers can view a comparison of commitment success rates relative to other courses with the same tag.
+  - Medium priority
+  - BR2
 
 ## Gamification
 
@@ -128,7 +140,8 @@ enrolled in.
   - Medium priority
   - BR1 
 
-- FR602: Users can change visibility of commitments made.
+- FR602: Users can change visibility of commitments made: public or course 
+members only.
   - Medium priority
   - BR1
 
@@ -145,21 +158,20 @@ enrolled in.
 
 - NR1: The software must be deployed to a cloud computing service.
   - High priority
-  - TODO
+  - BR1 
 
 - NR2: The software must support layouts for desktop, tablet, and mobile device 
 sizes.
   - High priority
-  - TODO
+  - BR1
 
 - NR3: The software must scale well with users when deployed in a cloud 
 environment.
   - High priority
-  - TODO
-
+  - BR1
 
 - NR4: The software must be sufficiently clean and modular that another team 
 can add new features shortly after transfer.
-  - Medium priority?
-  - TODO
+  - Medium priority
+  - BR1 (design constraint)
 

@@ -88,7 +88,7 @@ they create or edit it.
   - Medium priority (but should go with FR306!)
   - BR1
 
-- FR309: Users can view single commitments in a non-editable display view.
+- FR309: Users can view details and status of individual commitments in a non-editable display view.
   - High Priority
   - BR1
 

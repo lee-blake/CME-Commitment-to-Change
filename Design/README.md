@@ -14,6 +14,10 @@ This file details the business requirements we have identified for our project.
 
 This link is to the project that organizes our features.
 
+## [Prototype](Prototype.md)
+
+This file contains links to the prototype.
+
 ## [Requirements](Requirements.md)
 
 This file details the functional and non-function requirements of the software.

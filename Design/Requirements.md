@@ -42,28 +42,18 @@ course on the site.
   - High priority
   - BR2
 
-- FR203: When creating a commitment, the system should suggest that the user 
-try to make their commitment a SMART goal.
-  - High priority
-  - BR1
-
-- FR204: When creating a commitment, the system should remind users not to 
-disclose patient information as that would be a HIPAA violation.
-  - High priority(!!!)
-  - BR1 (more a legal constraint)
-
-- FR204: Users should be able to create commitments with a number of 
+- FR203: Users should be able to create commitments with a number of 
 milestones, each of which has their own title, description, and possible 
 deadline.
   - Medium priority
   - BR1
 
-- FR205: Users should be able to create commitments where they target a certain
+- FR204: Users should be able to create commitments where they target a certain
 rate over a period (for example, 50% vaccination rate).
   - Medium priority
   - BR1 
 
-- FR206: Users should be able to create commitments where they target reaching a
+- FR205: Users should be able to create commitments where they target reaching a
 certain value over a period (for example, 20 clinic hours in the next month).
   - Medium priority
   - BR1
@@ -223,4 +213,14 @@ environment.
 can add new features shortly after transfer.
   - Medium priority
   - BR1 (design constraint)
+
+- NR5: When creating a commitment, the system should suggest that the user 
+try to make their commitment a SMART goal.
+  - High priority
+  - BR1
+
+- NR6: When creating a commitment, the system should remind users not to 
+disclose patient information as that would be a HIPAA violation.
+  - High priority(!!!)
+  - BR1 (more a legal constraint)
 

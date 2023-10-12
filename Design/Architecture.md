@@ -40,7 +40,7 @@ templates. Distinct from templates in that it links them to the domain model
 layer and may only need to return code to AJAX requests.
 
 - Templates: Controls the DOM structure and values of information in the web 
-pages. Styling is also applied in this module.
+pages. Styling is also applied in this module. It is distinct from the content delivery server as it represents the content itself, rather than the routes.
 
 - Domain model layer: Represents domain classes and objects, such 
 as commitments, users, and courses.

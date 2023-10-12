@@ -9,6 +9,6 @@ Any presentation you made will be put here right after the presentation. The fol
 - Fifth Iteration Presentation
 - Final Presentation
 
-#Design Presentation
+# Design Presentation
 
 [DesignDay.pdf](https://github.com/lee-blake/CME-Commitment-to-Change/files/12875714/DesignDay.pdf)

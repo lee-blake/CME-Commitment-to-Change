@@ -51,6 +51,7 @@ POSTGRESQL_DATABASE_NAME = 'commitment_to_change_app'
 POSTGRESQL_DATABASE_USERNAME = 'username'
 POSTGRESQL_DATABASE_PASSWORD = 'password'
 ```
+  - **Do *NOT* commit this file under any circumstances!** We do not want to know your database authentication details, which is why it has been separated from ```settings.py```!
 3. Change to the ```Commitment_to_Change_App``` directory with ```manage.py``` in it.
 4. Run ```python manage.py migrate``` to perform the migrations.
 

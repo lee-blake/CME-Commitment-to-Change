@@ -223,3 +223,7 @@ disclose patient information as that would be a HIPAA violation.
   - High priority(!!!)
   - BR1 (more a legal constraint)
 
+- NR7: When registering for an email account, the system will require the user
+to verify their email.
+  - Medium priority
+  - BR1

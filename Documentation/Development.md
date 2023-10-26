@@ -42,17 +42,33 @@ may have on your machine.
   - The name of this database is technically also at your discretion as you will be able to change it in configuration later.
 7. Exit ```psql```
 
+### Clone the Main Code Repo
+
+1. Navigate to the directory you want the root of the project to live in. All
+future paths will be relative to this directory.
+2. Run 
+```git clone https://github.com/lee-blake/Commitment-to-Change-App.git```
+in the desired directory to clone to.
 
 ### Get Django to work with PostgreSQL
-1. In ```Commitment_to_Change_App/Commitment_to_Change_Site```, create a file called ```database_authentication.py```. You will know it is in the right place if it lives in the same directory as ```settings.py```, ```asgi.py```, and ```wsgi.py```
-2. Put the following in ```database_authentication.py```, subject to whatever you did when installing and configuring PostgreSQL:
+
+1. Install the ```psycopg2``` Python package.
+2. In ```Commitment_to_Change_App/Commitment_to_Change_Site```, create a file called ```database_authentication.py```. You will know it is in the right place if it lives in the same directory as ```settings.py```, ```asgi.py```, and ```wsgi.py```
+3. Put the following in ```database_authentication.py```, subject to whatever you did when installing and configuring PostgreSQL:
 ```
 POSTGRESQL_DATABASE_NAME = 'commitment_to_change_app'
 POSTGRESQL_DATABASE_USERNAME = 'username'
 POSTGRESQL_DATABASE_PASSWORD = 'password'
 ```
   - **Do *NOT* commit this file under any circumstances!** We do not want to know your database authentication details, which is why it has been separated from ```settings.py```!
-3. Change to the ```Commitment_to_Change_App``` directory with ```manage.py``` in it.
-4. Run ```python manage.py migrate``` to perform the migrations.
+4. Change to the ```Commitment_to_Change_App``` directory with ```manage.py``` in it.
+5. Run ```python manage.py migrate``` to perform the migrations.
 
+### Open the project in PyCharm
+
+1. Open PyCharm and close any already-open project.
+2. In the Projects tab, select "Open"
+3. Navigate to the root directory you cloned the project into.
+  - When listing files and dirs in this directory, you should see a directory "Comittment_to_Change_App" but not a directory "commitments".
+4. Click OK.
 

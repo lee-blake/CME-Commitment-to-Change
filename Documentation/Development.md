@@ -146,7 +146,8 @@ POSTGRESQL_DATABASE_PASSWORD = 'password'
 - **Do _NOT_ commit this file under any circumstances!** We do not want to know your database authentication details, which is why it has been separated from `settings.py`!
 
 4. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
-5. Run `python manage.py migrate` to perform the migrations.
+5. Run `python manage.py makemigrations` to create the migrations to be performed.
+6. Run `python manage.py migrate` to perform the migrations.
 
 - TROUBLESHOOTING:
   - Running manage.py must be done while your virtual environment is active [as explained here.](#install-and-setup-virtual-environment) If it is not, you will receive the folowing `ImportError: Couldn't import Django`.

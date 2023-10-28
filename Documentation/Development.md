@@ -4,7 +4,7 @@
 
 ## Replication Instructions
 
-If you are using Linux and/or already have Python installed, [click here to skip ahead](#install-and-setup-virtual-environment)
+If you already have Python installed, review the installation to verify that your version of Python is compatible with Django. Afterwards, [click here to skip ahead](#install-and-setup-virtual-environment).
 
 ---
 
@@ -12,6 +12,9 @@ If you are using Linux and/or already have Python installed, [click here to skip
 
 1. Download Python
 
+   - If you are using a Linux distro with a package manager, consider installing
+the latest version of Python from it, as this will likely be better documented
+for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
    - Python is not included by default in Windows or Mac, so it must be downloaded and installed from: https://www.python.org/downloads/
    - To check if you have Python installed, type `python --version` into a Command Prompt. If Python is installed correctly, this command should return the currently installed Python version.
    - Download the latest Python version that is supported by Django. We are currently using Django version 4.2, so Python version 3.11.6 is the latest supported version.
@@ -46,13 +49,17 @@ If you are using Linux and/or already have Python installed, [click here to skip
      - Type `dir` to check if the directory was successfully created.
      - Type `cd directory_name` to move into your new directory, and then `dir` again to view the directory contents.
    - You should see 3 folders, `Include`, `Lib`, and `Scripts`, as well as a `pyvenv.py` file. ![venv folder](<../Auxiliary Files/Images/checkvenvCreatedSucceessfully.png>)
+     - On Linux, the folders will normally be `bin`, `include`, and `lib`.
 
 3. Activate your virtual environment.
 
 - #### IMPORTANT:
 
   - You will need to activate your virtual environment BEFORE you run the project, EVERY TIME you run the project.
-  - While in your new project root directory, type `Scripts\activate.bat`
+  - While in your new project root directory, type `Scripts\Activate.bat`
+    - On Linux, you may instead need to type `source bin/activate` while in
+    the directory that is parent to `bin`. This will be omitted from future
+    steps.
   - You should now see something like `(Project_name)` before your project path in the command line. This means you are now in your active virtual environment.
 
     ![venv activated](<../Auxiliary Files/Images/ActivateBat.png>)
@@ -63,7 +70,8 @@ If you are using Linux and/or already have Python installed, [click here to skip
 
 1. Install the latest version of Django
 
-   - This may be done via Pip or (on some Linux distributions) a package installation. Pip is generally preferred due to venv.
+   - This may be done via Pip or (on some Linux distributions) a package installation. Pip is generally preferred due to venv. However, if you choose to install
+system-wide with a package, skip to Step 2.
    - To install with pip, [while still in your active virtual environment](#important), type `pip install django`
 
 2. Create a test project using `django-admin startproject testproject`
@@ -124,32 +132,43 @@ If you are using Linux and/or already have Python installed, [click here to skip
      - In the `"System variables"` section on the resulting screen, find the PATH variable and double click or click `"Edit..."`.
      - Click the `"New"` button, and paste your PostgreSQL bin filepath. Click OK. ![Adding psql to PATH on Windows](<../Auxiliary Files/Images/environmentVariablesFull.jpg>)
 
+   - On Linux:
+     - Almost all package installs will leave `psql` somewhere in the path. If 
+not, consult your shell documentation, as a variety of solutions exist. 
+Creating a symlink to `psql` that lives in a path directory should work
+ universally, but creating an entry in `.bashrc` also works on bash.
+
      ***
 
    - Verify the path is correct by running `psql` from the command line
-     - On Linux, you will need to do this as the `postgresql` system user,
+     - On Linux, you will need to do this as the `postgres` system user,
        much like in Step 2.
-     - On Windows, the defualt system user is `postgres`, so you will need to type `psql -U postgres` to login as user: postgres. Once prompted, enter the superUser password you created during installation. You should now see `postgres=#` in the command line.
+     - On Windows, the default system user is `postgres`, so you will need to type `psql -U postgres` to login as user: postgres. Once prompted, enter the superUser password you created during installation. You should now see `postgres=#` in the command line.
 
-5. Once in `psql`, create a user by `CREATE USER username WITH PASSWORD 'password';`
+5. Once in `psql`, create a user by 
+`CREATE USER username WITH PASSWORD 'password';`
 
    - The exact user and password are at your discretion, but consider creating a
-     user specifically for the project to limit access to any other databases you
-     may have on your machine.
+     user specifically for the project to limit access to any other databases 
+     you may have on your machine.
 
-6. Create the database for the project by `CREATE DATABASE commitment_to_change_app WITH OWNER username;`
+6. Create the database for the project by 
+`CREATE DATABASE commitment_to_change_app WITH OWNER username;`
 
    - The name of this database is technically also at your discretion as you will be able to change it in configuration later.
 
    ![PostgreSQL creation](<../Auxiliary Files/Images/postGres1stlogin.png>)
 
-7. Exit `psql` with `CTRL + C`
+7. Exit `psql` with `\q` or `CTRL + C`. `\q` is preferred as a soft quit.
 
 ---
 
 ### Get Django to work with PostgreSQL
 
 1. Install the `psycopg2` Python package by running `pip install psycopg2`.
+  - If you opted to install Django system-wide with a package on Linux, consider
+  installing `psycopg2` as a package if it is available for consistency. Then
+  skip to Step 2.
 
 - ### psycopg2 NOTE:
   - psycopg2 must be installed while your virtual environment is active [as explained here](#important) If it is not, psycopg2 will install in your system site-packages and not in your virtual environment, causing it to be unreachable in your venv.
@@ -224,6 +243,8 @@ Otherwise, use the general steps and consult your specific OS's documentation fo
 1. Activate the environment and run the Django server.
 
    - ### General steps
+
+    - Activate
 
      - Open a terminal window in your IDE or elsewhere, navigate to your project's virtual environment root folder, and run activate.bat in the Scripts directory.
      - Navigate down to `Commitment-to-Change-App` then to `Commitment_to_Change_App`. You'll know you're in the correct directory if there is a `manage.py` file.

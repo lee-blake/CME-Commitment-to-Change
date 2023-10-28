@@ -4,7 +4,7 @@
 
 ## Replication Instructions
 
-If you are using Linux and already have Python installed, [click here to skip ahead](#install-and-setup-virtual-environment)
+If you are using Linux and/or already have Python installed, [click here to skip ahead](#install-and-setup-virtual-environment)
 
 ---
 
@@ -244,10 +244,6 @@ Otherwise, use the general steps and consult your specific OS's documentation fo
 
    ![Commitment Creation Form](<../Auxiliary Files/Images/CommitmentCreationForm.png>)
 
-- Fill out the commitment and hit "Submit".
-
-  ![Commitment Redirect](<../Auxiliary Files/Images/CommitmentCreatedConfirmationScreen.png>)
-
-- Click the link to view the commitment.
+- Fill out the commitment and hit "Submit" to view the commitment.
 
   ![Commitment View](<../Auxiliary Files/Images/CommitmentView.png>)

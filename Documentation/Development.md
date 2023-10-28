@@ -211,7 +211,7 @@ POSTGRESQL_DATABASE_PASSWORD = 'password'
   - To fix this, you'll need to switch from using the globally installed Python.exe as your interpreter, to your local venv Python install.
   - Click the Python version number in the bottom right of the page, or mouse over a line with error squiggles, select "Quick Fix...", then "select a different interpreter". Click "+ Enter interpreter path" in the top bar, then "Find...", and navigate to your venv's Scripts folder, and click on Python.
 
-  ***
+---
 
 # Testing the environment and app
 
@@ -229,7 +229,7 @@ Otherwise, use the general steps and consult your specific OS's documentation fo
      - Navigate down to `Commitment-to-Change-App` then to `Commitment_to_Change_App`. You'll know you're in the correct directory if there is a `manage.py` file.
      - Start up the django server by running `py manage.py runserver`.
 
-       ***
+     ***
 
    - ### Specific steps for Windows Command Prompt (CMD)
 

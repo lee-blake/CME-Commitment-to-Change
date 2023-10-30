@@ -12,7 +12,8 @@ graph TD;
     delivery -- Context object --> templates[<b>Templates</b> <br> -Defines webpage DOM <br> -Defines general styling for pages <br> -Puts domain object data in the correct part of the page];
     templates -- Complete page/XML --> delivery
     model <-- Schemas --> database(<b>SQL Database</b> <br> -Stores user data <br> -Stores commitment data <br> -Stores courses <br> -Stores aggregate statistics <br> -etc.);
-    database <-- Schemas --> statistics[<b>Aggregate statistics daemon</b> <br> -Updates statistics for CME providers <br> -Updates statistics for course tags <br> -Updates statistics for the site as a whole <br> -Does this at regular intervals, not continuously];;
+    database <-- Schemas --> statistics[<b>Aggregate statistics daemon</b> <br> -Updates statistics for CME providers <br> -Updates statistics for course tags <br> -Updates statistics for the site as a whole <br> -Does this at regular intervals, not continuously];
+    database <-- Schemas --> expiration[<b>Commitment expiration daemon</b> <br> -Checks database for commitments past deadlines <br> - Marks commitments past their deadlines as expired <br> -Does this at regular intervals, not continuously];
     database <-- Schemas --> reminder[<b>Reminder email daemon</b> <br> -Checks database for commitments nearing deadlines <br> -Sends out reminder emails to associated user <br> -Does this at regular intervals, not continuously];
     reminder -- smtplib or django.core.mail --> smtp(<b>SMTP Server</b> <br> -Dispatches reminder and account management emails);
     model -- django.core.mail --> smtp;
@@ -31,6 +32,10 @@ to send notification emails for.
 - SMTP server: Some SMTP server is necessary to send emails from Django. Since it must interact with both the reminder email daemon and the main server (account management emails), it should be its own module.
 
 - Aggregate statistics daemon: While updating the statistics for a given course can be done when its page is accessed without performance hits, updating statistics of entire CME providers or courses with similar tags on every request will quickly grind the server to a halt. The solution is to allow them to a little out of date and recompute them at regular intervals, instead of on every request, so this should be its own daemon.
+
+- Commitment expiration daemon: Similarly to the email reminder daemon, since 
+commitments expire on a daily basis, it is best to minimize the number of calls
+to marking expiration by having the checks run only once per day.
 
 - SQL Database: Since multiple modules need access to the contents of the database,
  it should be seperated into its own module.

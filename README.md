@@ -30,7 +30,4 @@ A social media platform for goal-setting in continuing medical education.
 
 ## **Code Repositories**
 
-*None yet.*
-
-<!-- This will be a bulleted list of links, like the Link section. -->
-
+- [Main Repo](https://github.com/lee-blake/Commitment-to-Change-App)

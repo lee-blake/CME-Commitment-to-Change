@@ -92,6 +92,19 @@ they create or edit it.
   - High Priority
   - BR1
 
+- FR310: Users can mark commitments as discontinued.
+  - High Priority
+  - BR1
+
+- FR311: The system will automatically mark commitments as expired/past due once
+they pass their deadlines.
+  - High Priority
+  - BR1
+
+- FR312: Users can delete commitments.
+  - High Priority
+  - BR1 
+
 ## CME Courses
 
 - FR401: CME providers can create courses.

@@ -86,7 +86,7 @@ progress.
     of commitments.
   
 
-- UC4: Individual clinicians mark commitments as complete
+- UC4: Individual clinicians change commitment completion status: Complete or Discontinued.
   - BR1
   - Clinicians
   - Flow:
@@ -96,13 +96,17 @@ progress.
     4. (Optional) Clinician may update progress, as per UC3, before marking it
 as complete.
     5. (Optional) Clinician may mark the commitment as complete.
+    7. (Optional) Clinician may mark the commitment as discontinued.
     6. (Optional) Clinician may delete the commitment.
   - Commitment completion should be based on the honor system as the only way
     to verify completion is through the clinician who created the commitment.
     A commitment can have various ways to mark completion based on which kind
     of commitment was made and how its progress is tracked. Whether this be a 
     certain kind of limit or number, milestones, or a yes or no; there should
-    be a way to assert completion by the clinician.
+    be a way to assert completion by the clinician. There should also be a way
+    for clinicians to discontinue a commitment for various reasons such as 
+    time constraints or size of the goal. This use case covers the flow a 
+    clinician would take to complete or discontinue a commitment.
   
 
 - UC5: CME Providers associate clinicians with a course

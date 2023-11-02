@@ -105,6 +105,10 @@ they pass their deadlines.
   - High Priority
   - BR1 
 
+- FR313: Users can reopen completed and discontinued commitments.
+  - High Priority
+  - BR1
+
 ## CME Courses
 
 - FR401: CME providers can create courses.

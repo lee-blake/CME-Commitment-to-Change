@@ -4,7 +4,7 @@
 
 ## Replication Instructions
 
-If you already have Python installed, review the installation to verify that your version of Python is compatible with Django. Afterwards, [click here to skip ahead](#install-and-setup-virtual-environment).
+If you already have Python installed, review the installation to verify that your version of Python is compatible with Django. Afterward, [click here to skip ahead](#install-and-setup-virtual-environment).
 
 ---
 
@@ -18,7 +18,7 @@ for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
    - Python is not included by default in Windows or Mac, so it must be downloaded and installed from: https://www.python.org/downloads/
    - To check if you have Python installed, type `python --version` into a Command Prompt. If Python is installed correctly, this command should return the currently installed Python version.
    - Download the latest Python version that is supported by Django. We are currently using Django version 4.2, so Python version 3.11.6 is the latest supported version.
-     - You can check Python/Django version compattibility here: https://www.python.org/downloads/
+     - You can check Python/Django version compatibility here: https://www.python.org/downloads/
 
 2. Install Python
 
@@ -48,7 +48,7 @@ for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
    - Navigate to your new directory using File Explorer, or use the command line:
      - Type `dir` to check if the directory was successfully created.
      - Type `cd directory_name` to move into your new directory, and then `dir` again to view the directory contents.
-   - You should see 3 folders, `Include`, `Lib`, and `Scripts`, as well as a `pyvenv.py` file. ![venv folder](<../Auxiliary Files/Images/checkvenvCreatedSucceessfully.png>)
+   - You should see 3 folders, `Include`, `Lib`, and `Scripts`, as well as a `pyvenv.py` file. ![venv folder](<../Auxiliary Files/Images/Development_Images/checkvenvCreatedSucceessfully.png>)
      - On Linux, the folders will normally be `bin`, `include`, and `lib`.
 
 3. Activate your virtual environment.
@@ -130,7 +130,7 @@ system-wide with a package, skip to Step 2.
      - Search for and select `"edit the system environment variables"` in the Windows start menu.
      - Towards the bottom of the resulting `"System Properties"` screen, click on `"Environment Variables"`.
      - In the `"System variables"` section on the resulting screen, find the PATH variable and double click or click `"Edit..."`.
-     - Click the `"New"` button, and paste your PostgreSQL bin filepath. Click OK. ![Adding psql to PATH on Windows](<../Auxiliary Files/Images/environmentVariablesFull.jpg>)
+     - Click the `"New"` button, and paste your PostgreSQL bin filepath. Click OK. ![Adding psql to PATH on Windows](<../Auxiliary Files/Images/Development_Images/environmentVariablesFull.jpg>)
 
    - On Linux:
      - Almost all package installs will leave `psql` somewhere in the path. If 
@@ -157,7 +157,7 @@ Creating a symlink to `psql` that lives in a path directory should work
 
    - The name of this database is technically also at your discretion as you will be able to change it in configuration later.
 
-   ![PostgreSQL creation](<../Auxiliary Files/Images/postGres1stlogin.png>)
+   ![PostgreSQL creation](<../Auxiliary Files/Images/Development_Images/postGres1stlogin.png>)
 
 7. Exit `psql` with `\q` or `CTRL + C`. `\q` is preferred as a soft quit.
 
@@ -205,7 +205,7 @@ POSTGRESQL_DATABASE_PASSWORD = 'password'
 2. In the Projects tab, select "Open"
 3. Navigate to the root directory you cloned the project into.
 
-   - When listing files and dirs in this directory, you should see a directory "Comittment_to_Change_App" but not a directory "commitments".
+   - When listing files and dirs in this directory, you should see a directory "Commitment_to_Change_App" but not a directory "commitments".
 
 4. Click OK.
 
@@ -219,7 +219,7 @@ POSTGRESQL_DATABASE_PASSWORD = 'password'
 2. Click "File" -> "Open File" from the context menu.
 3. Navigate to the root directory you cloned the project into. Select "Commitment-to-Change-App"
 
-   - You'll know you're in the correct directory if inside you see a directory named "Comittment_to_Change_App" but not a directory named "commitments".
+   - You'll know you're in the correct directory if inside you see a directory named "Commitment_to_Change_App" but not a directory named "commitments".
 
 4. Click OK.
 

@@ -22,7 +22,7 @@ for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
 
 2. Install Python
 
-   - In the installation dialogue, make sure to check "Add python.exe to PATH". This allows us to execute Python in the command line by simply typing "python" or "py" instead of navigating to it's install location.![python install](<../Auxiliary Files/Images/Python_addToPath.png>)
+   - In the installation dialogue, make sure to check "Add python.exe to PATH". This allows us to execute Python in the command line by simply typing "python" or "py" instead of navigating to it's install location.![python install](<../Auxiliary Files/Images/Development_Images/Python_addToPath.png>)
      If you forget to check this, you can manually add to PATH later,
      [similarly to how we will do it with PSQL](#install-and-configure-postgresql)
    - Click "install now"
@@ -62,7 +62,7 @@ for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
     steps.
   - You should now see something like `(Project_name)` before your project path in the command line. This means you are now in your active virtual environment.
 
-    ![venv activated](<../Auxiliary Files/Images/ActivateBat.png>)
+    ![venv activated](<../Auxiliary Files/Images/Development_Images/ActivateBat.png>)
 
 ---
 
@@ -95,7 +95,7 @@ system-wide with a package, skip to Step 2.
    `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`
    in the desired directory to clone to.
 
-   - Your root folder/venv folder structure should now look similar to this:![Root directory](<../Auxiliary Files/Images/FinalRootFolderStructure.png>)
+   - Your root folder/venv folder structure should now look similar to this:![Root directory](<../Auxiliary Files/Images/Development_Images/FinalRootFolderStructure.png>)
 
 ---
 
@@ -174,7 +174,7 @@ Creating a symlink to `psql` that lives in a path directory should work
   - psycopg2 must be installed while your virtual environment is active [as explained here](#important) If it is not, psycopg2 will install in your system site-packages and not in your virtual environment, causing it to be unreachable in your venv.
 
 2. In `Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App`, create a file called `database_authentication.py`. You will know it is in the right place if it lives in the same directory as `settings.py`, `asgi.py`, and `wsgi.py`
-   ![Database_Authentication file location](<../Auxiliary Files/Images/database_authenticationLocation.png>)
+   ![Database_Authentication file location](<../Auxiliary Files/Images/Development_Images/database_authenticationLocation.png>)
 3. Put the following in `database_authentication.py`, subject to whatever you did when installing and configuring PostgreSQL:
 
 ```
@@ -225,7 +225,7 @@ POSTGRESQL_DATABASE_PASSWORD = 'password'
 
 ### VSCode troubleshooting
 
-- Yellow error squiggles underlining imports or other code:![Alt text](<../Auxiliary Files/Images/vscode_enterInterpreterPath.png>)
+- Yellow error squiggles underlining imports or other code:![Alt text](<../Auxiliary Files/Images/Development_Images/vscode_enterInterpreterPath.png>)
 
   - To fix this, you'll need to switch from using the globally installed Python.exe as your interpreter, to your local venv Python install.
   - Click the Python version number in the bottom right of the page, or mouse over a line with error squiggles, select "Quick Fix...", then "select a different interpreter". Click "+ Enter interpreter path" in the top bar, then "Find...", and navigate to your venv's Scripts folder, and click on Python.
@@ -257,14 +257,14 @@ Otherwise, use the general steps and consult your specific OS's documentation fo
      - While in your route directory, type `Scripts\activate.bat`
      - Then navigate down the directory with `cd Commitment-to-Change-App\Commitment_to_Change_App`. You can then type `dir` to check for the `manage.py` file.
      - Now type `py manage.py runserver`
-       ![Alt text](<../Auxiliary Files/Images/WindowsCMDSteps.png>)
+       ![Alt text](<../Auxiliary Files/Images/Development_Images/WindowsCMDSteps.png>)
 
 ---
 
 2. Open a web browser and navigate to `LocalHost:8000/app/commitment/new`
 
-   ![Commitment Creation Form](<../Auxiliary Files/Images/CommitmentCreationForm.png>)
+   ![Commitment Creation Form](<../Auxiliary Files/Images/Development_Images/CommitmentCreationForm.png>)
 
 - Fill out the commitment and hit "Submit" to view the commitment.
 
-  ![Commitment View](<../Auxiliary Files/Images/CommitmentView.png>)
+  ![Commitment View](<../Auxiliary Files/Images/Development_Images/CommitmentView.png>)

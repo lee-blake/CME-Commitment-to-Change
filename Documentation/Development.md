@@ -268,3 +268,21 @@ Otherwise, use the general steps and consult your specific OS's documentation fo
 - Fill out the commitment and hit "Submit" to view the commitment.
 
   ![Commitment View](<../Auxiliary Files/Images/Development_Images/CommitmentView.png>)
+
+
+# Troubleshooting
+
+## Database Wipeout Procedure
+
+In some cases, figuring out migrations for existing objects can be more effort than simply recreating a fresh database. The following steps need to be performed to do this:
+
+1. Remove every numbered file in the `migrations` folders - for example, `0001_*py`
+    - Do NOT remove `__init__.py` from these folders.
+2. Open `psql`
+3. Run `DROP DATABASE commitment_to_change_app;`
+4. Run `CREATE DATABASE commitment_to_change_app WITH OWNER username;`
+    - Replace `username` with the username you used in original creation
+5. Exit `psql` with `\q`
+6. Run `python manage.py makemigrations`
+7. Run `python manage.py migrate`
+8. Test the server with `python manage.py runserver`

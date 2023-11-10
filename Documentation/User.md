@@ -40,7 +40,7 @@ See [Development.md](Development.md) for steps on how to do this.
 - Must be logged in.
 - Address for this page: `/accounts/logout/`
 1. While logged-in to the application, find the navigation bar at the top of the screen.
-2. There should be a *Signed in as 'USERNAME'* title followed by a *Logout* button. Press this button.
+2. There should be a *Logged in as 'USERNAME'* title followed by a *Log Out* button. Press this button.
 ![log_out-button.PNG](<../Auxiliary Files/Images/User_Images/log_out_button.PNG>)
 3. After pressing *Logout*, you will be brought to the logout confirmation page.
 4. If this was a mistake, you can log back in using the *Log In* button.

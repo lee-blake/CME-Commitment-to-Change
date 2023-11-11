@@ -1,7 +1,13 @@
 # Feature Navigation as a User
-***
-### **__The development environment must be setup and running before attempting to use the application__**
-See [Development.md](Development.md) for steps on how to do this.
+*** 
+### Requirements and Assumptions
+1. **__The development environment must be setup and running before attempting to use the application__**
+    - See [Development.md](Development.md) for steps on how to do this.
+2. The server is running - either with `python manage.py runserver` as detailed 
+[here]() or with a full deployment as detailed [here](Deployment.md)
+3. URLs point to the local machine on port 8000 - otherwise replace 
+`localhost:8000` with the appropriate address.
+
 ***
 
 ## Opening the Application
@@ -41,12 +47,13 @@ login page by clicking "Click here to register" and then "Provider account".
 
 
 ## Logging In (Clinician & Provider Profiles)
-- This page is used for logging into an already registered clinician profile.
+- This page is used for logging into an already registered clinician  or provider profile.
 - Address for this page: `/accounts/login/`
 1. Fill out the fields with the username and password that you used when creating a profile.
 ![sign_in](<../Auxiliary Files/Images/User_Images/sign_in.PNG>)
 2. Press the 'log in' button located underneath these fields.
-3. If you were successfully logged in, you will be redirected to the commitment dashboard.
+3. If you were successfully logged in, you will be redirected to the commitment
+dashboard (for clinician accounts) or course dashboard (for provider accounts).
 4. If you were not successful, you will directed to enter a correct user name and password.
 
 
@@ -89,7 +96,7 @@ login page by clicking "Click here to register" and then "Provider account".
 
 ## Sharing a Commitment page for viewing (Clinician Profile)
 - Note: Currently, since there is no domain name registered, the link will need
-to change `127.0.0.1:8000` to `<your ip address>:8000` to be viewable from 
+to change `localhost:8000` to `<your ip address>:8000` to be viewable from 
 another machine.
 - Address for this page: `/app/commitment/<Commitment ID Number>/view/`
 1. View one of your owned commitments with the instructions above
@@ -154,4 +161,84 @@ completed.
 4. The commitment should move from whichever box it was in, into the *In-Progress* box,
    and it will be marked as discontinued.
 
+## Joining a Course (Clinician Profile)
+- This procedure is used to join a course created by a provider.
+- Must be logged in.
+1. Obtain an invite link from a provider.
+2. Click the link or paste it into your browser.
+3. If prompted, log in.
+4. You will automatically be enrolled in the course and be taken to that 
+course's page.
 
+## Viewing a Course (Clinician Profile)
+- This page displays the details of a course you are enrolled in.
+- Must be logged in.
+- Must be a member of the course.
+- Address for this page: `/app/course/<Course id>/view/`
+1. Navigate to the Commitment Dashboard.
+2. Locate the "My Courses" section.
+3. Clink the link with the name of the course you want to view.
+
+## Associating a Commitment with a Course (Clinician Profile)
+- Commitments may be optionally associated with a course.
+- Must be logged in.
+- Must be a member of the course.
+- Addresses for this page: `/app/commitment/make/` and 
+`/app/commitment/<commitment id>/edit/`
+1. Association may be done while making or editing a commitment. Navigate to 
+the respective page depending on whether or not your commitment already exists.
+2. In the form, locate the "Associate Course" dropdown menu.
+3. In that dropdown menu, select the name of the desired course to associate with.
+4. Complete the make/edit process for a commitment as usual.
+
+## Disassociating a Commitment with a Course (Clinician profile)
+- If a commitment is associated in error, this can be reversed.
+- Must be logged in.
+- Must be a member of the course to reassociate.
+- Address for this page: `/app/commitment/<commitment id>/edit/`
+1. Edit the commitment.
+2. In the "Associated Course" dropdown menu, select "-----" to remove any course
+association or the correct course if an incorrect course was selected.
+3. Complete the edit process as usual.
+
+ 
+
+
+## Navigating to the Course Dashboard (Provider Profile)
+- These instructions detail how to get back to the Course Dashboard that most 
+porovider instructions will reference.
+- Must be logged-in.
+- Address for this page: `/app/dashboard/`
+1. When logging in as a provider, you will generally be automatically redirected
+to the dashboard.
+2. If you are on another page, you can click "Dashboard" in the navigation bar 
+at the top of the current page.
+3. If you prefer, you can instead manually type the url `/app/dashboard` after the address discussed in [Opening the Application](#Opening_the_Application).
+
+
+## Creating a Course (Provider Profile)
+- This page is used to create a course that you can then invite clinicians to join.
+- Must be logged-in.
+- Address for this page: `/app/course/create/`
+1. Click "Create Course" in the navigation bar at the top.
+2. Fill out the title and description of the course.
+3. When you click submit, you will be taken to the course's view page.
+
+## Viewing a Course (Provider Profile)
+- This page shows the details for a course.
+- Must be logged-in.
+- Address for this page: `/app/course/<Course id>/view/`
+1. Navigate to the Course Dashboard.
+2. Locate the link with the name of the course you want to view.
+3. Click the link.
+
+## Inviting Clinicians to a Course via a link (Provider Profile)
+- This covers inviting clinciians to a course by sharing a link.
+- Must be logged-in.
+- Address for this page: `/app/course/<Course id>/view/`
+1. Navigate to the View Course page for the course.
+2. Locate the section with "Share this link to invite students"
+3. Copy that link in its entirety.
+4. Distribute the link to the clinicians you want to invite to the course.
+5. When they go to the link, they will be prompted to log in and automatically
+join the course.

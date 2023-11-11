@@ -4,7 +4,7 @@
 1. **__The development environment must be setup and running before attempting to use the application__**
     - See [Development.md](Development.md) for steps on how to do this.
 2. The server is running - either with `python manage.py runserver` as detailed 
-[here](Development.md#Testing_the_environment_and_app) or with a full deployment as detailed [here](Deployment.md)
+[here](Development.md#testing-the-environment-and-app) or with a full deployment as detailed [here](Deployment.md)
 3. URLs point to the local machine on port 8000 - otherwise replace 
 `localhost:8000` with the appropriate address.
 
@@ -213,7 +213,7 @@ porovider instructions will reference.
 to the dashboard.
 2. If you are on another page, you can click "Dashboard" in the navigation bar 
 at the top of the current page.
-3. If you prefer, you can instead manually type the url `/app/dashboard` after the address discussed in [Opening the Application](#Opening_the_Application).
+3. If you prefer, you can instead manually type the url `/app/dashboard` after the address discussed in [Opening the Application](#opening-the-application).
 
 
 ## Creating a Course (Provider Profile)

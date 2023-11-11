@@ -4,7 +4,7 @@
 1. **__The development environment must be setup and running before attempting to use the application__**
     - See [Development.md](Development.md) for steps on how to do this.
 2. The server is running - either with `python manage.py runserver` as detailed 
-[here]() or with a full deployment as detailed [here](Deployment.md)
+[here](Development.md#Testing_the_environment_and_app) or with a full deployment as detailed [here](Deployment.md)
 3. URLs point to the local machine on port 8000 - otherwise replace 
 `localhost:8000` with the appropriate address.
 

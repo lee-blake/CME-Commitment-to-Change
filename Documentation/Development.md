@@ -261,16 +261,44 @@ Otherwise, use the general steps and consult your specific OS's documentation fo
 
 ---
 
-2. Open a web browser and navigate to `LocalHost:8000/app/commitment/new`
+2. Open a web browser and navigate to `localhost:8000/app/register/clinician/`
+    - Fill out the form to register a user
 
-   ![Commitment Creation Form](<../Auxiliary Files/Images/Development_Images/CommitmentCreationForm.png>)
+---
+
+3. Navigate to `/localhost:8000/accounts/login/`
+    - Login with the user you just registered
+
+---
+
+4. Navigate to `localhost:8000/app/commitment/make/`
+
 
 - Fill out the commitment and hit "Submit" to view the commitment.
 
-  ![Commitment View](<../Auxiliary Files/Images/Development_Images/CommitmentView.png>)
+---
+
+5. If all of these steps proceed without issue, you can generally consider your environment functional.
+
 
 
 # Troubleshooting
+
+## Migrating When Updating from Git
+
+Whenever you update the project and notice changes, it is advisable to run migrations with
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+as any changes to the models require this. If you are worried about your database, consider creating a new one to test the new code on. Follow the database wipeout procedure below, but with the following exceptions:
+- Backup every numbered file in the `migrations` folders before deleting them
+- Do not run the `DROP DATABASE commitment_to_change_app;` command
+- Run `CREATE DATABASE commitment_to_change_app2 WITH OWNER username;` to create
+a new database with a different name but same owner
+- Update the database name in `database_authentication.py` to use your new database
+
+In this way, you always have your old database and migrations and can restore them to manually migrate if need be.
 
 ## Database Wipeout Procedure
 

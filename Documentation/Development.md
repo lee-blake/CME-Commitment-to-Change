@@ -185,9 +185,21 @@ POSTGRESQL_DATABASE_PASSWORD = 'password'
 
 - **Do _NOT_ commit this file under any circumstances!** We do not want to know your database authentication details, which is why it has been separated from `settings.py`!
 
-4. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
-5. Run `python manage.py makemigrations` to create the migrations to be performed.
-6. Run `python manage.py migrate` to perform the migrations.
+4. Run the following code in your terminal to generate a secret key:
+```
+python -c "import secrets; print(secrets.token_urlsafe())"
+```
+Then create a file called `secret_keys.py` next to `database_authentication.py`.
+Its contents should be 
+```
+SERVER_SECRET_KEY = '<output of secret key generation>'
+```
+- **Do _NOT_ commit this file under any circumstances!** We do not want to know your secret key details, which is why it has been separated from `settings.py`!
+
+
+5. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
+6. Run `python manage.py makemigrations` to create the migrations to be performed.
+7. Run `python manage.py migrate` to perform the migrations.
 
    - Migrate troubleshooting:
      - `ImportError: Couldn't import Django`: This may mean your virtual environment is not currently active. Please activate your environment [as explained here](#important) and try again.

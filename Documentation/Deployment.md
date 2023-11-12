@@ -14,21 +14,21 @@ some similar test script.
 
 The instructions here will assume a Linux install but will use venv.
 
-1. Install and initialize PostgreSQL with the instructions [here](Development.md#Install_and_Configure_PostgreSQL)
+1. Install and initialize PostgreSQL with the instructions [here](Development.md#install-and-configure-postgresql)
     - Installation of the `postgresql` package on Ubuntu 22.04 does not seem to 
 require manual initialization of the database cluster.
 2. Create a directory to house the root of the project. For these instructions, that directory will be `/srv/project_root`. Change into that directory.
     - Keep in mind that Apache will need permissions for the directory and its subtree.
-3. Create a venv in that directory with the instructions [here](Development.md#Create_and_setup_virtual_environment). The example here creates a venv name `project_venv`.
+3. Create a venv in that directory with the instructions [here](Development.md#install-and-setup-virtual-environment). The example here creates a venv name `project_venv`.
     - On Ubuntu 22.04 you will likely need to install the package `python3-venv`
-4. Install [Django](Development.md#Install_Django) in your virtual environment.
+4. Install [Django](Development.md#install-django) in your virtual environment.
 In this example, you should be in the dir `/srv/project_root/project_venv`
     - You should follow the testing steps to ensure Django works locally, but
 make sure to return to this directory and remove the testproject when you are done.
-5. Follow the instructions to [clone the main code repo](Development.md#Clone_the_Main_Code_Repo) 
+5. Follow the instructions to [clone the main code repo](Development.md#clone-the-main-code-repo) 
     - You may need to install git, on Ubuntu this is package `git`.
     - The top `Commitment_to_Change_App` folder will live next to `pyvenv.cfg`
-6. Follow the instructions to [get Django to work with PostgreSQL](Development.md#Getting_Django_to_work_with_PostgreSQL)
+6. Follow the instructions to [get Django to work with PostgreSQL](Development.md#get-django-to-work-with-postgresql)
     - Getting `psycopg2` to build on Ubuntu requires the following packages:
         - Install using `apt-get`: `gcc, python3-dev, libpq-dev`
         - Install using `pip` in your virtual environment: `wheel`
@@ -58,8 +58,10 @@ Require all granted
 </Files>
 ```
 Avoid giving more permissions than are necessary! The above are sufficient.
+
 2. Start/restart Apache and navigate to `127.0.0.1` in `curl` or your web browser. 
 The redirect to a login page should occur. If you are using a web browser, styling should be present; otherwise, test that static files are loading by visiting `127.0.0.1/static/styles.css`.
+
 3. Optionally enable daemon mode using the instructions [here](https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/modwsgi/#using-mod-wsgi-daemon-mode)
 
 ## Configuration and Cleanup
@@ -88,7 +90,7 @@ and/or PostgreSQL.
 
 ## Django/PostgreSQL Troubleshooting
 
-This is generally covered in the [Development documentation](Development.md#Troubleshooting).
+This is generally covered in the [Development documentation](Development.md#troubleshooting).
 
 ## Apache Troubleshooting
 
@@ -137,5 +139,5 @@ If everything else works fine but styling is not present, then Apache is not
 correctly mapping to the static files. Use your browser debugger or `curl` to 
 determine whether you are getting 404 or 403 responses on requests for static
 files. If it is a 403, troubleshoot using the general principles in the 
-[previous section](#403_Errors_on_route_route). If it is a 404, you have 
+[previous section](#403-errors-on-root-route). If it is a 404, you have 
 pointed Apache to the wrong directory in both the Alias and Directory rules.

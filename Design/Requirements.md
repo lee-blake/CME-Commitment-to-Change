@@ -4,8 +4,7 @@ The functional requirements are loosely grouped by concept.
 
 ## Platform (Registration, Moderation, etc)
 
-- FR101: Users can register for an account via email and log in using that 
-email.
+- FR101: Users can register for an account via email and log in.
   - High priority
   - BR1 
 
@@ -242,5 +241,9 @@ disclose patient information as that would be a HIPAA violation.
 
 - NR7: When registering for an email account, the system will require the user
 to verify their email.
+  - Medium priority
+  - BR1
+
+-NR8: Users can log in using the email they registered with.
   - Medium priority
   - BR1

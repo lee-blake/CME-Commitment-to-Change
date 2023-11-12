@@ -242,6 +242,18 @@ SERVER_SECRET_KEY = '<output of secret key generation>'
   - To fix this, you'll need to switch from using the globally installed Python.exe as your interpreter, to your local venv Python install.
   - Click the Python version number in the bottom right of the page, or mouse over a line with error squiggles, select "Quick Fix...", then "select a different interpreter". Click "+ Enter interpreter path" in the top bar, then "Find...", and navigate to your venv's Scripts folder, and click on Python.
 
+- Problems with linting around Django stuff:![Alt text](<../Auxiliary Files/Images/Development_Images/vscode_pylint_django_linting_problem.png>)
+  - These errors occur because by default, pylint does not understand some 
+Django functionality, particularly Django models.
+  - Install `pylint` and `pylint-django` to your project venv with pip.
+  - The following should be added to your `settings.json`:
+```
+    "pylint.args": [
+        "--loadplugins=pylint_django",
+        "--django-settings-module=Commitment_to_Change_App.settings",
+    ]
+```
+
 ---
 
 # Testing the environment and app

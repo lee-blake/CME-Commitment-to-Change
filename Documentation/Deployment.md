@@ -64,15 +64,18 @@ The redirect to a login page should occur. If you are using a web browser, styli
 
 ## Configuration and Cleanup
 
-1. Configure Apache to use SSL and certificates. A general guide may be found 
+1. In `/srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App/settings.py`, 
+change `Debug = True` to `Debug = False` to disable Django debug messages.
+
+2. Configure Apache to use SSL and certificates. A general guide may be found 
 [here](https://httpd.apache.org/docs/2.4/ssl/ssl_howto.html). **The server 
 should never be deployed without SSL because it handles passwords.**
 
-2. Remove any `mod_wsgi` and Django test code from earlier steps if you have not already.
+3. Remove any `mod_wsgi` and Django test code from earlier steps if you have not already.
 
-3. Verify the server is accessible from other machines.
+4. Verify the server is accessible from other machines.
 
-4. Perform any additional desired configuration.
+5. Perform any additional desired configuration.
 
 # Troubleshooting
 

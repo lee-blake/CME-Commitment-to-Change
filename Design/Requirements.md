@@ -116,6 +116,8 @@ they pass their deadlines.
 
 - FR402: CME providers can edit every field of a course that they can set 
 during creation. Editing should not disenroll students or instructors.
+  - High priority
+  - BR2
 
 - FR403: CME providers can add users to courses via a code or link. Clicking 
 the link should prompt the user to log in and add them to the course once they

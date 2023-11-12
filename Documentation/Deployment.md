@@ -52,7 +52,7 @@ WSGIScriptAlias / /srv/project_root/project_venv/Commitment-to-Change-App/Commit
 WSGIPythonHome /srv/project_root/project_venv
 WSGIPythonPath /srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App
 
-<Directory /srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App>
+<Directory /srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App>
 <Files wsgi.py>
 Require all granted
 </Files>
@@ -66,7 +66,7 @@ The redirect to a login page should occur. If you are using a web browser, styli
 
 ## Configuration and Cleanup
 
-1. In `/srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App/settings.py`, 
+1. In `/srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/settings.py`, 
 change `Debug = True` to `Debug = False` to disable Django debug messages.
 
 2. Configure Apache to use SSL and certificates. A general guide may be found 

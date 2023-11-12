@@ -52,7 +52,7 @@ WSGIScriptAlias / /srv/project_root/project_venv/Commitment-to-Change-App/Commit
 WSGIPythonHome /srv/project_root/project_venv
 WSGIPythonPath /srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App
 
-<Directory /srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App>
+<Directory /srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App>
 <Files wsgi.py>
 Require all granted
 </Files>

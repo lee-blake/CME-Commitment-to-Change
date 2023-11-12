@@ -221,6 +221,16 @@ SERVER_SECRET_KEY = '<output of secret key generation>'
 
 4. Click OK.
 
+### PyCharm troubleshooting
+- Linting errors for Django stuff (for example, `Course.objects` is highlighted
+saying that Course has no such field) in Community Edition:
+  - This problem is due to Community Edition not supporting the Django framework.
+  There are three solutions to this problem:
+    1. Get the Professional Edition
+    2. Use VSCode instead 
+    3. Manually suppress these problems and trust that the if the code runs 
+    without crashing or bugs, the errors are not so important after all.
+
 ---
 
 ## VSCode
@@ -234,6 +244,12 @@ SERVER_SECRET_KEY = '<output of secret key generation>'
    - You'll know you're in the correct directory if inside you see a directory named "Commitment_to_Change_App" but not a directory named "commitments".
 
 4. Click OK.
+#### Alternative launching to use venv
+This has been tested on Linux only.
+1. While your virtual environment is active in the shell, navigate to the root
+directory of the project containing `.gitignore`
+2. Execute `code .`
+3. Alternative, navigate to the directory with `manage.py` and execute `code ..`
 
 ### VSCode troubleshooting
 

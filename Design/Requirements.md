@@ -246,6 +246,6 @@ to verify their email.
   - Medium priority
   - BR1
 
--NR8: Users can log in using the email they registered with.
+- NR8: Users can log in using the email they registered with.
   - Medium priority
   - BR1

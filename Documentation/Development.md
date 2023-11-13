@@ -159,7 +159,10 @@ Creating a symlink to `psql` that lives in a path directory should work
 
    ![PostgreSQL creation](<../Auxiliary Files/Images/Development_Images/postGres1stlogin.png>)
 
-7. Exit `psql` with `\q` or `CTRL + C`. `\q` is preferred as a soft quit.
+7. Give your user database creation permissions by 
+`ALTER USER username CREATEDB;` so Django can run databse tests.
+
+8. Exit `psql` with `\q` or `CTRL + C`. `\q` is preferred as a soft quit.
 
 ---
 
@@ -278,7 +281,18 @@ If you're using Windows, use the specific steps for Windows.
 
 Otherwise, use the general steps and consult your specific OS's documentation for specific terminal commands.
 
----
+## Unit & Integration Testing
+
+1. Activate the environment using the instructions in [Full Stack Testing](#full-stack-testing)
+
+2. Instead of starting the server with `python manage.py runserver`, run 
+`python manage.py test`
+
+### Location of Unit and Integration tests
+
+In each app there is a `test.py` files where all automated tests are located.
+
+## Full Stack Testing
 
 1. Activate the environment and run the Django server.
 

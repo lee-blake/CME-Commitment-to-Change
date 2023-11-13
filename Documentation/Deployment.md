@@ -12,7 +12,8 @@ some similar test script.
 
 ## Setup the project
 
-The instructions here will assume a Linux install but will use venv.
+The instructions here will assume a Linux install but will use venv. Note that on Ubuntu 22.04 you have have to type 
+`python3` instead of `py` or `python` in the instructions.
 
 1. Install and initialize PostgreSQL with the instructions [here](Development.md#install-and-configure-postgresql)
     - Installation of the `postgresql` package on Ubuntu 22.04 does not seem to 
@@ -56,6 +57,7 @@ WSGIPythonPath /srv/project_root/project_venv/Commitment-to-Change-App/Commitmen
 <Files wsgi.py>
 Require all granted
 </Files>
+</Directory>
 ```
 Avoid giving more permissions than are necessary! The above are sufficient.
 

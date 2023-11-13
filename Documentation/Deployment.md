@@ -81,6 +81,8 @@ should never be deployed without SSL because it handles passwords.**
 
 5. Perform any additional desired configuration.
 
+6. Restart Apache.
+
 # Troubleshooting
 
 ## Determining the source of problems

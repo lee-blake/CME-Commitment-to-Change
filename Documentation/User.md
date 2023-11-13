@@ -41,7 +41,7 @@ login page by clicking "Click here to register" and then "Clinician account".
 login page by clicking "Click here to register" and then "Provider account".
 ![Account Type](<../Auxiliary Files/Images/User_Images/register_account_type.PNG>)
 2. Fill out the fields for username, email, password, and password verification.
-![Register Account](<../Auxiliary Files/Images/User_Images/register_account.PNG>)
+![Register Account](<../Auxiliary Files/Images/User_Images/register_provider.PNG>)
 3. Select 'Submit'.
    - **If you are redirected back to this page, either an invalid email was used, 
     the password was not strong enough, or the passwords did not match. Error 
@@ -71,6 +71,8 @@ dashboard (for clinician accounts) or course dashboard (for provider accounts).
 2. There should be a *Logged in as 'USERNAME'* title followed by a *Log Out* button. Press this button.
 ![log_out-button.PNG](<../Auxiliary Files/Images/User_Images/log_out_button.PNG>)
 3. After pressing *Logout*, you will be brought to the logout confirmation page.
+![logout_success.PNG](<../Auxiliary Files/Images/User_Images/logout_success.PNG>)
+
 4. If this was a mistake, you can log back in using the *Log In* button.
 
 
@@ -83,6 +85,8 @@ dashboard (for clinician accounts) or course dashboard (for provider accounts).
 ![Nav Bar Dashboard](<../Auxiliary Files/Images/User_Images/clinician_nav_bar_dashboard.PNG>)
 3. Alternatively, you can press the *CME Commitment to Change* text.
 3. This opens the dashboard.
+![Clinician Dashboard](<../Auxiliary Files/Images/User_Images/finaldashboard.PNG>)
+
 
 
 ## Creating A Commitment (Clinician Profile)
@@ -182,9 +186,11 @@ completed.
 - Address for this page: `/app/dashboard/`
 1. Navigate to the dashboard.
 2. Locate a commitment in the *Discontinued* box.
-3. To the right of the title of the commitment, click on the box that says *Reopen*.
+3. At the bottom of the commitment, click on the box that says *Reopen*.
+![reopen discontinued](<../Auxiliary Files/Images/User_Images/discontinued_Reopen.png>)
+
 4. The commitment should move from whichever box it was in, into the *In-Progress* box,
-   and it will be marked as discontinued.
+   and it will be marked as in-progress.
 
 ## Joining a Course (Clinician Profile)
 - This procedure is used to join a course created by a provider.
@@ -192,8 +198,7 @@ completed.
 1. Obtain an invitation link from a provider.
 2. Click the link or paste it into your browser.
 3. If prompted, log in.
-4. You will automatically be enrolled in the course and be taken to that 
-course's page.
+4. You will automatically be enrolled in the course and be taken to that course's page.
 
 ## Viewing a Course (Clinician Profile)
 - This page displays the details of a course you are enrolled in.
@@ -202,7 +207,9 @@ course's page.
 - Address for this page: `/app/course/<Course id>/view/`
 1. Navigate to the Commitment Dashboard.
 2. Locate the "My Courses" section.
-3. Clink the link with the name of the course you want to view.
+![my course view](<../Auxiliary Files/Images/User_Images/my_courses.png>)
+3. Clink the link with the name of the course you want to view. This will take you to the course page.
+![Course View Clinician](<../Auxiliary Files/Images/User_Images/CourseView_Clinican.png>)
 
 ## Associating a Commitment with a Course (Clinician Profile)
 - Commitments may be optionally associated with a course.
@@ -215,6 +222,7 @@ the respective page depending on whether your commitment already exists.
 2. In the form, locate the "Associate Course" dropdown menu.
 3. In that dropdown menu, select the name of the desired course to associate with.
 4. Complete the make/edit process for a commitment as usual.
+![Associate commitment](<../Auxiliary Files/Images/User_Images/Associate_commitment_with_course.png>)
 
 ## Disassociating a Commitment with a Course (Clinician profile)
 - If a commitment is associated in error, this can be reversed.
@@ -238,6 +246,8 @@ provider instructions will reference.
 to the dashboard.
 2. If you are on another page, you can click "Dashboard" in the navigation bar 
 at the top of the current page.
+![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
+
 3. If you prefer, you can instead manually type the url `/app/dashboard` after the address discussed in [Opening the Application](#opening-the-application).
 
 
@@ -246,8 +256,14 @@ at the top of the current page.
 - Must be logged-in.
 - Address for this page: `/app/course/create/`
 1. Click "Create Course" in the navigation bar at the top.
+![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_create_course.png>)
+
 2. Fill out the title and description of the course.
+
+   ![Provider Create Course](<../Auxiliary Files/Images/User_Images/create_course.png>)
+
 3. When you click submit, you will be taken to the course's view page.
+![Provider Course View](<../Auxiliary Files/Images/User_Images/provider-course-view.png>)
 
 ## Viewing a Course (Provider Profile)
 - This page shows the details for a course.
@@ -256,6 +272,7 @@ at the top of the current page.
 1. Navigate to the Course Dashboard.
 2. Locate the link with the name of the course you want to view.
 3. Click the link.
+![Provider view course](<../Auxiliary Files/Images/User_Images/Provider_view_course.png>)
 
 ## Inviting Clinicians to a Course via a link (Provider Profile)
 - This covers inviting clinicians to a course by sharing a link.
@@ -263,6 +280,7 @@ at the top of the current page.
 - Address for this page: `/app/course/<Course id>/view/`
 1. Navigate to the View Course page for the course.
 2. Locate the section with "Share this link to invite students"
+![Share course link](<../Auxiliary Files/Images/User_Images/provider-share-course-link.png>)
 3. Copy that link in its entirety.
 4. Distribute the link to the clinicians you want to invite to the course.
 5. When they go to the link, they will be prompted to log in and automatically

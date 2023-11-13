@@ -169,6 +169,15 @@ allows the user to make any modifications before they finalize the commitment.
 - FR411: Course pages will clearly display which provider is offering the course in a header next to the title.
   - High priority
   - BR2
+ 
+- FR412: Course invite links will have a button to immediately copy them to the clipboard
+  - High priority
+  - BR2
+ 
+- FR413: Courses will have optional fields "unique identifier", "start date", and "end date". These will display
+in the provider course dashboard.
+  - High priority
+  - BR2
 
 ## Gamification
 

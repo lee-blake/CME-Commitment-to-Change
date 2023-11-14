@@ -196,9 +196,10 @@ completed.
 - This procedure is used to join a course created by a provider.
 - Must be logged in.
 1. Obtain an invitation link from a provider.
-2. Click the link or paste it into your browser.
-3. If prompted, log in.
-4. You will automatically be enrolled in the course and be taken to that course's page.
+  - It should look something like the link in [Inviting Clinicians to a Course via a link (Provider Profile)](#inviting-clinicians-to-a-course-via-a-link-provider-profile).
+3. Click the link or paste it into your browser.
+4. If prompted, log in.
+5. You will automatically be enrolled in the course and be taken to that course's page.
 
 ## Viewing a Course (Clinician Profile)
 - This page displays the details of a course you are enrolled in.

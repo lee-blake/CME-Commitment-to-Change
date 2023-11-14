@@ -163,7 +163,7 @@ relative to other courses with the same tag.
 users can join. Joining a commitment takes the user to commitment creation and 
 auto-populates all fields the provider has specified, including the course, but
 allows the user to make any modifications before they finalize the commitment.
-  - Medium priority
+  - High priority
   - BR1
  
 - FR411: Course pages will clearly display which provider is offering the course in a header next to the title.

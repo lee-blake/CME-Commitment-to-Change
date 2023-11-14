@@ -195,6 +195,7 @@ completed.
 ## Joining a Course (Clinician Profile)
 - This procedure is used to join a course created by a provider.
 - Must be logged in.
+- **If running the development server or Apache without SSL, change `https` to `http` in the links.**
 1. Obtain an invitation link from a provider.
   - It should look something like the link in [Inviting Clinicians to a Course via a link (Provider Profile)](#inviting-clinicians-to-a-course-via-a-link-provider-profile).
 3. Click the link or paste it into your browser.

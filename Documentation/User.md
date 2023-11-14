@@ -233,6 +233,8 @@ the respective page depending on whether your commitment already exists.
 1. Edit the commitment.
 2. In the "Associated Course" dropdown menu, select "-----" to remove any course
 association or the correct course if an incorrect course was selected.
+![Selecting "-----"](<../Auxiliary Files/Images/User_Images/commitment_disassociate_course.PNG>)
+
 3. Complete the edit process as usual.
 
  

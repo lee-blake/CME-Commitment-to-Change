@@ -338,6 +338,12 @@ In each app there is a `test.py` files where all automated tests are located.
 
 # Troubleshooting
 
+## SSL Errors When Using Join Links
+
+These come from Django not running SSL. Just make it `http` instead of `https`. We are leaving it as `https` to avoid 
+the possibility of leaving it `http` for deployment and potentially causing security issues. A production environment 
+would use `https` only.
+
 ## Migrating When Updating from Git
 
 Whenever you update the project and notice changes, it is advisable to run migrations with

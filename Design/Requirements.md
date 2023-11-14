@@ -19,6 +19,10 @@ The functional requirements are loosely grouped by concept.
 - FR104: Users can block other users.
   - Medium priority
   - BR1
+ 
+- FR105: The user login page will include password reset functionality under a "Forgot password?" link.
+  - High priority
+  - BR1
 
 ## Commitment Creation
 
@@ -161,6 +165,19 @@ auto-populates all fields the provider has specified, including the course, but
 allows the user to make any modifications before they finalize the commitment.
   - Medium priority
   - BR1
+ 
+- FR411: Course pages will clearly display which provider is offering the course in a header next to the title.
+  - High priority
+  - BR2
+ 
+- FR412: Course invite links will have a button to immediately copy them to the clipboard
+  - High priority
+  - BR2
+ 
+- FR413: Courses will have optional fields "unique identifier", "start date", and "end date". These will display
+in the provider course dashboard.
+  - High priority
+  - BR2
 
 ## Gamification
 
@@ -209,7 +226,22 @@ members only.
   - High priority
   - BR1
 
-  
+- FR606: Clinician profiles have optional name and insitutional affiliation fields. If present, these fields will display
+where usernames normally would, with name replacing username and affiliation appended.
+  - High priority
+  - BR2
+
+- FR607: Provider profiles will have an optional institution name field. This will show in place of the provider's username
+where the provider's username might be displayed.
+  - High priority
+  - BR2
+
+## Help, Documentation, and Hints
+
+- FR701: Each page will link to a help page describing what the page does and what next steps a user might take from it.
+  - High priority
+  - BR1
+
 # Non-functional Requirements
 
 - NR1: The software must be deployed to a cloud computing service.

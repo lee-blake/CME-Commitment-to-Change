@@ -290,3 +290,7 @@ to verify their email.
 - NR8: Users can log in using the email they registered with.
   - Medium priority
   - BR1
+
+- NR9: Users can update the status of commitments without being navigated away from the page they are on.
+  - Low priority
+  - BR1

@@ -294,3 +294,13 @@ to verify their email.
 - NR9: Users can update the status of their commitments without being navigated away from the page they are currently on.
   - Low priority
   - BR1
+
+- NR10: Users should be able to view their password when creating either a clinician
+or provider account.
+  - Low priority
+  - BR1
+ 
+- BR11: Users should be able to view the password that they have entered when
+logging into an account.
+  - Low priority
+  - BR1

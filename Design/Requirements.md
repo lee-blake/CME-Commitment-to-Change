@@ -55,11 +55,13 @@ certain value over a period (for example, 20 clinic hours in the next month).
 - FR206: Users should be able to view their password when creating either a clinician
 or provider account.
   - Medium priority
+  - BR1
  
 - FR207: Users should be able to view the password that they have entered when
 logging into an account.
   - Medium priority
-
+  - BR1
+ 
 ## Commitment Management
 
 - FR301: Users can view a list of their commitments that also displays their deadlines and the progress the user has made in completing them.

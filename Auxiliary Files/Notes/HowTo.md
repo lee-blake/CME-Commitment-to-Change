@@ -18,7 +18,7 @@
 `git push origin master --set-upstream`
 6. At this point your branch should be fully ahead of `master` and ready for a pull request.
 
-## How to Docker
+# How to Docker
 
 We're not done with this but here is some documentation:
 - [https://wiki.archlinux.org/title/Docker](https://wiki.archlinux.org/title/Docker):

@@ -291,6 +291,6 @@ to verify their email.
   - Medium priority
   - BR1
 
-- NR9: Users can update the status of commitments without being navigated away from the page they are on.
+- NR9: Users can update the status of their commitments without being navigated away from the page they are currently on.
   - Low priority
   - BR1

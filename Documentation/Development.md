@@ -11,7 +11,8 @@ consult the instructions for [replicating manually](#replicating-the-environment
 
 - Most Linux distributions have a package for Docker Compose and you should consult
 your distributions documentation for installing it.
-  - On Arch, install `docker-compose` with pacman.
+  - On Arch, install `docker compose` with pacman.
+    - You will need to run `docker-compose` instead of `docker compose`
 - You should ensure your user is added to the `docker` group so you can run without sudo.
   - If you do not want to log out, run `su <your username>` before executing
   Docker commands
@@ -58,8 +59,8 @@ in `custom_settings.py`.
 
 ### Build the Docker Containers
 
-1. Run `docker-compose build`.
-2. Verify the containers run with `docker-compose up`.
+1. Run `docker compose build`.
+2. Verify the containers run with `docker compose up`.
   - On your host machine, navigate to `127.0.0.1:8000`.
   - You may need to run this twice because the database can be slow to 
   initialize the first time.
@@ -68,12 +69,12 @@ in `custom_settings.py`.
 
 1. Run the following commands:
 ```
-docker-compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker-compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
-docker-compose run cme-ctc-web python manage.py makemigrations
-docker-compose run cme-ctc-web python manage.py migrate
+docker compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker compose run cme-ctc-web python manage.py makemigrations
+docker compose run cme-ctc-web python manage.py migrate
 ```
-  - The call to `docker-compose` might be different on Windows. However,
+  - The call to `docker compose` might be different on Windows. However,
   everything from `run cme-ctc-web` and after should not change.
 
 ### Verify the App
@@ -88,7 +89,7 @@ involving it should generally be done in the Docker containers unless there
 is an extremely compelling reason not to. This means that migrations and 
 test runs should be done in the container. It can be particularly annoying
 to frequently type things like 
-`docker-compose run cme-ctc-web python manage.py test`, so automation via 
+`docker compose run cme-ctc-web python manage.py test`, so automation via 
 shortening scripts is strongly recommended. See the section below for how
 to do so is strongly recommended.
 
@@ -97,7 +98,7 @@ to do so is strongly recommended.
 
 Since migrations are not currently version controlled, it is best to generate
 them within the container so they can be easily discarded with the database if
-need be. The `docker-compose` configuration we have manages this by mounting 
+need be. The `docker compose` configuration we have manages this by mounting 
 volumes for every `*/migrations/` directory. 
 However, the volumes mounted at the migration folders  do not initially 
 contain `__init__.py`, which will cause the migration process to fail. Since
@@ -115,11 +116,11 @@ scripts).
 **Convenience scripts should generally be put in `dev_scripts` so they are 
 not tracked.**
 
-- You can use `docker-compose exec <command>` instead of 
-`docker-compose run <command>` to running in a container that is already up in 
+- You can use `docker compose exec <command>` instead of 
+`docker compose run <command>` to running in a container that is already up in 
 another terminal.
 - If you want an interative terminal (for example, with `psql`) you must use
-`docker-compose exec -it <command>` or else the script will just execute without
+`docker compose exec -it <command>` or else the script will just execute without
 any further input from you.
 
 ### Scripts (Linux)
@@ -127,29 +128,29 @@ any further input from you.
 Here are some possible scripts you can make to avoid lots of typing:
 - Create the `*/migrations/__init__.py` files:
 ```
-docker-compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker-compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
 ```
 
 - Make migrations while being sure to touch `*/migrations/__init__.py` files:
 ```
-docker-compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker-compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
-docker-compose run cme-ctc-web python manage.py makemigrations
+docker compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker compose run cme-ctc-web python manage.py makemigrations
 ```
   - You do not need this and the script above, this one is here just in case
   you tend to forget to run the above script.
 
 - Migrate:
 ```
-docker-compose run cme-ctc-web python manage.py migrate
+docker compose run cme-ctc-web python manage.py migrate
 ```
 
 - Run general commands from `manage.py` in the container:
 ```
-docker-compose run cme-ctc-web python manage.py "$@"
+docker compose run cme-ctc-web python manage.py "$@"
 ```
-  - *NEVER* use this to run the server, `docker-compose up` already does that for you.
+  - *NEVER* use this to run the server, `docker compose up` already does that for you.
   - If this script had relative path `developer_scripts/manage`, you would call 
   it like `developer_scripts/manage test` to run tests, or `developer_scripts/manage makemigrations cme_accounts` 
 
@@ -161,14 +162,14 @@ the automated tests and perform a manual full-stack test of all features.
 ## Run the Automated Tests (Docker)
 
 - If the containers are not up, run 
-`docker-compose run cme-ctc-web python manage.py test`
+`docker compose run cme-ctc-web python manage.py test`
 - Otherwise you could instead run
-`docker-compose exec cme-ctc-web python manage.py test`
+`docker compose exec cme-ctc-web python manage.py test`
 in another terminal.
 
 ## Full-stack Testing (Docker)
 
-Run `docker-compose up` if your containers are not up and perform the feature 
+Run `docker compose up` if your containers are not up and perform the feature 
 checks below.
 
 ### Feature Checks
@@ -190,7 +191,7 @@ shows it correctly eac time.
 12. Delete the commitment and verify that it is no longer present in the
 dashboard or course page.
 13. Create another commitment.
-14. Using `docker-compose exec -it cme-ctc-db psql -U postgres postgres` in 
+14. Using `docker compose exec -it cme-ctc-db psql -U postgres postgres` in 
 another terminal, run the following `psql` command:
 ```
 UPDATE commitments_commitment SET deadline='2000-01-01' WHERE id=2;

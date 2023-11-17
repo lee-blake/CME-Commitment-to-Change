@@ -56,7 +56,89 @@ python -c "import secrets; print(secrets.token_urlsafe())"
 4. Paste the secret key in Step 3 in between single quotes after `SECRET_KEY` 
 in `custom_settings.py`.
 
+### Build the Docker Containers
 
+1. Run `docker-compose build`.
+2. Verify the containers run with `docker-compose up`.
+  - On your host machine, navigate to `127.0.0.1:8000`.
+  - You may need to run this twice because the database can be slow to 
+  initialize the first time.
+
+### Perform Migrations
+
+1. Run the containers with `docker-compose up`.
+2. ***In another terminal***, run the following commands:
+```
+docker-compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker-compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker-compose run cme-ctc-web python manage.py makemigrations
+docker-compose run cme-ctc-web python manage.py migrate
+```
+  - The call to `docker-compose` might be different on Windows. However,
+  everything from `run cme-ctc-web` and after should not change.
+
+### Verify the App
+
+You should perform all of the tests specified [here]().
+
+## Docker-Specific Considerations
+
+Since under Docker replication the database is in a container, all operations
+involving it should generally be done in the Docker containers unless there
+is an extremely compelling reason not to. This means that migrations and 
+test runs should be done in the container. It can be particularly annoying
+to frequently type things like 
+`docker-compose run cme-ctc-web python manage.py test`, so automation via 
+shortening scripts is strongly recommended. See the section below for how
+to do so is strongly recommended.
+
+### Migrating in Docker
+
+Since migrations are not currently version controlled, it is best to generate
+them within the container so they can be easily discarded with the database if
+need be. The `docker-compose` configuration we have manages this by mounting 
+volumes for every `*/migrations/` directory. 
+However, the volumes mounted at the migration folders  do not initially 
+contain `__init__.py`, which will cause the migration process to fail. Since
+such files will serve their purpose even when empty, you can `touch` them
+from inside the container every time you create/recreate the containers. If you 
+are prone to forgetting to do this, it is recommended that you automate this 
+process for your migration scripts.
+
+Note that the `touch` calls will cause a restart of the server because files 
+have changed. Don't put them on scripts that don't need them (ie non-migration 
+scripts).
+
+### Scripts (Linux)
+
+Here are some possible scripts you can make to avoid lots of typing:
+- Create the `*/migrations/__init__.py` files:
+```
+docker-compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker-compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+```
+
+- Make migrations while being sure to touch `*/migrations/__init__.py` files:
+```
+docker-compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker-compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker-compose run cme-ctc-web python manage.py makemigrations
+```
+  - You do not need this and the script above, this one is here just in case
+  you tend to forget to run the above script.
+
+- Migrate:
+```
+docker-compose run cme-ctc-web python manage.py migrate
+```
+
+- Run general commands from `manage.py` in the container:
+```
+docker-compose run cme-ctc-web python manage.py "$@"
+```
+  - *NEVER* use this to run the server, `docker-compose` already does that for you.
+  - If this script had relative path `developer_scripts/manage`, you would call 
+  it like `developer_scripts/manage test` to run tests, or `developer_scripts/manage makemigrations cme_accounts` 
 
 # Replicating the Environment (Manual)
 

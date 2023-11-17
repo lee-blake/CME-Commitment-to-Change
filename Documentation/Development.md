@@ -112,6 +112,9 @@ scripts).
 
 ### General Script Tips
 
+**Convenience scripts should generally be put in `dev_scripts` so they are 
+not tracked.**
+
 - You can use `docker-compose exec <command>` instead of 
 `docker-compose run <command>` to running in a container that is already up in 
 another terminal.

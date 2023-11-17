@@ -1,4 +1,66 @@
-# Replicating the Environment
+# Replicating the Environment (Docker)
+
+This is the recommended replication method; however, if you really hate Docker, 
+consult the instructions for [replicating manually](#replicating-the-environment-manual).
+
+## Replication Instructions
+
+### Install Docker Compose
+
+#### Linux Install
+
+- Most Linux distributions have a package for Docker Compose and you should consult
+your distributions documentation for installing it.
+  - On Arch, install `docker-compose` with pacman.
+- You should ensure your user is added to the `docker` group so you can run without sudo.
+  - If you do not want to log out, run `su <your username>` before executing
+  Docker commands
+- On systemd machines, you should ensure the Docker daemon is started before
+executing commands.
+  - Start it manually or implement one of the two options given 
+  [here](https://wiki.archlinux.org/title/Docker#Installation).
+
+### Create `custom_settings.py`
+
+1. Create a file called `custom_settings.py` in 
+`Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
+- **Do _NOT_ commit this file under any circumstances!** We do not want to 
+  know your database or secret key details, which is why it has been separated 
+  from `settings.py`!
+
+
+2. Paste the following into `custom_settings.py`:
+```
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'Insecure7',
+        'HOST': 'cme-ctc-db',
+        'PORT': '5432',
+    }
+}
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = ''
+```
+
+3. Run the following code in your terminal to generate a secret key:
+```
+python -c "import secrets; print(secrets.token_urlsafe())"
+```
+
+4. Paste the secret key in Step 3 in between single quotes after `SECRET_KEY` 
+in `custom_settings.py`.
+
+
+
+# Replicating the Environment (Manual)
+
+This method is trickier than [Replicating with Docker](#replicating-the-environment-docker) and is considered deprecated.
 
 ## Environment Overview
 
@@ -166,6 +228,43 @@ Creating a symlink to `psql` that lives in a path directory should work
 
 ---
 
+### Create `custom_settings.py`
+
+1. Create a file called `custom_settings.py` in 
+`Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
+  - **Do _NOT_ commit this file under any circumstances!** We do not want to 
+  know your database or secret key details, which is why it has been separated 
+  from `settings.py`!
+
+
+2. Paste the following into `custom_settings.py`:
+```
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'commitment_to_change_app',
+        'USER': 'username',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = ''
+```
+
+3. Run the following code in your terminal to generate a secret key:
+```
+python -c "import secrets; print(secrets.token_urlsafe())"
+```
+
+4. Paste the secret key in Step 3 into the single quotes after `SECRET_KEY` in `custom_settings.py`.
+
+5. Modify the `NAME`, `USERNAME`, and `PASSWORD` keys under `DATABASES` in `custom_settings.py` to match whatever you set them to in [Install and Configure PostgreSQL](#install-and-configure-postgresql).
+
 ### Get Django to work with PostgreSQL
 
 1. Install the `psycopg2` Python package by running `pip install psycopg2`.
@@ -176,33 +275,9 @@ Creating a symlink to `psql` that lives in a path directory should work
 - ### psycopg2 NOTE:
   - psycopg2 must be installed while your virtual environment is active [as explained here](#important) If it is not, psycopg2 will install in your system site-packages and not in your virtual environment, causing it to be unreachable in your venv.
 
-2. In `Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App`, create a file called `database_authentication.py`. You will know it is in the right place if it lives in the same directory as `settings.py`, `asgi.py`, and `wsgi.py`
-   ![Database_Authentication file location](<../Auxiliary Files/Images/Development_Images/database_authenticationLocation.png>)
-3. Put the following in `database_authentication.py`, subject to whatever you did when installing and configuring PostgreSQL:
-
-```
-POSTGRESQL_DATABASE_NAME = 'commitment_to_change_app'
-POSTGRESQL_DATABASE_USERNAME = 'username'
-POSTGRESQL_DATABASE_PASSWORD = 'password'
-```
-
-- **Do _NOT_ commit this file under any circumstances!** We do not want to know your database authentication details, which is why it has been separated from `settings.py`!
-
-4. Run the following code in your terminal to generate a secret key:
-```
-python -c "import secrets; print(secrets.token_urlsafe())"
-```
-Then create a file called `secret_keys.py` next to `database_authentication.py`.
-Its contents should be 
-```
-SERVER_SECRET_KEY = '<output of secret key generation>'
-```
-- **Do _NOT_ commit this file under any circumstances!** We do not want to know your secret key details, which is why it has been separated from `settings.py`!
-
-
-5. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
-6. Run `python manage.py makemigrations` to create the migrations to be performed.
-7. Run `python manage.py migrate` to perform the migrations.
+2. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
+3. Run `python manage.py makemigrations` to create the migrations to be performed.
+4. Run `python manage.py migrate` to perform the migrations.
 
    - Migrate troubleshooting:
      - `ImportError: Couldn't import Django`: This may mean your virtual environment is not currently active. Please activate your environment [as explained here](#important) and try again.

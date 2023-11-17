@@ -116,12 +116,12 @@ scripts).
 **Convenience scripts should generally be put in `dev_scripts` so they are 
 not tracked.**
 
-- You can use `docker compose exec <command>` instead of 
-`docker compose run <command>` to running in a container that is already up in 
-another terminal.
+- You can use `docker compose exec <container> <command>` instead of 
+`docker compose run <container> <command>` to running in a container that is 
+already up in another terminal.
 - If you want an interative terminal (for example, with `psql`) you must use
-`docker compose exec -it <command>` or else the script will just execute without
-any further input from you.
+`docker compose exec -it <container> <command>` or else the script will just 
+execute without any further input from you.
 
 ### Scripts (Linux)
 

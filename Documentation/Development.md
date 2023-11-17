@@ -66,8 +66,7 @@ in `custom_settings.py`.
 
 ### Perform Migrations
 
-1. Run the containers with `docker-compose up`.
-2. ***In another terminal***, run the following commands:
+1. Run the following commands:
 ```
 docker-compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
 docker-compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
@@ -93,6 +92,7 @@ to frequently type things like
 shortening scripts is strongly recommended. See the section below for how
 to do so is strongly recommended.
 
+
 ### Migrating in Docker
 
 Since migrations are not currently version controlled, it is best to generate
@@ -109,6 +109,15 @@ process for your migration scripts.
 Note that the `touch` calls will cause a restart of the server because files 
 have changed. Don't put them on scripts that don't need them (ie non-migration 
 scripts).
+
+### General Script Tips
+
+- You can use `docker-compose exec <command>` instead of 
+`docker-compose run <command>` to running in a container that is already up in 
+another terminal.
+- If you want an interative terminal (for example, with `psql`) you must use
+`docker-compose exec -it <command>` or else the script will just execute without
+any further input from you.
 
 ### Scripts (Linux)
 
@@ -137,7 +146,7 @@ docker-compose run cme-ctc-web python manage.py migrate
 ```
 docker-compose run cme-ctc-web python manage.py "$@"
 ```
-  - *NEVER* use this to run the server, `docker-compose` already does that for you.
+  - *NEVER* use this to run the server, `docker-compose up` already does that for you.
   - If this script had relative path `developer_scripts/manage`, you would call 
   it like `developer_scripts/manage test` to run tests, or `developer_scripts/manage makemigrations cme_accounts` 
 
@@ -153,8 +162,6 @@ the automated tests and perform a manual full-stack test of all features.
 - Otherwise you could instead run
 `docker-compose exec cme-ctc-web python manage.py test`
 in another terminal.
-
-
 
 ## Full-stack Testing (Docker)
 

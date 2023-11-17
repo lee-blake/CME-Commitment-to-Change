@@ -79,7 +79,8 @@ docker-compose run cme-ctc-web python manage.py migrate
 
 ### Verify the App
 
-You should perform all of the tests specified [here]().
+You should perform all of the tests specified 
+[here](#testing-the-environment-and-app-with-docker).
 
 ## Docker-Specific Considerations
 
@@ -139,6 +140,59 @@ docker-compose run cme-ctc-web python manage.py "$@"
   - *NEVER* use this to run the server, `docker-compose` already does that for you.
   - If this script had relative path `developer_scripts/manage`, you would call 
   it like `developer_scripts/manage test` to run tests, or `developer_scripts/manage makemigrations cme_accounts` 
+
+# Testing the environment and app (with Docker)
+
+Currently, our unit and integration testing is quite poor. You should both run
+the automated tests and perform a manual full-stack test of all features.
+
+## Run the Automated Tests (Docker)
+
+- If the containers are not up, run 
+`docker-compose run cme-ctc-web python manage.py test`
+- Otherwise you could instead run
+`docker-compose exec cme-ctc-web python manage.py test`
+in another terminal.
+
+
+
+## Full-stack Testing (Docker)
+
+Run `docker-compose up` if your containers are not up and perform the feature 
+checks below.
+
+### Feature Checks
+
+1. Create and log in to a new provider account.
+2. Create a new course and verify it shows in the dashboard.
+3. Edit that course and verify that the changes are reflected.
+4. Copy the invite link for that course.
+5. Log out.
+6. Create and log in to a new clinician account.
+7. Use the invite link and verify the course shows in your dashboard.
+8. Create a new commitment and verify it shows in the dashboard.
+9. Edit that commitment and verify that it changes correctly.
+10. Edit the commitment to be associated with a course. Verify it shows in the
+course page and status count table.
+11. Mark it complete, reopen, mark it discontinued, reopen. Verify that it
+shows in the correct sections and that the course view status count table
+shows it correctly eac time.
+12. Delete the commitment and verify that it is no longer present in the
+dashboard or course page.
+13. Create another commitment.
+14. Using `docker-compose exec -it cme-ctc-db psql -U postgres postgres` in 
+another terminal, run the following `psql` command:
+```
+UPDATE commitments_commitment SET deadline='2000-01-01' WHERE id=2;
+```
+  - The id should be 2 if you have created no other commitments.
+15. Verify that the commitment shows in the expired category on the dashboard
+after refreshing.
+16. Discontinue the commitment and reopen. Verify that it correctly returns
+to the expired category.
+17. If all of the above proceed without incident, the software likely functions
+correctly.
+
 
 # Replicating the Environment (Manual)
 
@@ -432,7 +486,7 @@ Django functionality, particularly Django models.
 
 ---
 
-# Testing the environment and app
+# Testing the environment and app (Manual replication)
 
 If you're using Windows, use the specific steps for Windows.
 

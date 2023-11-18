@@ -25,3 +25,7 @@ We're not done with this but here is some documentation:
 may not be entirely applicable to non-Arch systems but has some good recipes.
 - [https://medium.com/@jonas.granlund/docker-essentials-building-and-running-your-first-container-47aff380b50b](https://medium.com/@jonas.granlund/docker-essentials-building-and-running-your-first-container-47aff380b50b)
 - [https://medium.com/@jonas.granlund/running-django-with-postgresql-in-docker-a-step-by-step-guide-f6ab3bf05f44](https://medium.com/@jonas.granlund/running-django-with-postgresql-in-docker-a-step-by-step-guide-f6ab3bf05f44)
+
+# How to use Pytest with Django
+- Not just this page, but the site as a whole: https://pytest-django.readthedocs.io/en/latest/index.html
+- https://djangostars.com/blog/django-pytest-testing/

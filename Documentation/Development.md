@@ -33,7 +33,7 @@ executing commands.
 ### Create `custom_settings.py`
 
 1. Create a file called `custom_settings.py` in 
-`Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
+`Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
 - **Do _NOT_ commit this file under any circumstances!** We do not want to 
   know your database or secret key details, which is why it has been separated 
   from `settings.py`!

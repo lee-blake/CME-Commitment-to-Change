@@ -13,9 +13,10 @@ consult the instructions for [replicating manually](#replicating-the-environment
 your distributions documentation for installing it.
   - On Arch, install `docker-compose` with pacman.
     - You will need to run `docker-compose` instead of `docker compose`
-- You should ensure your user is added to the `docker` group so you can run without sudo.
+- You should ensure your user is added to the `docker` group if you want to run without sudo.
   - If you do not want to log out, run `su <your username>` before executing
   Docker commands
+  - Note that this will mean that you are root for all intents and purposes.
 - On systemd machines, you should ensure the Docker daemon is started before
 executing commands.
   - Start it manually or implement one of the two options given 

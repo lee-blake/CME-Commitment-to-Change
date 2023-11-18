@@ -11,7 +11,7 @@ consult the instructions for [replicating manually](#replicating-the-environment
 
 - Most Linux distributions have a package for Docker Compose and you should consult
 your distributions documentation for installing it.
-  - On Arch, install `docker compose` with pacman.
+  - On Arch, install `docker-compose` with pacman.
     - You will need to run `docker-compose` instead of `docker compose`
 - You should ensure your user is added to the `docker` group so you can run without sudo.
   - If you do not want to log out, run `su <your username>` before executing

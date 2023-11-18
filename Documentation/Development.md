@@ -22,6 +22,14 @@ executing commands.
   - Start it manually or implement one of the two options given 
   [here](https://wiki.archlinux.org/title/Docker#Installation).
 
+### Clone the Main Code Repo
+
+1. Navigate to the directory you want the root of the project to live in. All
+   future paths will be relative to this directory.
+2. Run
+   `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`
+   in the desired directory to clone to.
+
 ### Create `custom_settings.py`
 
 1. Create a file called `custom_settings.py` in 

@@ -32,3 +32,9 @@ may not be entirely applicable to non-Arch systems but has some good recipes.
 - https://mattsegal.dev/django-with-pytest-on-github-actions.html
 ## (Important) General Django Test Features - check if supported in pytest
 - https://docs.djangoproject.com/en/4.2/topics/testing/tools/#email-services
+## Weird Errors
+- If you get
+```
+RuntimeError: Model class app.commitments.models.ClinicianProfile doesn't declare an explicit app_label and isn't in an application in INSTALLED_APPS.
+```
+try removing `__init__.py` from beside `manage.py`.

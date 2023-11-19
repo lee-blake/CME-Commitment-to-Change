@@ -175,11 +175,17 @@ the automated tests and perform a manual full-stack test of all features.
 ## Run the Automated Tests (Docker)
 
 - If the containers are not up, run 
-`docker compose run cme-ctc-web python manage.py test`
+`docker compose run cme-ctc-web pytest`
 - Otherwise you could instead run
-`docker compose exec cme-ctc-web python manage.py test`
+`docker compose exec cme-ctc-web pytest`
 in another terminal.
 
+### Running with Coverage (Docker)
+Run
+```
+docker compose run cme-ctc-web coverage -m pytest
+docker compose run cme-ctc-web coverage report
+```
 ## Full-stack Testing (Docker)
 
 Run `docker compose up` if your containers are not up and perform the feature 
@@ -520,8 +526,11 @@ Otherwise, use the general steps and consult your specific OS's documentation fo
 
 1. Activate the environment using the instructions in [Full Stack Testing](#full-stack-testing)
 
-2. Instead of starting the server with `python manage.py runserver`, run 
-`python manage.py test`
+2. Run `pytest` in the directory where `manage.py` is located. If coverage is desired, run
+```
+coverage -m pytest
+coverage report
+```
 
 ### Location of Unit and Integration tests
 

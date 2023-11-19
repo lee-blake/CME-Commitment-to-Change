@@ -22,6 +22,12 @@ executing commands.
   - Start it manually or implement one of the two options given 
   [here](https://wiki.archlinux.org/title/Docker#Installation).
 
+#### Windows install
+- Docker-compose is included with Docker by default in the installer.
+- Download the Docker installer [from Docker.com](https://www.docker.com/products/docker-desktop/) and follow the prompts. A restart will be required to finish installation.
+- All default settings during installation and setup are fine.
+
+
 ### Clone the Main Code Repo
 
 1. Navigate to the directory you want the root of the project to live in. All
@@ -83,8 +89,6 @@ docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
 docker compose run cme-ctc-web python manage.py makemigrations
 docker compose run cme-ctc-web python manage.py migrate
 ```
-  - The call to `docker compose` might be different on Windows. However,
-  everything from `run cme-ctc-web` and after should not change.
 
 ### Verify the App
 

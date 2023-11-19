@@ -1,4 +1,226 @@
-# Replicating the Environment
+# Replicating the Environment (Docker)
+
+This is the recommended replication method; however, if you really hate Docker, 
+consult the instructions for [replicating manually](#replicating-the-environment-manual).
+
+## Replication Instructions
+
+### Install Docker Compose
+
+#### Linux Install
+
+- Most Linux distributions have a package for Docker Compose and you should consult
+your distributions documentation for installing it.
+  - On Arch, install `docker-compose` with pacman.
+    - You will need to run `docker-compose` instead of `docker compose`
+- You should ensure your user is added to the `docker` group if you want to run without sudo.
+  - If you do not want to log out, run `su <your username>` before executing
+  Docker commands
+  - Note that this will mean that you are root for all intents and purposes.
+- On systemd machines, you should ensure the Docker daemon is started before
+executing commands.
+  - Start it manually or implement one of the two options given 
+  [here](https://wiki.archlinux.org/title/Docker#Installation).
+
+#### Windows install
+- Docker-compose is included with Docker by default in the installer.
+- Download the Docker installer [from Docker.com](https://www.docker.com/products/docker-desktop/) and follow the prompts. A restart will be required to finish installation.
+- All default settings during installation and setup are fine.
+
+
+### Clone the Main Code Repo
+
+1. Navigate to the directory you want the root of the project to live in. All
+   future paths will be relative to this directory.
+2. Run
+   `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`
+   in the desired directory to clone to.
+
+### Create `custom_settings.py`
+
+1. Create a file called `custom_settings.py` in 
+`Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
+- **Do _NOT_ commit this file under any circumstances!** We do not want to 
+  know your database or secret key details, which is why it has been separated 
+  from `settings.py`!
+
+
+2. Paste the following into `custom_settings.py`:
+```
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'Insecure7',
+        'HOST': 'cme-ctc-db',
+        'PORT': '5432',
+    }
+}
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = ''
+```
+
+3. Run the following code in your terminal to generate a secret key:
+```
+python -c "import secrets; print(secrets.token_urlsafe())"
+```
+
+4. Paste the secret key in Step 3 in between single quotes after `SECRET_KEY` 
+in `custom_settings.py`.
+
+### Build the Docker Containers
+
+1. Run `docker compose build`.
+2. Verify the containers run with `docker compose up`.
+  - On your host machine, navigate to `127.0.0.1:8000`.
+  - You may need to run this twice because the database can be slow to 
+  initialize the first time.
+
+### Perform Migrations
+
+1. Run the following commands:
+```
+docker compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker compose run cme-ctc-web python manage.py makemigrations
+docker compose run cme-ctc-web python manage.py migrate
+```
+
+### Verify the App
+
+You should perform all of the tests specified 
+[here](#testing-the-environment-and-app-with-docker).
+
+## Docker-Specific Considerations
+
+Since under Docker replication the database is in a container, all operations
+involving it should generally be done in the Docker containers unless there
+is an extremely compelling reason not to. This means that migrations and 
+test runs should be done in the container. It can be particularly annoying
+to frequently type things like 
+`docker compose run cme-ctc-web python manage.py test`, so automation via 
+shortening scripts is strongly recommended. See the section below for how
+to do so is strongly recommended.
+
+
+### Migrating in Docker
+
+Since migrations are not currently version controlled, it is best to generate
+them within the container so they can be easily discarded with the database if
+need be. The `docker compose` configuration we have manages this by mounting 
+volumes for every `*/migrations/` directory. 
+However, the volumes mounted at the migration folders  do not initially 
+contain `__init__.py`, which will cause the migration process to fail. Since
+such files will serve their purpose even when empty, you can `touch` them
+from inside the container every time you create/recreate the containers. If you 
+are prone to forgetting to do this, it is recommended that you automate this 
+process for your migration scripts.
+
+Note that the `touch` calls will cause a restart of the server because files 
+have changed. Don't put them on scripts that don't need them (ie non-migration 
+scripts).
+
+### General Script Tips
+
+**Convenience scripts should generally be put in `dev_scripts` so they are 
+not tracked.**
+
+- You can use `docker compose exec <container> <command>` instead of 
+`docker compose run <container> <command>` to running in a container that is 
+already up in another terminal.
+- If you want an interative terminal (for example, with `psql`) you must use
+`docker compose exec -it <container> <command>` or else the script will just 
+execute without any further input from you.
+
+### Scripts (Linux)
+
+Here are some possible scripts you can make to avoid lots of typing:
+- Create the `*/migrations/__init__.py` files:
+```
+docker compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+```
+
+- Make migrations while being sure to touch `*/migrations/__init__.py` files:
+```
+docker compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker compose run cme-ctc-web python manage.py makemigrations
+```
+  - You do not need this and the script above, this one is here just in case
+  you tend to forget to run the above script.
+
+- Migrate:
+```
+docker compose run cme-ctc-web python manage.py migrate
+```
+
+- Run general commands from `manage.py` in the container:
+```
+docker compose run cme-ctc-web python manage.py "$@"
+```
+  - *NEVER* use this to run the server, `docker compose up` already does that for you.
+  - If this script had relative path `developer_scripts/manage`, you would call 
+  it like `developer_scripts/manage test` to run tests, or `developer_scripts/manage makemigrations cme_accounts` 
+
+# Testing the environment and app (with Docker)
+
+Currently, our unit and integration testing is quite poor. You should both run
+the automated tests and perform a manual full-stack test of all features.
+
+## Run the Automated Tests (Docker)
+
+- If the containers are not up, run 
+`docker compose run cme-ctc-web python manage.py test`
+- Otherwise you could instead run
+`docker compose exec cme-ctc-web python manage.py test`
+in another terminal.
+
+## Full-stack Testing (Docker)
+
+Run `docker compose up` if your containers are not up and perform the feature 
+checks below.
+
+### Feature Checks
+
+1. Create and log in to a new provider account.
+2. Create a new course and verify it shows in the dashboard.
+3. Edit that course and verify that the changes are reflected.
+4. Copy the invite link for that course.
+5. Log out.
+6. Create and log in to a new clinician account.
+7. Use the invite link and verify the course shows in your dashboard.
+8. Create a new commitment and verify it shows in the dashboard.
+9. Edit that commitment and verify that it changes correctly.
+10. Edit the commitment to be associated with a course. Verify it shows in the
+course page and status count table.
+11. Mark it complete, reopen, mark it discontinued, reopen. Verify that it
+shows in the correct sections and that the course view status count table
+shows it correctly eac time.
+12. Delete the commitment and verify that it is no longer present in the
+dashboard or course page.
+13. Create another commitment.
+14. Using `docker compose exec -it cme-ctc-db psql -U postgres postgres` in 
+another terminal, run the following `psql` command:
+```
+UPDATE commitments_commitment SET deadline='2000-01-01' WHERE id=2;
+```
+  - The id should be 2 if you have created no other commitments.
+15. Verify that the commitment shows in the expired category on the dashboard
+after refreshing.
+16. Discontinue the commitment and reopen. Verify that it correctly returns
+to the expired category.
+17. If all of the above proceed without incident, the software likely functions
+correctly.
+
+
+# Replicating the Environment (Manual)
+
+This method is trickier than [Replicating with Docker](#replicating-the-environment-docker) and is considered deprecated.
 
 ## Environment Overview
 
@@ -166,6 +388,43 @@ Creating a symlink to `psql` that lives in a path directory should work
 
 ---
 
+### Create `custom_settings.py`
+
+1. Create a file called `custom_settings.py` in 
+`Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
+  - **Do _NOT_ commit this file under any circumstances!** We do not want to 
+  know your database or secret key details, which is why it has been separated 
+  from `settings.py`!
+
+
+2. Paste the following into `custom_settings.py`:
+```
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'commitment_to_change_app',
+        'USER': 'username',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = ''
+```
+
+3. Run the following code in your terminal to generate a secret key:
+```
+python -c "import secrets; print(secrets.token_urlsafe())"
+```
+
+4. Paste the secret key in Step 3 into the single quotes after `SECRET_KEY` in `custom_settings.py`.
+
+5. Modify the `NAME`, `USERNAME`, and `PASSWORD` keys under `DATABASES` in `custom_settings.py` to match whatever you set them to in [Install and Configure PostgreSQL](#install-and-configure-postgresql).
+
 ### Get Django to work with PostgreSQL
 
 1. Install the `psycopg2` Python package by running `pip install psycopg2`.
@@ -176,33 +435,9 @@ Creating a symlink to `psql` that lives in a path directory should work
 - ### psycopg2 NOTE:
   - psycopg2 must be installed while your virtual environment is active [as explained here](#important) If it is not, psycopg2 will install in your system site-packages and not in your virtual environment, causing it to be unreachable in your venv.
 
-2. In `Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App`, create a file called `database_authentication.py`. You will know it is in the right place if it lives in the same directory as `settings.py`, `asgi.py`, and `wsgi.py`
-   ![Database_Authentication file location](<../Auxiliary Files/Images/Development_Images/database_authenticationLocation.png>)
-3. Put the following in `database_authentication.py`, subject to whatever you did when installing and configuring PostgreSQL:
-
-```
-POSTGRESQL_DATABASE_NAME = 'commitment_to_change_app'
-POSTGRESQL_DATABASE_USERNAME = 'username'
-POSTGRESQL_DATABASE_PASSWORD = 'password'
-```
-
-- **Do _NOT_ commit this file under any circumstances!** We do not want to know your database authentication details, which is why it has been separated from `settings.py`!
-
-4. Run the following code in your terminal to generate a secret key:
-```
-python -c "import secrets; print(secrets.token_urlsafe())"
-```
-Then create a file called `secret_keys.py` next to `database_authentication.py`.
-Its contents should be 
-```
-SERVER_SECRET_KEY = '<output of secret key generation>'
-```
-- **Do _NOT_ commit this file under any circumstances!** We do not want to know your secret key details, which is why it has been separated from `settings.py`!
-
-
-5. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
-6. Run `python manage.py makemigrations` to create the migrations to be performed.
-7. Run `python manage.py migrate` to perform the migrations.
+2. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
+3. Run `python manage.py makemigrations` to create the migrations to be performed.
+4. Run `python manage.py migrate` to perform the migrations.
 
    - Migrate troubleshooting:
      - `ImportError: Couldn't import Django`: This may mean your virtual environment is not currently active. Please activate your environment [as explained here](#important) and try again.
@@ -275,7 +510,7 @@ Django functionality, particularly Django models.
 
 ---
 
-# Testing the environment and app
+# Testing the environment and app (Manual replication)
 
 If you're using Windows, use the specific steps for Windows.
 

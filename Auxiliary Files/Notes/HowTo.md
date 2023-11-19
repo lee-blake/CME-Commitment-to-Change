@@ -29,3 +29,5 @@ may not be entirely applicable to non-Arch systems but has some good recipes.
 # How to use Pytest with Django
 - Not just this page, but the site as a whole: https://pytest-django.readthedocs.io/en/latest/index.html
 - https://djangostars.com/blog/django-pytest-testing/
+## (Important) General Django Test Features - check if supported in pytest
+- https://docs.djangoproject.com/en/4.2/topics/testing/tools/#email-services

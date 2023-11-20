@@ -513,6 +513,11 @@ Django functionality, particularly Django models.
         "--django-settings-module=Commitment_to_Change_App.settings",
     ]
 ```
+- Problems with linting imports: If you encounter errors when importing from a module that shares a common ancestor with the file being linted, this is an issue with the `pylint` working directory.
+  - For example: If in `commitments.tests.test_models.py` the import of `commitments.models`, pylint says it cannot import,
+  then that is an issue of this problem because `test_models.py` and `models.py` both have the `commitments` ancestor package.
+  - Solution: Make sure the current working directory for `pylint` contains `manage.py` by modifying the settings.
+    - If you run from the repo root, the CWD should be `${workspaceFolder}/Commitment_to_Change_App`.
 
 ---
 

@@ -84,10 +84,12 @@ in `custom_settings.py`.
 
 1. Run the following commands:
 ```
-docker compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
-docker compose run cme-ctc-web python manage.py makemigrations
-docker compose run cme-ctc-web python manage.py migrate
+docker compose start
+docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker compose exec -it cme-ctc-web python manage.py makemigrations
+docker compose exec cme-ctc-web python manage.py migrate
+docker compose stop
 ```
 
 ### Verify the App
@@ -102,8 +104,12 @@ involving it should generally be done in the Docker containers unless there
 is an extremely compelling reason not to. This means that migrations and 
 test runs should be done in the container. It can be particularly annoying
 to frequently type things like 
-`docker compose run cme-ctc-web python manage.py test`, so automation via 
-shortening scripts is strongly recommended. See the section below for how
+```
+docker compose start
+docker compose exec cme-ctc-web pytest
+docker compose stop
+```
+so automation via scripts is strongly recommended. See the section below for how
 to do so is strongly recommended.
 
 
@@ -129,9 +135,7 @@ scripts).
 **Convenience scripts should generally be put in `dev_scripts` so they are 
 not tracked.**
 
-- You can use `docker compose exec <container> <command>` instead of 
-`docker compose run <container> <command>` to running in a container that is 
-already up in another terminal.
+- ***WARNING: You should not use `docker compose run` because that makes a new container every time.***
 - If you want an interative terminal (for example, with `psql`) you must use
 `docker compose exec -it <container> <command>` or else the script will just 
 execute without any further input from you.
@@ -141,31 +145,44 @@ execute without any further input from you.
 Here are some possible scripts you can make to avoid lots of typing:
 - Create the `*/migrations/__init__.py` files:
 ```
-docker compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker compose start
+docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker compose stop
 ```
 
 - Make migrations while being sure to touch `*/migrations/__init__.py` files:
 ```
-docker compose run cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker compose run cme-ctc-web touch /app/commitments/migrations/__init__.py
-docker compose run cme-ctc-web python manage.py makemigrations
+docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
+docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
+docker compose exec -it cme-ctc-web python manage.py makemigrations
 ```
   - You do not need this and the script above, this one is here just in case
   you tend to forget to run the above script.
+  - **Make sure to not forget the `-it` option for `makemigrations` because you may need to input values!**
 
 - Migrate:
 ```
-docker compose run cme-ctc-web python manage.py migrate
+docker compose start
+docker compose exec -it cme-ctc-web python manage.py migrate
+docker compose stop
 ```
 
 - Run general commands from `manage.py` in the container:
 ```
-docker compose run cme-ctc-web python manage.py "$@"
+docker compose exec -it cme-ctc-web python manage.py "$@"
 ```
   - *NEVER* use this to run the server, `docker compose up` already does that for you.
   - If this script had relative path `developer_scripts/manage`, you would call 
-  it like `developer_scripts/manage test` to run tests, or `developer_scripts/manage makemigrations cme_accounts` 
+  it like `developer_scripts/manage test` to run tests, or `developer_scripts/manage makemigrations cme_accounts`
+  - **Make sure to not forget the `-it` option for `makemigrations` because you may need to input values!**
+
+- Get a `psql` terminal to run commands in for the main database:
+```
+docker compose start
+docker compose exec -it cme-ctc-db psql -U postgres postgres
+docker compose stop
+```
 
 # Testing the environment and app (with Docker)
 
@@ -175,7 +192,11 @@ the automated tests and perform a manual full-stack test of all features.
 ## Run the Automated Tests (Docker)
 
 - If the containers are not up, run 
-`docker compose run cme-ctc-web pytest`
+```
+docker compose start
+docker compose exec cme-ctc-web pytest
+docker compose stop
+```
 - Otherwise you could instead run
 `docker compose exec cme-ctc-web pytest`
 in another terminal.
@@ -183,8 +204,10 @@ in another terminal.
 ### Running with Coverage (Docker)
 Run
 ```
-docker compose run cme-ctc-web coverage -m pytest
-docker compose run cme-ctc-web coverage report
+docker compose start
+docker compose exec cme-ctc-web coverage -m pytest
+docker compose exec cme-ctc-web coverage report
+docker compose stop
 ```
 ## Full-stack Testing (Docker)
 

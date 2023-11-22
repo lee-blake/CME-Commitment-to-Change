@@ -268,12 +268,13 @@ the latest version of Python from it, as this will likely be better documented
 for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
    - Python is not included by default in Windows or Mac, so it must be downloaded and installed from: https://www.python.org/downloads/
    - To check if you have Python installed, type `python --version` into a Command Prompt. If Python is installed correctly, this command should return the currently installed Python version.
-   - Download the latest Python version that is supported by Django. We are currently using Django version 4.2, so Python version 3.11.6 is the latest supported version.
+   - Download the latest Python version that is supported by Django. *We are currently using Django version 4.2, so Python version 3.11.6 is the latest supported version*.
      - You can check Python/Django version compatibility here: https://www.python.org/downloads/
 
 2. Install Python
 
-   - In the installation dialogue, make sure to check "Add python.exe to PATH". This allows us to execute Python in the command line by simply typing "python" or "py" instead of navigating to it's install location.![python install](<../Auxiliary Files/Images/Development_Images/Python_addToPath.png>)
+   - In the installation dialogue, make sure to check "Add python.exe to PATH". This allows us to execute Python in the command line by simply typing "python" or "py" instead of navigating to it's install location.
+   ![python install](<../Auxiliary Files/Images/Development_Images/Python_addToPath.png>)
      If you forget to check this, you can manually add to PATH later,
      [similarly to how we will do it with PSQL](#install-and-configure-postgresql)
    - Click "install now"
@@ -283,6 +284,7 @@ for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
 
    - Use `python --version` to verify installation.
    - The Python installer includes the Python package manager, known as pip. You can check if pip is installed and list installed packages by using the following command: `pip list`
+   - If pip is not installed, use the command `py get-pip.py` or reinstall python and ensure your PATH is correctly updated. 
 
 ---
 
@@ -411,7 +413,7 @@ Creating a symlink to `psql` that lives in a path directory should work
    ![PostgreSQL creation](<../Auxiliary Files/Images/Development_Images/postGres1stlogin.png>)
 
 7. Give your user database creation permissions by 
-`ALTER USER username CREATEDB;` so Django can run databse tests.
+`ALTER USER username CREATEDB;` so Django can run database tests.
 
 8. Exit `psql` with `\q` or `CTRL + C`. `\q` is preferred as a soft quit.
 
@@ -469,9 +471,15 @@ python -c "import secrets; print(secrets.token_urlsafe())"
 4. Run `python manage.py migrate` to perform the migrations.
 
    - Migrate troubleshooting:
-     - `ImportError: Couldn't import Django`: This may mean your virtual environment is not currently active. Please activate your environment [as explained here](#important) and try again.
-     - `Error loading psycopg2 or psycopg module`: pyscopg2 was probably not installed in your virtual environment. Make sure to install it while your environment is activated, [as explained above](#psycopg2-note).
-
+     - `ImportError: Couldn't import Django`: This may mean your virtual environment is not currently active. Please
+     activate your environment [as explained here](#important) and try again.
+     - `Error loading psycopg2 or psycopg module`: pyscopg2 was probably not installed in your virtual environment. Make
+     sure to install it while your environment is activated, [as explained above](#psycopg2-note).
+     - `Thrown exceptions`: If migrations have been made after the initial migrations and there are thrown exceptions,
+     the migration changes are stored in the `migrations.py` folders in the project files. These files should be deleted
+     minus the `__init.py__` and `py manage.py makemigrations` should be run in the command line again. See [Troubleshooting](#migrating-when-updating-from-git)
+     for more troubleshooting tips.
+    
 ---
 
 # Configuring your IDE
@@ -495,7 +503,7 @@ saying that Course has no such field) in Community Edition:
   There are three solutions to this problem:
     1. Get the Professional Edition
     2. Use VSCode instead 
-    3. Manually suppress these problems and trust that the if the code runs 
+    3. Manually suppress these problems and trust that if the code runs 
     without crashing or bugs, the errors are not so important after all.
 
 ---
@@ -516,7 +524,7 @@ This has been tested on Linux only.
 1. While your virtual environment is active in the shell, navigate to the root
 directory of the project containing `.gitignore`
 2. Execute `code .`
-3. Alternative, navigate to the directory with `manage.py` and execute `code ..`
+3. Alternatively, navigate to the directory with `manage.py` and execute `code ..`
 
 ### VSCode troubleshooting
 
@@ -583,7 +591,7 @@ In each app there is a `test.py` files where all automated tests are located.
      - While in your route directory, type `Scripts\activate.bat`
      - Then navigate down the directory with `cd Commitment-to-Change-App\Commitment_to_Change_App`. You can then type `dir` to check for the `manage.py` file.
      - Now type `py manage.py runserver`
-       ![Alt text](<../Auxiliary Files/Images/Development_Images/WindowsCMDSteps.png>)
+     ![Alt text](<../Auxiliary Files/Images/Development_Images/WindowsCMDSteps.png>)
 
 ---
 
@@ -644,7 +652,7 @@ Whenever you update the project and notice changes, it is advisable to run migra
 python manage.py makemigrations
 python manage.py migrate
 ```
-as any changes to the models require this. If you are worried about your database, consider creating a new one to test the new code on. Follow the database wipeout procedure below, but with the following exceptions:
+as any changes to the models require this. If you are worried about your database, consider creating a new one to test the new code on. Follow the database wipe-out procedure below, but with the following exceptions:
 - Backup every numbered file in the `migrations` folders before deleting them
 - Do not run the `DROP DATABASE commitment_to_change_app;` command
 - Run `CREATE DATABASE commitment_to_change_app2 WITH OWNER username;` to create
@@ -653,7 +661,7 @@ a new database with a different name but same owner
 
 In this way, you always have your old database and migrations and can restore them to manually migrate if need be.
 
-## Database Wipeout Procedure
+## Database Wipe-out Procedure
 
 In some cases, figuring out migrations for existing objects can be more effort than simply recreating a fresh database. The following steps need to be performed to do this:
 

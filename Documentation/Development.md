@@ -80,7 +80,7 @@ in `custom_settings.py`.
   - You may need to run this twice because the database can be slow to 
   initialize the first time.
 
-### Perform Migrations
+### Perform Migrations (Docker)
 
 1. Run the following commands:
 ```
@@ -618,6 +618,27 @@ would use `https` only.
 
 ## Migrating When Updating from Git
 
+### With Docker 
+
+
+Whenever you update the project and notice changes, it is advisable to run migrations with
+```
+docker compose start
+docker compose exec -it cme-ctc-web python manage.py makemigrations
+docker compose exec -it cme-ctc-web python manage.py migrate
+docker compose stop
+```
+as any changes to the models require this. If you are worried about the database, it is possible to get a fresh
+one without losing your old one by running 
+```
+docker compose --project-name <another project name> build
+docker compose --project-name <same name as above> up
+```
+and then proceeding to [perform migrations](#perform-migrations-docker) with the same `--project-name`. Note that
+every compose operation with this new setup must include the `--project-name` parameter before the compose operation.
+
+### With manual replication
+
 Whenever you update the project and notice changes, it is advisable to run migrations with
 ```
 python manage.py makemigrations
@@ -635,6 +656,18 @@ In this way, you always have your old database and migrations and can restore th
 ## Database Wipeout Procedure
 
 In some cases, figuring out migrations for existing objects can be more effort than simply recreating a fresh database. The following steps need to be performed to do this:
+
+### Wipeout (Docker replication)
+
+1. Ensure the containers are all stopped with `docker compose stop`.
+2. Run `docker compose rm`.
+3. Run `docker volume ls` and note all volumes with "commitment-to-change-app" in the name.
+4. Remove each of the volumes noted in Step 3 with `docker volume rm <name>`.
+5. Recreate the containers with `docker compose build`
+6. Follow the instructions to [Perform Migrations](#perform-migrations-docker)
+7. You now have a fresh database on Docker.
+
+### Wipeout (Manual replication)
 
 1. Remove every numbered file in the `migrations` folders - for example, `0001_*py`
     - Do NOT remove `__init__.py` from these folders.

@@ -143,7 +143,7 @@ execute without any further input from you.
 ### Scripts (Linux)
 
 Here are some possible scripts you can make to avoid lots of typing:
-- Create the `*/migrations/__init__.py` files:
+#### Create the `*/migrations/__init__.py` files
 ```
 docker compose start
 docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
@@ -151,7 +151,7 @@ docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
 docker compose stop
 ```
 
-- Make migrations while being sure to touch `*/migrations/__init__.py` files:
+#### Make migrations while being sure to touch `*/migrations/__init__.py` files
 ```
 docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
 docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
@@ -161,14 +161,14 @@ docker compose exec -it cme-ctc-web python manage.py makemigrations
   you tend to forget to run the above script.
   - **Make sure to not forget the `-it` option for `makemigrations` because you may need to input values!**
 
-- Migrate:
+#### Migrate:
 ```
 docker compose start
 docker compose exec -it cme-ctc-web python manage.py migrate
 docker compose stop
 ```
 
-- Run general commands from `manage.py` in the container:
+#### Run general commands from `manage.py` in the container
 ```
 docker compose exec -it cme-ctc-web python manage.py "$@"
 ```
@@ -177,7 +177,7 @@ docker compose exec -it cme-ctc-web python manage.py "$@"
   it like `developer_scripts/manage test` to run tests, or `developer_scripts/manage makemigrations cme_accounts`
   - **Make sure to not forget the `-it` option for `makemigrations` because you may need to input values!**
 
-- Get a `psql` terminal to run commands in for the main database:
+#### Get a `psql` terminal to run commands in for the main database
 ```
 docker compose start
 docker compose exec -it cme-ctc-db psql -U postgres postgres

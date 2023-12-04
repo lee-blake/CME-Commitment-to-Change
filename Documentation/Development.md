@@ -85,10 +85,8 @@ in `custom_settings.py`.
 1. Run the following commands:
 ```
 docker compose start
-docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
 docker compose exec -it cme-ctc-web python manage.py makemigrations
-docker compose exec cme-ctc-web python manage.py migrate
+docker compose exec -it cme-ctc-web python manage.py migrate
 docker compose stop
 ```
 
@@ -115,20 +113,11 @@ to do so is strongly recommended.
 
 ### Migrating in Docker
 
-Since migrations are not currently version controlled, it is best to generate
-them within the container so they can be easily discarded with the database if
-need be. The `docker compose` configuration we have manages this by mounting 
-volumes for every `*/migrations/` directory. 
-However, the volumes mounted at the migration folders  do not initially 
-contain `__init__.py`, which will cause the migration process to fail. Since
-such files will serve their purpose even when empty, you can `touch` them
-from inside the container every time you create/recreate the containers. If you 
-are prone to forgetting to do this, it is recommended that you automate this 
-process for your migration scripts.
+You will need to start the containers to conduct migrations, like was done [above](#perform-migrations-docker). 
+This is because both the Python execution environment and PostgreSQL live in containers.
 
-Note that the `touch` calls will cause a restart of the server because files 
-have changed. Don't put them on scripts that don't need them (ie non-migration 
-scripts).
+As this process requires multiple longer commands, it is recommended that you write some scripts 
+to help condense it for you. 
 
 ### General Script Tips
 
@@ -142,35 +131,23 @@ execute without any further input from you.
 
 ### Scripts (Linux)
 
-Here are some possible scripts you can make to avoid lots of typing:
-#### Create the `*/migrations/__init__.py` files
+Here are some possible scripts you can make to avoid lots of typing. Testing & coverage 
+scripts are including in [Testing the environment and app](#testing-the_environment-and-app-docker)
+
+#### Make migrations & migrate
 ```
 docker compose start
-docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
-docker compose stop
-```
-
-#### Make migrations while being sure to touch `*/migrations/__init__.py` files
-```
-docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
 docker compose exec -it cme-ctc-web python manage.py makemigrations
-```
-  - You do not need this and the script above, this one is here just in case
-  you tend to forget to run the above script.
-  - **Make sure to not forget the `-it` option for `makemigrations` because you may need to input values!**
-
-#### Migrate:
-```
-docker compose start
 docker compose exec -it cme-ctc-web python manage.py migrate
 docker compose stop
 ```
+  - **Make sure to not forget the `-it` option for `makemigrations` because you may need to input values!**
 
 #### Run general commands from `manage.py` in the container
 ```
+docker compose start
 docker compose exec -it cme-ctc-web python manage.py "$@"
+docker compose stop
 ```
   - *NEVER* use this to run the server, `docker compose up` already does that for you.
   - If this script had relative path `developer_scripts/manage`, you would call 
@@ -183,6 +160,12 @@ docker compose start
 docker compose exec -it cme-ctc-db psql -U postgres postgres
 docker compose stop
 ```
+
+### Scripts (Windows)
+
+In theory, any script that [works on Linux](#scripts-linux) should also work on Windows if it consists solely of
+commands that start with `docker compose`, as long as it is in a `.bat` file. Repeats of these scripts are thus 
+omitted here for brevity.
 
 # Testing the environment and app (with Docker)
 
@@ -249,7 +232,7 @@ correctly.
 
 # Replicating the Environment (Manual)
 
-This method is trickier than [Replicating with Docker](#replicating-the-environment-docker) and is considered deprecated.
+This method is trickier than [Replicating with Docker](#replicating-the-environment-docker) and is considered deprecated
 
 ## Environment Overview
 
@@ -669,11 +652,11 @@ In some cases, figuring out migrations for existing objects can be more effort t
 
 1. Ensure the containers are all stopped with `docker compose stop`.
 2. Run `docker compose rm`.
-3. Run `docker volume ls` and note all volumes with "commitment-to-change-app" in the name.
-4. Remove each of the volumes noted in Step 3 with `docker volume rm <name>`.
-5. Recreate the containers with `docker compose build`
-6. Follow the instructions to [Perform Migrations](#perform-migrations-docker)
-7. You now have a fresh database on Docker.
+3. Remove every numbered file in the `migrations` folders - for example, `0001_*py`
+    - Do NOT remove `__init__.py` from these folders.
+4. Recreate the containers with `docker compose build`
+5. Follow the instructions to [Perform Migrations](#perform-migrations-docker)
+6. You now have a fresh database on Docker.
 
 ### Wipeout (Manual replication)
 

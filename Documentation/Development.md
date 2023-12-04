@@ -132,7 +132,7 @@ execute without any further input from you.
 ### Scripts (Linux)
 
 Here are some possible scripts you can make to avoid lots of typing. Testing & coverage 
-scripts are including in [Testing the environment and app](#testing-the_environment-and-app-with-docker)
+scripts are including in [Testing the environment and app](#testing-the-environment-and-app-with-docker)
 
 #### Make migrations & migrate
 ```

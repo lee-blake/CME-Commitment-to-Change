@@ -354,6 +354,9 @@ Creating a symlink to `psql` that lives in a path directory should work
 
 8. Exit `psql` with `\q` or `CTRL + C`. `\q` is preferred as a soft quit.
 
+9. Note that you may need to start the service again if you reboot. This will depend on your system and if it is needed,
+you should use the strategy you used above to start it the first time.
+
 ---
 
 ### Clone the Main Code Repo
@@ -430,6 +433,20 @@ python -c "import secrets; print(secrets.token_urlsafe())"
      minus the `__init.py__` and `py manage.py makemigrations` should be run in the command line again. See [Troubleshooting](#migrating-when-updating-from-git)
      for more troubleshooting tips.
     
+---
+
+### Verify the App
+
+1. Verify the app runs with `python manage.py runserver` when in the `Commitment_to_Change_App`
+directory with `manage.py` in it.
+  - On your host machine, navigate to `127.0.0.1:8000` and check that the welcome/login page shows.
+
+2. You should perform all of the tests specified 
+[here](#testing-the-environment-and-app-with-docker).
+
+3. Once this is done, you can consider the replication step complete.
+Proceed to [configure your IDE](#configuring-your-ide).
+
 ---
 
 # Configuring your IDE

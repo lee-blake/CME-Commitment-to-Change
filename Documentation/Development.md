@@ -38,7 +38,7 @@ executing commands.
 3. Change into the root of the the project (via `cd Commitment-to-Change-App`). All future
 paths will be relative to this directory unless otherwise specified.
 
-### Create `custom_settings.py`
+### Create `custom_settings.py` (Docker)
 
 1. Copy `Commitment_to_Change_App/Commitment_to_Change_App/custom_settings_sources/custom_settings_docker.py`
   to `custom_settings.py` in `Commitment_to_Change_App/Commitment_to_Change_App/`,
@@ -397,7 +397,7 @@ don't mind writing some files temporarily.
 
 ---
 
-### Create `custom_settings.py`
+### Create `custom_settings.py` (Manual)
 
 1. Copy `Commitment_to_Change_App/Commitment_to_Change_App/custom_settings_sources/custom_settings_manual.py`
   to `custom_settings.py` in `Commitment_to_Change_App/Commitment_to_Change_App/`,

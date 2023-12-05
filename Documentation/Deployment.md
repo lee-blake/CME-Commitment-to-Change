@@ -72,6 +72,26 @@ The redirect to a login page should occur. If you are using a web browser, styli
 
 3. Optionally enable daemon mode using the instructions [here](https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/modwsgi/#using-mod-wsgi-daemon-mode)
 
+## Configure your email backend
+
+This will vary based on which STMP service you use and you should therefore consult the Django documentation 
+[here](https://docs.djangoproject.com/en/4.2/topics/email/), particularly on 
+[settings](https://docs.djangoproject.com/en/4.2/topics/email/#smtp-backend). However, at a minimum, 
+you will probably need to set the following in `custom_settings.py`:
+```
+# Explicitly instruct Django to use the default SMTP backend
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# Server info for your email service
+EMAIL_HOST = "server-hostname"
+EMAIL_PORT = server_port # Integer
+# Your credentials for the server
+EMAIL_HOST_USER = "your-username"
+EMAIL_HOST_PASSWORD "your-password"
+# Your server should be using exactly one of these (don't include both) for security reasons
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
+```
+
 ## Configuration and Cleanup
 
 1. In `/srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/settings.py`, 
@@ -154,3 +174,10 @@ determine whether you are getting 404 or 403 responses on requests for static
 files. If it is a 403, troubleshoot using the general principles in the 
 [previous section](#403-errors-on-root-route). If it is a 404, you have 
 pointed Apache to the wrong directory in both the Alias and Directory rules.
+
+### Email server difficulties
+
+If you have difficulty with your email server, follow the instructions for `aiosmtpd` 
+[here](Development.md#consider-your-email-backend) and use `aiosmptd` to capture the emails while Apache is running. 
+You may need to restart Apache if you change the configuration. If you can do that and see them printing in the console, 
+any problems with your email server or your configuration to connect to it and not something in the Django-Apache stack.

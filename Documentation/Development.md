@@ -55,8 +55,8 @@ in `custom_settings.py`.
 ### Build the Docker Containers
 
 1. Run `docker compose build`.
-2. Initialize the containers with `docker compose up`. Terminate the process a few seconds after it stops
-printing to the console.
+2. Initialize the containers with `docker compose up`. Terminate the process with `CTRL - C`
+a few seconds after it stops printing to the console.
 
 ### Perform Migrations (Docker)
 

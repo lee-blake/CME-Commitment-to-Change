@@ -18,6 +18,95 @@
 
 **All preceding addresses will begin with `http://localhost:8000/` for this specific environment setup**
 
+# Provider Instructions
+## Registering for a Provider Account
+- This page is used to create new provider user profiles.
+- Address for this page: `/app/register/provider/`
+1. Navigate to the provider registration webpage. This can be done from the 
+login page by clicking "Click here to register" and then "Provider account".
+![Account Type](<../Auxiliary Files/Images/User_Images/register_account_type.PNG>)
+2. Fill out the fields for username, email, password, and password verification.
+![Register Account](<../Auxiliary Files/Images/User_Images/register_provider.PNG>)
+3. Select 'Submit'.
+   - **If you are redirected back to this page, either an invalid email was used, 
+    the password was not strong enough, or the passwords did not match. Error 
+    text in the page should inform you of the specifics.**
+3. If your provider account was successful in its creation, you will see this page.
+![Success](<../Auxiliary Files/Images/User_Images/successful_registration.PNG>)
+
+## Logging In (Clinician & Provider Profiles)
+- This page is used for logging into an already registered clinician  or provider profile.
+- Address for this page: `/accounts/login/`
+1. Fill out the fields with the username and password that you used when creating a profile.
+![sign_in](<../Auxiliary Files/Images/User_Images/sign_in.PNG>)
+2. Press the 'log in' button located underneath these fields.
+3. If you were successfully logged in, you will be redirected to the commitment
+dashboard (for clinician accounts) or course dashboard (for provider accounts).
+
+4. If you were not successful, you will be directed to enter a correct username and password.
+
+
+## Logging Out (Clinician & Provider Profiles)
+- This button is used to log out the currently logged-in user.
+- Must be logged in.
+- Address for this page: `/accounts/logout/`
+1. While logged-in to the application, find the navigation bar at the top of the screen.
+2. There should be a *Logged in as 'USERNAME'* title followed by a *Log Out* button. Press this button.
+![log_out-button.PNG](<../Auxiliary Files/Images/User_Images/log_out_button.PNG>)
+3. After pressing *Logout*, you will be brought to the logout confirmation page.
+![logout_success.PNG](<../Auxiliary Files/Images/User_Images/logout_success.PNG>)
+4. If this was a mistake, you can log back in using the *Log In* button.
+
+
+## Navigating to the Course Dashboard (Provider Profile)
+- These instructions detail how to get back to the Course Dashboard that most 
+provider instructions will reference.
+- Must be logged-in.
+- Address for this page: `/app/dashboard/`
+1. When logging in as a provider, you will generally be automatically redirected
+to the dashboard.
+2. If you are on another page, you can click "Dashboard" in the navigation bar 
+at the top of the current page.
+![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
+3. If you prefer, you can instead manually type the url `/app/dashboard` after the address discussed in [Opening the Application](#opening-the-application).
+
+
+## Creating a Course (Provider Profile)
+- This page is used to create a course that you can then invite clinicians to join.
+- Must be logged-in.
+- Address for this page: `/app/course/create/`
+1. Click "Create Course" in the navigation bar at the top.
+![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_create_course.png>)
+2. Fill out the title and description of the course.
+
+   ![Provider Create Course](<../Auxiliary Files/Images/User_Images/create_course.png>)
+
+3. When you click submit, you will be taken to the course's view page.
+![Provider Course View](<../Auxiliary Files/Images/User_Images/provider-course-view.png>)
+
+## Viewing a Course (Provider Profile)
+- This page shows the details for a course.
+- Must be logged-in.
+- Address for this page: `/app/course/<Course id>/view/`
+1. Navigate to the Course Dashboard.
+2. Locate the link with the name of the course you want to view.
+3. Click the link.
+![Provider view course](<../Auxiliary Files/Images/User_Images/Provider_view_course.png>)
+
+## Inviting Clinicians to a Course via a link (Provider Profile)
+- This covers inviting clinicians to a course by sharing a link.
+- Must be logged-in.
+- Address for this page: `/app/course/<Course id>/view/`
+1. Navigate to the View Course page for the course.
+2. Locate the section with "Share this link to invite students"
+![Share course link](<../Auxiliary Files/Images/User_Images/provider-share-course-link.png>)
+3. Copy that link in its entirety.
+4. Distribute the link to the clinicians you want to invite to the course.
+5. When they go to the link, they will be prompted to log in and automatically
+join the course.
+
+# Clinician Instructions
+
   
 ## Registering a Clinician Profile
 - This page is used to create new clinician user profiles.
@@ -32,21 +121,6 @@ login page by clicking "Click here to register" and then "Clinician account".
     the password was not strong enough, or the passwords did not match. Error 
     text in the page should inform you of the specifics.**
 3. If your clinician account was successful in its creation, you will see this page.
-![Success](<../Auxiliary Files/Images/User_Images/successful_registration.PNG>)
-
-## Registering a Provider Profile
-- This page is used to create new provider user profiles.
-- Address for this page: `/app/register/provider/`
-1. Navigate to the provider registration webpage. This can be done from the 
-login page by clicking "Click here to register" and then "Provider account".
-![Account Type](<../Auxiliary Files/Images/User_Images/register_account_type.PNG>)
-2. Fill out the fields for username, email, password, and password verification.
-![Register Account](<../Auxiliary Files/Images/User_Images/register_provider.PNG>)
-3. Select 'Submit'.
-   - **If you are redirected back to this page, either an invalid email was used, 
-    the password was not strong enough, or the passwords did not match. Error 
-    text in the page should inform you of the specifics.**
-3. If your provider account was successful in its creation, you will see this page.
 ![Success](<../Auxiliary Files/Images/User_Images/successful_registration.PNG>)
 
 
@@ -237,55 +311,3 @@ association or the correct course if an incorrect course was selected.
 ![Selecting "-----"](<../Auxiliary Files/Images/User_Images/commitment_disassociate_course.PNG>)
 
 3. Complete the edit process as usual.
-
- 
-
-
-## Navigating to the Course Dashboard (Provider Profile)
-- These instructions detail how to get back to the Course Dashboard that most 
-provider instructions will reference.
-- Must be logged-in.
-- Address for this page: `/app/dashboard/`
-1. When logging in as a provider, you will generally be automatically redirected
-to the dashboard.
-2. If you are on another page, you can click "Dashboard" in the navigation bar 
-at the top of the current page.
-![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
-
-3. If you prefer, you can instead manually type the url `/app/dashboard` after the address discussed in [Opening the Application](#opening-the-application).
-
-
-## Creating a Course (Provider Profile)
-- This page is used to create a course that you can then invite clinicians to join.
-- Must be logged-in.
-- Address for this page: `/app/course/create/`
-1. Click "Create Course" in the navigation bar at the top.
-![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_create_course.png>)
-
-2. Fill out the title and description of the course.
-
-   ![Provider Create Course](<../Auxiliary Files/Images/User_Images/create_course.png>)
-
-3. When you click submit, you will be taken to the course's view page.
-![Provider Course View](<../Auxiliary Files/Images/User_Images/provider-course-view.png>)
-
-## Viewing a Course (Provider Profile)
-- This page shows the details for a course.
-- Must be logged-in.
-- Address for this page: `/app/course/<Course id>/view/`
-1. Navigate to the Course Dashboard.
-2. Locate the link with the name of the course you want to view.
-3. Click the link.
-![Provider view course](<../Auxiliary Files/Images/User_Images/Provider_view_course.png>)
-
-## Inviting Clinicians to a Course via a link (Provider Profile)
-- This covers inviting clinicians to a course by sharing a link.
-- Must be logged-in.
-- Address for this page: `/app/course/<Course id>/view/`
-1. Navigate to the View Course page for the course.
-2. Locate the section with "Share this link to invite students"
-![Share course link](<../Auxiliary Files/Images/User_Images/provider-share-course-link.png>)
-3. Copy that link in its entirety.
-4. Distribute the link to the clinicians you want to invite to the course.
-5. When they go to the link, they will be prompted to log in and automatically
-join the course.

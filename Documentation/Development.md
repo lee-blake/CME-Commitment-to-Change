@@ -448,6 +448,62 @@ directory with `manage.py` in it.
 Proceed to [configure your IDE](#configuring-your-ide).
 
 ---
+# Testing the environment and app (Manual replication)
+
+If you're using Windows, use the specific steps for Windows.
+
+Otherwise, use the general steps and consult your specific OS's documentation for specific terminal commands.
+
+## Unit & Integration Testing
+
+1. Activate the environment using the instructions in [Full Stack Testing](#full-stack-testing)
+
+2. Run `pytest` in the directory where `manage.py` is located. If coverage is desired, run
+```
+coverage -m pytest
+coverage report
+```
+
+### Location of Unit and Integration tests
+
+In each app there is a `test.py` files where all automated tests are located.
+
+## Full Stack Testing
+
+1. Activate the environment and run the Django server.
+
+   - ### General steps
+
+    - Activate
+
+     - Open a terminal window in your IDE or elsewhere, navigate to your project's virtual environment root folder, and run activate.bat in the Scripts directory.
+     - Navigate down to `Commitment-to-Change-App` then to `Commitment_to_Change_App`. You'll know you're in the correct directory if there is a `manage.py` file.
+     - Start up the django server by running `py manage.py runserver`.
+
+     ***
+
+   - ### Specific steps for Windows Command Prompt (CMD)
+
+     - While in your route directory, type `Scripts\activate.bat`
+     - Then navigate down the directory with `cd Commitment-to-Change-App\Commitment_to_Change_App`. You can then type `dir` to check for the `manage.py` file.
+     - Now type `py manage.py runserver`
+     ![Alt text](<../Auxiliary Files/Images/Development_Images/WindowsCMDSteps.png>)
+
+     ***
+
+2. Open a web browser and navigate to `localhost:8000/app/register/clinician/`
+    - Fill out the form to register a user
+
+3. Navigate to `/localhost:8000/accounts/login/`
+    - Login with the user you just registered
+
+4. Navigate to `localhost:8000/app/commitment/make/`
+
+- Fill out the commitment and hit "Submit" to view the commitment.
+
+5. If all of these steps proceed without issue, you can generally consider your environment functional.
+
+---
 
 # Configuring your IDE
 
@@ -518,70 +574,6 @@ Django functionality, particularly Django models.
     - If you run from the repo root, the CWD should be `${workspaceFolder}/Commitment_to_Change_App`.
 
 ---
-
-# Testing the environment and app (Manual replication)
-
-If you're using Windows, use the specific steps for Windows.
-
-Otherwise, use the general steps and consult your specific OS's documentation for specific terminal commands.
-
-## Unit & Integration Testing
-
-1. Activate the environment using the instructions in [Full Stack Testing](#full-stack-testing)
-
-2. Run `pytest` in the directory where `manage.py` is located. If coverage is desired, run
-```
-coverage -m pytest
-coverage report
-```
-
-### Location of Unit and Integration tests
-
-In each app there is a `test.py` files where all automated tests are located.
-
-## Full Stack Testing
-
-1. Activate the environment and run the Django server.
-
-   - ### General steps
-
-    - Activate
-
-     - Open a terminal window in your IDE or elsewhere, navigate to your project's virtual environment root folder, and run activate.bat in the Scripts directory.
-     - Navigate down to `Commitment-to-Change-App` then to `Commitment_to_Change_App`. You'll know you're in the correct directory if there is a `manage.py` file.
-     - Start up the django server by running `py manage.py runserver`.
-
-     ***
-
-   - ### Specific steps for Windows Command Prompt (CMD)
-
-     - While in your route directory, type `Scripts\activate.bat`
-     - Then navigate down the directory with `cd Commitment-to-Change-App\Commitment_to_Change_App`. You can then type `dir` to check for the `manage.py` file.
-     - Now type `py manage.py runserver`
-     ![Alt text](<../Auxiliary Files/Images/Development_Images/WindowsCMDSteps.png>)
-
----
-
-2. Open a web browser and navigate to `localhost:8000/app/register/clinician/`
-    - Fill out the form to register a user
-
----
-
-3. Navigate to `/localhost:8000/accounts/login/`
-    - Login with the user you just registered
-
----
-
-4. Navigate to `localhost:8000/app/commitment/make/`
-
-
-- Fill out the commitment and hit "Submit" to view the commitment.
-
----
-
-5. If all of these steps proceed without issue, you can generally consider your environment functional.
-
-
 
 # Troubleshooting
 

@@ -38,38 +38,16 @@ executing commands.
 
 ### Create `custom_settings.py`
 
-1. Create a file called `custom_settings.py` in 
-`Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
+1. Copy `Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/custom_settings_sources/custom_settings_docker.py`
+  to `custom_settings.py` in `Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/`,
+  next to `settings.py`. This should give you reasonable defaults for your Docker setup.
 - **Do _NOT_ commit this file under any circumstances!** We do not want to 
-  know your database or secret key details, which is why it has been separated 
+  know your secret key details, which is why it has been separated 
   from `settings.py`!
+2. Run the following code in your terminal to generate a secret key:
+  `python -c "import secrets; print(secrets.token_urlsafe())"`
 
-
-2. Paste the following into `custom_settings.py`:
-```
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'Insecure7',
-        'HOST': 'cme-ctc-db',
-        'PORT': '5432',
-    }
-}
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
-```
-
-3. Run the following code in your terminal to generate a secret key:
-```
-python -c "import secrets; print(secrets.token_urlsafe())"
-```
-
-4. Paste the secret key in Step 3 in between single quotes after `SECRET_KEY` 
+3. Paste the secret key in Step 2 in between single quotes after `SECRET_KEY` 
 in `custom_settings.py`.
 
 ### Build the Docker Containers

@@ -442,7 +442,7 @@ directory with `manage.py` in it.
   - On your host machine, navigate to `127.0.0.1:8000` and check that the welcome/login page shows.
 
 2. You should perform all of the tests specified 
-[here](#testing-the-environment-and-app-with-docker).
+[here](#testing-the-environment-and-app-manual-replication).
 
 3. Once this is done, you can consider the replication step complete.
 Proceed to [configure your IDE](#configuring-your-ide).

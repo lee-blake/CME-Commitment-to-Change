@@ -392,6 +392,8 @@ don't mind writing some files temporarily.
 7. Shut down the server by typing `CTRL + C`
 8. Recursively remove the `testproject` directory
 
+---
+
 ### Create `custom_settings.py`
 
 1. Copy `Commitment_to_Change_App/Commitment_to_Change_App/custom_settings_sources/custom_settings_manual.py`
@@ -409,6 +411,8 @@ python -c "import secrets; print(secrets.token_urlsafe())"
 3. Paste the secret key in Step 2 into the single quotes after `SECRET_KEY` in `custom_settings.py`.
 
 4. Modify the `NAME`, `USERNAME`, and `PASSWORD` keys under `DATABASES` in `custom_settings.py` to match whatever you set them to in [Install and Configure PostgreSQL](#install-and-configure-postgresql).
+
+---
 
 ### Perform migrations (manual)
 

@@ -28,6 +28,7 @@
 ---
 ## Info icons
 - Look for the info icons throughout the applike the one shown below:
+  
 ![Info Icon](<../Auxiliary Files/Images/User_Images/info-icon.png>)
 - You can click on these info icons if you need help or tips for how to use the application effectively. Once clicked, a dialogue box like the one below will show with added information.
 ![Info Popup](<../Auxiliary Files/Images/User_Images/info-popup.png>)

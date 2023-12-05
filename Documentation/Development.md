@@ -35,11 +35,13 @@ executing commands.
 2. Run
    `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`
    in the desired directory to clone to.
+3. Change into the root of the the project (via `cd Commitment-to-Change-App`). All future
+paths will be relative to this directory unless otherwise specified.
 
 ### Create `custom_settings.py`
 
-1. Copy `Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/custom_settings_sources/custom_settings_docker.py`
-  to `custom_settings.py` in `Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/`,
+1. Copy `Commitment_to_Change_App/Commitment_to_Change_App/custom_settings_sources/custom_settings_docker.py`
+  to `custom_settings.py` in `Commitment_to_Change_App/Commitment_to_Change_App/`,
   next to `settings.py`. This should give you reasonable defaults for your Docker setup.
 - **Do _NOT_ commit this file under any circumstances!** We do not want to 
   know your secret key details, which is why it has been separated 
@@ -53,10 +55,8 @@ in `custom_settings.py`.
 ### Build the Docker Containers
 
 1. Run `docker compose build`.
-2. Verify the containers run with `docker compose up`.
-  - On your host machine, navigate to `127.0.0.1:8000`.
-  - You may need to run this twice because the database can be slow to 
-  initialize the first time.
+2. Initialize the containers with `docker compose up`. Terminate the process a few seconds after it stops
+printing to the console.
 
 ### Perform Migrations (Docker)
 
@@ -68,10 +68,19 @@ docker compose exec -it cme-ctc-web python manage.py migrate
 docker compose stop
 ```
 
+
 ### Verify the App
 
-You should perform all of the tests specified 
+1. Verify the app runs with `docker compose up`.
+  - On your host machine, navigate to `127.0.0.1:8000` and check that the welcome/login page shows.
+  - You may need to run this twice because the database can be slow to 
+  initialize the first time.
+
+2. You should perform all of the tests specified 
 [here](#testing-the-environment-and-app-with-docker).
+
+3. Once this is done, you can consider the replication step complete.
+Proceed to [configure your IDE](#configuring-your-ide).
 
 ## Docker-Specific Considerations
 

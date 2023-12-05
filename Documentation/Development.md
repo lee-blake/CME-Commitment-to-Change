@@ -219,9 +219,8 @@ correctly.
 
 # Replicating the Environment (Manual)
 
-This method is trickier than [Replicating with Docker](#replicating-the-environment-docker) and is considered deprecated
-
-## Environment Overview
+This method is trickier than [Replicating with Docker](#replicating-the-environment-docker) and is not recommended outside
+of deployment.
 
 ## Replication Instructions
 
@@ -289,39 +288,6 @@ for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
 
 ---
 
-### Install Django
-
-1. Install the latest version of Django
-
-   - This may be done via Pip or (on some Linux distributions) a package installation. Pip is generally preferred due to venv. However, if you choose to install
-system-wide with a package, skip to Step 2.
-   - To install with pip, [while still in your active virtual environment](#important), type `pip install django`
-
-2. Create a test project using `django-admin startproject testproject`
-
-   - This MUST be done in the directory you intend to clone the project into.
-
-3. Change into the `testproject` directory
-4. Run the Django server with `python manage.py runserver`
-5. Connect to `localhost:8000` to verify that Django is running
-6. Shut down the server by typing `CTRL + C`
-7. Recursively remove the `testproject` directory
-
----
-
-### Clone the Main Code Repo
-
-1. Navigate to the directory you want the root of the project to live in. All
-   future paths will be relative to this directory.
-   - NOTE: This must be inside the virtual environment directory [you created earlier](#install-and-setup-virtual-environment).
-2. Run
-   `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`
-   in the desired directory to clone to.
-
-   - Your root folder/venv folder structure should now look similar to this:![Root directory](<../Auxiliary Files/Images/Development_Images/FinalRootFolderStructure.png>)
-
----
-
 ### Install and Configure PostgreSQL
 
 1. Install the latest version of PostgreSQL
@@ -341,9 +307,10 @@ system-wide with a package, skip to Step 2.
    - On most Linux installs, a `postgres` user is created and this user must
      be the one to execute the initialization using either `sudo -u postgres initdb --locale en_US.UTF-8 -E UTF8 -D '/var/lib/postgres/data'` or using `su` to switch to `postgres` before running `initdb --locale en_US.UTF-8 -E UTF8 -D '/var/lib/postgres/data'`
 
-3. Start the PostgreSQL service if needed (Linux only)
+3. Start the PostgreSQL service if needed (some Linux only)
 
    - On `systemd` Linux systems, use `sudo systemctl start postgresql`. You may also want to run `sudo systemctl enable postgresql` if you do not want to run the start command every time.
+   - This isn't needed on Ubuntu 22.04.
 
 4. Add the `psql` program to the system path, if needed
 
@@ -389,56 +356,65 @@ Creating a symlink to `psql` that lives in a path directory should work
 
 ---
 
+### Clone the Main Code Repo
+
+1. Navigate to the directory you want the root of the project to live in. All
+   future paths will be relative to this directory.
+   - NOTE: This must be inside the virtual environment directory [you created earlier](#install-and-setup-virtual-environment).
+2. Run
+   `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`
+   in the desired directory to clone to.
+
+   - Your root folder/venv folder structure should now look similar to this:![Root directory](<../Auxiliary Files/Images/Development_Images/FinalRootFolderStructure.png>)
+3. Change into the root of the the project (via `cd Commitment-to-Change-App`). All future
+paths will be relative to this directory unless otherwise specified.
+
+---
+
+### Install requirements with pip
+
+1. Navigate to the directory `Commitment_to_Change_App`. You will know when you are in the right directory when you can
+see `manage.py`.
+2. Run `pip install -r requirements.txt`.
+   - **Make sure your virtual environment is active for this step!**
+     
+#### Test Django installation (Optional)
+You can verify that Django installed correctly with the following steps
+1. While your virtual environment is active, navigate outside of the project files somewhere where you
+don't mind writing some files temporarily.
+3. Create a test project using `django-admin startproject testproject`
+
+   - This MUST be done in the directory you intend to clone the project into.
+
+4. Change into the `testproject` directory
+5. Run the Django server with `python manage.py runserver`
+6. Connect to `localhost:8000` to verify that Django is running
+7. Shut down the server by typing `CTRL + C`
+8. Recursively remove the `testproject` directory
+
 ### Create `custom_settings.py`
 
-1. Create a file called `custom_settings.py` in 
-`Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
+1. Copy `Commitment_to_Change_App/Commitment_to_Change_App/custom_settings_sources/custom_settings_manual.py`
+  to `custom_settings.py` in `Commitment_to_Change_App/Commitment_to_Change_App/`,
+  next to `settings.py`. This should give you reasonable defaults for your Docker setup.
   - **Do _NOT_ commit this file under any circumstances!** We do not want to 
-  know your database or secret key details, which is why it has been separated 
+  know your secret key details, which is why it has been separated 
   from `settings.py`!
 
-
-2. Paste the following into `custom_settings.py`:
-```
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'commitment_to_change_app',
-        'USER': 'username',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
-```
-
-3. Run the following code in your terminal to generate a secret key:
+2. Run the following code in your terminal to generate a secret key:
 ```
 python -c "import secrets; print(secrets.token_urlsafe())"
 ```
 
-4. Paste the secret key in Step 3 into the single quotes after `SECRET_KEY` in `custom_settings.py`.
+3. Paste the secret key in Step 2 into the single quotes after `SECRET_KEY` in `custom_settings.py`.
 
-5. Modify the `NAME`, `USERNAME`, and `PASSWORD` keys under `DATABASES` in `custom_settings.py` to match whatever you set them to in [Install and Configure PostgreSQL](#install-and-configure-postgresql).
+4. Modify the `NAME`, `USERNAME`, and `PASSWORD` keys under `DATABASES` in `custom_settings.py` to match whatever you set them to in [Install and Configure PostgreSQL](#install-and-configure-postgresql).
 
-### Get Django to work with PostgreSQL
+### Perform migrations (manual)
 
-1. Install the `psycopg2` Python package by running `pip install psycopg2`.
-  - If you opted to install Django system-wide with a package on Linux, consider
-  installing `psycopg2` as a package if it is available for consistency. Then
-  skip to Step 2.
-
-- ### psycopg2 NOTE:
-  - psycopg2 must be installed while your virtual environment is active [as explained here](#important) If it is not, psycopg2 will install in your system site-packages and not in your virtual environment, causing it to be unreachable in your venv.
-
-2. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
-3. Run `python manage.py makemigrations` to create the migrations to be performed.
-4. Run `python manage.py migrate` to perform the migrations.
+1. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
+2. Run `python manage.py makemigrations` to create the migrations to be performed.
+3. Run `python manage.py migrate` to perform the migrations.
 
    - Migrate troubleshooting:
      - `ImportError: Couldn't import Django`: This may mean your virtual environment is not currently active. Please

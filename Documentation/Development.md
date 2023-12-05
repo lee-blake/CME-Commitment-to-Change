@@ -415,6 +415,30 @@ python -c "import secrets; print(secrets.token_urlsafe())"
 
 4. Modify the `NAME`, `USERNAME`, and `PASSWORD` keys under `DATABASES` in `custom_settings.py` to match whatever you set them to in [Install and Configure PostgreSQL](#install-and-configure-postgresql).
 
+#### Consider your email backend
+
+By default, the manual settings give you Django's console backend, which prints all emails to the console. This is an 
+adequate solution for development that does not degrade the production site's email reputation . If you would prefer to 
+test that Django actually sends the email out somewhere, the simplest option is probably `aiosmtpd`.
+1. Open another console because you will need to run `aiosmtpd` alongside your server
+2. Decide whether you want to create a new venv or recycle your existing one. Either way, activate the desired venv.
+3. `pip install aiosmtpd`
+4. You should be able to run `aiosmtpd -l 127.0.0.1:25 -c aiosmtpd.handlers.Debugging`, but may need to run
+`python -m aiosmtpd -l 127.0.0.1:25 -c aiosmtpd.handlers.Debugging` instead.
+  - This setup uses port 25. You can change that if desired but it should match the config in Django.
+  - This setup rejects anything non-localhost. If you are running Django and `aiosmptd` on different machines
+  (for example, VMs) you can change `127.0.0.1` to `0.0.0.0` to accept all hosts.
+6. Modify your Django `custom_settings.py` configuration to match with `aiosmtpd`
+  - Comment out, delete, or replace the `EMAIL_BACKEND` value with
+  `EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"`
+  - Set `EMAIL_HOST = "localhost"` or the address of the other machine
+  - Set `EMAIL_PORT = 25` or whatever port you set it to
+7. Intercepted emails will now be printed by `aiosmtpd` in its console.
+
+The advantage of this is that you can be sure that Django really does send out those emails. The disadvantage is
+the extra setup, plus having to start `aiosmtpd` anytime you want to run the server. Our recommendation is that you
+use this check only when your Django version itself is updated, and even then you probably do not really need it.
+
 ---
 
 ### Perform migrations (manual)

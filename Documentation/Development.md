@@ -362,7 +362,7 @@ you should use the strategy you used above to start it the first time.
 ### Clone the Main Code Repo
 
 1. Navigate to the directory you want the root of the project to live in. All
-   future paths will be relative to this directory.
+   future paths will be relative to a child of this directory.
    - NOTE: This must be inside the virtual environment directory [you created earlier](#install-and-setup-virtual-environment).
 2. Run
    `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`

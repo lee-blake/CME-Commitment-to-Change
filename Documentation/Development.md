@@ -35,67 +35,52 @@ executing commands.
 2. Run
    `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`
    in the desired directory to clone to.
+3. Change into the root of the the project (via `cd Commitment-to-Change-App`). All future
+paths will be relative to this directory unless otherwise specified.
 
-### Create `custom_settings.py`
+### Create `custom_settings.py` (Docker)
 
-1. Create a file called `custom_settings.py` in 
-`Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
+1. Copy `Commitment_to_Change_App/Commitment_to_Change_App/custom_settings_sources/custom_settings_docker.py`
+  to `custom_settings.py` in `Commitment_to_Change_App/Commitment_to_Change_App/`,
+  next to `settings.py`. This should give you reasonable defaults for your Docker setup.
 - **Do _NOT_ commit this file under any circumstances!** We do not want to 
-  know your database or secret key details, which is why it has been separated 
+  know your secret key details, which is why it has been separated 
   from `settings.py`!
+2. Run the following code in your terminal to generate a secret key:
+  `python -c "import secrets; print(secrets.token_urlsafe())"`
 
-
-2. Paste the following into `custom_settings.py`:
-```
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'Insecure7',
-        'HOST': 'cme-ctc-db',
-        'PORT': '5432',
-    }
-}
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
-```
-
-3. Run the following code in your terminal to generate a secret key:
-```
-python -c "import secrets; print(secrets.token_urlsafe())"
-```
-
-4. Paste the secret key in Step 3 in between single quotes after `SECRET_KEY` 
+3. Paste the secret key in Step 2 in between single quotes after `SECRET_KEY` 
 in `custom_settings.py`.
 
 ### Build the Docker Containers
 
 1. Run `docker compose build`.
-2. Verify the containers run with `docker compose up`.
-  - On your host machine, navigate to `127.0.0.1:8000`.
-  - You may need to run this twice because the database can be slow to 
-  initialize the first time.
+2. Initialize the containers with `docker compose up`. Terminate the process with `CTRL - C`
+a few seconds after it stops printing to the console.
 
 ### Perform Migrations (Docker)
 
 1. Run the following commands:
 ```
 docker compose start
-docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
 docker compose exec -it cme-ctc-web python manage.py makemigrations
-docker compose exec cme-ctc-web python manage.py migrate
+docker compose exec -it cme-ctc-web python manage.py migrate
 docker compose stop
 ```
 
+
 ### Verify the App
 
-You should perform all of the tests specified 
+1. Verify the app runs with `docker compose up`.
+  - On your host machine, navigate to `127.0.0.1:8000` and check that the welcome/login page shows.
+  - You may need to run this twice because the database can be slow to 
+  initialize the first time.
+
+2. You should perform all of the tests specified 
 [here](#testing-the-environment-and-app-with-docker).
+
+3. Once this is done, you can consider the replication step complete.
+Proceed to [configure your IDE](#configuring-your-ide).
 
 ## Docker-Specific Considerations
 
@@ -115,20 +100,11 @@ to do so is strongly recommended.
 
 ### Migrating in Docker
 
-Since migrations are not currently version controlled, it is best to generate
-them within the container so they can be easily discarded with the database if
-need be. The `docker compose` configuration we have manages this by mounting 
-volumes for every `*/migrations/` directory. 
-However, the volumes mounted at the migration folders  do not initially 
-contain `__init__.py`, which will cause the migration process to fail. Since
-such files will serve their purpose even when empty, you can `touch` them
-from inside the container every time you create/recreate the containers. If you 
-are prone to forgetting to do this, it is recommended that you automate this 
-process for your migration scripts.
+You will need to start the containers to conduct migrations, like was done [above](#perform-migrations-docker). 
+This is because both the Python execution environment and PostgreSQL live in containers.
 
-Note that the `touch` calls will cause a restart of the server because files 
-have changed. Don't put them on scripts that don't need them (ie non-migration 
-scripts).
+As this process requires multiple longer commands, it is recommended that you write some scripts 
+to help condense it for you. 
 
 ### General Script Tips
 
@@ -142,47 +118,41 @@ execute without any further input from you.
 
 ### Scripts (Linux)
 
-Here are some possible scripts you can make to avoid lots of typing:
-- Create the `*/migrations/__init__.py` files:
+Here are some possible scripts you can make to avoid lots of typing. Testing & coverage 
+scripts are including in [Testing the environment and app](#testing-the-environment-and-app-with-docker)
+
+#### Make migrations & migrate
 ```
 docker compose start
-docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
-docker compose stop
-```
-
-- Make migrations while being sure to touch `*/migrations/__init__.py` files:
-```
-docker compose exec cme-ctc-web touch /app/cme_accounts/migrations/__init__.py
-docker compose exec cme-ctc-web touch /app/commitments/migrations/__init__.py
 docker compose exec -it cme-ctc-web python manage.py makemigrations
-```
-  - You do not need this and the script above, this one is here just in case
-  you tend to forget to run the above script.
-  - **Make sure to not forget the `-it` option for `makemigrations` because you may need to input values!**
-
-- Migrate:
-```
-docker compose start
 docker compose exec -it cme-ctc-web python manage.py migrate
 docker compose stop
 ```
+  - **Make sure to not forget the `-it` option for `makemigrations` because you may need to input values!**
 
-- Run general commands from `manage.py` in the container:
+#### Run general commands from `manage.py` in the container
 ```
+docker compose start
 docker compose exec -it cme-ctc-web python manage.py "$@"
+docker compose stop
 ```
   - *NEVER* use this to run the server, `docker compose up` already does that for you.
   - If this script had relative path `developer_scripts/manage`, you would call 
   it like `developer_scripts/manage test` to run tests, or `developer_scripts/manage makemigrations cme_accounts`
   - **Make sure to not forget the `-it` option for `makemigrations` because you may need to input values!**
 
-- Get a `psql` terminal to run commands in for the main database:
+#### Get a `psql` terminal to run commands in for the main database
 ```
 docker compose start
 docker compose exec -it cme-ctc-db psql -U postgres postgres
 docker compose stop
 ```
+
+### Scripts (Windows)
+
+In theory, any script that [works on Linux](#scripts-linux) should also work on Windows if it consists solely of
+commands that start with `docker compose`, as long as it is in a `.bat` file. Repeats of these scripts are thus 
+omitted here for brevity.
 
 # Testing the environment and app (with Docker)
 
@@ -249,9 +219,8 @@ correctly.
 
 # Replicating the Environment (Manual)
 
-This method is trickier than [Replicating with Docker](#replicating-the-environment-docker) and is considered deprecated.
-
-## Environment Overview
+This method is trickier than [Replicating with Docker](#replicating-the-environment-docker) and is not recommended outside
+of deployment.
 
 ## Replication Instructions
 
@@ -319,39 +288,6 @@ for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
 
 ---
 
-### Install Django
-
-1. Install the latest version of Django
-
-   - This may be done via Pip or (on some Linux distributions) a package installation. Pip is generally preferred due to venv. However, if you choose to install
-system-wide with a package, skip to Step 2.
-   - To install with pip, [while still in your active virtual environment](#important), type `pip install django`
-
-2. Create a test project using `django-admin startproject testproject`
-
-   - This MUST be done in the directory you intend to clone the project into.
-
-3. Change into the `testproject` directory
-4. Run the Django server with `python manage.py runserver`
-5. Connect to `localhost:8000` to verify that Django is running
-6. Shut down the server by typing `CTRL + C`
-7. Recursively remove the `testproject` directory
-
----
-
-### Clone the Main Code Repo
-
-1. Navigate to the directory you want the root of the project to live in. All
-   future paths will be relative to this directory.
-   - NOTE: This must be inside the virtual environment directory [you created earlier](#install-and-setup-virtual-environment).
-2. Run
-   `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`
-   in the desired directory to clone to.
-
-   - Your root folder/venv folder structure should now look similar to this:![Root directory](<../Auxiliary Files/Images/Development_Images/FinalRootFolderStructure.png>)
-
----
-
 ### Install and Configure PostgreSQL
 
 1. Install the latest version of PostgreSQL
@@ -371,9 +307,10 @@ system-wide with a package, skip to Step 2.
    - On most Linux installs, a `postgres` user is created and this user must
      be the one to execute the initialization using either `sudo -u postgres initdb --locale en_US.UTF-8 -E UTF8 -D '/var/lib/postgres/data'` or using `su` to switch to `postgres` before running `initdb --locale en_US.UTF-8 -E UTF8 -D '/var/lib/postgres/data'`
 
-3. Start the PostgreSQL service if needed (Linux only)
+3. Start the PostgreSQL service if needed (some Linux only)
 
    - On `systemd` Linux systems, use `sudo systemctl start postgresql`. You may also want to run `sudo systemctl enable postgresql` if you do not want to run the start command every time.
+   - This isn't needed on Ubuntu 22.04.
 
 4. Add the `psql` program to the system path, if needed
 
@@ -417,58 +354,98 @@ Creating a symlink to `psql` that lives in a path directory should work
 
 8. Exit `psql` with `\q` or `CTRL + C`. `\q` is preferred as a soft quit.
 
+9. Note that you may need to start the service again if you reboot. This will depend on your system and if it is needed,
+you should use the strategy you used above to start it the first time.
+
 ---
 
-### Create `custom_settings.py`
+### Clone the Main Code Repo
 
-1. Create a file called `custom_settings.py` in 
-`Commitment_to_Change_App/Commitment_to_Change_App/`, next to `settings.py`.
+1. Navigate to the directory you want the root of the project to live in. All
+   future paths will be relative to a child of this directory.
+   - NOTE: This must be inside the virtual environment directory [you created earlier](#install-and-setup-virtual-environment).
+2. Run
+   `git clone https://github.com/lee-blake/Commitment-to-Change-App.git`
+   in the desired directory to clone to.
+
+   - Your root folder/venv folder structure should now look similar to this:![Root directory](<../Auxiliary Files/Images/Development_Images/FinalRootFolderStructure.png>)
+3. Change into the root of the the project (via `cd Commitment-to-Change-App`). All future
+paths will be relative to this directory unless otherwise specified.
+
+---
+
+### Install requirements with pip
+
+1. Navigate to the directory `Commitment_to_Change_App`. You will know when you are in the right directory when you can
+see `manage.py`.
+2. Run `pip install -r requirements.txt`.
+   - **Make sure your virtual environment is active for this step!**
+     
+#### Test Django installation (Optional)
+You can verify that Django installed correctly with the following steps
+1. While your virtual environment is active, navigate outside of the project files somewhere where you
+don't mind writing some files temporarily.
+3. Create a test project using `django-admin startproject testproject`
+
+   - This MUST be done in the directory you intend to clone the project into.
+
+4. Change into the `testproject` directory
+5. Run the Django server with `python manage.py runserver`
+6. Connect to `localhost:8000` to verify that Django is running
+7. Shut down the server by typing `CTRL + C`
+8. Recursively remove the `testproject` directory
+
+---
+
+### Create `custom_settings.py` (Manual)
+
+1. Copy `Commitment_to_Change_App/Commitment_to_Change_App/custom_settings_sources/custom_settings_manual.py`
+  to `custom_settings.py` in `Commitment_to_Change_App/Commitment_to_Change_App/`,
+  next to `settings.py`. This should give you reasonable defaults for your Docker setup.
   - **Do _NOT_ commit this file under any circumstances!** We do not want to 
-  know your database or secret key details, which is why it has been separated 
+  know your secret key details, which is why it has been separated 
   from `settings.py`!
 
-
-2. Paste the following into `custom_settings.py`:
-```
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'commitment_to_change_app',
-        'USER': 'username',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
-```
-
-3. Run the following code in your terminal to generate a secret key:
+2. Run the following code in your terminal to generate a secret key:
 ```
 python -c "import secrets; print(secrets.token_urlsafe())"
 ```
 
-4. Paste the secret key in Step 3 into the single quotes after `SECRET_KEY` in `custom_settings.py`.
+3. Paste the secret key in Step 2 into the single quotes after `SECRET_KEY` in `custom_settings.py`.
 
-5. Modify the `NAME`, `USERNAME`, and `PASSWORD` keys under `DATABASES` in `custom_settings.py` to match whatever you set them to in [Install and Configure PostgreSQL](#install-and-configure-postgresql).
+4. Modify the `NAME`, `USERNAME`, and `PASSWORD` keys under `DATABASES` in `custom_settings.py` to match whatever you set them to in [Install and Configure PostgreSQL](#install-and-configure-postgresql).
 
-### Get Django to work with PostgreSQL
+#### Consider your email backend
 
-1. Install the `psycopg2` Python package by running `pip install psycopg2`.
-  - If you opted to install Django system-wide with a package on Linux, consider
-  installing `psycopg2` as a package if it is available for consistency. Then
-  skip to Step 2.
+By default, the manual settings give you Django's console backend, which prints all emails to the console. This is an 
+adequate solution for development that does not degrade the production site's email reputation . If you would prefer to 
+test that Django actually sends the email out somewhere, the simplest option is probably `aiosmtpd`.
+1. Open another console because you will need to run `aiosmtpd` alongside your server
+2. Decide whether you want to create a new venv or recycle your existing one. Either way, activate the desired venv.
+3. `pip install aiosmtpd`
+4. You should be able to run `aiosmtpd -l 127.0.0.1:25 -c aiosmtpd.handlers.Debugging`, but may need to run
+`python -m aiosmtpd -l 127.0.0.1:25 -c aiosmtpd.handlers.Debugging` instead.
+  - This setup uses port 25. You can change that if desired but it should match the config in Django.
+  - This setup rejects anything non-localhost. If you are running Django and `aiosmptd` on different machines
+  (for example, VMs) you can change `127.0.0.1` to `0.0.0.0` to accept all hosts.
+6. Modify your Django `custom_settings.py` configuration to match with `aiosmtpd`
+  - Comment out, delete, or replace the `EMAIL_BACKEND` value with
+  `EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"`
+  - Set `EMAIL_HOST = "localhost"` or the address of the other machine
+  - Set `EMAIL_PORT = 25` or whatever port you set it to
+7. Intercepted emails will now be printed by `aiosmtpd` in its console.
 
-- ### psycopg2 NOTE:
-  - psycopg2 must be installed while your virtual environment is active [as explained here](#important) If it is not, psycopg2 will install in your system site-packages and not in your virtual environment, causing it to be unreachable in your venv.
+The advantage of this is that you can be sure that Django really does send out those emails. The disadvantage is
+the extra setup, plus having to start `aiosmtpd` anytime you want to run the server. Our recommendation is that you
+use this check only when your Django version itself is updated, and even then you probably do not really need it.
 
-2. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
-3. Run `python manage.py makemigrations` to create the migrations to be performed.
-4. Run `python manage.py migrate` to perform the migrations.
+---
+
+### Perform migrations (manual)
+
+1. Change to the `Commitment_to_Change_App` directory with `manage.py` in it.
+2. Run `python manage.py makemigrations` to create the migrations to be performed.
+3. Run `python manage.py migrate` to perform the migrations.
 
    - Migrate troubleshooting:
      - `ImportError: Couldn't import Django`: This may mean your virtual environment is not currently active. Please
@@ -480,6 +457,76 @@ python -c "import secrets; print(secrets.token_urlsafe())"
      minus the `__init.py__` and `py manage.py makemigrations` should be run in the command line again. See [Troubleshooting](#migrating-when-updating-from-git)
      for more troubleshooting tips.
     
+---
+
+### Verify the App
+
+1. Verify the app runs with `python manage.py runserver` when in the `Commitment_to_Change_App`
+directory with `manage.py` in it.
+  - On your host machine, navigate to `127.0.0.1:8000` and check that the welcome/login page shows.
+
+2. You should perform all of the tests specified 
+[here](#testing-the-environment-and-app-manual-replication).
+
+3. Once this is done, you can consider the replication step complete.
+Proceed to [configure your IDE](#configuring-your-ide).
+
+---
+# Testing the environment and app (Manual replication)
+
+If you're using Windows, use the specific steps for Windows.
+
+Otherwise, use the general steps and consult your specific OS's documentation for specific terminal commands.
+
+## Unit & Integration Testing
+
+1. Activate the environment using the instructions in [Full Stack Testing](#full-stack-testing)
+
+2. Run `pytest` in the directory where `manage.py` is located. If coverage is desired, run
+```
+coverage -m pytest
+coverage report
+```
+
+### Location of Unit and Integration tests
+
+In each app there is a `test.py` files where all automated tests are located.
+
+## Full Stack Testing
+
+1. Activate the environment and run the Django server.
+
+   - ### General steps
+
+    - Activate
+
+     - Open a terminal window in your IDE or elsewhere, navigate to your project's virtual environment root folder, and run activate.bat in the Scripts directory.
+     - Navigate down to `Commitment-to-Change-App` then to `Commitment_to_Change_App`. You'll know you're in the correct directory if there is a `manage.py` file.
+     - Start up the django server by running `py manage.py runserver`.
+
+     ***
+
+   - ### Specific steps for Windows Command Prompt (CMD)
+
+     - While in your route directory, type `Scripts\activate.bat`
+     - Then navigate down the directory with `cd Commitment-to-Change-App\Commitment_to_Change_App`. You can then type `dir` to check for the `manage.py` file.
+     - Now type `py manage.py runserver`
+     ![Alt text](<../Auxiliary Files/Images/Development_Images/WindowsCMDSteps.png>)
+
+     ***
+
+2. Open a web browser and navigate to `localhost:8000/app/register/clinician/`
+    - Fill out the form to register a user
+
+3. Navigate to `/localhost:8000/accounts/login/`
+    - Login with the user you just registered
+
+4. Navigate to `localhost:8000/app/commitment/make/`
+
+- Fill out the commitment and hit "Submit" to view the commitment.
+
+5. If all of these steps proceed without issue, you can generally consider your environment functional.
+
 ---
 
 # Configuring your IDE
@@ -552,70 +599,6 @@ Django functionality, particularly Django models.
 
 ---
 
-# Testing the environment and app (Manual replication)
-
-If you're using Windows, use the specific steps for Windows.
-
-Otherwise, use the general steps and consult your specific OS's documentation for specific terminal commands.
-
-## Unit & Integration Testing
-
-1. Activate the environment using the instructions in [Full Stack Testing](#full-stack-testing)
-
-2. Run `pytest` in the directory where `manage.py` is located. If coverage is desired, run
-```
-coverage -m pytest
-coverage report
-```
-
-### Location of Unit and Integration tests
-
-In each app there is a `test.py` files where all automated tests are located.
-
-## Full Stack Testing
-
-1. Activate the environment and run the Django server.
-
-   - ### General steps
-
-    - Activate
-
-     - Open a terminal window in your IDE or elsewhere, navigate to your project's virtual environment root folder, and run activate.bat in the Scripts directory.
-     - Navigate down to `Commitment-to-Change-App` then to `Commitment_to_Change_App`. You'll know you're in the correct directory if there is a `manage.py` file.
-     - Start up the django server by running `py manage.py runserver`.
-
-     ***
-
-   - ### Specific steps for Windows Command Prompt (CMD)
-
-     - While in your route directory, type `Scripts\activate.bat`
-     - Then navigate down the directory with `cd Commitment-to-Change-App\Commitment_to_Change_App`. You can then type `dir` to check for the `manage.py` file.
-     - Now type `py manage.py runserver`
-     ![Alt text](<../Auxiliary Files/Images/Development_Images/WindowsCMDSteps.png>)
-
----
-
-2. Open a web browser and navigate to `localhost:8000/app/register/clinician/`
-    - Fill out the form to register a user
-
----
-
-3. Navigate to `/localhost:8000/accounts/login/`
-    - Login with the user you just registered
-
----
-
-4. Navigate to `localhost:8000/app/commitment/make/`
-
-
-- Fill out the commitment and hit "Submit" to view the commitment.
-
----
-
-5. If all of these steps proceed without issue, you can generally consider your environment functional.
-
-
-
 # Troubleshooting
 
 ## SSL Errors When Using Join Links
@@ -669,11 +652,11 @@ In some cases, figuring out migrations for existing objects can be more effort t
 
 1. Ensure the containers are all stopped with `docker compose stop`.
 2. Run `docker compose rm`.
-3. Run `docker volume ls` and note all volumes with "commitment-to-change-app" in the name.
-4. Remove each of the volumes noted in Step 3 with `docker volume rm <name>`.
-5. Recreate the containers with `docker compose build`
-6. Follow the instructions to [Perform Migrations](#perform-migrations-docker)
-7. You now have a fresh database on Docker.
+3. Remove every numbered file in the `migrations` folders - for example, `0001_*py`
+    - Do NOT remove `__init__.py` from these folders.
+4. Recreate the containers with `docker compose build`
+5. Follow the instructions to [Perform Migrations](#perform-migrations-docker)
+6. You now have a fresh database on Docker.
 
 ### Wipeout (Manual replication)
 

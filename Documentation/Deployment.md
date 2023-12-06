@@ -2,6 +2,8 @@
 
 The following deployment instructions involve deployment to an Apache server as an interim measure. We plan to support cloud deployment in a future iteration.
 
+You will also need some SMTP service to send email from the server.
+
 ## Obtain an Apache server with `mod_wsgi`
 
 1. Install and configure a server with `mod_wsgi`
@@ -13,27 +15,31 @@ some similar test script.
 ## Setup the project
 
 The instructions here will assume a Linux install but will use venv. Note that on Ubuntu 22.04 you have have to type 
-`python3` instead of `py` or `python` in the instructions.
+`python3` instead of `py` or `python` in the instructions. You should be able to skip installing Python due to 
+`mod_wsgi`, but if not, then install as per the [instructions](Development.md#install-python)
 
 1. Install and initialize PostgreSQL with the instructions [here](Development.md#install-and-configure-postgresql)
     - Installation of the `postgresql` package on Ubuntu 22.04 does not seem to 
 require manual initialization of the database cluster.
 2. Create a directory to house the root of the project. For these instructions, that directory will be `/srv/project_root`. Change into that directory.
     - Keep in mind that Apache will need permissions for the directory and its subtree.
-3. Create a venv in that directory with the instructions [here](Development.md#install-and-setup-virtual-environment). The example here creates a venv name `project_venv`.
+3. Create a venv in that directory with the instructions [here](Development.md#install-and-setup-virtual-environment). The example here creates a venv name `project_venv`. Activate the environment.
     - On Ubuntu 22.04 you will likely need to install the package `python3-venv`
-4. Install [Django](Development.md#install-django) in your virtual environment.
-In this example, you should be in the dir `/srv/project_root/project_venv`
-    - You should follow the testing steps to ensure Django works locally, but
-make sure to return to this directory and remove the testproject when you are done.
-5. Follow the instructions to [clone the main code repo](Development.md#clone-the-main-code-repo) 
+4. Follow the instructions to [clone the main code repo](Development.md#clone-the-main-code-repo) 
     - You may need to install git, on Ubuntu this is package `git`.
     - The top `Commitment_to_Change_App` folder will live next to `pyvenv.cfg`
-6. Follow the instructions to [get Django to work with PostgreSQL](Development.md#get-django-to-work-with-postgresql)
-    - Getting `psycopg2` to build on Ubuntu requires the following packages:
-        - Install using `apt-get`: `gcc, python3-dev, libpq-dev`
-        - Install using `pip` in your virtual environment: `wheel`
-7. Test that the project actually works with Django by first running `python manage.py runserver` and then verifying that the root url redirects by one of the following means:
+5. Install the [requirements](Development.md#replication-instructions) in your virtual environment.
+6. You should test that Django installed correctly in your virtual environment to save troubleshooting later. Follow
+the instructions [here](Development.md#test-django-installation-optional).
+    - In this example, you should be in the dir `/srv/project_root/project_venv` when you run `django-admin` as
+    per the instructions.
+    - You should follow the testing steps to ensure Django works locally, but
+    make sure to return to this directory and remove the testproject when you are done.
+6. Follow the instructions to create `custom_settings.py` [here](Development.md#create-custom_settingspy-manual).
+    - Do not bother changing your email settings just yet, the console backend will do fine for testing and you
+    will configure your actual service later.
+7. Perform migrations as instructed [here](Development.md#perform-migrations-manual).
+8. Test that the project actually works with Django by first running `python manage.py runserver` and then verifying that the root url redirects by one of the following means:
     - Open your web browser and navigate to `127.0.0.1:8000`. This should 
 redirect to a login page and it is very obvious whether the server is working or not.
     - Run `curl -v 127.0.0.1:8000`. The reply should contain `302 FOUND` and have 
@@ -65,6 +71,26 @@ Avoid giving more permissions than are necessary! The above are sufficient.
 The redirect to a login page should occur. If you are using a web browser, styling should be present; otherwise, test that static files are loading by visiting `127.0.0.1/static/styles.css`.
 
 3. Optionally enable daemon mode using the instructions [here](https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/modwsgi/#using-mod-wsgi-daemon-mode)
+
+## Configure your email backend
+
+This will vary based on which STMP service you use and you should therefore consult the Django documentation 
+[here](https://docs.djangoproject.com/en/4.2/topics/email/), particularly on 
+[settings](https://docs.djangoproject.com/en/4.2/topics/email/#smtp-backend). However, at a minimum, 
+you will probably need to set the following in `custom_settings.py`:
+```
+# Explicitly instruct Django to use the default SMTP backend
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# Server info for your email service
+EMAIL_HOST = "server-hostname"
+EMAIL_PORT = server_port # Integer
+# Your credentials for the server
+EMAIL_HOST_USER = "your-username"
+EMAIL_HOST_PASSWORD "your-password"
+# Your server should be using exactly one of these (don't include both) for security reasons
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
+```
 
 ## Configuration and Cleanup
 
@@ -148,3 +174,10 @@ determine whether you are getting 404 or 403 responses on requests for static
 files. If it is a 403, troubleshoot using the general principles in the 
 [previous section](#403-errors-on-root-route). If it is a 404, you have 
 pointed Apache to the wrong directory in both the Alias and Directory rules.
+
+### Email server difficulties
+
+If you have difficulty with your email server, follow the instructions for `aiosmtpd` 
+[here](Development.md#consider-your-email-backend) and use `aiosmptd` to capture the emails while Apache is running. 
+You may need to restart Apache if you change the configuration. If you can do that and see them printing in the console, 
+any problems with your email server or your configuration to connect to it and not something in the Django-Apache stack.

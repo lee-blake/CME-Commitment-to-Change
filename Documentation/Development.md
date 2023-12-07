@@ -290,6 +290,8 @@ for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
 
 ### Install and Configure PostgreSQL
 
+If you would prefer not to install a database **(not recommended)** you may skip this step. See [this section](#consider-a-memory-only-database) for some drawbacks to this choice.
+
 1. Install the latest version of PostgreSQL
 
    - On many Linux distributions, this may be done via a package. This is the
@@ -414,6 +416,19 @@ python -c "import secrets; print(secrets.token_urlsafe())"
 3. Paste the secret key in Step 2 into the single quotes after `SECRET_KEY` in `custom_settings.py`.
 
 4. Modify the `NAME`, `USERNAME`, and `PASSWORD` keys under `DATABASES` in `custom_settings.py` to match whatever you set them to in [Install and Configure PostgreSQL](#install-and-configure-postgresql).
+
+#### Consider a memory-only database
+
+If you would not like to use a database that writes to disk, you can add the following line to `custom_settings.py` and ignore the other instructions relating to databases:
+```
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": ":memory:",
+    }
+}
+```
+**This is generally not recommended.** The reason is that you will lose all data by shutting down the server. You may even trigger this if Django automatically reloads the server due to code changes (untested, but a possible risk). Since virtually all functions require logging in, which requires an account, which requires email verification, this will make development very annoying very quickly. It is also not suitable for production for obvious reasons. However, this option does exist.
 
 #### Consider your email backend
 

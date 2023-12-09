@@ -325,7 +325,7 @@ join the course.
    
 ![Commitment Create](<../Auxiliary Files/Images/User_Images/commitment_creation.PNG>)
 
-### - Completing A Commitment (Clinician Profile)
+### - Completing A Commitment 
 - This button is used to mark a commitment complete.
 - Must be logged-in.
 - Address for this page: `/app/dashboard/`
@@ -346,7 +346,7 @@ join the course.
 ![Completed Commitments](<../Auxiliary Files/Images/User_Images/commitment_complete.PNG>)
 
 
-### - Deleting A Commitment (Clinician Profile)
+### - Deleting A Commitment 
 - This button is used to delete a commitment.
 - Must be logged-in.
 Address for this page: `/app/dashboard/`
@@ -362,7 +362,7 @@ Address for this page: `/app/dashboard/`
 ![Delete Confirm](<../Auxiliary Files/Images/User_Images/commitment_delete.PNG>)
 
 
-### - Discontinuing a Commitment (Clinician Profile)
+### - Discontinuing a Commitment 
 - This button is used to mark a commitment as discontinued indefinitely but not
 completed.
 - Must be logged-in.
@@ -385,7 +385,7 @@ completed.
 6. If this action was a mistake, the commitment can be reopened from here.
 
 
-### - Reopening Discontinued Commitments (Clinician Profile)
+### - Reopening Discontinued Commitments 
 - This button is used to reactivate a discontinued or completed commitment.
 - Must be logged-in.
 - Address for this page: `/app/dashboard/`
@@ -463,15 +463,15 @@ not alter it.
 - Must be logged in.
 
 1. Obtain an invitation link from a provider.
-  - It should look something like the link in [Inviting Clinicians to a Course via a link (Provider Profile)](#inviting-clinicians-to-a-course-via-a-link-provider-profile).
-3. Click the link or paste it into your browser.
-4. If prompted, log in.
+  - It should look something like the link in [Inviting Clinicians to your Course](#inviting-clinicians-to-your-course).
+2. Click the link or paste it into your browser.
+3. If prompted, log in.
    
 ![Clinician join course](<../Auxiliary Files/Images/User_Images/clinician_confirm_join_course.png>)
 
 5. You will automatically be enrolled in the course and be taken to that course's page.
 
-### - Viewing a Course (Clinician Profile)
+### - Viewing a Course 
 - This page displays the details of a course you are enrolled in.
 - Must be logged in.
 - Must be a member of the course.
@@ -485,7 +485,7 @@ not alter it.
 
 ![Course View Clinician](<../Auxiliary Files/Images/User_Images/clinician_course_view.png>)
 
-### - Associating a Commitment with a Course (Clinician Profile)
+### - Associating a Commitment with a Course 
 - Commitments may be optionally associated with a course.
 - Must be logged in.
 - Must be a member of the course.
@@ -499,7 +499,7 @@ the respective page depending on whether your commitment already exists.
 
 ![Associate commitment](<../Auxiliary Files/Images/User_Images/Associate_commitment_with_course.png>)
 
-### - Disassociating a Commitment with a Course (Clinician profile)
+### - Disassociating a Commitment with a Course 
 - If a commitment is associated in error, this can be reversed.
 - Must be logged in.
 - Must be a member of the course to reassociate.

@@ -1,6 +1,6 @@
 # Feature Navigation as a User
 ---
-For easy navigation, use the table of contents [found here](#table-of-contents).
+For easy navigation, please use GitHub's Table of Contents feature: ![TOC](<../Auxiliary Files/Images/User_Images/toc.png>)
 
 ---
 
@@ -155,16 +155,17 @@ login page by clicking on "Click here to register".
 6. If your password reset was successful, you will be redirected to the following page:
 
 ![reset password complete](<../Auxiliary Files/Images/User_Images/password_reset_complete.png>)
+&nbsp;
+&nbsp;
 
 ---
 
-&nbsp;
-&nbsp;
+
 # Provider Specific Instructions
 ---
 
 ## Dashboard:
-- On your dashboard, you can view:
+- Your dashboard :
    - A Courses section, which contains all courses you have created, their Course ID, start, and end date if added.
    - A Commitment Templates section, which contains all of the commitment templates you have created.
 ---
@@ -286,11 +287,10 @@ join the course.
 4. Your suggested commitment(s) will now appear in your "Suggested Commitments" section for your clinicians to use. You can click on the commitment template name to view and edit it, or click "Select" to add/remove commitment templates.
 
 ![suggested commitment list in course view](<../Auxiliary Files/Images/User_Images/suggested_commitment_list.png>)
+&nbsp;
+&nbsp;
 
 ---
-&nbsp;
-&nbsp;
-
 # Clinician Specific Instructions
 ---
 ## Dashboard:
@@ -333,7 +333,7 @@ join the course.
 2. Locate a commitment in the *In-Progress* or *Past Due* boxes on the dashboard.
 3. Below the title of the commitment, click on the box that says *Complete*.
    
-![Complete Button](<../Auxiliary Files/Images/User_Images/commitment_complete_circled.PNG>)
+![Complete Button](<../Auxiliary Files/Images/User_Images/commitment_complete_circled.png>)
 
 4. This opens the commitment creation page. Fill out the title, description, and deadline fields
    and press the *Submit* button underneath the deadline field.
@@ -371,7 +371,7 @@ completed.
 2. Locate a commitment in the *In-Progress* or *Past-Due* boxes.
 3. Below the title of the commitment, click on the box that says *Discontinue*.
 
-![Discontinue Button](<../Auxiliary Files/Images/User_Images/commitment_discontinue_circled.PNG>)
+![Discontinue Button](<../Auxiliary Files/Images/User_Images/commitment_discontinue_circled.png>)
 
 4. This brings up a modal asking you to confirm. Click the *Discontinue* button to confirm discontinuation.
 
@@ -380,7 +380,7 @@ completed.
 5. The commitment should move from whichever box it was in, into the *Discontinued* box,
    and it will be marked as discontinued.
    
-![Discontinued](<../Auxiliary Files/Images/User_Images/commitment_discontinued.PNG>)
+![Discontinued](<../Auxiliary Files/Images/User_Images/commitment_discontinued.png>)
 
 6. If this action was a mistake, the commitment can be reopened from here.
 
@@ -402,7 +402,11 @@ completed.
 5. The commitment should move from whichever box it was in, into the *In-Progress* box,
    and it will be marked as in-progress.
 
-## Commitment Page:
+&nbsp;
+&nbsp;
+
+---
+## Commitment Vew Page:
 ---
 
 ### - Navigate to a Commitment Page from the Dashboard 
@@ -448,6 +452,8 @@ another machine.
 
 3. Share with others. They will be able to see the details of the commitment but
 not alter it.
+&nbsp;
+&nbsp;
 
 ---
 ## Courses:
@@ -517,55 +523,4 @@ association or the correct course if an incorrect course was selected.
 
 ![Make from template](<../Auxiliary Files/Images/User_Images/create_from_template.png>)
 
-1. Your commitment will now show up in that associated [Course's view page](#Viewing-a-Course), as well as [on your dashboard](#Navigating-to-the-Clinician-Dashboard) and functions just like [a normal commitment would](#Creating-A-Commitment)
-
-&nbsp;
-&nbsp;
-
----
-# Table of contents:
----
-
-
-- [Feature Navigation as a User](#feature-navigation-as-a-user)
-    - [Requirements and Assumptions](#requirements-and-assumptions)
-  - [Opening the Application](#opening-the-application)
-- [General Instructions and Tips](#general-instructions-and-tips)
-  - [Info icons (Help modals and popovers)](#info-icons-help-modals-and-popovers)
-  - [Registering for an Account](#registering-for-an-account)
-      - [Email verification:](#email-verification)
-    - [- Logging In](#--logging-in)
-    - [- Logging Out](#--logging-out)
-    - [- Resetting account password with "Forgot Password"](#--resetting-account-password-with-forgot-password)
-- [Provider Specific Instructions](#provider-specific-instructions)
-  - [Dashboard:](#dashboard)
-    - [- Navigating to the Provider Dashboard](#--navigating-to-the-provider-dashboard)
-  - [Courses:](#courses)
-    - [- Creating a Course](#--creating-a-course)
-    - [- Viewing a Created Course](#--viewing-a-created-course)
-    - [- Editing a Course](#--editing-a-course)
-    - [- Inviting Clinicians to Your Course](#--inviting-clinicians-to-your-course)
-    - [- Viewing Enrolled Student Information](#--viewing-enrolled-student-information)
-    - [- Viewing Course Commitments and Status Breakdown](#--viewing-course-commitments-and-status-breakdown)
-  - [Commitment Templates](#commitment-templates)
-    - [- Creating a Commitment Template](#--creating-a-commitment-template)
-    - [- Associating a Created Commitment Template with a course](#--associating-a-created-commitment-template-with-a-course)
-- [Clinician Specific Instructions](#clinician-specific-instructions)
-  - [Dashboard:](#dashboard-1)
-    - [- Navigating to the Clinician Dashboard](#--navigating-to-the-clinician-dashboard)
-    - [- Creating A Commitment](#--creating-a-commitment)
-    - [- Completing A Commitment (Clinician Profile)](#--completing-a-commitment-clinician-profile)
-    - [- Deleting A Commitment (Clinician Profile)](#--deleting-a-commitment-clinician-profile)
-    - [- Discontinuing a Commitment (Clinician Profile)](#--discontinuing-a-commitment-clinician-profile)
-    - [- Reopening Discontinued Commitments (Clinician Profile)](#--reopening-discontinued-commitments-clinician-profile)
-  - [Commitment Page:](#commitment-page)
-    - [- Navigate to a Commitment Page from the Dashboard](#--navigate-to-a-commitment-page-from-the-dashboard)
-    - [- Editing A Commitment](#--editing-a-commitment)
-    - [- Sharing a Commitment Page](#--sharing-a-commitment-page)
-  - [Courses:](#courses-1)
-    - [- Joining a Course](#--joining-a-course)
-    - [- Viewing a Course (Clinician Profile)](#--viewing-a-course-clinician-profile)
-    - [- Associating a Commitment with a Course (Clinician Profile)](#--associating-a-commitment-with-a-course-clinician-profile)
-    - [- Disassociating a Commitment with a Course (Clinician profile)](#--disassociating-a-commitment-with-a-course-clinician-profile)
-    - [- Making a Course's Suggested Commitment](#--making-a-courses-suggested-commitment)
-- [Table of contents:](#table-of-contents)
+4. Your commitment will now show up in that associated [Course's view page](#Viewing-a-Course), as well as [on your dashboard](#Navigating-to-the-Clinician-Dashboard) and functions just like [a normal commitment would](#Creating-A-Commitment)

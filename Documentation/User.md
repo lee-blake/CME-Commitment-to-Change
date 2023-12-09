@@ -256,11 +256,11 @@ join the course.
 
 ---
 ## Commitment Templates
--  Commitment templates are used by clinicians in your course to create a commitment in that course with defaults you set for them. You can create as many templates as you wish, and you can even use the same templates across multiple of your courses.
+-  Commitment templates are used to suggest that clinicians in a course make a commitment that you have specified in the template. You can create as many templates as you wish, and you can even use the same templates across multiple of your courses.
 ---
 
 ### - Creating a Commitment Template
-- This covers how to create a commitment template
+- This covers how to create a commitment template that will be used to suggest a commitment to clinicians.
 - Must be logged-in.
 - Address for this page: `/app/commitment-template/create/`
 
@@ -284,7 +284,7 @@ join the course.
 
 ![checkbox suggested commitment](<../Auxiliary Files/Images/User_Images/select_commitment_tempalate_check_screen.png>)
 
-4. Your suggested commitment(s) will now appear in your "Suggested Commitments" section for your clinicians to use. You can click on the commitment template name to view and edit it, or click "Select" to add/remove commitment templates.
+4. Your suggested commitment(s) will now appear in your "Suggested Commitments" section for your clinicians to use. You can click on the commitment template name to view and edit it, or click "Select" to add/remove commitment templates. The same Commitment Template may be reused across multiple courses if you so choose. It is recommended to reuse rather than create a new, identical template because this saves effort, reduces dashboard clutter, and allows grouping of statistics.
 
 ![suggested commitment list in course view](<../Auxiliary Files/Images/User_Images/suggested_commitment_list.png>)
 &nbsp;

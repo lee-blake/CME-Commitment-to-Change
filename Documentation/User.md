@@ -81,15 +81,20 @@ login page by clicking on "Click here to register".
 
 ![please verify](<../Auxiliary Files/Images/User_Images/verify-email.png>)
 
-7. 
+7.
    #### Email verification:
+   This will vary depending on how the service is deployed when you access it.
+   ##### Fully configured deployment with STMP
+   Check your email, including your spam folder. You should see an email with subject "Verify you CME Commitment to Change account". Verify that the link points to the same website as you have been accessing and click it/paste it into your browser and hit enter.
+   ##### Development environment
    Navigate to your email capture service. If you are using manual replication, [check here for information on where to find the verification email.](https://github.com/lee-blake/CME-Commitment-to-Change/blob/master/Documentation/Development.md#consider-your-email-backend). If you are using the Docker app, navigate to the main container, and click on the sub-container labeled: "commitment-to-change-app-cme-ctc-mailcapture-1".
 
 ![email container](<../Auxiliary Files/Images/User_Images/docker_mailcapture.png>)
 
-1. In the resulting terminal, locate the verification email sent to your newly created account, and click on the verification link at the bottom.
+   - In the resulting terminal, locate the verification email sent to your newly created account, and click on the verification link at the bottom.
 
 ![verify email](<../Auxiliary Files/Images/User_Images/docker-click-link-to-verify-email.png>)
+   ***
 
 9. If your verification was successful, you should see the following page:
 
@@ -143,7 +148,7 @@ login page by clicking on "Click here to register".
 
 ![reset email sent](<../Auxiliary Files/Images/User_Images/password_reset_email_sent.png>)
 
-4. Navigate to your email capture service [as explained in the register verification step](#email-verification) and click on the "Reset your password" link towards the end of the email.
+4. Navigate to your email or email capture service [as explained in the register verification step](#email-verification) and click on the "Reset your password" link towards the end of the email. The email subject should be something like "Reset your CME Commitment to Change password".
    
 5. On the resulting page, enter a new password and re-enter it in the confirmation field. Then click "Confirm Password".
 ![reset password confirm](<../Auxiliary Files/Images/User_Images/confirm_new_password_page.png>)

@@ -64,7 +64,7 @@ login page by clicking on "Click here to register".
 
 ![Register Account](<../Auxiliary Files/Images/User_Images/register_provider.png>)
 
-   - CLINICIANS: If you are registering as a clinician, you can fill out the optional "First name", "Last name", and "Institution" fields if you would like. The institution field will associate your account with the institution you attend or are a part of. (eg. Ball State University, Indiana University, etc.)
+   - CLINICIANS: If you are registering as a clinician, you can fill out the optional "First name", "Last name", and "Institution" fields if you would like. The institution field will associate your account with the institution you attend or are a part of. (eg. Ball State University, Indiana University, etc.) These fields can help providers clarify who has joined their course on the site, so it is recommended that you fill them out.
 
 ![Register Clinician Account](<../Auxiliary Files/Images/User_Images/register_clinician.png>)
 

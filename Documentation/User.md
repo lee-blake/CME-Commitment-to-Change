@@ -1,5 +1,9 @@
 # Feature Navigation as a User
-*** 
+---
+For easy navigation, please use GitHub's Table of Contents feature: ![TOC](<../Auxiliary Files/Images/User_Images/toc.png>)
+
+---
+
 ### Requirements and Assumptions
 1. **__The development environment must be setup and running before attempting to use the application__**
     - See [Development.md](Development.md) for steps on how to do this.
@@ -18,16 +22,18 @@
 
 **All preceding addresses will begin with `http://localhost:8000/` for this specific environment setup**
 
+**If running the development server or Apache without SSL, change `https` to `http` in the links.**
+
 
 &nbsp;
 &nbsp;
-&nbsp;
+
 
 ---
 # General Instructions and Tips
 ---
-## Info icons
-- Look for the info icons throughout the applike the one shown below:
+## Info icons (Help modals and popovers)
+- Look for the info icons throughout the app like the one shown below:
   
 ![Info Icon](<../Auxiliary Files/Images/User_Images/info-icon.png>)
 
@@ -35,42 +41,68 @@
 
 ![Info Popup](<../Auxiliary Files/Images/User_Images/info-popup.png>)
 
----
-&nbsp;
-&nbsp;
-&nbsp;
-# Provider Instructions
----
-## Account Registration:
----
-### Registering for a Provider Account
-- This page is used to create new provider user profiles.
-- Address for this page: `/app/register/provider/`
+## Registering for an Account
 
-1. Navigate to the provider registration webpage. This can be done from the 
-login page by clicking "Click here to register" and then "Provider account".
+- This page is used to create new provider user profiles.
+- For providers, the address for this page is: `/app/register/provider/`
+- For providers, the address for this page is: `/app/register/clinician/`
+
+1. Navigate to the registration webpage. This can be done from the 
+login page by clicking on "Click here to register".
+ 
+1. Choose either a clinician account or provider account.
 
 ![Account Type](<../Auxiliary Files/Images/User_Images/register_account_type.PNG>)
 
-2. Fill out the fields for username, email, password, password verification, and for Institution Name.
+3.  Fill out the required fields for username, email, password, and password verification.
+
+![Generic register Account](<../Auxiliary Files/Images/User_Images/generic_register.png>)
+
+4. Fill out the Provider/Clinician specific fields:
+   
+   - PROVIDERS: If you are registering as a provider, you will also need to fill out the required "Institution" field. This field is to associate the courses you make with the institution you represent. (eg. Ball State University, Indiana University, etc.)
 
 ![Register Account](<../Auxiliary Files/Images/User_Images/register_provider.png>)
+
+   - CLINICIANS: If you are registering as a clinician, you can fill out the optional "First name", "Last name", and "Institution" fields if you would like. The institution field will associate your account with the institution you attend or are a part of. (eg. Ball State University, Indiana University, etc.)
+
+![Register Clinician Account](<../Auxiliary Files/Images/User_Images/register_clinician.png>)
 
 - Please note that you can reveal the password as you type it by clicking on the eye icon in the password field.
 
 ![Register Show Password](<../Auxiliary Files/Images/User_Images/show_password.png>)
 
 
-3. Select 'Submit'.
+5. Select 'Submit'.
    - **If you are redirected back to this page, either an invalid email was used, 
     the password was not strong enough, or the passwords did not match. Error 
-    text in the page should inform you of the specifics.**
-4. If your provider account was successful in its creation, you will see this page.
+    text in this page should inform you of the specific reason.**
+6. You will be met with a "Verify your email" page:
 
-![Success](<../Auxiliary Files/Images/User_Images/successful_registration.PNG>)
+![please verify](<../Auxiliary Files/Images/User_Images/verify-email.png>)
 
-### Logging In as a Provider
-- This page is used for logging into an already registered clinician  or provider profile.
+7.
+   #### Email verification:
+   This will vary depending on how the service is deployed when you access it.
+   ##### Fully configured deployment with STMP
+   Check your email, including your spam folder. You should see an email with subject "Verify you CME Commitment to Change account". Verify that the link points to the same website as you have been accessing and click it/paste it into your browser and hit enter.
+   ##### Development environment
+   Navigate to your email capture service. If you are using manual replication, [check here for information on where to find the verification email.](https://github.com/lee-blake/CME-Commitment-to-Change/blob/master/Documentation/Development.md#consider-your-email-backend). If you are using the Docker app, navigate to the main container, and click on the sub-container labeled: "commitment-to-change-app-cme-ctc-mailcapture-1".
+
+![email container](<../Auxiliary Files/Images/User_Images/docker_mailcapture.png>)
+
+   - In the resulting terminal, locate the verification email sent to your newly created account, and click on the verification link at the bottom.
+
+![verify email](<../Auxiliary Files/Images/User_Images/docker-click-link-to-verify-email.png>)
+   ***
+
+9. If your verification was successful, you should see the following page:
+
+![verification complete](<../Auxiliary Files/Images/User_Images/account-activation-complete.png>)
+
+
+### - Logging In
+- This page is used for logging into an already registered clinician or provider profile.
 - Address for this page: `/accounts/login/`
 1. Fill out the fields with the username and password that you used when creating a profile.
 
@@ -81,13 +113,11 @@ login page by clicking "Click here to register" and then "Provider account".
 ![Login Show Password](<../Auxiliary Files/Images/User_Images/sign_in_show_password.png>)
 
 2. Press the 'log in' button located underneath these fields.
-3. If you were successfully logged in, you will be redirected to the commitment
-dashboard (for clinician accounts) or course dashboard (for provider accounts).
-
+3. If you were successfully logged in, you will be redirected to your dashboard.
 4. If you were not successful, you will be directed to enter a correct username and password.
 
 
-### Logging Out as a Provider
+### - Logging Out
 - This button is used to log out the currently logged-in user.
 - Must be logged in.
 - Address for this page: `/accounts/logout/`
@@ -100,12 +130,46 @@ dashboard (for clinician accounts) or course dashboard (for provider accounts).
 
 ![logout_success.PNG](<../Auxiliary Files/Images/User_Images/logout_success.png>)
 
-4. If this was a mistake, you can log back in using the *Log In* button.
+4. If this was a mistake, you can log back in using the [Log In](#Logging-in) button.
+
+### - Resetting account password with "Forgot Password"
+- This page is used for resetting your account's password if you have forgotten it.
+- Address for this page: `accounts/password-reset/`
+
+1. From the [login page](#logging-in), click on the "Forgot your password?" link
+
+![forgot password](<../Auxiliary Files/Images/User_Images/forgot_password_link.png>)
+
+2. Enter the email that you associated your account with [when creating your account](#registering-for-an-account) and click the "Reset Password" button.
+
+![reset enter email](<../Auxiliary Files/Images/User_Images/reset_enter_email.png>)
+
+3. You will be met with the following page:
+
+![reset email sent](<../Auxiliary Files/Images/User_Images/password_reset_email_sent.png>)
+
+4. Navigate to your email or email capture service [as explained in the register verification step](#email-verification) and click on the "Reset your password" link towards the end of the email. The email subject should be something like "Reset your CME Commitment to Change password".
+   
+5. On the resulting page, enter a new password and re-enter it in the confirmation field. Then click "Confirm Password".
+![reset password confirm](<../Auxiliary Files/Images/User_Images/confirm_new_password_page.png>)
+6. If your password reset was successful, you will be redirected to the following page:
+
+![reset password complete](<../Auxiliary Files/Images/User_Images/password_reset_complete.png>)
+&nbsp;
+&nbsp;
 
 ---
-## Dashboard:
+
+
+# Provider Specific Instructions
 ---
-### Navigating to the Provider Dashboard
+
+## Dashboard:
+- Your dashboard :
+   - A Courses section, which contains all courses you have created, their Course ID, start, and end date if added.
+   - A Commitment Templates section, which contains all of the commitment templates you have created.
+---
+### - Navigating to the Provider Dashboard
 - These instructions detail how to get back to the Course Dashboard that most 
 provider instructions will reference.
 - Must be logged-in.
@@ -114,15 +178,15 @@ provider instructions will reference.
 to the dashboard.
 2. If you are on another page, you can click "Dashboard" in the navigation bar 
 at the top of the current page.
-
-![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
-
 3. If you prefer, you can instead manually type the url `/app/dashboard` after the address discussed in [Opening the Application](#opening-the-application).
+4. You will be redirected to the dashboard, which looks like this:
+![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
 
 ---
 ## Courses:
+- Courses are hubs for you to invite clinicians to. You can set a course description, add a course identifier, start date, and end date, and create "suggested commitment" templates for clinicians to use in your course.
 ---
-### Creating a Course as a Provider
+### - Creating a Course 
 - This page is used to create a course that you can then invite clinicians to join.
 - Must be logged-in.
 - Address for this page: `/app/course/create/`
@@ -130,25 +194,38 @@ at the top of the current page.
 
 ![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_create_course.png>)
 
-3. Fill out the title and description of the course. Optionally, you can add a course identifier, a start date, and an end date.
+3. Fill out the title and description of the course. Optionally, you can add a course identifier, a start date, and an end date. The course identifier is NOT unique, and can be used however you please to fit your needs. It is recommended that you choose to make this ID unique across your different courses, so as to more easily identify them, especially when using similar or identical Course Titles.
 
    ![Provider Create Course](<../Auxiliary Files/Images/User_Images/create_course.png>)
 
 4. When you click submit, you will be taken to the course's view page.
 
-![Provider Course View](<../Auxiliary Files/Images/User_Images/provider-course-view.png>)
-
-### Viewing a Created Course as a Provider
+### - Viewing a Created Course 
 - This page shows the details for a course.
 - Must be logged-in.
 - Address for this page: `/app/course/<Course id>/view/`
 1. Navigate to the Course Dashboard.
-2. Locate the link with the name of the course you want to view.
-3. Click the link.
+2. In the "Courses" section, locate the button with the name of the course you want to view.
+3. Click the button.
 
 ![Provider view course](<../Auxiliary Files/Images/User_Images/Provider_view_course.png>)
 
-### Inviting Clinicians to Your Course as a Provider
+4. You will be redirected to the course view page, which should look similar  to the following
+
+![Provider Course View](<../Auxiliary Files/Images/User_Images/provider-course-view.png>)
+
+### - Editing a Course
+- Must be logged-in.
+- Address for this page: `/app/course/<Course id>/edit/`
+
+1. Navigate to your Course's view page [as shown here](#viewing-a-created-course)
+2. Click on the "Edit" button at the bottom of the page.
+
+![Edit Course](<../Auxiliary Files/Images/User_Images/edit_course.png>)
+
+3. Adjust the fields as needed and click "Submit".
+
+### - Inviting Clinicians to Your Course 
 - This covers inviting clinicians to a course by sharing a link.
 - Must be logged-in.
 - Address for this page: `/app/course/<Course id>/view/`
@@ -162,75 +239,64 @@ at the top of the current page.
 5. When they go to the link, they will be prompted to log in and automatically
 join the course.
 
-# Clinician Instructions
----
-## Account Creation:
----
-
-### Registering for a Clinician Account
-- This page is used to create new clinician user profiles.
-- Address for this page: `/app/register/clinician/`
-1. Navigate to the clinician registration webpage. This can be done from the 
-login page by clicking "Click here to register" and then "Clinician account".
-
-![Account Type](<../Auxiliary Files/Images/User_Images/register_account_type.PNG>)
-
-2. Fill out the required fields for username, email, password, and password verification. Optionally, you can put in your first and last name, as well as the institution you attend.
-
-![Register Account](<../Auxiliary Files/Images/User_Images/register_clinician.png>)
-
-- Please note that you can reveal the password as you type it by clicking on the eye icon in the password field.
+### - Viewing Enrolled Student Information
+- Must be logged-in.
   
-![Register Show Password](<../Auxiliary Files/Images/User_Images/show_password.png>)
+1. Navigate to your course's view page [as shown here](#Navigating-to-the-View-Course-Page).
+2. In the "List of Students Enrolled" section, you will find a list of all students enrolled in your course.
+3. Click on any name in the list to view their full name, Institution, and user name.
+![Enrolled student info](<../Auxiliary Files/Images/User_Images/enrolled_student_info.png>)
 
+### - Viewing Course Commitments and Status Breakdown
+1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Associated Commitments" section. 
+2. In the "Status Breakdown" section, you will see a table containing the statuses of all commitments made in your course.
+3. The "List of Commitments" section contains the names of all commitments created in your course. You can click on the link for each to view the commitment's details.
 
-3. Select 'Submit'.
-   - **If you are redirected back to this page, either an invalid email was used, 
-    the password was not strong enough, or the passwords did not match. Error 
-    text in the page should inform you of the specifics.**
-4. If your clinician account was successful in its creation, you will see this page.
+![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/associated_commitments_section.png>)
 
-![Success](<../Auxiliary Files/Images/User_Images/successful_registration.PNG>)
+---
+## Commitment Templates
+-  Commitment templates are used by clinicians in your course to create a commitment in that course with defaults you set for them. You can create as many templates as you wish, and you can even use the same templates across multiple of your courses.
+---
 
+### - Creating a Commitment Template
+- This covers how to create a commitment template
+- Must be logged-in.
+- Address for this page: `/app/commitment-template/create/`
 
+1. Click "Create Commitment Template" in the navigation bar at the top.
 
-### Logging In as a Clinician
-- This page is used for logging into an already registered clinician  or provider profile.
-- Address for this page: `/accounts/login/`
-1. Fill out the fields with the username and password that you used when creating a profile.
-   
-![sign_in](<../Auxiliary Files/Images/User_Images/sign_in.PNG>)
+![Provider create commitment template](<../Auxiliary Files/Images/User_Images/provider_create_commitment_template.png>)
 
-- Please note that you can reveal the password as you type it by clicking on the eye icon in the password field.
+2. Fill out the commitment's title and description fields and press "Submit".
 
-![Login Show Password](<../Auxiliary Files/Images/User_Images/sign_in_show_password.png>)
+![provider template creation page](<../Auxiliary Files/Images/User_Images/create_commitment_template.png>)
 
-2. Press the 'log in' button located underneath these fields.
-3. If you were successfully logged in, you will be redirected to the commitment
-dashboard (for clinician accounts) or course dashboard (for provider accounts).
+### - Associating a Created Commitment Template with a course
+- Must be logged-in.
 
-4. If you were not successful, you will be directed to enter a correct username and password.
+1. Navigate to your course's view page [as shown here](#Navigating-to-the-View-Course-Page).
+2. In the "Suggested Commitments" section, click the "Select" button.
 
+![select suggested commitment](<../Auxiliary Files/Images/User_Images/select_suggested_commitment.png>)
 
-### Logging Out as a Clinician
-- This button is used to log out the currently logged-in user.
-- Must be logged in.
-- Address for this page: `/accounts/logout/`
-1. While logged-in to the application, find the navigation bar at the top of the screen.
-2. There should be a *Logged in as 'USERNAME'* title followed by a *Log Out* button. Press this button.
-![log_out-button.PNG](<../Auxiliary Files/Images/User_Images/log_out_button.PNG>)
+3. On the resulting page, select the templates you wish to use in this course, then click "Submit".
 
-3. After pressing *Logout*, you will be brought to the logout confirmation page.
-   
-![logout_success.PNG](<../Auxiliary Files/Images/User_Images/logout_success.png>)
+![checkbox suggested commitment](<../Auxiliary Files/Images/User_Images/select_commitment_tempalate_check_screen.png>)
 
-4. If this was a mistake, you can log back in using the *Log In* button.
+4. Your suggested commitment(s) will now appear in your "Suggested Commitments" section for your clinicians to use. You can click on the commitment template name to view and edit it, or click "Select" to add/remove commitment templates.
 
+![suggested commitment list in course view](<../Auxiliary Files/Images/User_Images/suggested_commitment_list.png>)
+&nbsp;
+&nbsp;
 
+---
+# Clinician Specific Instructions
+---
 ## Dashboard:
 ---
 
-### Navigating to the Clinician Dashboard 
+### - Navigating to the Clinician Dashboard 
 - This button is used to navigate to the logged-in user's commitment dashboard.
 - Must be logged-in
 - Address for this page: `/app/dashboard/` or `/app/dashboard/clinician/`
@@ -245,7 +311,7 @@ dashboard (for clinician accounts) or course dashboard (for provider accounts).
 ![Clinician Dashboard](<../Auxiliary Files/Images/User_Images/finalDashboard.png>)
 
 
-### Creating A Commitment as a Clinician
+### - Creating A Commitment 
 - This button is used to create a new commitment.
 - Must be logged in.
 - Address for this page: `/app/commitment/make/`
@@ -259,7 +325,7 @@ dashboard (for clinician accounts) or course dashboard (for provider accounts).
    
 ![Commitment Create](<../Auxiliary Files/Images/User_Images/commitment_creation.PNG>)
 
-### Completing A Commitment (Clinician Profile)
+### - Completing A Commitment 
 - This button is used to mark a commitment complete.
 - Must be logged-in.
 - Address for this page: `/app/dashboard/`
@@ -267,7 +333,7 @@ dashboard (for clinician accounts) or course dashboard (for provider accounts).
 2. Locate a commitment in the *In-Progress* or *Past Due* boxes on the dashboard.
 3. Below the title of the commitment, click on the box that says *Complete*.
    
-![Complete Button](<../Auxiliary Files/Images/User_Images/commitment_complete_circled.PNG>)
+![Complete Button](<../Auxiliary Files/Images/User_Images/commitment_complete_circled.png>)
 
 4. This opens the commitment creation page. Fill out the title, description, and deadline fields
    and press the *Submit* button underneath the deadline field.
@@ -280,7 +346,7 @@ dashboard (for clinician accounts) or course dashboard (for provider accounts).
 ![Completed Commitments](<../Auxiliary Files/Images/User_Images/commitment_complete.PNG>)
 
 
-### Deleting A Commitment (Clinician Profile)
+### - Deleting A Commitment 
 - This button is used to delete a commitment.
 - Must be logged-in.
 Address for this page: `/app/dashboard/`
@@ -296,7 +362,7 @@ Address for this page: `/app/dashboard/`
 ![Delete Confirm](<../Auxiliary Files/Images/User_Images/commitment_delete.PNG>)
 
 
-### Discontinuing a Commitment (Clinician Profile)
+### - Discontinuing a Commitment 
 - This button is used to mark a commitment as discontinued indefinitely but not
 completed.
 - Must be logged-in.
@@ -305,7 +371,7 @@ completed.
 2. Locate a commitment in the *In-Progress* or *Past-Due* boxes.
 3. Below the title of the commitment, click on the box that says *Discontinue*.
 
-![Discontinue Button](<../Auxiliary Files/Images/User_Images/commitment_discontinue_circled.PNG>)
+![Discontinue Button](<../Auxiliary Files/Images/User_Images/commitment_discontinue_circled.png>)
 
 4. This brings up a modal asking you to confirm. Click the *Discontinue* button to confirm discontinuation.
 
@@ -314,13 +380,13 @@ completed.
 5. The commitment should move from whichever box it was in, into the *Discontinued* box,
    and it will be marked as discontinued.
    
-![Discontinued](<../Auxiliary Files/Images/User_Images/commitment_discontinued.PNG>)
+![Discontinued](<../Auxiliary Files/Images/User_Images/commitment_discontinued.png>)
 
 6. If this action was a mistake, the commitment can be reopened from here.
 
 
-### Reopening Discontinued Commitments (Clinician Profile)
-- This button is used to reactivate a discontinued commitment.
+### - Reopening Discontinued Commitments 
+- This button is used to reactivate a discontinued or completed commitment.
 - Must be logged-in.
 - Address for this page: `/app/dashboard/`
 1. Navigate to the dashboard.
@@ -336,10 +402,14 @@ completed.
 5. The commitment should move from whichever box it was in, into the *In-Progress* box,
    and it will be marked as in-progress.
 
-## Commitment Page:
+&nbsp;
+&nbsp;
+
+---
+## Commitment Vew Page:
 ---
 
-### Navigate to a Commitment Page from the Dashboard as a Clinician
+### - Navigate to a Commitment Page from the Dashboard 
 - Must be logged in to navigate from your dashboard.
 - Address for this page: `/app/commitment/<Commitment ID Number>/view/`
 1. Locate the navigation bar and go to the commitment dashboard.
@@ -353,7 +423,7 @@ completed.
 
 4. This opens the commitment view page.
 
-### Editing A Commitment as a Clinician
+### - Editing A Commitment 
 - This option is used to edit an existing commitment.
 - Must be logged-in.
 - Address for this page: `/app/dashboard/`
@@ -370,7 +440,7 @@ on the dashboard.
 
 5. Below the commitment edit details, press the submit button to save your changes.
 
-### Sharing a Commitment Page
+### - Sharing a Commitment Page
 - Note: Currently, since there is no domain name registered, the link will need
 to change `localhost:8000` to `<your ip address>:8000` to be viewable from 
 another machine.
@@ -382,35 +452,40 @@ another machine.
 
 3. Share with others. They will be able to see the details of the commitment but
 not alter it.
+&nbsp;
+&nbsp;
 
 ---
 ## Courses:
 ---
-### Joining a Course (Clinician Profile)
+### - Joining a Course 
 - This procedure is used to join a course created by a provider.
 - Must be logged in.
-- **If running the development server or Apache without SSL, change `https` to `http` in the links.**
+
 1. Obtain an invitation link from a provider.
-  - It should look something like the link in [Inviting Clinicians to a Course via a link (Provider Profile)](#inviting-clinicians-to-a-course-via-a-link-provider-profile).
-3. Click the link or paste it into your browser.
-4. If prompted, log in.
+  - It should look something like the link in [Inviting Clinicians to your Course](#inviting-clinicians-to-your-course).
+2. Click the link or paste it into your browser.
+3. If prompted, log in.
+   
+![Clinician join course](<../Auxiliary Files/Images/User_Images/clinician_confirm_join_course.png>)
+
 5. You will automatically be enrolled in the course and be taken to that course's page.
 
-### Viewing a Course (Clinician Profile)
+### - Viewing a Course 
 - This page displays the details of a course you are enrolled in.
 - Must be logged in.
 - Must be a member of the course.
 - Address for this page: `/app/course/<Course id>/view/`
 1. Navigate to the Commitment Dashboard.
-2. Locate the "My Courses" section.
+2. Locate the "My Courses" section. You will see a button with the course's name, as well as the start and end date for the course if applicable.
    
 ![my course view](<../Auxiliary Files/Images/User_Images/my_courses.png>)
 
-3. Clink the link with the name of the course you want to view. This will take you to the course page.
+3. Clik on the button with the name of the course you want to view. This will take you to the course page.
 
-![Course View Clinician](<../Auxiliary Files/Images/User_Images/CourseView_Clinican.png>)
+![Course View Clinician](<../Auxiliary Files/Images/User_Images/clinician_course_view.png>)
 
-### Associating a Commitment with a Course (Clinician Profile)
+### - Associating a Commitment with a Course 
 - Commitments may be optionally associated with a course.
 - Must be logged in.
 - Must be a member of the course.
@@ -424,7 +499,7 @@ the respective page depending on whether your commitment already exists.
 
 ![Associate commitment](<../Auxiliary Files/Images/User_Images/Associate_commitment_with_course.png>)
 
-### Disassociating a Commitment with a Course (Clinician profile)
+### - Disassociating a Commitment with a Course 
 - If a commitment is associated in error, this can be reversed.
 - Must be logged in.
 - Must be a member of the course to reassociate.
@@ -436,3 +511,16 @@ association or the correct course if an incorrect course was selected.
 ![Selecting "-----"](<../Auxiliary Files/Images/User_Images/commitment_disassociate_course.PNG>)
 
 3. Complete the edit process as usual.
+
+### - Making a Course's Suggested Commitment
+
+1. Navigate to your Course's view page [as shown here](#Viewing-a-Course).
+2. In the "Suggested Commitments" section, click the "Make This Commitment" button for the commitment you wish to make.
+
+![Make commitment template](<../Auxiliary Files/Images/User_Images/make_this_commitment.png>)
+
+3. Adjust the fields as you like and choose a deadline, then click "Submit" to create the commitment.
+
+![Make from template](<../Auxiliary Files/Images/User_Images/create_from_template.png>)
+
+4. Your commitment will now show up in that associated [Course's view page](#Viewing-a-Course), as well as [on your dashboard](#Navigating-to-the-Clinician-Dashboard) and functions just like [a normal commitment would](#Creating-A-Commitment)

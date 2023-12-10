@@ -435,6 +435,7 @@ on the dashboard.
 ![Edit Button](<../Auxiliary Files/Images/User_Images/commitment_edit_circled.PNG>)
 
 4. This brings you to the commitment edit page. Make your edits in these fields.
+   - Please note: If the commitment you are editing is from a suggested commitment, you will not be able to edit some fields. Please see the [Making a Course's Suggested Commitment](#making-a-courses-suggested-commitment) for more information.
 
 ![Edit View](<../Auxiliary Files/Images/User_Images/commitment_edit_page.PNG>)
 
@@ -519,7 +520,8 @@ association or the correct course if an incorrect course was selected.
 
 ![Make commitment template](<../Auxiliary Files/Images/User_Images/make_this_commitment.png>)
 
-3. Adjust the fields as you like and choose a deadline, then click "Submit" to create the commitment.
+3. Choose a deadline for your commitment. 
+   - Please note: Suggested commitments must retain the same Title, Description, and Associated course fields as the original suggested commitment and as such, you will be unable to edit these fields. This is to ensure that all clinicians who join the same suggested commitment, make the same commitment.
 
 ![Make from template](<../Auxiliary Files/Images/User_Images/create_from_template.png>)
 

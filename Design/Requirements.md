@@ -112,6 +112,10 @@ they pass their deadlines.
   - High Priority
   - BR1
 
+- FR314: Course providers can view the aggregate status  statistics (total, complete, in progress...) of all commitments made from a commitment template.
+  - High priority
+  - BR2
+
 ## CME Courses
 
 - FR401: CME providers can create courses.
@@ -173,11 +177,29 @@ allows the user to make any modifications before they finalize the commitment.
 - FR412: Course invite links will have a button to immediately copy them to the clipboard
   - High priority
   - BR2
- 
+
 - FR413: Courses will have optional fields "unique identifier", "start date", and "end date". These will display
 in the provider course dashboard.
   - High priority
   - BR2
+ 
+- FR414: For a given course, providers can download a .csv containing a list of associated commitments and their statuses, as well as the name and email of the respective that made them.
+  - High priority
+  - BR2
+
+- FR415: Providers can download a .csv file containing the aggregate statistics of the statuses of their respect associated commitments (total, complete, in progress...) for all of their courses.
+  - High priority
+  - BR2
+ 
+- FR416: Courses will have an optional "course link" field so providers can link to the course on the provider website within the course page.
+  - High priority
+  - BR1
+
+- FR417: For each suggested commitment in a course, it will display the aggregate status statistics (total, complete, in progress...) of all commitments made from it in that course.
+  - High priority
+  - BR2
+
+
 
 ## Gamification
 
@@ -235,6 +257,10 @@ where usernames normally would, with name replacing username and affiliation app
 where the provider's username might be displayed.
   - High priority
   - BR2
+ 
+- FR608: Providers can use a "mailto" link or button within the course list of students to contact individual students about their commitments.
+  - High priority
+  - BR1
 
 ## Help, Documentation, and Hints
 
@@ -295,3 +321,7 @@ or provider account.
 logging into an account.
   - Low priority
   - BR1
+
+- NR12: In the course page, students will display next to the commitments they have made in that course so the student and their commitments can be clearly connected.
+  - High priority
+  - BR1 

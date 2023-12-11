@@ -51,16 +51,7 @@ rate over a period (for example, 50% vaccination rate).
 certain value over a period (for example, 20 clinic hours in the next month).
   - Medium priority
   - BR1
- 
-- FR206: Users should be able to view their password when creating either a clinician
-or provider account.
-  - Medium priority
-  - BR1
- 
-- FR207: Users should be able to view the password that they have entered when
-logging into an account.
-  - Medium priority
-  - BR1
+
  
 ## Commitment Management
 
@@ -300,7 +291,7 @@ or provider account.
   - Low priority
   - BR1
  
-- BR11: Users should be able to view the password that they have entered when
+- NR11: Users should be able to view the password that they have entered when
 logging into an account.
   - Low priority
   - BR1

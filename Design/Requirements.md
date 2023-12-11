@@ -23,6 +23,10 @@ The functional requirements are loosely grouped by concept.
 - FR105: The user login page will include password reset functionality under a "Forgot password?" link.
   - High priority
   - BR1
+ 
+- FR106: Users can change their passwords without using the "forgot password"/password reset functionality.
+  - Medium priority
+  - BR1
 
 ## Commitment Creation
 
@@ -325,3 +329,15 @@ logging into an account.
 - NR12: In the course page, students will display next to the commitments they have made in that course so the student and their commitments can be clearly connected.
   - High priority
   - BR1 
+
+- NR13: Clinicians can sort the list of students in the course page by name. Providers can as well, but can also sort the list by email.
+  - Medium priority
+  - BR1
+ 
+- NR14: Providers can sort the commonly used Course and CommitmentTemplate tables in the dashboard by their fields.
+  - Medium priority
+  - BR2
+ 
+- NR15: When using registration's email verification, the user can resend the email if they do not receive it.
+  - Medium priority
+  - BR1

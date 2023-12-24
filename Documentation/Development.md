@@ -216,6 +216,19 @@ to the expired category.
 17. If all of the above proceed without incident, the software likely functions
 correctly.
 
+## Linting (Docker)
+You should lint your code prior to opening a pull request using the same settings that the CI does. The config files are included
+with the code. If you are running on Docker, you can easily bundle the various linting commands into a single script as below, but splitting them can work too (just remember to start and stop the containers). Alternatively, you can run the commands on your local machine using the instructions [here](#linting-manual) (requires installing the `requirements.txt` modules globally or in a venv).
+
+### Run all linting commands in one go
+```
+docker compose start
+docker compose exec cme-ctc-web djlint .
+docker compose exec cme-ctc-web pylint .
+docker compose stop
+```
+
+---
 
 # Replicating the Environment (Manual)
 
@@ -543,6 +556,23 @@ In each app there is a `test.py` files where all automated tests are located.
 5. If all of these steps proceed without issue, you can generally consider your environment functional.
 
 ---
+
+## Linting (manual)
+You should lint your code prior to opening a pull request using the same settings that the CI does. The config files are included
+with the code. However, they are a directory level down, so you will have to either drop into the top `Commitment_to_Change_App` directory with `manage.py` or else point the linters to the correct place.
+
+### In `Commitment_to_Change_App`
+```
+djlint .
+pylint .
+```
+
+### In the project root (`Commitment-to-Change-App`)
+Currently we use the default settings for djlint so it does not need to be pointed to a config file. This may change.
+```
+djlint Commitment_to_Change_App
+pylint Commitment_to_Change_App --rcfile=Commitment_to_Change_App/.pylintrc
+```
 
 # Configuring your IDE
 

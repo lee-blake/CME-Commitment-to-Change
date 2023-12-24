@@ -559,7 +559,7 @@ In each app there is a `test.py` files where all automated tests are located.
 
 ## Linting (manual)
 You should lint your code prior to opening a pull request using the same settings that the CI does. The config files are included
-with the code. However, they are a directory level down, so you will have to either drop into the top `Commitment_to_Change_App` with `manage.py` or else point the linters to the correct place.
+with the code. However, they are a directory level down, so you will have to either drop into the top `Commitment_to_Change_App` directory with `manage.py` or else point the linters to the correct place.
 
 ### In `Commitment_to_Change_App`
 ```
@@ -567,7 +567,7 @@ djlint .
 pylint .
 ```
 
-### In the project root
+### In the project root (`Commitment-to-Change-App`)
 Currently we use the default settings for djlint so it does not need to be pointed to a config file. This may change.
 ```
 djlint Commitment_to_Change_App

@@ -46,7 +46,7 @@ into your review to make sure you have a checklist.
 
 #### For reviews on our code repos
 ```
-### Checklist
+# Checklist
 - [ ] Tests pass on my machine
 - [ ] Features work on my machine
 - [ ] Features look okay on mobile using the following
@@ -56,10 +56,10 @@ into your review to make sure you have a checklist.
   - [ ] Other (please specify)
 - [ ] Code quality is good
 
-### Changes requested
+# Changes requested
 <!-- If you request changes, summarize them here. Otherwise delete this section. -->
 
-### Comments
+# Comments
 <!-- Put any additional comments you have here -->
 
 <!-- You can always add more sections if you want to -->

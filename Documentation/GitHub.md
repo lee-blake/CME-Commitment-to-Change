@@ -29,7 +29,7 @@ https://github.com/lee-blake/Commitment-to-Change-App/compare/modularity-example
 ```
 After:
 ```
-https://github.com/lee-blake/Commitment-to-Change-App/compare/modularity-examples?template=generic_pull_request.md
+https://github.com/lee-blake/Commitment-to-Change-App/compare/modularity-examples?template=short_pr.md
 ```
 
 The PR will then autofill with the contents of the template file. Edit it as needed, providing all relevant information.

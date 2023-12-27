@@ -64,3 +64,52 @@ into your review to make sure you have a checklist.
 
 <!-- You can always add more sections if you want to -->
 ```
+
+## Merging PRs
+It is fine to merge open PRs as long as they do not have a "do not merge" section and have passed review, with one caveat:
+
+**Any pull request that has force-pushes or commits after a review should be re-reviewed.** An exception can be made if
+the only commits are merging in changes from the branch it will be merged into.
+
+# Git practices
+Any specific practices for our repos should be documented here.
+
+A nice cheat sheet exists [here](https://education.github.com/git-cheat-sheet-education.pdf).
+
+## Rewriting history
+This covers commands like `rebase` and `commit --amend`, as well as functionality from IDEs like squashing commits. The 
+general rule is that it is rewriting history if it would require force-pushing to the repo if the branch was already 
+pushed with the state that existed prior to executing the commands. 
+
+Rewriting history is not prohibited, but you should follow the guidelines below
+
+### The golden rule of rewriting history
+If an idea *requires* force pushing, it is most likely a bad idea.
+
+### Various scenarios
+Here are some general guidelines for using these commands based on which situation you are in.
+
+#### All rewritten history is local
+If you are not changing anything that would affect the repo, there is no problem. It is still recommended that you create
+a quick savepoint branch in case things go wrong. You should test your changes because rewriting history can break things.
+
+#### A branch exists on the repo but is not an open PR
+If you know someone else is working on it, do not rewrite history.
+
+If you do not think anyone is working on it, you should check with everyone on Slack. In case someone is working on it
+but does not see your message before you rewrite history, push to another branch instead of force pushing.
+
+### A PR is open for the branch
+Ideally, you should never have to do this because you should fix your history prior to opening a PR. However, if you
+realize something after the fact, keep the following in mind: force pushing after a review will void the review, as well as 
+make life harder for the reviewers. You should not force push open PRs. Push to a new branch and close your original PR. 
+You should let everyone know on Slack in case they are reviewing your code. 
+
+There is one scenario where force pushing to an open PR is acceptable: if you are using the open PR to test your changes
+to the actions workflow, force pushing to keep an intellible history is okay. **Make sure you note that the PR is not ready
+for reviews if you are going to do this.** 
+
+### You are rewriting history that involves commits from other people
+This already falls under one of the scenarios above, but additionally, you should not be rude in the way you rewrite
+the history. Using `rebase` could result in giving you credit for someone else's work. Always check with that person
+first and make sure they are one of the reviewers when you open a PR. 

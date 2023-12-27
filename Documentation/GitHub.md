@@ -84,7 +84,7 @@ pushed with the state that existed prior to executing the commands.
 Rewriting history is not prohibited, but you should follow the guidelines below
 
 ### The golden rule of rewriting history
-If an idea *requires* force pushing, it is most likely a bad idea.
+If an idea *requires* force pushing, it is most likely a bad idea. Making another branch is preferable.
 
 ### Various scenarios
 Here are some general guidelines for using these commands based on which situation you are in.

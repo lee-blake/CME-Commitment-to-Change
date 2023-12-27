@@ -35,3 +35,32 @@ https://github.com/lee-blake/Commitment-to-Change-App/compare/modularity-example
 The PR will then autofill with the contents of the template file. Edit it as needed, providing all relevant information.
 
 If you dislike this method, you can also copy and paste from the template file directly.
+
+## Reviewing PRs
+You should always perform a full code review when reviewing a PR. This includes both reviewing the code and testing 
+it yourself. You can use the templates below to help cover everything.
+
+### Templates for reviews
+Currently, there is no way to make a template for reviews to autofill. You can copy and paste the markdown below 
+into your review to make sure you have a checklist.
+
+#### For reviews on our code repos
+```
+### Checklist
+- [ ] Tests pass on my machine
+- [ ] Features work on my machine
+- [ ] Features look okay on mobile using the following
+  - [ ] Firefox/Gecko dev tools
+  - [ ] Chrome/Chromium dev tools
+  - [ ] Edge dev tools
+  - [ ] Other (please specify)
+- [ ] Code quality is good
+
+### Changes requested
+<!-- If you request changes, summarize them here. Otherwise delete this section. -->
+
+### Comments
+<!-- Put any additional comments you have here -->
+
+<!-- You can always add more sections if you want to -->
+```

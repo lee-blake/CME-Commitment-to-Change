@@ -2,8 +2,8 @@
 This file contains tips and tricks for using the stuff we have already set up on GitHub. It also contains some best practices.
 
 # Pull requests
-We use feature branching on the code repo. Currently, you should open a PR to `master` for your feature, but this is 
-likely to change to `develop` in the future.
+We use feature branching on the [code repo](https://github.com/lee-blake/Commitment-to-Change-App). Currently, you should 
+open a PR to `master` for your feature, but this is likely to change to `develop` in the future.
 
 ## Opening PRs
 If you are committing to one of our code repos, you should use one of our

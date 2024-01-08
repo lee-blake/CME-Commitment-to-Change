@@ -113,3 +113,13 @@ for reviews if you are going to do this.**
 This already falls under one of the scenarios above, but additionally, you should not be rude in the way you rewrite
 the history. Using `rebase` could result in giving you credit for someone else's work. Always check with that person
 first and make sure they are one of the reviewers when you open a PR. 
+
+# Issue Sizing
+We use the [spectral types](https://en.wikipedia.org/wiki/Stellar_classification#Harvard_spectral_classification) of main-sequence stars for rough estimation of how many programmer-hours a feature will take. The spectral types of larger stars correspond with longer lengths of time. We only require the letter - numbers are optional and should be used to indicate certainty (lower=more certain, higher=less certain) on the accuracy of the estimate. Here are general guidelines:
+- M: Up to 1 hour
+- K: 1-2 hours
+- G: 2-4 hours
+- F: 4-6 hours
+- A: 6-8 hours
+- B: 8-12 hours
+- O: Over 12 hours

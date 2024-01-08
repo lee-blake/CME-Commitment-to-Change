@@ -2,8 +2,7 @@
 This file contains tips and tricks for using the stuff we have already set up on GitHub. It also contains some best practices.
 
 # Pull requests
-We use feature branching on the [code repo](https://github.com/lee-blake/Commitment-to-Change-App). Currently, you should 
-open a PR to `master` for your feature, but this is likely to change to `develop` in the future.
+We use feature branching on the [code repo](https://github.com/lee-blake/Commitment-to-Change-App). **You should open a PR to `develop` under most circumstances.** All PRs to `master` should be releases from `develop` after more thorough testing.
 
 ## Opening PRs
 If you are committing to one of our code repos, you should use one of our
@@ -39,6 +38,8 @@ If you dislike this method, you can also copy and paste from the template file d
 ## Reviewing PRs
 You should always perform a full code review when reviewing a PR. This includes both reviewing the code and testing 
 it yourself. You can use the templates below to help cover everything.
+
+**You should close PRs of a new feature directly to `master` without approval.** The PRs should be made to `develop` instead.
 
 ### Templates for reviews
 Currently, there is no way to make a template for reviews to autofill. You can copy and paste the markdown below 

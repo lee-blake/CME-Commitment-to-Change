@@ -250,8 +250,8 @@ the latest version of Python from it, as this will likely be better documented
 for troubleshooting. In this case, skip steps 1 and 2 once you have done so.
    - Python is not included by default in Windows or Mac, so it must be downloaded and installed from: https://www.python.org/downloads/
    - To check if you have Python installed, type `python --version` into a Command Prompt. If Python is installed correctly, this command should return the currently installed Python version.
-   - Download the latest Python version that is supported by Django. *We are currently using Django version 4.2, so Python version 3.11.6 is the latest supported version*.
-     - You can check Python/Django version compatibility here: https://www.python.org/downloads/
+   - Download the latest Python version that is supported by Django. *We are currently using Django version 5.0, so Python version 3.12 is the latest supported version*.
+     - You can check Python/Django version compatibility [here](https://docs.djangoproject.com/en/5.0/faq/install/#faq-python-version-support)
 
 2. Install Python
 

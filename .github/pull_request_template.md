@@ -33,7 +33,7 @@ Documentation for [link to code PR]
 --->
 
 # Special Considerations 
-<!--- This section can be discarded in none of the below headings are applicable. -->
+<!--- This section can be discarded if none of the below headings are applicable. -->
 
 ## Do not merge immediately
 <!--- If you do not want someone to merge these changes ASAP (when the 

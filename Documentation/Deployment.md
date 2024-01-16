@@ -28,7 +28,7 @@ require manual initialization of the database cluster.
 4. Follow the instructions to [clone the main code repo](Development.md#clone-the-main-code-repo) 
     - You may need to install git, on Ubuntu this is package `git`.
     - The top `Commitment_to_Change_App` folder will live next to `pyvenv.cfg`
-5. Install the [requirements](Development.md#replication-instructions) in your virtual environment.
+5. Install the [requirements](Development.md#install-requirements-with-pip) in your virtual environment.
 6. You should test that Django installed correctly in your virtual environment to save troubleshooting later. Follow
 the instructions [here](Development.md#test-django-installation-optional).
     - In this example, you should be in the dir `/srv/project_root/project_venv` when you run `django-admin` as

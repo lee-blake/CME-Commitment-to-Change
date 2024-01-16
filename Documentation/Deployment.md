@@ -1,6 +1,6 @@
-# Deployment
+# Ubuntu Server Deployment
 
-The following deployment instructions involve deployment to an Apache server as an interim measure. We plan to support cloud deployment in a future iteration.
+The following deployment instructions involve deployment to an Apache server (assumed to be running on Ubuntu, although most of these instructions will apply to other Linux distributions). 
 
 You will also need some SMTP service to send email from the server.
 
@@ -181,3 +181,65 @@ If you have difficulty with your email server, follow the instructions for `aios
 [here](Development.md#consider-your-email-backend) and use `aiosmptd` to capture the emails while Apache is running. 
 You may need to restart Apache if you change the configuration. If you can do that and see them printing in the console, 
 any problems with your email server or your configuration to connect to it and not something in the Django-Apache stack.
+
+# AWS Deployment
+This section describes deployment to AWS. They are current to January 2024.
+
+## Required Software
+You will need OpenSSH to connect and interact with the EC2 instance.
+
+## Obtain an Ubuntu instance on AWS
+1. Obtain and log into an AWS account.
+2. Go to the EC2 dashboard
+3. Select "Launch instance"
+
+### Instance Settings
+Unless otherwise specified, use the default settings.
+
+1. From Quick Start, select Ubuntu and 64-bit x86.
+2. Create a new key pair for authentication. You should use `.pem` since the instructions will be using OpenSSH. Save it as instructed. Both RSA and ED25519 should be fine, but these instructions were only tested with ED25519.
+3. Edit network settings:
+    - Make sure a public IP is enabled.
+    - For now, create a security group with the following rules:
+        - Both inbound and outbound
+        - Allow `All traffic`
+        - From `Anwhere-IPv4`
+4. Launch the instance.
+
+## Connect to the instance
+1. If necessary, start the instance.
+2. Navigate to EC2 > Instances > *instance id* > Connect 
+3. Follow the SSH instructions
+    - In general, `ssh -i "your ssh key" ubuntu@whatever.datacenter.compute.amazonaws.com
+    - **The `whatever` bit may change each time!** Always verify it from the EC2 console.
+4. Trust the fingerprint.
+
+## Prepare Ubuntu
+1. Update the software with `sudo apt-get update` and `sudo apt-get upgrade`.
+    - If you get a screen asking what daemons should be restarted, just hit tab to go to "OK" and accept the defaults.
+2. Install the required software for the Ubuntu deployment: `sudo apt-get install postgresql git python3-venv apache2 apache2-utils ssl-cert libapache2-mod-wsgi-py3`
+    - Again, accept the defaults for daemon restart
+3. Shutdown the system with `sudo shutdown now`
+4. If you have not already, create a personal access token on GitHub with *only* read access to the contents of the *code* repositories.
+
+## Execute the Ubuntu Server Deployment Instructions
+Follow the instructions [above](#ubuntu-server-deployment) with the following modifications:
+
+### Testing Django & Apache
+You are in an Ubuntu server instance via ssh, which means one shell and no web browser. You probably could install `tmux` and `lynx` to get around this, but you can make due with `curl`:
+```
+python manage.py runserver
+<CTRL-Z>
+bg
+curl -v 127.0.0.1:8000
+<hit enter once you see the green 302>
+fg
+<CTRL-C>
+```
+
+The Apache method should be nicer, it should not need to be running in a blocking manner like Django. Just use `sudo systemctl restart apache2` if you have changed the config and then `curl -v 127.0.0.1:80`
+
+## Test Remote Access
+Once you have verified that the full Apache/Django stack works locally, test it from your host machine by visting `<public-ip>:80`. You will need to add the public IP to the Django option `ALLOWED_HOSTS` in either `settings.py` or `custom_settings.py`.
+
+After this, shutdown the system with `sudo shutdown now`

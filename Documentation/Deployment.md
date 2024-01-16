@@ -65,7 +65,7 @@ Require all granted
 </Files>
 </Directory>
 ```
-Avoid giving more permissions than are necessary! The above are sufficient.
+Avoid giving more permissions than are necessary! The above are sufficient. Also note that on Ubuntu `httpd.conf` is actually located at `/etc/apache2/apache2.conf`
 
 2. Start/restart Apache and navigate to `127.0.0.1` in `curl` or your web browser. 
 The redirect to a login page should occur. If you are using a web browser, styling should be present; otherwise, test that static files are loading by visiting `127.0.0.1/static/styles.css`.

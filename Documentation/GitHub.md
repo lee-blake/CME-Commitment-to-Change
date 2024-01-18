@@ -7,7 +7,9 @@ We use feature branching on the [code repo](https://github.com/lee-blake/Commitm
 ## Opening PRs
 If you are committing to one of our code repos, you should use one of our
 [pull request templates](https://github.com/lee-blake/Commitment-to-Change-App/tree/master/.github/PULL_REQUEST_TEMPLATE) 
-to make sure you have not forgotten anything in your write-up. 
+to make sure you have not forgotten anything in your write-up. All PRs to `master` should be releases from `develop` after more thorough testing. 
+You should use our [release PR template](https://github.com/lee-blake/Commitment-to-Change-App/tree/master/.github/PULL_REQUEST_TEMPLATE/release_pr.md) 
+for releases from `develop` to `master`.
 
 ### Using a PR template
 First, begin opening a PR in the normal way. You then need to add the filename of the template to the URL as the `template` 

@@ -175,7 +175,7 @@ in another terminal.
 Run
 ```
 docker compose start
-docker compose exec cme-ctc-web coverage -m pytest
+docker compose exec cme-ctc-web coverage run -m pytest
 docker compose exec cme-ctc-web coverage report
 docker compose stop
 ```
@@ -512,7 +512,7 @@ Otherwise, use the general steps and consult your specific OS's documentation fo
 
 2. Run `pytest` in the directory where `manage.py` is located. If coverage is desired, run
 ```
-coverage -m pytest
+coverage run -m pytest
 coverage report
 ```
 

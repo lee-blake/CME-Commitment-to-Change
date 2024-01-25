@@ -241,3 +241,48 @@ The Apache method should be nicer, it should not need to be running in a blockin
 ## Test Remote Access
 Once you have verified that the full Apache/Django stack works locally, test it from your host machine by visting `<public-ip>:80`. You will need to add the public IP to the Django option `ALLOWED_HOSTS` in either `settings.py` or `custom_settings.py`. If this IP is not static and you do not want it to change every time you start/restart the instance, set `ALLOWED_HOSTS = ["*"]`, but understand that such a configuration is [not suitable for production](https://docs.djangoproject.com/en/5.0/topics/security/#host-headers-virtual-hosting). 
 
+## Configure your email backend
+
+If you did not configure your SMTP backend in `custom_settings.py` [above](#setup-the-project), you should do so now. 
+
+### AWS Email Considerations
+
+AWS may block sending SMTP emails on port 25 because of a rise in spammers using the AWS free tier and EC2 to send massmails. [You ideally should not be using this port anyways](#email-security), but it is an issue to be aware of.
+
+### Using SES on AWS
+
+If deploying via AWS, using Amazon's Simple Email Service is an option.
+
+#### Limitations
+
+The primary limitation of using SES is that you will initially be confined to the SES sandbox. You will be limited to 200 emails/24h **only to addresses that you have verified.** In other words, only you and people you have added will be able to register for the website. Moving out of the sandbox is a nontrivial process detailed [here](https://docs.aws.amazon.com/ses/latest/dg/request-production-access.html). It will most likely require a verified domain and certainly require policies for email bounces and complaints. Currently, the app has no way to handle bounces or complaints and therefore is not likely to be approved for such a request. However, sandbox access is enough to test the core deployment features, so instructions will be provided for this approach.
+
+#### Setting up SES 
+
+1. Go to the SES console in AWS.
+2. In the left pane, go to Configuration -> Verified Identities
+3. Verify at least one email. Ideally, you should also verify the domain the website will be accessible at, but if you do not have such a domain, you can still test the deployment with just an email.
+4. In the left pane, go to SMTP Settings.
+5. In the upper-right, click Create SMTP Credentials. Follow the process, making sure to save both parts of the access token. 
+
+#### Django Configuration for SES
+
+Consult the list of AWS SES SMTP servers [here](https://docs.aws.amazon.com/general/latest/gr/ses.html).
+
+```
+# Use a host from the same region your EC2 instance is on.
+EMAIL_HOST = "email-smtp.us-east-2.amazonaws.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "the non-secret key from the SMTP token"
+EMAIL_HOST_PASSWORD = "the secret key from the SMTP token"
+# You MUST use an email that you have verified, or one from a verified domain
+DEFAULT_FROM_EMAIL = "verified.by.aws@domain"
+```
+
+# Security
+
+## Email Security
+
+You should not use plain SMTP for this application. Instead, use SMTP with a service that supports SSL or TLS.
+

@@ -36,8 +36,7 @@ the instructions [here](Development.md#test-django-installation-optional).
     - You should follow the testing steps to ensure Django works locally, but
     make sure to return to this directory and remove the testproject when you are done.
 6. Follow the instructions to create `custom_settings.py` [here](Development.md#create-custom_settingspy-manual).
-    - Do not bother changing your email settings just yet, the console backend will do fine for testing and you
-    will configure your actual service later.
+    - Use `custom_settings_deployment.py` instead of `custom_settings_manual.py`
 7. Perform migrations as instructed [here](Development.md#perform-migrations-manual).
 8. Test that the project actually works with Django by first running `python manage.py runserver` and then verifying that the root url redirects by one of the following means:
     - Open your web browser and navigate to `127.0.0.1:8000`. This should 
@@ -240,6 +239,5 @@ fg
 The Apache method should be nicer, it should not need to be running in a blocking manner like Django. Just use `sudo systemctl restart apache2` if you have changed the config and then `curl -v 127.0.0.1:80`
 
 ## Test Remote Access
-Once you have verified that the full Apache/Django stack works locally, test it from your host machine by visting `<public-ip>:80`. You will need to add the public IP to the Django option `ALLOWED_HOSTS` in either `settings.py` or `custom_settings.py`.
+Once you have verified that the full Apache/Django stack works locally, test it from your host machine by visting `<public-ip>:80`. You will need to add the public IP to the Django option `ALLOWED_HOSTS` in either `settings.py` or `custom_settings.py`. If this IP is not static and you do not want it to change every time you start/restart the instance, set `ALLOWED_HOSTS = ["*"]`, but understand that such a configuration is [not suitable for production](https://docs.djangoproject.com/en/5.0/topics/security/#host-headers-virtual-hosting). 
 
-After this, shutdown the system with `sudo shutdown now`

@@ -247,6 +247,13 @@ join the course.
 3. Click on any name in the list to view their full name, Institution, and user name.
 ![Enrolled student info](<../Auxiliary Files/Images/User_Images/enrolled_student_info.png>)
 
+### - Sending an email to an enrolled student
+
+1. Navigate to your course's view page [as shown here](#Navigating-to-the-View-Course-Page).
+2. In the "List of Students Enrolled" section, click the email icon next to the student you wish to contact to open in your email program of choice.
+![Mailto Link](<../Auxiliary Files/Images/User_Images/mailto.png>)
+
+
 ### - Viewing Course Commitments and Status Breakdown
 1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Associated Commitments" section. 
 2. In the "Status Breakdown" section, you will see a table containing the statuses of all commitments made in your course.

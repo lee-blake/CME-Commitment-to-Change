@@ -1,6 +1,6 @@
-# Deployment
+# Ubuntu Server Deployment
 
-The following deployment instructions involve deployment to an Apache server as an interim measure. We plan to support cloud deployment in a future iteration.
+The following deployment instructions involve deployment to an Apache server (assumed to be running on Ubuntu, although most of these instructions will apply to other Linux distributions). 
 
 You will also need some SMTP service to send email from the server.
 
@@ -14,32 +14,31 @@ some similar test script.
 
 ## Setup the project
 
-The instructions here will assume a Linux install but will use venv. Note that on Ubuntu 22.04 you have have to type 
+The instructions here will assume a Linux install but will use venv. Note that on Ubuntu 22.04 you have to type 
 `python3` instead of `py` or `python` in the instructions. You should be able to skip installing Python due to 
 `mod_wsgi`, but if not, then install as per the [instructions](Development.md#install-python)
 
 1. Install and initialize PostgreSQL with the instructions [here](Development.md#install-and-configure-postgresql)
     - Installation of the `postgresql` package on Ubuntu 22.04 does not seem to 
 require manual initialization of the database cluster.
-2. Create a directory to house the root of the project. For these instructions, that directory will be `/srv/project_root`. Change into that directory.
+1. Create a directory to house the root of the project. For these instructions, that directory will be `/srv/project_root`. Change into that directory.
     - Keep in mind that Apache will need permissions for the directory and its subtree.
-3. Create a venv in that directory with the instructions [here](Development.md#install-and-setup-virtual-environment). The example here creates a venv name `project_venv`. Activate the environment.
+2. Create a venv in that directory with the instructions [here](Development.md#install-and-setup-virtual-environment). The example here creates a venv name `project_venv`. Activate the environment.
     - On Ubuntu 22.04 you will likely need to install the package `python3-venv`
-4. Follow the instructions to [clone the main code repo](Development.md#clone-the-main-code-repo) 
+3. Follow the instructions to [clone the main code repo](Development.md#clone-the-main-code-repo) 
     - You may need to install git, on Ubuntu this is package `git`.
     - The top `Commitment_to_Change_App` folder will live next to `pyvenv.cfg`
-5. Install the [requirements](Development.md#replication-instructions) in your virtual environment.
-6. You should test that Django installed correctly in your virtual environment to save troubleshooting later. Follow
+4. Install the [requirements](Development.md#install-requirements-with-pip) in your virtual environment.
+5. You should test that Django installed correctly in your virtual environment to save troubleshooting later. Follow
 the instructions [here](Development.md#test-django-installation-optional).
     - In this example, you should be in the dir `/srv/project_root/project_venv` when you run `django-admin` as
     per the instructions.
     - You should follow the testing steps to ensure Django works locally, but
     make sure to return to this directory and remove the testproject when you are done.
-6. Follow the instructions to create `custom_settings.py` [here](Development.md#create-custom_settingspy-manual).
-    - Do not bother changing your email settings just yet, the console backend will do fine for testing and you
-    will configure your actual service later.
-7. Perform migrations as instructed [here](Development.md#perform-migrations-manual).
-8. Test that the project actually works with Django by first running `python manage.py runserver` and then verifying that the root url redirects by one of the following means:
+1. Follow the instructions to create `custom_settings.py` [here](Development.md#create-custom_settingspy-manual).
+    - Use `custom_settings_deployment.py` instead of `custom_settings_manual.py`
+2. Perform migrations as instructed [here](Development.md#perform-migrations-manual).
+3. Test that the project actually works with Django by first running `python manage.py runserver` and then verifying that the root url redirects by one of the following means:
     - Open your web browser and navigate to `127.0.0.1:8000`. This should 
 redirect to a login page and it is very obvious whether the server is working or not.
     - Run `curl -v 127.0.0.1:8000`. The reply should contain `302 FOUND` and have 
@@ -65,7 +64,7 @@ Require all granted
 </Files>
 </Directory>
 ```
-Avoid giving more permissions than are necessary! The above are sufficient.
+Avoid giving more permissions than are necessary! The above are sufficient. Also note that on Ubuntu `httpd.conf` is actually located at `/etc/apache2/apache2.conf`
 
 2. Start/restart Apache and navigate to `127.0.0.1` in `curl` or your web browser. 
 The redirect to a login page should occur. If you are using a web browser, styling should be present; otherwise, test that static files are loading by visiting `127.0.0.1/static/styles.css`.
@@ -108,6 +107,126 @@ should never be deployed without SSL because it handles passwords.**
 5. Perform any additional desired configuration.
 
 6. Restart Apache.
+
+# AWS Deployment
+This section describes deployment to AWS. They are current to January 2024.
+
+## Required Software
+You will need OpenSSH to connect and interact with the EC2 instance.
+
+## Obtain an Ubuntu instance on AWS
+1. Obtain and log into an AWS account.
+2. Go to the EC2 dashboard
+3. Select "Launch instance"
+
+### Instance Settings
+Unless otherwise specified, use the default settings.
+
+1. From Quick Start, select Ubuntu and 64-bit x86.
+2. Create a new key pair for authentication. You should use `.pem` since the instructions will be using OpenSSH. Save it as instructed. Both RSA and ED25519 should be fine, but these instructions were only tested with ED25519.
+3. Edit network settings:
+    - Make sure a public IP is enabled.
+    - For now, create a security group with the following rules:
+        - Both inbound and outbound
+        - Allow `All traffic`
+        - From `Anwhere-IPv4`
+4. Launch the instance.
+
+## Connect to the instance
+1. If necessary, start the instance.
+2. Navigate to EC2 > Instances > *instance id* > Connect 
+3. Follow the SSH instructions
+    - In general, `ssh -i "your ssh key" ubuntu@whatever.datacenter.compute.amazonaws.com
+    - **The `whatever` bit may change each time!** Always verify it from the EC2 console.
+4. Trust the fingerprint.
+
+## Prepare Ubuntu
+1. Update the software with `sudo apt-get update` and `sudo apt-get upgrade`.
+    - If you get a screen asking what daemons should be restarted, just hit tab to go to "OK" and accept the defaults.
+2. Install the required software for the Ubuntu deployment: `sudo apt-get install postgresql git python3-venv apache2 apache2-utils ssl-cert libapache2-mod-wsgi-py3`
+    - Again, accept the defaults for daemon restart
+3. Shutdown the system with `sudo shutdown now`
+4. If you have not already, create a personal access token on GitHub with *only* read access to the contents of the *code* repositories.
+
+## Execute the Ubuntu Server Deployment Instructions
+Follow the instructions [above](#ubuntu-server-deployment) with the following modifications:
+
+### Testing Django & Apache
+You are in an Ubuntu server instance via ssh, which means one shell and no web browser. You probably could install `tmux` and `lynx` to get around this, but you can make due with `curl`:
+```
+python manage.py runserver
+<CTRL-Z>
+bg
+curl -v 127.0.0.1:8000
+<hit enter once you see the green 302>
+fg
+<CTRL-C>
+```
+
+The Apache method should be nicer, it should not need to be running in a blocking manner like Django. Just use `sudo systemctl restart apache2` if you have changed the config and then `curl -v 127.0.0.1:80`
+
+## Test Remote Access
+Once you have verified that the full Apache/Django stack works locally, test it from your host machine by visting `<public-ip>:80`. You will need to add the public IP to the Django option `ALLOWED_HOSTS` in either `settings.py` or `custom_settings.py`. If this IP is not static and you do not want it to change every time you start/restart the instance, set `ALLOWED_HOSTS = ["*"]`, but understand that such a configuration is [not suitable for production](https://docs.djangoproject.com/en/5.0/topics/security/#host-headers-virtual-hosting). 
+
+## Configure your email backend
+
+If you did not configure your SMTP backend in `custom_settings.py` [above](#setup-the-project), you should do so now. 
+
+### AWS Email Considerations
+
+AWS may block sending SMTP emails on port 25 because of a rise in spammers using the AWS free tier and EC2 to send massmails. [You ideally should not be using this port anyways](#email-security), but it is an issue to be aware of.
+
+### Using SES on AWS
+
+If deploying via AWS, using Amazon's Simple Email Service is an option.
+
+#### Limitations
+
+The primary limitation of using SES is that you will initially be confined to the SES sandbox. You will be limited to 200 emails/24h **only to addresses that you have verified.** In other words, only you and people you have added will be able to register for the website. Moving out of the sandbox is a nontrivial process detailed [here](https://docs.aws.amazon.com/ses/latest/dg/request-production-access.html). It will most likely require a verified domain and certainly require policies for email bounces and complaints. Currently, the app has no way to handle bounces or complaints and therefore is not likely to be approved for such a request. However, sandbox access is enough to test the core deployment features, so instructions will be provided for this approach.
+
+#### Setting up SES 
+
+1. Go to the SES console in AWS.
+2. In the left pane, go to Configuration -> Verified Identities
+3. Verify at least one email. Ideally, you should also verify the domain the website will be accessible at, but if you do not have such a domain, you can still test the deployment with just an email.
+4. In the left pane, go to SMTP Settings.
+5. In the upper-right, click Create SMTP Credentials. Follow the process, making sure to save both parts of the access token. 
+
+#### Django Configuration for SES
+
+Consult the list of AWS SES SMTP servers [here](https://docs.aws.amazon.com/general/latest/gr/ses.html).
+
+```
+# Use a host from the same region your EC2 instance is on.
+EMAIL_HOST = "email-smtp.us-east-2.amazonaws.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "the non-secret key from the SMTP token"
+EMAIL_HOST_PASSWORD = "the secret key from the SMTP token"
+# You MUST use an email that you have verified, or one from a verified domain
+DEFAULT_FROM_EMAIL = "verified.by.aws@domain"
+```
+
+# Updating
+
+On both the Ubuntu server and AWS deployments the update process is similar. It is recommended to generate a token with read-only access to the GitHub repo so this process may be automated into a script.
+1. Change into the `Commitment-to-Change-App` directory. In these instructions, it is located at `/src/project_root/project_venv/Commitment-to-Change-App`.
+2. Ensure you are on the `master` branch and run `git pull origin master`, supplying the relevant credentials.
+3. Run `cd Commitment_to_Change_App`
+4. Run `python manage.py makemigrations`
+5. Run `python manage.py migrate`
+6. Run `sudo systemctl restart apache2` to restart the server
+You may need to run some of these instructions with `sudo` if the owner of the `Commitment-to-Change-App` is root.
+
+# Security
+
+## Email Security
+
+You should not use plain SMTP for this application. Instead, use SMTP with a service that supports SSL or TLS.
+
+## SSL
+
+The server should always run with HTTPS because HTTP sends passwords in plaintext. Since most people tend to reuse usernames, emails, and passwords, this could compromise their other accounts.
 
 # Troubleshooting
 

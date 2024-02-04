@@ -213,6 +213,10 @@ DEFAULT_FROM_EMAIL = "verified.by.aws@domain"
 
 You should not use plain SMTP for this application. Instead, use SMTP with a service that supports SSL or TLS.
 
+## SSL
+
+The server should always run with HTTPS because HTTP sends passwords in plaintext. Since most people tend to reuse usernames, emails, and passwords, this could compromise their other accounts.
+
 # Troubleshooting
 
 ## Determining the source of problems

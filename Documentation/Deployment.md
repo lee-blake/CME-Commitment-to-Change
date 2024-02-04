@@ -14,31 +14,31 @@ some similar test script.
 
 ## Setup the project
 
-The instructions here will assume a Linux install but will use venv. Note that on Ubuntu 22.04 you have have to type 
+The instructions here will assume a Linux install but will use venv. Note that on Ubuntu 22.04 you have to type 
 `python3` instead of `py` or `python` in the instructions. You should be able to skip installing Python due to 
 `mod_wsgi`, but if not, then install as per the [instructions](Development.md#install-python)
 
 1. Install and initialize PostgreSQL with the instructions [here](Development.md#install-and-configure-postgresql)
     - Installation of the `postgresql` package on Ubuntu 22.04 does not seem to 
 require manual initialization of the database cluster.
-2. Create a directory to house the root of the project. For these instructions, that directory will be `/srv/project_root`. Change into that directory.
+1. Create a directory to house the root of the project. For these instructions, that directory will be `/srv/project_root`. Change into that directory.
     - Keep in mind that Apache will need permissions for the directory and its subtree.
-3. Create a venv in that directory with the instructions [here](Development.md#install-and-setup-virtual-environment). The example here creates a venv name `project_venv`. Activate the environment.
+2. Create a venv in that directory with the instructions [here](Development.md#install-and-setup-virtual-environment). The example here creates a venv name `project_venv`. Activate the environment.
     - On Ubuntu 22.04 you will likely need to install the package `python3-venv`
-4. Follow the instructions to [clone the main code repo](Development.md#clone-the-main-code-repo) 
+3. Follow the instructions to [clone the main code repo](Development.md#clone-the-main-code-repo) 
     - You may need to install git, on Ubuntu this is package `git`.
     - The top `Commitment_to_Change_App` folder will live next to `pyvenv.cfg`
-5. Install the [requirements](Development.md#install-requirements-with-pip) in your virtual environment.
-6. You should test that Django installed correctly in your virtual environment to save troubleshooting later. Follow
+4. Install the [requirements](Development.md#install-requirements-with-pip) in your virtual environment.
+5. You should test that Django installed correctly in your virtual environment to save troubleshooting later. Follow
 the instructions [here](Development.md#test-django-installation-optional).
     - In this example, you should be in the dir `/srv/project_root/project_venv` when you run `django-admin` as
     per the instructions.
     - You should follow the testing steps to ensure Django works locally, but
     make sure to return to this directory and remove the testproject when you are done.
-6. Follow the instructions to create `custom_settings.py` [here](Development.md#create-custom_settingspy-manual).
+1. Follow the instructions to create `custom_settings.py` [here](Development.md#create-custom_settingspy-manual).
     - Use `custom_settings_deployment.py` instead of `custom_settings_manual.py`
-7. Perform migrations as instructed [here](Development.md#perform-migrations-manual).
-8. Test that the project actually works with Django by first running `python manage.py runserver` and then verifying that the root url redirects by one of the following means:
+2. Perform migrations as instructed [here](Development.md#perform-migrations-manual).
+3. Test that the project actually works with Django by first running `python manage.py runserver` and then verifying that the root url redirects by one of the following means:
     - Open your web browser and navigate to `127.0.0.1:8000`. This should 
 redirect to a login page and it is very obvious whether the server is working or not.
     - Run `curl -v 127.0.0.1:8000`. The reply should contain `302 FOUND` and have 

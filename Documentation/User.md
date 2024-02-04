@@ -11,6 +11,11 @@ For easy navigation, please use GitHub's Table of Contents feature: ![TOC](<../A
 [here](Development.md#testing-the-environment-and-app) or with a full deployment as detailed [here](Deployment.md)
 3. URLs point to the local machine on port 8000 - otherwise replace 
 `localhost:8000` with the appropriate address.
+4. If you are connecting to our cloud deployment (IP will vary with restart), you should use HTTPS. Because we are currently using a self-signed certificate, most browsers will give you a warning. You should proceed anyways to use the software. Here are the fingerprints so you may verify you are connected to the correct site:
+```
+SHA-1:      30:3E:39:66:C9:26:FB:FA:C6:6E:22:25:1C:AC:89:FF:28:2B:D2:14
+SHA-256:    2E:EB:2D:8A:01:0E:41:9E:4B:F8:87:8A:8B:74:3A:A9:16:12:56:CF:EE:73:AF:26:89:8E:36:15:FB:FC:15:B8
+```
 
 ***
 

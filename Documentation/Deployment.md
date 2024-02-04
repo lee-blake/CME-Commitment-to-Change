@@ -207,6 +207,17 @@ EMAIL_HOST_PASSWORD = "the secret key from the SMTP token"
 DEFAULT_FROM_EMAIL = "verified.by.aws@domain"
 ```
 
+# Updating
+
+On both the Ubuntu server and AWS deployments the update process is similar. It is recommended to generate a token with read-only access to the GitHub repo so this process may be automated into a script.
+1. Change into the `Commitment-to-Change-App` directory. In these instructions, it is located at `/src/project_root/project_venv/Commitment-to-Change-App`.
+2. Ensure you are on the `master` branch and run `git pull origin master`, supplying the relevant credentials.
+3. Run `cd Commitment_to_Change_App`
+4. Run `python manage.py makemigrations`
+5. Run `python manage.py migrate`
+6. Run `sudo systemctl restart apache2` to restart the server
+You may need to run some of these instructions with `sudo` if the owner of the `Commitment-to-Change-App` is root.
+
 # Security
 
 ## Email Security

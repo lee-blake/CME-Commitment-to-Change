@@ -108,79 +108,6 @@ should never be deployed without SSL because it handles passwords.**
 
 6. Restart Apache.
 
-# Troubleshooting
-
-## Determining the source of problems
-
-If the instructions above are followed in order with proper testing, then it 
-should be relatively straightforward to determine which module is at fault. In
-particular, one can always diagnose whether Apache is the source by running
-the internal Django server while Apache is stopped and seeing if the errors 
-can still be replicated. If not, the problem is somewhere in the Apache 
-configuration or server. Otherwise, the problem exists somewhere in Django 
-and/or PostgreSQL. 
-
-## Django/PostgreSQL Troubleshooting
-
-This is generally covered in the [Development documentation](Development.md#troubleshooting).
-
-## Apache Troubleshooting
-
-### Log location
-
-Consult `/var/log/apache2/error.log` first, but the other logs in that directory
-may also be of use.
-
-### Root route doesn't even return anything
-
-Check `error.log` for errors with a message like the following:
-```
-Permission denied: mod_wsgi (pid=<number>): Unable to stat Python home /srv/project_root/project_venv/. Python interpreter may not be able to be initialized correctly. Verify the supplied path and access permissions for whole of the path.
-```
-If these are present, then the problem lies in Apache locating your virtual 
-environment. First check that the path listed in the log file is correct. If 
-so, the verify that whichever user is running the Apache daemon (using 
-`ps aux | grep -e apache` may help find this) can access the venv directory by 
-using `sudo -u <apacheuser> ls <path/to/venv>`. If not, change the permissions 
-until this does work.
-
-### 403 Errors on root route
-
-If the root route returns a 403 response, there are two likely sources:
-1. Bad filesystem permissions leave the Apache daemon unable to access all
-files required
-2. The Apache server configuration targets the wrong directory such that the
-wsgi script resides in a directory under the default rule `Require all denied`
-
-For case 1, try
-```
-ps aux | grep -e apache
-sudo -u <apacheuser> cat <path/to/wsgi/file/in/django>
-```
-If this fails, **change the access mask on the entire project tree in one 
-action.** Otherwise, you may struggle to troubleshoot going forward because 
-some files will be accessible while others will not.
-
-For case 2, carefully verify that the Directory rule above points to the same 
-place as the WSGIScriptAlias rule. If they do not, this will cause an immediate
-`Require all denied`
-
-### Lack of styling on pages
-
-If everything else works fine but styling is not present, then Apache is not
-correctly mapping to the static files. Use your browser debugger or `curl` to 
-determine whether you are getting 404 or 403 responses on requests for static
-files. If it is a 403, troubleshoot using the general principles in the 
-[previous section](#403-errors-on-root-route). If it is a 404, you have 
-pointed Apache to the wrong directory in both the Alias and Directory rules.
-
-### Email server difficulties
-
-If you have difficulty with your email server, follow the instructions for `aiosmtpd` 
-[here](Development.md#consider-your-email-backend) and use `aiosmptd` to capture the emails while Apache is running. 
-You may need to restart Apache if you change the configuration. If you can do that and see them printing in the console, 
-any problems with your email server or your configuration to connect to it and not something in the Django-Apache stack.
-
 # AWS Deployment
 This section describes deployment to AWS. They are current to January 2024.
 
@@ -286,3 +213,75 @@ DEFAULT_FROM_EMAIL = "verified.by.aws@domain"
 
 You should not use plain SMTP for this application. Instead, use SMTP with a service that supports SSL or TLS.
 
+# Troubleshooting
+
+## Determining the source of problems
+
+If the instructions above are followed in order with proper testing, then it 
+should be relatively straightforward to determine which module is at fault. In
+particular, one can always diagnose whether Apache is the source by running
+the internal Django server while Apache is stopped and seeing if the errors 
+can still be replicated. If not, the problem is somewhere in the Apache 
+configuration or server. Otherwise, the problem exists somewhere in Django 
+and/or PostgreSQL. 
+
+## Django/PostgreSQL Troubleshooting
+
+This is generally covered in the [Development documentation](Development.md#troubleshooting).
+
+## Apache Troubleshooting
+
+### Log location
+
+Consult `/var/log/apache2/error.log` first, but the other logs in that directory
+may also be of use.
+
+### Root route doesn't even return anything
+
+Check `error.log` for errors with a message like the following:
+```
+Permission denied: mod_wsgi (pid=<number>): Unable to stat Python home /srv/project_root/project_venv/. Python interpreter may not be able to be initialized correctly. Verify the supplied path and access permissions for whole of the path.
+```
+If these are present, then the problem lies in Apache locating your virtual 
+environment. First check that the path listed in the log file is correct. If 
+so, the verify that whichever user is running the Apache daemon (using 
+`ps aux | grep -e apache` may help find this) can access the venv directory by 
+using `sudo -u <apacheuser> ls <path/to/venv>`. If not, change the permissions 
+until this does work.
+
+### 403 Errors on root route
+
+If the root route returns a 403 response, there are two likely sources:
+1. Bad filesystem permissions leave the Apache daemon unable to access all
+files required
+2. The Apache server configuration targets the wrong directory such that the
+wsgi script resides in a directory under the default rule `Require all denied`
+
+For case 1, try
+```
+ps aux | grep -e apache
+sudo -u <apacheuser> cat <path/to/wsgi/file/in/django>
+```
+If this fails, **change the access mask on the entire project tree in one 
+action.** Otherwise, you may struggle to troubleshoot going forward because 
+some files will be accessible while others will not.
+
+For case 2, carefully verify that the Directory rule above points to the same 
+place as the WSGIScriptAlias rule. If they do not, this will cause an immediate
+`Require all denied`
+
+### Lack of styling on pages
+
+If everything else works fine but styling is not present, then Apache is not
+correctly mapping to the static files. Use your browser debugger or `curl` to 
+determine whether you are getting 404 or 403 responses on requests for static
+files. If it is a 403, troubleshoot using the general principles in the 
+[previous section](#403-errors-on-root-route). If it is a 404, you have 
+pointed Apache to the wrong directory in both the Alias and Directory rules.
+
+### Email server difficulties
+
+If you have difficulty with your email server, follow the instructions for `aiosmtpd` 
+[here](Development.md#consider-your-email-backend) and use `aiosmptd` to capture the emails while Apache is running. 
+You may need to restart Apache if you change the configuration. If you can do that and see them printing in the console, 
+any problems with your email server or your configuration to connect to it and not something in the Django-Apache stack.

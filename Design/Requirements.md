@@ -123,6 +123,10 @@ they pass their deadlines.
 - FR314: Course providers can view the aggregate status  statistics (total, complete, in progress...) of all commitments made from a commitment template.
   - High priority
   - BR2
+ 
+- FR315: Providers can download a .csv file containing the aggregate statistics of the statuses of their respective derived commitments (total, complete, in progress...) for all of their commitment templates.
+  - High priority
+  - BR2
 
 ## CME Courses
 

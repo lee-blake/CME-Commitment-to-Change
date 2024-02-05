@@ -207,7 +207,23 @@ EMAIL_HOST_PASSWORD = "the secret key from the SMTP token"
 DEFAULT_FROM_EMAIL = "verified.by.aws@domain"
 ```
 
-# Updating
+# Maintenance
+These instructions apply to both deployments.
+
+## Starting, restarting, etc
+As the app loads via `mod_wsgi`, managing the state of it is simply a matter of managing the state of Apache. The following commands can be used to start, stop, etc. Apache.
+```
+sudo systemctl start apache2
+sudo systemctl restart apache2
+sudo systemctl stop apache2
+```
+
+You should not have to restart PostgreSQL but can do so with `sudo systemctl restart postgresql` (or any of the other `systemctl` commands already discussed).
+
+## Logging
+Error logs for Django should spit out in the Apache error log at `/var/log/apache2/error.log`. Also of interest for security purposes may be `/var/log/apache2/access.log` and the command `sudo journalctl`.
+
+## Updating
 
 On both the Ubuntu server and AWS deployments the update process is similar. It is recommended to generate a token with read-only access to the GitHub repo so this process may be automated into a script.
 1. Change into the `Commitment-to-Change-App` directory. In these instructions, it is located at `/src/project_root/project_venv/Commitment-to-Change-App`.

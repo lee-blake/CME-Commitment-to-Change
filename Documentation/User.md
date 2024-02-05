@@ -171,7 +171,7 @@ login page by clicking on "Click here to register".
 
 ## Dashboard:
 - Your dashboard :
-   - A Courses section, which contains all courses you have created, their Course ID, start, and end date if added.
+   - A Courses section, which contains all courses you have created, their Course ID, start, and end date if added, and an aggregate course statistics download button.
    - A Commitment Templates section, which contains all of the commitment templates you have created.
 ---
 ### - Navigating to the Provider Dashboard
@@ -187,6 +187,10 @@ at the top of the current page.
 4. You will be redirected to the dashboard, which looks like this:
 ![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
 
+### - Downloading a CSV containing your course's aggregate statistics
+1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Courses" header.
+2. The CSV downloaded should contains the following headers:
+![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-course-statistics-button.png>)
 ---
 ## Courses:
 - Courses are hubs for you to invite clinicians to. You can set a course description, add a course identifier, start date, and end date, and create "suggested commitment" templates for clinicians to use in your course.
@@ -261,10 +265,15 @@ join the course.
 
 ### - Viewing Course Commitments and Status Breakdown
 1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Associated Commitments" section. 
-2. In the "Status Breakdown" section, you will see a table containing the statuses of all commitments made in your course.
-3. The "List of Commitments" section contains the names of all commitments created in your course. You can click on the link for each to view the commitment's details.
+2. In the "Status Breakdown" section, you will see a pie chart containing a breakdown of all commitment statuses made in your course.
+3. The "Commitments Made in This Course" section contains the names of all commitments created in your course. You can click on the link for each to view the commitment's details.
 
 ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/associated_commitments_section.png>)
+
+### - Downloading CSV for Course Commitment Statistics
+1. [From your course's view page](#Navigating-to-the-View-Course-Page), navigate to the "Commitments Made In This Course" header. You'll see a "Download Commitments List" button. Click that button to download a CSV file.
+2. This CSV should contain the following headers:
+![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-commitments-list-button.png>)
 
 ---
 ## Commitment Templates
@@ -299,6 +308,13 @@ join the course.
 4. Your suggested commitment(s) will now appear in your "Suggested Commitments" section for your clinicians to use. You can click on the commitment template name to view and edit it, or click "Select" to add/remove commitment templates. The same Commitment Template may be reused across multiple courses if you so choose. It is recommended to reuse rather than create a new, identical template because this saves effort, reduces dashboard clutter, and allows grouping of statistics.
 
 ![suggested commitment list in course view](<../Auxiliary Files/Images/User_Images/suggested_commitment_list.png>)
+
+### - Viewing a commitment template and it's aggregate status statistics
+1. Navigate to your dashboard [as shown here](#Navigating-to-the-Provider-Dashboard)
+2. Click on the commitment template you would like to view
+3. If clinicians have created a commitment using this template, a pie chart will appear showing the statuses of all commitments made using that template.
+![commitment pie chart](<../Auxiliary Files/Images/User_Images/commitment-template-statistics.png>)
+
 &nbsp;
 &nbsp;
 

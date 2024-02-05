@@ -189,8 +189,19 @@ at the top of the current page.
 
 ### - Downloading a CSV containing your course's aggregate statistics
 1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Courses" header.
-2. The CSV downloaded should contains the following headers:
-![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-course-statistics-button.png>)
+ ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-course-statistics-button.png>)
+2. The CSV downloaded should contain the following headers:
+   - Course Identifier
+   - Course TItle
+   - Start Date
+   - End Date
+   - Total Commitments
+   - Num. In Progress
+   - Num. Past Due
+   - Num. Completed
+   - Num. Discontinued
+ ![Course aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-course-statistics-csv.png>)
+
 ---
 ## Courses:
 - Courses are hubs for you to invite clinicians to. You can set a course description, add a course identifier, start date, and end date, and create "suggested commitment" templates for clinicians to use in your course.
@@ -270,10 +281,18 @@ join the course.
 
 ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/associated_commitments_section.png>)
 
-### - Downloading CSV for Course Commitment Statistics
+### - Downloading a CSV containing your Course's Commitment Statistics 
 1. [From your course's view page](#Navigating-to-the-View-Course-Page), navigate to the "Commitments Made In This Course" header. You'll see a "Download Commitments List" button. Click that button to download a CSV file.
-2. This CSV should contain the following headers:
-![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-commitments-list-button.png>)
+ ![Commitments list download](<../Auxiliary Files/Images/User_Images/download-commitments-list-button.png>)
+2. This CSV should contain the following headers: 
+   - Commitment Title
+   - Commitment Description
+   - Status
+   - Due
+   - Owner First Name
+   - Owner Last Name
+   - Owner Email
+![Commitments list CSV](<../Auxiliary Files/Images/User_Images/commitments-list-csv.png>)
 
 ---
 ## Commitment Templates
@@ -309,7 +328,7 @@ join the course.
 
 ![suggested commitment list in course view](<../Auxiliary Files/Images/User_Images/suggested_commitment_list.png>)
 
-### - Viewing a commitment template and it's aggregate status statistics
+### - Viewing a commitment template and its aggregate status statistics
 1. Navigate to your dashboard [as shown here](#Navigating-to-the-Provider-Dashboard)
 2. Click on the commitment template you would like to view
 3. If clinicians have created a commitment using this template, a pie chart will appear showing the statuses of all commitments made using that template.

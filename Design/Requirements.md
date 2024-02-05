@@ -28,6 +28,10 @@ The functional requirements are loosely grouped by concept.
   - Medium priority
   - BR1
 
+- FR107: The system will automatically prune non-activated accounts with unverified emails that are at least a certain age. Alternatively, this functionality can be disabled and run manually via a script that is documented in Deployment.md.
+  - High priority
+  - BR2
+
 ## Commitment Creation
 
 - FR201: Users can create commitments to track their personal goals in changing

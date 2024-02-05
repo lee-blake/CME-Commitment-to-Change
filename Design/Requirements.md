@@ -274,6 +274,10 @@ where the provider's username might be displayed.
   - High priority
   - BR1
 
+- FR609: Providers can use the "mailto" link functionality to create a single "mailto" link via visually selecting which students in the course that they want to email. All students selected will be collected into a single, one-click link.
+  - High priority
+  - BR1
+
 ## Help, Documentation, and Hints
 
 - FR701: Each page will link to a help page describing what the page does and what next steps a user might take from it.

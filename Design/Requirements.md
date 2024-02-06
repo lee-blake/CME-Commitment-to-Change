@@ -28,6 +28,10 @@ The functional requirements are loosely grouped by concept.
   - Medium priority
   - BR1
 
+- FR107: The system will automatically prune non-activated accounts with unverified emails that are at least a certain age. Alternatively, this functionality can be disabled and run manually via a script that is documented in Deployment.md.
+  - High priority
+  - BR2
+
 ## Commitment Creation
 
 - FR201: Users can create commitments to track their personal goals in changing
@@ -117,6 +121,10 @@ they pass their deadlines.
   - BR1
 
 - FR314: Course providers can view the aggregate status  statistics (total, complete, in progress...) of all commitments made from a commitment template.
+  - High priority
+  - BR2
+ 
+- FR315: Providers can download a .csv file containing the aggregate statistics of the statuses of their respective derived commitments (total, complete, in progress...) for all of their commitment templates.
   - High priority
   - BR2
 
@@ -263,6 +271,10 @@ where the provider's username might be displayed.
   - BR2
  
 - FR608: Providers can use a "mailto" link or button within the course list of students to contact individual students about their commitments.
+  - High priority
+  - BR1
+
+- FR609: Providers can use the "mailto" link functionality to create a single "mailto" link via visually selecting which students in the course that they want to email. All students selected will be collected into a single, one-click link.
   - High priority
   - BR1
 

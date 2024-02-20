@@ -26,7 +26,6 @@ Lee
 1. Discussed implementation of `.djlintrc` (works on Lee's machine, North appears to be doing something similar but is not working)
 2. Future plans for client meetings - get number so we can text him
 3. Cleanliness issues with tables in Course page - use block overrides rather than if statements
-4. 
 
 ## Things Clarified
 

@@ -565,13 +565,14 @@ with the code. However, they are a directory level down, so you will have to eit
 ### In `Commitment_to_Change_App`
 ```
 djlint .
+djlint . --check
 pylint .
 ```
 
 ### In the project root (`Commitment-to-Change-App`)
-Currently we use the default settings for djlint so it does not need to be pointed to a config file. This may change.
 ```
-djlint Commitment_to_Change_App
+djlint Commitment_to_Change_App --configuration Commitment_to_Change_App/.djlintrc
+djlint Commitment_to_Change_App --configuration Commitment_to_Change_App/.djlintrc --check
 pylint Commitment_to_Change_App --rcfile=Commitment_to_Change_App/.pylintrc
 ```
 

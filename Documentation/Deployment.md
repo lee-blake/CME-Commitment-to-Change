@@ -91,6 +91,31 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = True
 ```
 
+## Setup cron daemons
+Certain server jobs need to run at intervals, rather than trigger on a user action. We use `cron` to call scripts in
+the deployment directory.
+
+### Configure development cron script `setup_environment.sh`
+Go to the root of the repo on your server (one level above `manage.py`). You should see a `development` directory and `docker-compose.yaml`. Change into `development/cron` and edit the `setup_environment.sh` script:
+```
+#!/bin/bash
+export CMECTCVENVROOT=/srv/project_root/project_venv
+export CMECTCREPOROOT=/srv/project_root/project_venv/Commitment-to-Change-App
+source "$CMECTCVENVROOT/bin/activate"
+export CMECTCENVSET=1
+```
+You will only need to edit the first two `export` lines. `CMECTCVENVROOT` should point to the root of the virtual environment you created. While in that directory you should see the file `pyenv.cfg`, the directory `bin`, and other directories. `CMECTCREPOROOT` should be the root where you cloned the repo. You should see a `.git` directory when running `ls -l`, as well as the `docker-compose.yaml` and `deployment` directory. **If you have used the directory layout given here, you should not need to edit these environment variables, but should verify them anyways.** 
+
+We have provided a simple test script to verify that your configuration makes sense. Run the `test_cron_script_config.sh` file in `development/cron`. It should return the same output as when you run `python manage.py check` in the directory with `manage.py`. If not, one of the environment variables is pointing to the wrong location.
+
+
+### Adding cronjobs
+Run `cronjob -e` as the appropriate user (the owner of the project files) and add the following line:
+```
+0 0 * * * /srv/project_root/project_venv/Commitment-to-Change-App/deployment/cron/daily.sh
+```
+This will run our daily jobs every night at midnight (server time). You can change the hours if desired, but leaving this is fine on AWS, where server time is UTC.
+
 ## Configuration and Cleanup
 
 1. In `/srv/project_root/project_venv/Commitment-to-Change-App/Commitment_to_Change_App/Commitment_to_Change_App/settings.py`, 

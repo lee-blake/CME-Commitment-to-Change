@@ -187,12 +187,12 @@ at the top of the current page.
 4. You will be redirected to the dashboard, which looks like this:
 ![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
 
-### - Downloading a CSV containing your course's aggregate statistics
+### - Downloading a CSV containing your courses' aggregate statistics
 1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Courses" header.
  ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-course-statistics-button.png>)
 2. The CSV downloaded should contain the following headers:
    - Course Identifier
-   - Course TItle
+   - Course Title
    - Start Date
    - End Date
    - Total Commitments

@@ -208,7 +208,7 @@ at the top of the current page.
 
 ---
 
-### - Downloading a CSV containing your courses' aggregate statistics
+### - Downloading a CSV containing your commitment templates' aggregate statistics
 1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Commitment Templates" header.
  ![Derived Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-commitment-template-statistics-button.png>)
 2. The CSV downloaded should contain the following headers:

@@ -200,9 +200,33 @@ at the top of the current page.
    - Num. Past Due
    - Num. Completed
    - Num. Discontinued
+   - Perc. In Progress
+   - Perc. Past Due
+   - Perc. Completed
+   - Perc. Discontinued
  ![Course aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-course-statistics-csv.png>)
 
 ---
+
+### - Downloading a CSV containing your courses' aggregate statistics
+1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Commitment Templates" header.
+ ![Derived Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-commitment-template-statistics-button.png>)
+2. The CSV downloaded should contain the following headers:
+   - Commitment Title
+   - Commitment Description
+   - Total Commitments
+   - Num. In Progress
+   - Num. Past Due
+   - Num. Completed
+   - Num. Discontinued
+   - Perc. In Progress
+   - Perc. Past Due
+   - Perc. Completed
+   - Perc. Discontinued
+ ![Commitment Template aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-commitment-template-statistics-csv.png>)
+
+---
+
 ## Courses:
 - Courses are hubs for you to invite clinicians to. You can set a course description, add a course identifier, start date, and end date, and create "suggested commitment" templates for clinicians to use in your course.
 ---
@@ -295,6 +319,8 @@ join the course.
 ![Commitments list CSV](<../Auxiliary Files/Images/User_Images/commitments-list-csv.png>)
 
 ---
+
+
 ## Commitment Templates
 -  Commitment templates are used to suggest that clinicians in a course make a commitment that you have specified in the template. You can create as many templates as you wish, and you can even use the same templates across multiple of your courses.
 ---

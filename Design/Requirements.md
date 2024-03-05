@@ -127,6 +127,11 @@ they pass their deadlines.
 - FR315: Providers can download a .csv file containing the aggregate statistics of the statuses of their respective derived commitments (total, complete, in progress...) for all of their commitment templates.
   - High priority
   - BR2
+ 
+- FR316: CME Providers can view a comparison of commitment template success rates 
+relative to the average of their other commitment templates.
+  - Medium priority
+  - BR2
 
 ## CME Courses
 

@@ -89,7 +89,7 @@ login page by clicking on "Click here to register".
 7.
    #### Email verification:
    This will vary depending on how the service is deployed when you access it.
-   ##### Fully configured deployment with STMP
+   ##### Fully configured deployment with SMTP
    Check your email, including your spam folder. You should see an email with subject "Verify you CME Commitment to Change account". Verify that the link points to the same website as you have been accessing and click it/paste it into your browser and hit enter.
    ##### Development environment
    Navigate to your email capture service. If you are using manual replication, [check here for information on where to find the verification email.](https://github.com/lee-blake/CME-Commitment-to-Change/blob/master/Documentation/Development.md#consider-your-email-backend). If you are using the Docker app, navigate to the main container, and click on the sub-container labeled: "commitment-to-change-app-cme-ctc-mailcapture-1".
@@ -352,7 +352,7 @@ join the course.
 
 3. On the resulting page, select the templates you wish to use in this course, then click "Submit".
 
-![checkbox suggested commitment](<../Auxiliary Files/Images/User_Images/select_commitment_tempalate_check_screen.png>)
+![checkbox suggested commitment](<../Auxiliary Files/Images/User_Images/select_commitment_template_check_screen.png>)
 
 4. Your suggested commitment(s) will now appear in your "Suggested Commitments" section for your clinicians to use. You can click on the commitment template name to view and edit it, or click "Select" to add/remove commitment templates. The same Commitment Template may be reused across multiple courses if you so choose. It is recommended to reuse rather than create a new, identical template because this saves effort, reduces dashboard clutter, and allows grouping of statistics.
 
@@ -560,7 +560,7 @@ not alter it.
    
 ![my course view](<../Auxiliary Files/Images/User_Images/my_courses.png>)
 
-3. Clik on the button with the name of the course you want to view. This will take you to the course page.
+3. Click on the button with the name of the course you want to view. This will take you to the course page.
 
 ![Course View Clinician](<../Auxiliary Files/Images/User_Images/clinician_course_view.png>)
 
@@ -581,7 +581,7 @@ the respective page depending on whether your commitment already exists.
 ### - Disassociating a Commitment with a Course 
 - If a commitment is associated in error, this can be reversed.
 - Must be logged in.
-- Must be a member of the course to reassociate.
+- Must be a member of the course to re-associate.
 - Address for this page: `/app/commitment/<commitment id>/edit/`
 1. Edit the commitment.
 2. In the "Associated Course" dropdown menu, select "-----" to remove any course

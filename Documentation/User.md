@@ -46,6 +46,24 @@ SHA-256:    2E:EB:2D:8A:01:0E:41:9E:4B:F8:87:8A:8B:74:3A:A9:16:12:56:CF:EE:73:AF
 
 ![Info Popup](<../Auxiliary Files/Images/User_Images/info-popup.png>)
 
+## Table Sorting and Searching
+
+Most tables throughout the app are sortable and searchable, just look for the search bar and/or the diamond-shaped sort arrows.
+- Sorting:
+  - Click the arrow or header of the column you wish to sort by. The arrow will highlight to represent the current sort order, up for ascending, down for descending.
+  
+      ![sort-order](<../Auxiliary Files/Images/User_Images/sort-order-example.png>)
+
+  - Click once for ascending, again for descending, and a third time to return to the table's default sorting method.
+  - To sort by two or more columns, click on whichever column headers you wish to sort by while holding down the shift key on your keyboard. While still holding shift, you can click the headers again to change sort order individually. For example, if you want to sort by both Course Name and Start Date, hold down shift, then click Course Name, and then Start Date.
+
+      ![multi-select-sort](<../Auxiliary Files/Images/User_Images/multi-column-sort.png>)
+
+- Searching:
+  - To search in a table, find the search bar, usually located at the top of the table, and type in your query. The table will then automatically filter the results. You can search for any of the columns included in the table, such as dates, ids, etc.
+
+      ![table search](<../Auxiliary Files/Images/User_Images/table-searching.png>)
+
 ## Registering for an Account
 
 - This page is used to create new provider user profiles.
@@ -89,7 +107,7 @@ login page by clicking on "Click here to register".
 7.
    #### Email verification:
    This will vary depending on how the service is deployed when you access it.
-   ##### Fully configured deployment with STMP
+   ##### Fully configured deployment with SMTP
    Check your email, including your spam folder. You should see an email with subject "Verify you CME Commitment to Change account". Verify that the link points to the same website as you have been accessing and click it/paste it into your browser and hit enter.
    ##### Development environment
    Navigate to your email capture service. If you are using manual replication, [check here for information on where to find the verification email.](https://github.com/lee-blake/CME-Commitment-to-Change/blob/master/Documentation/Development.md#consider-your-email-backend). If you are using the Docker app, navigate to the main container, and click on the sub-container labeled: "commitment-to-change-app-cme-ctc-mailcapture-1".
@@ -170,8 +188,11 @@ login page by clicking on "Click here to register".
 ---
 
 ## Dashboard:
-- Your dashboard :
-   - A Courses section, which contains all courses you have created, their Course ID, start, and end date if added, and an aggregate course statistics download button.
+- On your dashboard, you can:
+   - View your created courses and commitment templates.
+   - Search or sort through your created courses and templates [as explained here](#table-functionality).
+- Your dashboard contains:
+   - A Courses section, which contains all courses you have created, their Course ID, and a start and end date if added.
    - A Commitment Templates section, which contains all of the commitment templates you have created.
 ---
 ### - Navigating to the Provider Dashboard
@@ -187,43 +208,6 @@ at the top of the current page.
 4. You will be redirected to the dashboard, which looks like this:
 ![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
 
-### - Downloading a CSV containing your courses' aggregate statistics
-1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Courses" header.
- ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-course-statistics-button.png>)
-2. The CSV downloaded should contain the following headers:
-   - Course Identifier
-   - Course Title
-   - Start Date
-   - End Date
-   - Total Commitments
-   - Num. In Progress
-   - Num. Past Due
-   - Num. Completed
-   - Num. Discontinued
-   - Perc. In Progress
-   - Perc. Past Due
-   - Perc. Completed
-   - Perc. Discontinued
- ![Course aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-course-statistics-csv.png>)
-
----
-
-### - Downloading a CSV containing your commitment templates' aggregate statistics
-1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Commitment Templates" header.
- ![Derived Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-commitment-template-statistics-button.png>)
-2. The CSV downloaded should contain the following headers:
-   - Commitment Title
-   - Commitment Description
-   - Total Commitments
-   - Num. In Progress
-   - Num. Past Due
-   - Num. Completed
-   - Num. Discontinued
-   - Perc. In Progress
-   - Perc. Past Due
-   - Perc. Completed
-   - Perc. Discontinued
- ![Commitment Template aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-commitment-template-statistics-csv.png>)
 
 ---
 
@@ -294,20 +278,43 @@ join the course.
 ### - Sending an email to an enrolled student
 
 1. Navigate to your course's view page [as shown here](#Navigating-to-the-View-Course-Page).
-2. In the "List of Students Enrolled" section, click the email icon next to the student you wish to contact to open in your email program of choice.
+2. In the "List of Students Enrolled" section, click the student's email to open your default email software with them as the recipient.
+   
 ![Mailto Link](<../Auxiliary Files/Images/User_Images/mailto.png>)
+
+### - Sending a bulk email to multiple students at once
+
+1. From the [student list](#sending-an-email-to-an-enrolled-student), click on the "Send bulk email" button to open a bulk email selection modal.
+
+![bulk-email-modal](<../Auxiliary Files/Images/User_Images/bulk-email-modal.png>)
+
+2. On the resulting screen, mark the checkboxes next to the names of the students you wish to contact, and click the "compose email" button to open your default email software with them as the recipient.
 
 
 ### - Viewing Course Commitments and Status Breakdown
-1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Associated Commitments" section. 
+1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Commitments in This Course" section. 
 2. In the "Status Breakdown" section, you will see a pie chart containing a breakdown of all commitment statuses made in your course.
 3. The "Commitments Made in This Course" section contains the names of all commitments created in your course. You can click on the link for each to view the commitment's details.
 
 ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/associated_commitments_section.png>)
 
+### - Viewing course suggested commitment aggregate status statistics
+1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Commitments  in This Course" section. 
+   
+   ![suggested-commitments-section](<../Auxiliary Files/Images/User_Images/suggested-commitments-course-stats-section.png>)
+   
+
+2. Under the "Suggested Commitments" header, locate a commitment template you would like to see the aggregate status statistics for.
+3. You will see how text showing how many clinicians have made that commitment "N clinicians made this commitment". Click on that text to open a dialogue box displaying the aggregate status statistics for that template in this course.
+
+   ![suggested-commitments-popover](<../Auxiliary Files/Images/User_Images/suggested-commitments-course-stats-popover.png>)
+
+
 ### - Downloading a CSV containing your Course's Commitment Statistics 
 1. [From your course's view page](#Navigating-to-the-View-Course-Page), navigate to the "Commitments Made In This Course" header. You'll see a "Download Commitments List" button. Click that button to download a CSV file.
- ![Commitments list download](<../Auxiliary Files/Images/User_Images/download-commitments-list-button.png>)
+   
+![Commitments list download](<../Auxiliary Files/Images/User_Images/download-commitments-list-button.png>)
+
 2. This CSV should contain the following headers: 
    - Commitment Title
    - Commitment Description
@@ -316,6 +323,7 @@ join the course.
    - Owner First Name
    - Owner Last Name
    - Owner Email
+
 ![Commitments list CSV](<../Auxiliary Files/Images/User_Images/commitments-list-csv.png>)
 
 ---
@@ -348,7 +356,7 @@ join the course.
 
 3. On the resulting page, select the templates you wish to use in this course, then click "Submit".
 
-![checkbox suggested commitment](<../Auxiliary Files/Images/User_Images/select_commitment_tempalate_check_screen.png>)
+![checkbox suggested commitment](<../Auxiliary Files/Images/User_Images/select_commitment_template_check_screen.png>)
 
 4. Your suggested commitment(s) will now appear in your "Suggested Commitments" section for your clinicians to use. You can click on the commitment template name to view and edit it, or click "Select" to add/remove commitment templates. The same Commitment Template may be reused across multiple courses if you so choose. It is recommended to reuse rather than create a new, identical template because this saves effort, reduces dashboard clutter, and allows grouping of statistics.
 
@@ -358,7 +366,73 @@ join the course.
 1. Navigate to your dashboard [as shown here](#Navigating-to-the-Provider-Dashboard)
 2. Click on the commitment template you would like to view
 3. If clinicians have created a commitment using this template, a pie chart will appear showing the statuses of all commitments made using that template.
+
 ![commitment pie chart](<../Auxiliary Files/Images/User_Images/commitment-template-statistics.png>)
+
+---
+
+## Statistics Page
+- On your statistics page, you can:
+   - View overview and detailed statistics for your created commitment templates and courses.
+   - Search and sort through the detailed statistics [as explained here](#table-functionality).
+   - Download CSV files containing this raw data.
+- Your statistics page has two sections:
+   - Course Statistics contains:
+     - An overview of all commitment statuses across all of your courses.
+     - A detailed look at each individual course and the commitment statuses in each of those courses.
+   - Commitment Template Statistics contains:
+     - An overview of all commitment statuses across all of your commitment templates, regardless of course.
+     - A detailed look at each individual commitment template's statuses across all courses it is used in.
+   
+
+### Navigating to the Statistics Overview Page
+- These instructions detail how to access your course and commitment template statistics page
+- Must be logged-in.
+- Address for this page: `/app/statistics/dashboard/`
+1. Click "Statistics" in the navigation bar at the top of the current page.
+2. If you prefer, you can instead manually type the url `/app/statistics/dashboard/` after the address discussed in [Opening the Application](#opening-the-application).
+3. You will be redirected to the statistics page, which looks like this:
+   
+![Statistics Dashboard](<../Auxiliary Files/Images/User_Images/combined-statistics-dashboard.png>)
+
+### - Downloading a CSV containing your courses' aggregate statistics
+1. [From your statistics page](#Navigating-to-the-Statistics-Overview-Page), locate the "Course Statistics" header. Next, click on the "Download aggregate course statistics" button located directly under the "Detailed statistics by course" header
+
+ ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-course-statistics-button.png>)
+2. The CSV downloaded should contain the following headers:
+   - Course Identifier
+   - Course Title
+   - Start Date
+   - End Date
+   - Total Commitments
+   - Num. In Progress
+   - Num. Past Due
+   - Num. Completed
+   - Num. Discontinued
+   - Perc. In Progress
+   - Perc. Past Due
+   - Perc. Completed
+   - Perc. Discontinued
+   - 
+ ![Course aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-course-statistics-csv.png>)
+
+### - Downloading a CSV containing your commitment templates' aggregate statistics
+1. [From your statistics page](#Navigating-to-the-Statistics-Overview-Page), scroll down and locate the "Commitment Template Statistics" header. Next, click on the "Download aggregate commitment template statistics" button located under the "Commitment Templates" header.
+ ![Derived Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-commitment-template-statistics-button.png>)
+2. The CSV downloaded should contain the following headers:
+   - Commitment Title
+   - Commitment Description
+   - Total Commitments
+   - Num. In Progress
+   - Num. Past Due
+   - Num. Completed
+   - Num. Discontinued
+   - Perc. In Progress
+   - Perc. Past Due
+   - Perc. Completed
+   - Perc. Discontinued
+ ![Commitment Template aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-commitment-template-statistics-csv.png>)
+
 
 &nbsp;
 &nbsp;
@@ -496,6 +570,19 @@ completed.
 
 4. This opens the commitment view page.
 
+### - Managing Commitment Reminder Emails
+1. [In the view page](#Navigate-to-a-Commitment-Page-from-the-Dashboard) for the commitment you would like to make a reminder email for, click on the "manage reminder emails" to navigate to the Reminder Emails page.
+2. Click on the "Schedule a reminder email" button.
+
+![Reminder Email View Page](<../Auxiliary Files/Images/User_Images/reminder-emails-page.png>)
+
+3. Choose a date, and click "Submit".
+
+![Reminder Email Create Page](<../Auxiliary Files/Images/User_Images/reminder-email-create-page.png>)
+
+4. Your new reminder will now appear in the Reminder Emails page for that commitment.
+5. To delete a reminder email, just click the "Delete" button next to the date you wish to delete.
+
 ### - Editing A Commitment 
 - This option is used to edit an existing commitment.
 - Must be logged-in.
@@ -555,7 +642,7 @@ not alter it.
    
 ![my course view](<../Auxiliary Files/Images/User_Images/my_courses.png>)
 
-3. Clik on the button with the name of the course you want to view. This will take you to the course page.
+3. Click on the button with the name of the course you want to view. This will take you to the course page.
 
 ![Course View Clinician](<../Auxiliary Files/Images/User_Images/clinician_course_view.png>)
 
@@ -576,7 +663,7 @@ the respective page depending on whether your commitment already exists.
 ### - Disassociating a Commitment with a Course 
 - If a commitment is associated in error, this can be reversed.
 - Must be logged in.
-- Must be a member of the course to reassociate.
+- Must be a member of the course to re-associate.
 - Address for this page: `/app/commitment/<commitment id>/edit/`
 1. Edit the commitment.
 2. In the "Associated Course" dropdown menu, select "-----" to remove any course

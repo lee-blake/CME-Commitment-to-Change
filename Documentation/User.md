@@ -188,8 +188,11 @@ login page by clicking on "Click here to register".
 ---
 
 ## Dashboard:
-- Your dashboard :
-   - A Courses section, which contains all courses you have created, their Course ID, start, and end date if added, and an aggregate course statistics download button.
+- Here you can:
+   - View your created courses and commitment templates.
+   - Search or sort through your created courses and templates [as explained here](#table-functionality).
+- Your dashboard contains:
+   - A Courses section, which contains all courses you have created, their Course ID, and a start and end date if added.
    - A Commitment Templates section, which contains all of the commitment templates you have created.
 ---
 ### - Navigating to the Provider Dashboard
@@ -204,7 +207,7 @@ at the top of the current page.
 3. If you prefer, you can instead manually type the url `/app/dashboard` after the address discussed in [Opening the Application](#opening-the-application).
 4. You will be redirected to the dashboard, which looks like this:
 ![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
-5. The "Courses" and "Commitment Templates" tables can be searched or sorted [as explained here](#table-functionality).
+
 
 ---
 

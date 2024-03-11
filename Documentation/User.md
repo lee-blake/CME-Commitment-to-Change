@@ -187,43 +187,17 @@ at the top of the current page.
 4. You will be redirected to the dashboard, which looks like this:
 ![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
 
-### - Downloading a CSV containing your courses' aggregate statistics
-1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Courses" header.
- ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-course-statistics-button.png>)
-2. The CSV downloaded should contain the following headers:
-   - Course Identifier
-   - Course Title
+### - Searching and Sorting the "Courses" and "Commitment Templates" tables
+1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), locate the section you wish to sort or search through, either the "Courses" or "Commitment Templates" section. 
+2. Click on the header by which you would like to sort. The table will automatically sort in ascending order first, as indicated by the up arrow. Click again for descending order, and again to return to the table's default.
+3. To sort by two or more columns, hold down shift and click on whichever tables you wish to sort by.
+4. The "Courses" table can be sorted by the following columns:
+   - Course Name
+   - Course ID
    - Start Date
    - End Date
-   - Total Commitments
-   - Num. In Progress
-   - Num. Past Due
-   - Num. Completed
-   - Num. Discontinued
-   - Perc. In Progress
-   - Perc. Past Due
-   - Perc. Completed
-   - Perc. Discontinued
- ![Course aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-course-statistics-csv.png>)
+5. The "Commitment Templates" section can be sorted by template name.
 
----
-
-### - Downloading a CSV containing your commitment templates' aggregate statistics
-1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Commitment Templates" header.
- ![Derived Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-commitment-template-statistics-button.png>)
-2. The CSV downloaded should contain the following headers:
-   - Commitment Title
-   - Commitment Description
-   - Total Commitments
-   - Num. In Progress
-   - Num. Past Due
-   - Num. Completed
-   - Num. Discontinued
-   - Perc. In Progress
-   - Perc. Past Due
-   - Perc. Completed
-   - Perc. Discontinued
- ![Commitment Template aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-commitment-template-statistics-csv.png>)
 
 ---
 
@@ -364,6 +338,47 @@ join the course.
 3. If clinicians have created a commitment using this template, a pie chart will appear showing the statuses of all commitments made using that template.
 
 ![commitment pie chart](<../Auxiliary Files/Images/User_Images/commitment-template-statistics.png>)
+
+---
+
+## Statistics Page
+
+### - Downloading a CSV containing your courses' aggregate statistics
+1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Courses" header.
+ ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-course-statistics-button.png>)
+2. The CSV downloaded should contain the following headers:
+   - Course Identifier
+   - Course Title
+   - Start Date
+   - End Date
+   - Total Commitments
+   - Num. In Progress
+   - Num. Past Due
+   - Num. Completed
+   - Num. Discontinued
+   - Perc. In Progress
+   - Perc. Past Due
+   - Perc. Completed
+   - Perc. Discontinued
+ ![Course aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-course-statistics-csv.png>)
+
+### - Downloading a CSV containing your commitment templates' aggregate statistics
+1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Commitment Templates" header.
+ ![Derived Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-commitment-template-statistics-button.png>)
+2. The CSV downloaded should contain the following headers:
+   - Commitment Title
+   - Commitment Description
+   - Total Commitments
+   - Num. In Progress
+   - Num. Past Due
+   - Num. Completed
+   - Num. Discontinued
+   - Perc. In Progress
+   - Perc. Past Due
+   - Perc. Completed
+   - Perc. Discontinued
+ ![Commitment Template aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-commitment-template-statistics-csv.png>)
+
 
 &nbsp;
 &nbsp;

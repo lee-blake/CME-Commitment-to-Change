@@ -46,6 +46,24 @@ SHA-256:    2E:EB:2D:8A:01:0E:41:9E:4B:F8:87:8A:8B:74:3A:A9:16:12:56:CF:EE:73:AF
 
 ![Info Popup](<../Auxiliary Files/Images/User_Images/info-popup.png>)
 
+## Table Sorting and Searching
+
+Most tables throughout the app are sortable and searchable, just look for the search bar and/or the diamond-shaped sort arrows.
+- Sorting:
+  - Click the arrow or header of the column you wish to sort by. The arrow will highlight to represent the current sort order, up for ascending, down for descending.
+  
+      ![sort-order](<../Auxiliary Files/Images/User_Images/sort-order-example.png>)
+
+  - Click once for ascending, again for descending, and a third time to return to the table's default sorting method.
+  - To sort by two or more columns, click on whichever column headers you wish to sort by while holding down the shift key on your keyboard. While still holding shift, you can click the headers again to change sort order individually. For example, if you want to sort by both Course Name and Start Date, hold down shift, then click Course Name, and then Start Date.
+
+      ![multi-select-sort](<../Auxiliary Files/Images/User_Images/multi-column-sort.png>)
+
+- Searching:
+  - To search in a table, find the search bar, usually located at the top of the table, and type in your query. The table will then automatically filter the results. You can search for any of the columns included in the table, such as dates, ids, etc.
+
+      ![table search](<../Auxiliary Files/Images/User_Images/table-searching.png>)
+
 ## Registering for an Account
 
 - This page is used to create new provider user profiles.
@@ -186,18 +204,7 @@ at the top of the current page.
 3. If you prefer, you can instead manually type the url `/app/dashboard` after the address discussed in [Opening the Application](#opening-the-application).
 4. You will be redirected to the dashboard, which looks like this:
 ![Provider Dashboard](<../Auxiliary Files/Images/User_Images/provider_dashboard.png>)
-
-### - Searching and Sorting the "Courses" and "Commitment Templates" tables
-1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), locate the section you wish to sort or search through, either the "Courses" or "Commitment Templates" section. 
-2. Click on the header by which you would like to sort. The table will automatically sort in ascending order first, as indicated by the up arrow. Click again for descending order, and again to return to the table's default.
-3. To sort by two or more columns, hold down shift and click on whichever tables you wish to sort by.
-4. The "Courses" table can be sorted by the following columns:
-   - Course Name
-   - Course ID
-   - Start Date
-   - End Date
-5. The "Commitment Templates" section can be sorted by template name.
-
+5. The "Courses" and "Commitment Templates" tables can be searched or sorted [as explained here](#table-functionality).
 
 ---
 

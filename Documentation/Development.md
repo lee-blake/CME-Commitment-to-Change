@@ -653,12 +653,6 @@ If you are running Docker on Windows and receive strange errors (such as files b
 
 ![Alt text](<../Auxiliary Files/Images/Development_Images/vscode-crlf-lf.png>)
 
-## SSL Errors When Using Join Links
-
-These come from Django not running SSL. Just make it `http` instead of `https`. We are leaving it as `https` to avoid 
-the possibility of leaving it `http` for deployment and potentially causing security issues. A production environment 
-would use `https` only.
-
 ## Migrating When Updating from Git
 
 ### With Docker 

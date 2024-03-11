@@ -288,7 +288,8 @@ join the course.
 
 ![bulk-email-modal](<../Auxiliary Files/Images/User_Images/bulk-email-modal.png>)
 
-2. On the resulting screen, mark the checkboxes next to the names of the students you wish to contact, and click the "compose email" button to open your default email software with them as the recipient.
+2. On the resulting screen, mark the checkboxes next to the names of the students you wish to contact. You can click the checkbox in the top left header tab to select or disselect all emails.
+3. Click the "compose email" button to open your default email software with the selected emails as recipients.
 
 
 ### - Viewing Course Commitments and Status Breakdown

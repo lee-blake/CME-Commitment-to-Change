@@ -278,9 +278,17 @@ join the course.
 ### - Sending an email to an enrolled student
 
 1. Navigate to your course's view page [as shown here](#Navigating-to-the-View-Course-Page).
-2. In the "List of Students Enrolled" section, click the email icon next to the student you wish to contact to open in your email program of choice.
+2. In the "List of Students Enrolled" section, click the student's email to open your default email software with them as the recipient.
    
 ![Mailto Link](<../Auxiliary Files/Images/User_Images/mailto.png>)
+
+### - Sending a bulk email to multiple students at once
+
+1. From the [student list](#sending-an-email-to-an-enrolled-student), click on the "Send bulk email" button to open a bulk email selection modal.
+
+![bulk-email-modal](<../Auxiliary Files/Images/User_Images/bulk-email-modal.png>)
+
+2. On the resulting screen, mark the checkboxes next to the names of the students you wish to contact, and click the "compose email" button to open your default email software with them as the recipient.
 
 
 ### - Viewing Course Commitments and Status Breakdown

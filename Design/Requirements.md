@@ -128,6 +128,14 @@ they pass their deadlines.
   - High priority
   - BR2
 
+- FR 316: Clinicians can select what intervals they want reminder emails at when they create a commitment (weekly, monthly, just at the deadline, no emails). This will automatically populate reminder emails for them which they can manually cancel later.
+  - High priority
+  - BR1
+ 
+- FR 317: Clinicians can cancel all reminder emails for a commitment with a single button. Additionally, when a commitment is marked inactive (completed or discontinued), all reminder emails for it will be automatically canceled.
+  - High priority
+  - BR1
+
 ## CME Courses
 
 - FR401: CME providers can create courses.

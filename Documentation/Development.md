@@ -648,17 +648,14 @@ Django functionality, particularly Django models.
 
 # Troubleshooting
 
-## SSL Errors When Using Join Links
+## Strange Docker errors on Windows
+If you are running Docker on Windows and receive strange errors (such as files being declared missing that show when you run `ls` within the container), this may be a CRLF/LF issue. On newlines, Windows inserts a carriage return before the line feed, but on Linux, a newline is just a line feed. Since our Docker containers are Linux machines, this can result in unusual behavior. If you receive such errors that cannot be resolved normally, check to make sure the relevant files (`docker-compose.yaml`, any `Dockerfile`s, and any files listed in error messages) are saved in LF mode. On VSCode you can verify this with a button in the lower right. It should say "LF" and not "CRLF". If it says "CRLF", click it and switch to "LF". Make sure the file is then saved before running Docker again.
 
-These come from Django not running SSL. Just make it `http` instead of `https`. We are leaving it as `https` to avoid 
-the possibility of leaving it `http` for deployment and potentially causing security issues. A production environment 
-would use `https` only.
+![Alt text](<../Auxiliary Files/Images/Development_Images/vscode-crlf-lf.png>)
 
 ## Migrating When Updating from Git
 
 ### With Docker 
-
-
 Whenever you update the project and notice changes, it is advisable to run migrations with
 ```
 docker compose start

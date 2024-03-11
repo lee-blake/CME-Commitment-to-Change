@@ -295,6 +295,7 @@ join the course.
 
 1. Navigate to your course's view page [as shown here](#Navigating-to-the-View-Course-Page).
 2. In the "List of Students Enrolled" section, click the email icon next to the student you wish to contact to open in your email program of choice.
+   
 ![Mailto Link](<../Auxiliary Files/Images/User_Images/mailto.png>)
 
 
@@ -307,7 +308,9 @@ join the course.
 
 ### - Downloading a CSV containing your Course's Commitment Statistics 
 1. [From your course's view page](#Navigating-to-the-View-Course-Page), navigate to the "Commitments Made In This Course" header. You'll see a "Download Commitments List" button. Click that button to download a CSV file.
- ![Commitments list download](<../Auxiliary Files/Images/User_Images/download-commitments-list-button.png>)
+   
+![Commitments list download](<../Auxiliary Files/Images/User_Images/download-commitments-list-button.png>)
+
 2. This CSV should contain the following headers: 
    - Commitment Title
    - Commitment Description
@@ -316,6 +319,7 @@ join the course.
    - Owner First Name
    - Owner Last Name
    - Owner Email
+
 ![Commitments list CSV](<../Auxiliary Files/Images/User_Images/commitments-list-csv.png>)
 
 ---
@@ -358,6 +362,7 @@ join the course.
 1. Navigate to your dashboard [as shown here](#Navigating-to-the-Provider-Dashboard)
 2. Click on the commitment template you would like to view
 3. If clinicians have created a commitment using this template, a pie chart will appear showing the statuses of all commitments made using that template.
+
 ![commitment pie chart](<../Auxiliary Files/Images/User_Images/commitment-template-statistics.png>)
 
 &nbsp;

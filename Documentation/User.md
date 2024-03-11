@@ -188,7 +188,7 @@ login page by clicking on "Click here to register".
 ---
 
 ## Dashboard:
-- Here you can:
+- On your dashboard, you can:
    - View your created courses and commitment templates.
    - Search or sort through your created courses and templates [as explained here](#table-functionality).
 - Your dashboard contains:
@@ -352,9 +352,32 @@ join the course.
 ---
 
 ## Statistics Page
+- On your statistics page, you can:
+   - View overview and detailed statistics for your created commitment templates and courses.
+   - Search and sort through the detailed statistics [as explained here](#table-functionality).
+   - Download CSV files containing this raw data.
+- Your statistics page has two sections:
+   - Course Statistics contains:
+     - An overview of all commitment statuses across all of your courses.
+     - A detailed look at each individual course and the commitment statuses in each of those courses.
+   - Commitment Template Statistics contains:
+     - An overview of all commitment statuses across all of your commitment templates, regardless of course.
+     - A detailed look at each individual commitment template's statuses across all courses it is used in.
+   
+
+### Navigating to the Statistics Overview Page
+- These instructions detail how to access your course and commitment template statistics page
+- Must be logged-in.
+- Address for this page: `/app/statistics/dashboard/`
+1. Click "Statistics" in the navigation bar at the top of the current page.
+2. If you prefer, you can instead manually type the url `/app/statistics/dashboard/` after the address discussed in [Opening the Application](#opening-the-application).
+3. You will be redirected to the statistics page, which looks like this:
+   
+![Statistics Dashboard](<../Auxiliary Files/Images/User_Images/combined-statistics-dashboard.png>)
 
 ### - Downloading a CSV containing your courses' aggregate statistics
-1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Courses" header.
+1. [From your statistics page](#Navigating-to-the-Statistics-Overview-Page), locate the "Course Statistics" header. Next, click on the "Download aggregate course statistics" button located directly under the "Detailed statistics by course" header
+
  ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-course-statistics-button.png>)
 2. The CSV downloaded should contain the following headers:
    - Course Identifier
@@ -370,10 +393,11 @@ join the course.
    - Perc. Past Due
    - Perc. Completed
    - Perc. Discontinued
+   - 
  ![Course aggregate statistics CSV](<../Auxiliary Files/Images/User_Images/aggregate-course-statistics-csv.png>)
 
 ### - Downloading a CSV containing your commitment templates' aggregate statistics
-1. [From your dashboard](#Navigating-to-the-Provider-Dashboard), click on the "Download aggregate course statistics" button located under the "Commitment Templates" header.
+1. [From your statistics page](#Navigating-to-the-Statistics-Overview-Page), scroll down and locate the "Commitment Template Statistics" header. Next, click on the "Download aggregate commitment template statistics" button located under the "Commitment Templates" header.
  ![Derived Commitments Section](<../Auxiliary Files/Images/User_Images/download-aggregate-commitment-template-statistics-button.png>)
 2. The CSV downloaded should contain the following headers:
    - Commitment Title

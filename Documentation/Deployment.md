@@ -112,9 +112,9 @@ We have provided a simple test script to verify that your configuration makes se
 ### Adding cronjobs
 Run `cronjob -e` as the appropriate user (the owner of the project files) and add the following line:
 ```
-1 0 * * * /srv/project_root/project_venv/Commitment-to-Change-App/deployment/cron/daily.sh
+0 8 * * * /srv/project_root/project_venv/Commitment-to-Change-App/deployment/cron/daily.sh
 ```
-This will run our daily jobs every night one minute past midnight (server time). You can change the hour if desired, but leaving this is fine on AWS, where server time is UTC. It is also desirable leave the extra minute past midnight to avoid any misunderstandings when reading the current day for the purpose of expiration.
+This will run our daily jobs every night at about 1am PST, per the client's preference. Note that the 8 in the hour is a consequence of AWS, where server time is UTC. If expiring at midnight UTC, it is desirable add an extra minute past midnight to avoid any misunderstandings when reading the current day for the purpose of expiration.
 
 ## Configuration and Cleanup
 

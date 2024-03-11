@@ -284,11 +284,23 @@ join the course.
 
 
 ### - Viewing Course Commitments and Status Breakdown
-1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Associated Commitments" section. 
+1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Commitments in This Course" section. 
 2. In the "Status Breakdown" section, you will see a pie chart containing a breakdown of all commitment statuses made in your course.
 3. The "Commitments Made in This Course" section contains the names of all commitments created in your course. You can click on the link for each to view the commitment's details.
 
 ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/associated_commitments_section.png>)
+
+### - Viewing course suggested commitment aggregate status statistics
+1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Commitments  in This Course" section. 
+   
+   ![suggested-commitments-section](<../Auxiliary Files/Images/User_Images/suggested-commitments-course-stats-section.png>)
+   
+
+2. Under the "Suggested Commitments" header, locate a commitment template you would like to see the aggregate status statistics for.
+3. You will see how text showing how many clinicians have made that commitment "N clinicians made this commitment". Click on that text to open a dialogue box displaying the aggregate status statistics for that template in this course.
+
+   ![suggested-commitments-popover](<../Auxiliary Files/Images/User_Images/suggested-commitments-course-stats-popover.png>)
+
 
 ### - Downloading a CSV containing your Course's Commitment Statistics 
 1. [From your course's view page](#Navigating-to-the-View-Course-Page), navigate to the "Commitments Made In This Course" header. You'll see a "Download Commitments List" button. Click that button to download a CSV file.

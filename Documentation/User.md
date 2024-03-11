@@ -481,7 +481,7 @@ join the course.
 2. Locate a commitment in the *In-Progress* or *Past Due* boxes on the dashboard.
 3. Below the title of the commitment, click on the box that says *Complete*.
    
-![Complete Button](<../Auxiliary Files/Images/User_Images/commitment_complete_circled.png>)
+![Complete Button](<../Auxiliary Files/Images/User_Images/commitment_complete_circled.PNG>)
 
 4. This opens the commitment creation page. Fill out the title, description, and deadline fields
    and press the *Submit* button underneath the deadline field.
@@ -519,7 +519,7 @@ completed.
 2. Locate a commitment in the *In-Progress* or *Past-Due* boxes.
 3. Below the title of the commitment, click on the box that says *Discontinue*.
 
-![Discontinue Button](<../Auxiliary Files/Images/User_Images/commitment_discontinue_circled.png>)
+![Discontinue Button](<../Auxiliary Files/Images/User_Images/commitment_discontinue_circled.PNG>)
 
 4. This brings up a modal asking you to confirm. Click the *Discontinue* button to confirm discontinuation.
 
@@ -528,7 +528,7 @@ completed.
 5. The commitment should move from whichever box it was in, into the *Discontinued* box,
    and it will be marked as discontinued.
    
-![Discontinued](<../Auxiliary Files/Images/User_Images/commitment_discontinued.png>)
+![Discontinued](<../Auxiliary Files/Images/User_Images/commitment_discontinued.PNG>)
 
 6. If this action was a mistake, the commitment can be reopened from here.
 

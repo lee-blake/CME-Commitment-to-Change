@@ -570,6 +570,19 @@ completed.
 
 4. This opens the commitment view page.
 
+### - Managing Commitment Reminder Emails
+1. [In the view page](#Navigate-to-a-Commitment-Page-from-the-Dashboard) for the commitment you would like to make a reminder email for, click on the "manage reminder emails" to navigate to the Reminder Emails page.
+2. Click on the "Schedule a reminder email" button.
+
+![Reminder Email View Page](<../Auxiliary Files/Images/User_Images/reminder-emails-page.png>)
+
+3. Choose a date, and click "Submit".
+
+![Reminder Email Create Page](<../Auxiliary Files/Images/User_Images/reminder-email-create-page.png>)
+
+4. Your new reminder will now appear in the Reminder Emails page for that commitment.
+5. To delete a reminder email, just click the "Delete" button next to the date you wish to delete.
+
 ### - Editing A Commitment 
 - This option is used to edit an existing commitment.
 - Must be logged-in.

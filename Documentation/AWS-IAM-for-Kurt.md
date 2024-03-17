@@ -25,7 +25,20 @@ While IAM access is necessary to manage deployment and is the main purpose for t
 ## Shutting down EC2 instances as root
 If an EC2 instance is left up by mistake, it can run out hours and run up prices. Here is how you should shut it down as the root user.
 
-TODO
+1. Go to EC2: ![Search EC2 in the search bar and click "EC2"](<../Auxiliary Files/Images/AWS_Images/EC2-navigation.png>)
+2. Click on "Instances (running)" ![Instances running is in the center of the page usually](<../Auxiliary Files/Images/AWS_Images/EC2-management.png>)
+3. Select each instance with the checkbox and then access the "Instance state" dropdown. Select "Stop instance". ![Stop instance in dropdown](<../Auxiliary Files/Images/AWS_Images/EC2-stop-instance.png>) **Be sure not to select "terminate instance" because this will delete the entire image! Of course, this may be something you want to do if you are done with this account.** Accidentally leaving instances running is the most common way you can lose money.
+
+### Other EC2 stuff laying around
+If these is other EC2 stuff costing you money, here are some basic troubleshooting instructions. Consult AWS tech support if these do not work.
+
+1. Go to the AWS EC2 Dashboard where you selected "Instances (running)".
+2. Under normal deployment, there may be instances (running or not), volumes, security groups, and key pairs. **There shouldn't be anything else.**
+3. If there are security groups or key pairs, these shouldn't cost you anything.
+4. Under instances, if there are instances costing you money, terminate them from the same menu that you stop them under.
+5. If there are volumes, delete all instances with them first, detach them if necessary using the dropdown menu "actions" much like the dropdown for stopping instances, and finally delete them from that same dropdown. ![delete volume in dropdown](<../Auxiliary Files/Images/AWS_Images/EC2-delete-volume.png>)
+6. For anything else: your team has either made some mistakes or failed to update this documentation. Consult [these instructions](https://repost.aws/knowledge-center/delete-terminate-ec2) to delete all other items.
+
 
 ## Adding a domain name
 **NOTE: These instructions are still experimental at this point.** They are mostly intended to be a starting point for our work or a future team.

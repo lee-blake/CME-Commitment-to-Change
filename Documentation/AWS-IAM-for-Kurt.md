@@ -16,9 +16,12 @@ These instructions will allow you to create an admin user solely for EC2 instanc
 ### General process
 
 1. Navigate to the IAM dashboard: Search "IAM" and select "IAM" ![IAM should be the first search result](<../Auxiliary Files/Images/AWS_Images/IAM-navigation.png>)
+
 2. Note the sidebar on the left. There are two entries we care about, both under "Access Management": "User groups" and "Users".
 ![Users and user groups are early entries in the sidebar](<../Auxiliary Files/Images/AWS_Images/IAM-sidebar.png>)
+
 3. Begin [creating a group](#create-a-group) if you have not already by clicking "User groups" and then the yellow "Create group" button in the upper right.
+
 4. Once you have created a group, begin [creating one or more users](#create-a-user) as needed by clicking "Users" and then the yellow "Create user" button in the upper right.
 
 ### Create a group
@@ -35,18 +38,22 @@ You should only need to do this once with the current setup. Do this before crea
 ![Check the "Provide user access to the AWS management console " box and the other options should appear.](<../Auxiliary Files/Images/AWS_Images/IAM-user-basics.png>)
 
 Go to the next page.
+
 2. Add the user to a group. That group should be the EC2 management group you created earlier. Do not worry about permissions boundary options.
 ![Add a group and select only the EC2 management group by name.](<../Auxiliary Files/Images/AWS_Images/IAM-user-group-add.png>)
 
 Go to the next page.
+
 3. Review the details of the user on the page.
 ![You should see your permissions group and the IAMUserChangePassword policy.](<../Auxiliary Files/Images/AWS_Images/IAM-user-summary.png>)
 
 If they look good, click the yellow "Create user" button in the lower right.
+
 4. **Do not leave this page just yet!** Make sure you copy all three fields using the highlighted buttons. You cannot return to this page once you have left it and will need to recreate the user if you forget their details.
 ![Copy buttons are two overlayed squares to the left of each field..](<../Auxiliary Files/Images/AWS_Images/IAM-user-final.png>)
 
 Put the credentials in a secure location for distribution later.
+
 5. Once you have secured the user credentials you may leave the page and are done creating the user. If you need to create more than one user, repeat these steps as necessary.
 
 ## Distributing credentials

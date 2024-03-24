@@ -224,6 +224,7 @@ with the code. If you are running on Docker, you can easily bundle the various l
 ```
 docker compose start
 docker compose exec cme-ctc-web djlint .
+docker compose exec cme-ctc-web djlint --check .
 docker compose exec cme-ctc-web pylint .
 docker compose stop
 ```

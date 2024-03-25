@@ -582,7 +582,7 @@ completed.
 ![Reminder Email Create Page](<../Auxiliary Files/Images/User_Images/reminder-email-create-page.png>)
 
 4. Your new reminder will now appear in the Reminder Emails page for that commitment.
-5. To delete a reminder email, just click the "Delete" button next to the date you wish to delete.
+5. To delete a reminder email, just click the "Delete" button next to the date you wish to delete. If you wish to delete all future emails for the commitment, click the "Delete all reminder emails" button at the bottom of the page. This will not delete emails for any other commitment.
 
 ### - Editing A Commitment 
 - This option is used to edit an existing commitment.

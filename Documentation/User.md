@@ -129,7 +129,7 @@ login page by clicking on "Click here to register".
 - Address for this page: `/accounts/login/`
 1. Fill out the fields with the username and password that you used when creating a profile.
 
-![sign_in](<../Auxiliary Files/Images/User_Images/sign_in.PNG>)
+![sign_in](<../Auxiliary Files/Images/User_Images/login.png>)
 
 - Please note that you can reveal the password as you type it by clicking on the eye icon in the password field.
 
@@ -147,11 +147,11 @@ login page by clicking on "Click here to register".
 1. While logged-in to the application, find the navigation bar at the top of the screen.
 2. There should be a *Logged in as 'USERNAME'* title followed by a *Log Out* button. Press this button.
 
-![log_out-button.PNG](<../Auxiliary Files/Images/User_Images/log_out_button.PNG>)
+![logout button](<../Auxiliary Files/Images/User_Images/log_out_button.PNG>)
 
 3. After pressing *Logout*, you will be brought to the logout confirmation page.
 
-![logout_success.PNG](<../Auxiliary Files/Images/User_Images/logout_success.png>)
+![logout success](<../Auxiliary Files/Images/User_Images/logout_success.png>)
 
 4. If this was a mistake, you can log back in using the [Log In](#Logging-in) button.
 

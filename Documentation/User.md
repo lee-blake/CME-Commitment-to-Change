@@ -464,14 +464,23 @@ join the course.
 - Must be logged in.
 - Address for this page: `/app/commitment/make/`
 1. While logged-in to the application, find the navigation bar at the top of the screen.
-2. There should be a *Create a Commitment* text that can be clicked. Click this text.
+2. Click on *Make a commitment*.
    
 ![Nav Bar Create](<../Auxiliary Files/Images/User_Images/clinician_nav_bar_create_commitment.png>)
 
-3. This opens the commitment creation page. Fill out the title, description, and deadline fields
-   and press the *Submit* button underneath the deadline field.
-   
+3. On the resulting page, fill out the following fields: 
+   - Title
+   - Description
+   - Deadline
+   - Associated Course (OPTIONAL)
+     - This is a course that you're enrolled in that you wish to make this commitment for.
+   - Reminder Schedule (OPTIONAL)
+     - By default, you will receive a reminder email every 30 days. You can choose between per month, per week, or once on the day of the deadline. You can also choose "no reminders" if you wish to not receive any reminder emails.
+ - These fields can always be edited later [as explained here](#editing-a-commitment)
+
 ![Commitment Create](<../Auxiliary Files/Images/User_Images/commitment_creation.png>)
+
+4. Click the *Submit* button underneath the deadline field to create your commitment. 
 
 ### - Completing A Commitment 
 - This button is used to mark a commitment complete.
@@ -489,7 +498,7 @@ join the course.
 ![Complete Confirm Button](<../Auxiliary Files/Images/User_Images/commitment-complete-confirm.png>)\
 
 5. The commitment should move from whichever box it was in, into the *Completed* box, 
-   and it will be marked as complete.
+   and it will be marked as complete. *Please note that completing a commitment will also cancel all reminder emails you have scheduled for that commitment.*
    
 ![Completed Commitments](<../Auxiliary Files/Images/User_Images/commitment_complete.png>)
 
@@ -526,7 +535,7 @@ completed.
 ![Discontinue Confirm Button](<../Auxiliary Files/Images/User_Images/commitment-discontinue-confirm.png>)
 
 5. The commitment should move from whichever box it was in, into the *Discontinued* box,
-   and it will be marked as discontinued.
+   and it will be marked as discontinued. *Please note that discontinuing a commitment will also cancel all reminder emails you have scheduled for that commitment.*
    
 ![Discontinued](<../Auxiliary Files/Images/User_Images/commitment_discontinued.png>)
 
@@ -572,17 +581,60 @@ completed.
 4. This opens the commitment view page.
 
 ### - Managing Commitment Reminder Emails
-1. [In the view page](#Navigate-to-a-Commitment-Page-from-the-Dashboard) for the commitment you would like to make a reminder email for, click on the "manage reminder emails" to navigate to the Reminder Emails page.
-2. Click on the "Schedule a reminder email" button.
 
-![Reminder Email View Page](<../Auxiliary Files/Images/User_Images/reminder-emails-page.png>)
+First, [In the view page](#Navigate-to-a-Commitment-Page-from-the-Dashboard) for the commitment you would like to make a reminder email for, click on the "manage reminder emails" button to navigate to the Reminder Emails page.
 
-3. Choose a date, and click "Submit".
+#### - Managing One-Time Commitment Reminder Emails
+
+1. To create a one-time reminder, click on the "Schedule a reminder email" button under the "One-time emails" header.
+
+![Single Reminder Email View](<../Auxiliary Files/Images/User_Images/schedule_one_reminder_email.png>)
+
+2. Choose a date, and click "Submit".
 
 ![Reminder Email Create Page](<../Auxiliary Files/Images/User_Images/reminder-email-create-page.png>)
 
-4. Your new reminder will now appear in the Reminder Emails page for that commitment.
-5. To delete a reminder email, just click the "Delete" button next to the date you wish to delete. If you wish to delete all future emails for the commitment, click the "Delete all reminder emails" button at the bottom of the page. This will not delete emails for any other commitment.
+3. To cancel a one-time reminder email, locate the email you wish to cancel and click on the "Delete" button next to it.
+
+![Cancel one-time Emails](<../Auxiliary Files/Images/User_Images/cancel_one_time_reminder_email.png>)
+
+4. Confirm by clicking "Delete" on the resulting page.
+
+![Cancel one-time Emails Confirm](<../Auxiliary Files/Images/User_Images/cancel_one_time_reminder_email_confirm.png>)
+
+#### - Managing Recurring Commitment Reminder Emails
+1. To schedule recurring reminder emails, [navigate to your reminder email page](#managing-commitment-reminder-emails), then click on the "Schedule a recurring reminder email" button.
+
+![Recurring Reminder Email View](<../Auxiliary Files/Images/User_Images/schedule_recurring_reminder_email.png>)
+
+2. Choose the interval at which to receive recurring reminder emails, then click submit.
+   
+![Recurring Reminder Email Interval](<../Auxiliary Files/Images/User_Images/schedule_recurring_reminder_email_interval.png>)
+
+3. You will now see your recurring email schedule. 
+
+![Recurring Reminder Email Result](<../Auxiliary Files/Images/User_Images/recurring_reminder_email_result.png>)
+
+4. To cancel a recurring reminder email schedule, click on the "Cancel recurring emails button.
+
+![Cancel Recurring Emails](<../Auxiliary Files/Images/User_Images/cancel_recurring_emails.png>)
+
+5. Confirm by clicking "Cancel recurring emails" on the resulting page.
+
+![Cancel Recurring Emails Confirm](<../Auxiliary Files/Images/User_Images/cancel_recurring_emails_confirm.png>)
+
+6. If you wish to change the schedule, first cancel the recurring emails as previously explained, and then create a new schedule as explained in step 1.
+
+#### - Canceling all Reminder emails
+1. To cancel all scheduled and one-time reminder emails, navigate to your [commitment reminder email page](#managing-commitment-reminder-emails) for the commitment you wish to cancel reminder emails for. Then click on the "Delete all reminder emails" button at the bottom of the page.
+
+![Cancel all reminder Emails](<../Auxiliary Files/Images/User_Images/cancel_all_reminder_emails.png>)
+
+2. Click "Delete All" on the resulting page to confirm.
+
+![Cancel all reminder Emails Confirm](<../Auxiliary Files/Images/User_Images/cancel_all_reminder_emails_confirm.png>)
+
+3. All reminder emails will now be canceled.
 
 ### - Editing A Commitment 
 - This option is used to edit an existing commitment.

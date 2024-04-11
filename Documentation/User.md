@@ -280,9 +280,12 @@ join the course.
 - Must be logged-in.
   
 1. Navigate to your course's view page [as shown here](#Navigating-to-the-View-Course-Page).
-2. In the "List of Students Enrolled" section, you will find a list of all students enrolled in your course.
+2. In the "List of Students Enrolled" section, you will find a table of all students enrolled in your course, along with their emails, any commitments they made in your course, and that commitment's current status.
 3. Click on any name in the list to view their full name, Institution, and user name.
+
 ![Enrolled student info](<../Auxiliary Files/Images/User_Images/enrolled_student_info.png>)
+
+4. To view a student's commitment, click on the title text for their commitment in the "Commitments Made" column.
 
 ### - Sending an email to an enrolled student
 
@@ -303,8 +306,7 @@ join the course.
 
 ### - Viewing Course Commitment and Status Breakdown
 1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Commitments in This Course" section. 
-2. In the "Status Breakdown" section, you will see a pie chart containing a breakdown of all commitment statuses made in your course.
-3. The "Commitments Made in This Course" section contains the names of all commitments created in your course. You can click on the link for each to view the commitment's details.
+2. In the "Status Breakdown" section, you will see a pie chart containing a status breakdown of all commitment statuses made in your course.
 
 ![Associated Commitments Section](<../Auxiliary Files/Images/User_Images/associated_commitments_section.png>)
 

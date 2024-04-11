@@ -502,6 +502,31 @@ directory with `manage.py` in it.
 Proceed to [configure your IDE](#configuring-your-ide).
 
 ---
+# Development extras
+This section documents truly optional tools for development. Running these will never be required for replication.
+
+## Database population script
+Located at `dev_scripts/populate_provider.py`. This script fills the database with some reasonable test data. It can be useful for checking the look of the UI of provider pages with a large number of objects present. However, even there, you can make do with around a dozen manually-created objects. This script may also be useful for comparing performance of different prototypes of large-scale operations.
+
+### Running on Docker
+**NEVER run this script on production, it creates a blatantly insecure provider account with password "password".**
+
+In bash, you can run it in Docker by running
+```
+sudo docker-compose start
+sudo docker-compose exec -T cme-ctc-web python manage.py shell < dev_scripts/populate_provider.py
+sudo docker-compose stop
+```
+in the directory above `dev_scripts`. You can run it on Windows via git bash if you remove the `sudo` commands.
+
+### Running on manual replication
+Again, **NEVER run this script on production, it creates a blatantly insecure provider account with password "password".**
+
+In bash, you can run it with `python Commitment_to_Change_App/manage.py < dev_scripts/populate_provider.py`. You will need your virtual environment running to do this. 
+
+Currently, running via manual replication on Windows has not been explored because all team members use Docker & the development deployment runs on Ubuntu. It may be possible to accomplish something similar in Powershell, albeit with syntax changes.
+
+---
 # Testing the environment and app (Manual replication)
 
 If you're using Windows, use the specific steps for Windows.

@@ -247,11 +247,20 @@ at the top of the current page.
 - Address for this page: `/app/course/<Course id>/edit/`
 
 1. Navigate to your Course's view page [as shown here](#viewing-a-created-course)
-2. Click on the "Edit" button at the bottom of the page.
+2. Click on the "Edit Course" button at the bottom of the page.
 
 ![Edit Course](<../Auxiliary Files/Images/User_Images/edit_course.png>)
 
 3. Adjust the fields as needed and click "Submit".
+
+### - Deleting a Course
+1. Navigate to your Course's view page [as shown here](#viewing-a-created-course)
+2. Click on the "Delete Course" button at the bottom of the page.
+
+![Delete Course](<../Auxiliary Files/Images/User_Images/delete_course.png>)
+
+3. Confirm by clicking "Delete" on the resulting page.
+
 
 ### - Inviting Clinicians to Your Course 
 - This covers inviting clinicians to a course by sharing a link.

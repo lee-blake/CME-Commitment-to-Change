@@ -236,7 +236,7 @@ at the top of the current page.
 2. In the "Courses" section, locate the button with the name of the course you want to view.
 3. Click the button.
 
-![Provider view course](<../Auxiliary Files/Images/User_Images/provider_view_course.png>)
+![Provider view course](<../Auxiliary Files/Images/User_Images/Provider_view_course.png>)
 
 4. You will be redirected to the course view page, which should look similar  to the following
 

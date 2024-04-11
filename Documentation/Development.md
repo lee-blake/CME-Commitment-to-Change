@@ -517,7 +517,7 @@ sudo docker-compose start
 sudo docker-compose exec -T cme-ctc-web python manage.py shell < dev_scripts/populate_provider.py
 sudo docker-compose stop
 ```
-in the directory above `dev_scripts`. You can run it on Windows via git bash if you remove the `sudo` commands.
+in the directory above `dev_scripts`. You can run it on Windows via git bash if you remove the `sudo` at the start of the commands. Even with removal of the `sudo` at the start of the comamnds, this will not work in Powershell.
 
 ### Running on manual replication
 Again, **NEVER run this script on production, it creates a blatantly insecure provider account with password "password".**

@@ -280,7 +280,7 @@ join the course.
 - Must be logged-in.
   
 1. Navigate to your course's view page [as shown here](#Navigating-to-the-View-Course-Page).
-2. In the "List of Students Enrolled" section, you will find a table of all students enrolled in your course, along with their emails, any commitments they made in your course, and that commitment's current status.
+2. In the "List of Students Enrolled" section, you will find a table of all students enrolled in your course, along with their emails, any commitments they made in your course, and each commitment's current status.
 3. Click on any name in the list to view their full name, Institution, and user name.
 
 ![Enrolled student info](<../Auxiliary Files/Images/User_Images/enrolled_student_info.png>)
@@ -619,7 +619,7 @@ First, [In the view page](#Navigate-to-a-Commitment-Page-from-the-Dashboard) for
 
 ![Recurring Reminder Email View](<../Auxiliary Files/Images/User_Images/schedule_recurring_reminder_email.png>)
 
-2. Choose the interval at which to receive recurring reminder emails, then click submit.
+1. Choose the interval, measured in days, at which you would like to receive recurring reminder emails. For example, if you would like to receive a reminder email once a week (every 7 days), enter 7. Then click submit.
    
 ![Recurring Reminder Email Interval](<../Auxiliary Files/Images/User_Images/schedule_recurring_reminder_email_interval.png>)
 
@@ -676,7 +676,7 @@ another machine.
    - **Option 1**: 
    - 1. Click on the "Share on Social Media" button.
    ![Share commitment button](<../Auxiliary Files/Images/User_Images/commitment_share_button.png>)
-   2. Click the icon for the social media platform you wish to share to.
+   2. Click the icon for the social media platform you wish to share to. Currently we support sharing to X (Formerly known as Twitter), Facebook, and Linkedin.
    ![Share commitment modal](<../Auxiliary Files/Images/User_Images/commitment_share_modal.png>)
    3. Edit the pre-made share message to be whatever you like, and then post.
    ![Share commitment twitter](<../Auxiliary Files/Images/User_Images/twitter_share_dialogue.png>)

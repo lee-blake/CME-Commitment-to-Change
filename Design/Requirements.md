@@ -219,7 +219,9 @@ in the provider course dashboard.
   - High priority
   - BR2
 
-
+- FR418: Providers can delete courses. However, when doing so, the system should clarify any effects this may have on their statistics.
+  - Medium priority
+  - BR2
 
 ## Gamification
 

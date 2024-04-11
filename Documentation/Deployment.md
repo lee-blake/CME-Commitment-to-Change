@@ -238,12 +238,12 @@ Earlier, we allowed traffic in every port to simplify testing. However, this is 
 1. SSH
   - Allow protocol SSH on both incoming and outgoing, 0.0.0.0
   - You could change 0.0.0.0 to something more specific if all team members have static IPs. This is not covered here for simplicity.
-  - It should look something like this: ![SSH rules](<../Auxiliary Files/Images/AWS_images/security_group_ssh.png>)
+  - It should look something like this: ![SSH rules](<../Auxiliary Files/Images/AWS_Images/security_group_ssh.png>)
 
 2. HTTP(S)
   - Allow protocols HTTP and HTTPS on both incoming and outgoing, 0.0.0.0
   - Even if you are running HTTPS, you should still include HTTP, but make sure Apache is redirecting HTTP traffic to HTTPS. The reason for this is that some browsers may initially attempt to connect with HTTP, and if port 80 is not open, they will not find anything and may give up. Forcing the redirect avoid this problem.
-  - It should look something like this: ![HTTPS rules](<../Auxiliary Files/Images/AWS_images/security_group_https.png>)
+  - It should look something like this: ![HTTPS rules](<../Auxiliary Files/Images/AWS_Images/security_group_https.png>)
 
     
 3. SMTP
@@ -253,10 +253,10 @@ Earlier, we allowed traffic in every port to simplify testing. However, this is 
     - Protocol: Custom TCP
     - Port range: 587
     - Destination: 0.0.0.0/0 (you could restrict this further if you know for sure that your SMTP server's IP address is not going to change.
-  - It should look something like this: ![SMTP rules](<../Auxiliary Files/Images/AWS_images/security_group_smtp.png>)
+  - It should look something like this: ![SMTP rules](<../Auxiliary Files/Images/AWS_Images/security_group_smtp.png>)
 
 
-Once you have made all groups, you will need to add them and remove the old security group that allows everything. You can do this by first going EC2, selecting Instances > Instances from the left sidebar, and clicking the instance ID to view its page. Then at the top, select Actions > Security > Change security groups. You should see a search bar next to "Add security group". For each group, type its name into the search bar and hit the button. Once done, your groups should look something like this: ![Three groups added below the search bar](<../Auxiliary Files/Images/AWS_images/security_group_management.png>)
+Once you have made all groups, you will need to add them and remove the old security group that allows everything. You can do this by first going EC2, selecting Instances > Instances from the left sidebar, and clicking the instance ID to view its page. Then at the top, select Actions > Security > Change security groups. You should see a search bar next to "Add security group". For each group, type its name into the search bar and hit the button. Once done, your groups should look something like this: ![Three groups added below the search bar](<../Auxiliary Files/Images/AWS_Images/security_group_management.png>)
 
 
 The advantage of having each of these groups be separate is you can modify them easily without possibly messing up the others. Additionally, if you want to lock down SSH access for some time, just remove the group for the moment and add it back later.

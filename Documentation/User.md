@@ -607,13 +607,18 @@ o
 to change `localhost:8000` to `<your ip address>:8000` to be viewable from 
 another machine.
 - Address for this page: `/app/commitment/<Commitment ID Number>/view/`
-1. View one of your owned commitments with the instructions above
-2. Copy and paste the URL in the browser.
+1. First, view one of your owned commitments [as shown here](#Navigate-to-a-Commitment-Page-from-the-Dashboard).
+2. Share your commitment link:
+   - **Option 1**: 
+   - 1. Click on the "Share on Social Media" button.
+   ![Share commitment button](<../Auxiliary Files/Images/User_Images/commitment_share_button.png>)
+   2. Click the icon for the social media platform you wish to share to.
+   ![Share commitment modal](<../Auxiliary Files/Images/User_Images/commitment_share_modal.png>)
+   3. Edit the pre-made share message to be whatever you like, and then post.
+   ![Share commitment twitter](<../Auxiliary Files/Images/User_Images/twitter_share_dialogue.png>)
+   - **Option 2**: Copy the page URL directly from your browser, then paste wherever you wish to share your commitment.
+   ![View Link](<../Auxiliary Files/Images/User_Images/commitment_view_link.png>)
    
-![View Link](<../Auxiliary Files/Images/User_Images/commitment_view_link.png>)
-
-3. Share with others. They will be able to see the details of the commitment but
-not alter it.
 &nbsp;
 &nbsp;
 

@@ -75,7 +75,7 @@ login page by clicking on "Click here to register".
  
 1. Choose either a clinician account or provider account.
 
-![Account Type](<../Auxiliary Files/Images/User_Images/register_account_type.PNG>)
+![Account Type](<../Auxiliary Files/Images/User_Images/register_account_type.png>)
 
 3.  Fill out the required fields for username, email, password, and password verification.
 
@@ -147,7 +147,7 @@ login page by clicking on "Click here to register".
 1. While logged-in to the application, find the navigation bar at the top of the screen.
 2. There should be a *Logged in as 'USERNAME'* title followed by a *Log Out* button. Press this button.
 
-![logout button](<../Auxiliary Files/Images/User_Images/log_out_button.PNG>)
+![logout button](<../Auxiliary Files/Images/User_Images/log_out_button.png>)
 
 3. After pressing *Logout*, you will be brought to the logout confirmation page.
 
@@ -236,7 +236,7 @@ at the top of the current page.
 2. In the "Courses" section, locate the button with the name of the course you want to view.
 3. Click the button.
 
-![Provider view course](<../Auxiliary Files/Images/User_Images/Provider_view_course.png>)
+![Provider view course](<../Auxiliary Files/Images/User_Images/provider_view_course.png>)
 
 4. You will be redirected to the course view page, which should look similar  to the following
 
@@ -258,7 +258,7 @@ at the top of the current page.
 - Must be logged-in.
 - Address for this page: `/app/course/<Course id>/view/`
 1. Navigate to the View Course page for the course.
-2. Locate the section with "Share this link to invite students"
+2. Locate the "Invite Link" subheader under the "Course Information" header.
    
 ![Share course link](<../Auxiliary Files/Images/User_Images/provider-share-course-link.png>)
 
@@ -292,7 +292,7 @@ join the course.
 3. Click the "compose email" button to open your default email software with the selected emails as recipients.
 
 
-### - Viewing Course Commitments and Status Breakdown
+### - Viewing Course Commitment and Status Breakdown
 1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Commitments in This Course" section. 
 2. In the "Status Breakdown" section, you will see a pie chart containing a breakdown of all commitment statuses made in your course.
 3. The "Commitments Made in This Course" section contains the names of all commitments created in your course. You can click on the link for each to view the commitment's details.
@@ -451,7 +451,7 @@ join the course.
 1. Locate the navigation bar at the top of the screen
 2. There should be a *Dashboard* text that can be clicked. Click this text.
 
-![Nav Bar Dashboard](<../Auxiliary Files/Images/User_Images/clinician_nav_bar_dashboard.PNG>)
+![Nav Bar Dashboard](<../Auxiliary Files/Images/User_Images/clinician_nav_bar_dashboard.png>)
 
 3. Alternatively, you can press the *CME Commitment to Change* text.
 4. This opens the dashboard.
@@ -466,12 +466,12 @@ join the course.
 1. While logged-in to the application, find the navigation bar at the top of the screen.
 2. There should be a *Create a Commitment* text that can be clicked. Click this text.
    
-![Nav Bar Create](<../Auxiliary Files/Images/User_Images/clinician_nav_bar_create_commitment.PNG>)
+![Nav Bar Create](<../Auxiliary Files/Images/User_Images/clinician_nav_bar_create_commitment.png>)
 
 3. This opens the commitment creation page. Fill out the title, description, and deadline fields
    and press the *Submit* button underneath the deadline field.
    
-![Commitment Create](<../Auxiliary Files/Images/User_Images/commitment_creation.PNG>)
+![Commitment Create](<../Auxiliary Files/Images/User_Images/commitment_creation.png>)
 
 ### - Completing A Commitment 
 - This button is used to mark a commitment complete.
@@ -481,7 +481,7 @@ join the course.
 2. Locate a commitment in the *In-Progress* or *Past Due* boxes on the dashboard.
 3. Below the title of the commitment, click on the box that says *Complete*.
    
-![Complete Button](<../Auxiliary Files/Images/User_Images/commitment_complete_circled.PNG>)
+![Complete Button](<../Auxiliary Files/Images/User_Images/commitment_complete_circled.png>)
 
 4. This opens the commitment creation page. Fill out the title, description, and deadline fields
    and press the *Submit* button underneath the deadline field.
@@ -491,7 +491,7 @@ join the course.
 5. The commitment should move from whichever box it was in, into the *Completed* box, 
    and it will be marked as complete.
    
-![Completed Commitments](<../Auxiliary Files/Images/User_Images/commitment_complete.PNG>)
+![Completed Commitments](<../Auxiliary Files/Images/User_Images/commitment_complete.png>)
 
 
 ### - Deleting A Commitment 
@@ -501,13 +501,13 @@ Address for this page: `/app/dashboard/`
 1. Navigate to the dashboard.
 2. Locate a commitment in the *In-Progress*, *Expired*, *Discontinued*, or *Complete* boxes on the dashboard.
 3. Open the edit view for the commitment by clicking on it.
-4. Below the commitment details, there should be a button titled *Delete*. Click that button.
+4. Below the commitment details, there should be a button titled *Delete Commitment*. Click that button.
 
-![Edit Button](<../Auxiliary Files/Images/User_Images/commitment_delete_circled.PNG>)
+![Edit Button](<../Auxiliary Files/Images/User_Images/commitment_delete_circled.png>)
 
 5. This brings up a modal asking you to confirm. Click the *DELETE* button to confirm deletion.
    
-![Delete Confirm](<../Auxiliary Files/Images/User_Images/commitment_delete.PNG>)
+![Delete Confirm](<../Auxiliary Files/Images/User_Images/commitment_delete.png>)
 
 
 ### - Discontinuing a Commitment 
@@ -519,7 +519,7 @@ completed.
 2. Locate a commitment in the *In-Progress* or *Past-Due* boxes.
 3. Below the title of the commitment, click on the box that says *Discontinue*.
 
-![Discontinue Button](<../Auxiliary Files/Images/User_Images/commitment_discontinue_circled.PNG>)
+![Discontinue Button](<../Auxiliary Files/Images/User_Images/commitment_discontinue_circled.png>)
 
 4. This brings up a modal asking you to confirm. Click the *Discontinue* button to confirm discontinuation.
 
@@ -528,7 +528,7 @@ completed.
 5. The commitment should move from whichever box it was in, into the *Discontinued* box,
    and it will be marked as discontinued.
    
-![Discontinued](<../Auxiliary Files/Images/User_Images/commitment_discontinued.PNG>)
+![Discontinued](<../Auxiliary Files/Images/User_Images/commitment_discontinued.png>)
 
 6. If this action was a mistake, the commitment can be reopened from here.
 
@@ -561,13 +561,13 @@ completed.
 - Must be logged in to navigate from your dashboard.
 - Address for this page: `/app/commitment/<Commitment ID Number>/view/`
 1. Locate the navigation bar and go to the commitment dashboard.
-2. Locate a commitment in the *In-Progress*, *Past Due*, or *Discontinued* boxes.
+2. Locate a commitment in any of the *In-Progress*, *Past Due*, *Completed* or *Discontinued* boxes.
    
-![View Commitment](<../Auxiliary Files/Images/User_Images/view_commitment_text.PNG>)
+![View Commitment](<../Auxiliary Files/Images/User_Images/view_commitment_text.png>)
 
 3. Click on the text of the commitment.
 
-![Commitment View](<../Auxiliary Files/Images/User_Images/commitment_view.PNG>)
+![Commitment View](<../Auxiliary Files/Images/User_Images/commitment_view.png>)
 
 4. This opens the commitment view page.
 
@@ -593,13 +593,13 @@ on the dashboard.
 2. Click on the commitment that you want to edit and open its view page.
 3. Below the commitment details, there should be a box labeled *Edit*. Click this box.
 
-![Edit Button](<../Auxiliary Files/Images/User_Images/commitment_edit_circled.PNG>)
+![Edit Button](<../Auxiliary Files/Images/User_Images/commitment_edit_circled.png>)
 
 4. This brings you to the commitment edit page. Make your edits in these fields.
    - Please note: If the commitment you are editing is from a suggested commitment, you will not be able to edit some fields. Please see the [Making a Course's Suggested Commitment](#making-a-courses-suggested-commitment) for more information.
 
-![Edit View](<../Auxiliary Files/Images/User_Images/commitment_edit_page.PNG>)
-
+![Edit View](<../Auxiliary Files/Images/User_Images/commitment_edit_page.png>)
+o
 5. Below the commitment edit details, press the submit button to save your changes.
 
 ### - Sharing a Commitment Page
@@ -610,7 +610,7 @@ another machine.
 1. View one of your owned commitments with the instructions above
 2. Copy and paste the URL in the browser.
    
-![View Link](<../Auxiliary Files/Images/User_Images/commitment_view_link.PNG>)
+![View Link](<../Auxiliary Files/Images/User_Images/commitment_view_link.png>)
 
 3. Share with others. They will be able to see the details of the commitment but
 not alter it.
@@ -670,7 +670,7 @@ the respective page depending on whether your commitment already exists.
 2. In the "Associated Course" dropdown menu, select "-----" to remove any course
 association or the correct course if an incorrect course was selected.
 
-![Selecting "-----"](<../Auxiliary Files/Images/User_Images/commitment_disassociate_course.PNG>)
+![Selecting "-----"](<../Auxiliary Files/Images/User_Images/commitment_disassociate_course.png>)
 
 3. Complete the edit process as usual.
 

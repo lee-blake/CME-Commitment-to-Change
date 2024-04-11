@@ -232,6 +232,27 @@ EMAIL_HOST_PASSWORD = "the secret key from the SMTP token"
 DEFAULT_FROM_EMAIL = "verified.by.aws@domain"
 ```
 
+## Restrict instance ports
+Earlier, we allowed traffic in every port to simplify testing. However, this is a bad security policy. Create three groups from the "Security groups" tab in the "Network and Security" section in the left sidebar:
+
+1. SSH
+  - Allow protocol SSH on both incoming and outgoing, 0.0.0.0
+  - You could change 0.0.0.0 to something more specific if all team members have static IPs. This is not covered here for simplicity.
+
+2. HTTP(S)
+  - Allow protocols HTTP and HTTPS on both incoming and outgoing, 0.0.0.0
+  - Even if you are running HTTPS, you should still include HTTP, but make sure Apache is redirecting HTTP traffic to HTTPS. The reason for this is that some browsers may initially attempt to connect with HTTP, and if port 80 is not open, they will not find anything and may give up. Forcing the redirect avoid this problem.
+    
+3. SMTP
+  - This one is trickier if you are not using port 465 (which we did not find to work for our deployment).
+  - Using port 587 do the following:
+    - Outgoing ONLY (inbound not needed since we are only sending)
+    - Protocol: Custom TCP
+    - Port range: 587
+    - Destination: 0.0.0.0/0 (you could restrict this further if you know for sure that your SMTP server's IP address is not going to change.
+
+Once you have made all groups, you will need to add them and remove the old security group that allows everything. The advantage of having each of these groups be separate is you can modify them easily without possibly messing up the others. Additionally, if you want to lock down SSH access for some time, just remove the group for the moment and add it back later.
+
 # Maintenance
 These instructions apply to both deployments.
 

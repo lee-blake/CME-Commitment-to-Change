@@ -233,7 +233,7 @@ DEFAULT_FROM_EMAIL = "verified.by.aws@domain"
 ```
 
 ## Restrict instance ports
-Earlier, we allowed traffic in every port to simplify testing. However, this is a bad security policy. Create three groups from the "Security groups" tab in the "Network and Security" section in the left sidebar:
+Earlier, we allowed traffic in every port to simplify testing. However, this is a bad security policy. Create three groups from the "Security groups" tab in the "Network and Security" section in the left sidebar in the EC2 dashboard:
 
 1. SSH
   - Allow protocol SSH on both incoming and outgoing, 0.0.0.0
@@ -253,10 +253,13 @@ Earlier, we allowed traffic in every port to simplify testing. However, this is 
     - Protocol: Custom TCP
     - Port range: 587
     - Destination: 0.0.0.0/0 (you could restrict this further if you know for sure that your SMTP server's IP address is not going to change.
-  - ![SMTP rules](../Auxiliary Files/Images/AWS_images/security_group_smtp.png)
+  - It should look something like this: ![SMTP rules](../Auxiliary Files/Images/AWS_images/security_group_smtp.png)
 
 
-Once you have made all groups, you will need to add them and remove the old security group that allows everything. The advantage of having each of these groups be separate is you can modify them easily without possibly messing up the others. Additionally, if you want to lock down SSH access for some time, just remove the group for the moment and add it back later.
+Once you have made all groups, you will need to add them and remove the old security group that allows everything. You can do this by first going EC2, selecting Instances > Instances from the left sidebar, and clicking the instance ID to view its page. Then at the top, select Actions > Security > Change security groups. You should see a search bar next to "Add security group". For each group, type its name into the search bar and hit the button. Once done, your groups should look something like this: ![Three groups added below the search bar](../Auxiliary Files/Images/AWS_images/security_group_management.png)
+
+
+The advantage of having each of these groups be separate is you can modify them easily without possibly messing up the others. Additionally, if you want to lock down SSH access for some time, just remove the group for the moment and add it back later.
 
 # Maintenance
 These instructions apply to both deployments.

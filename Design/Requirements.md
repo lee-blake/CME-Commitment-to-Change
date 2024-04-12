@@ -363,3 +363,7 @@ logging into an account.
 - NR15: When using registration's email verification, the user can resend the email if they do not receive it.
   - Medium priority
   - BR1
+
+- NR16: When a provider uses the bulk email feature, the email subject and body will be automatically populated with relevant course information and a default message.
+  - Low priority
+  - BR1

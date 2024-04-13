@@ -31,6 +31,10 @@ The functional requirements are loosely grouped by concept.
 - FR107: The system will automatically prune non-activated accounts with unverified emails that are at least a certain age. Alternatively, this functionality can be disabled and run manually via a script that is documented in Deployment.md.
   - High priority
   - BR2
+    
+- FR108: Clinicians may edit any fields in their profile that are not a part of authentication (names, institutions, etc)
+  - Medium priority
+  - BR1
 
 ## Commitment Creation
 

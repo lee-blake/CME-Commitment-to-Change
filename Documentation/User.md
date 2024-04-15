@@ -343,10 +343,14 @@ join the course.
 
 ![bulk-email-modal](<../Auxiliary Files/Images/User_Images/bulk-email-modal.png>)
 
-2. On the resulting screen, mark the checkboxes next to the names of the students you wish to contact. You can click the checkbox in the top left header tab to select or deselect all emails.
-3. Click the "compose email" button to open your default email software with the selected emails as recipients.
-4. Default subject and body text are provided, but you can edit the email however you like before sending.
+2. On the resulting screen, mark the checkboxes next to the names of the students you wish to contact. 
+   - You can click the checkbox in the top left header tab to select or deselect all emails.
+   - You can search by commitment name or commitment status, and send to all people matching that query. For example, to send an email to all clinicians who have a past-due commitment, simply search "past-due", then click the select all checkbox in the top left corner.
+  
+  ![bulk-email-searching-example](<../Auxiliary Files/Images/User_Images/bulk-email-searching-example.png>)
 
+1. Click the "compose email" button to open your default email software with the selected emails as recipients.
+2. Default subject and body text are provided, but you can edit the email however you like before sending.
 
 ### - Viewing Course Commitment and Status Breakdown
 1. [From your course's view page](#Navigating-to-the-View-Course-Page), look for the "Commitments in This Course" section. 

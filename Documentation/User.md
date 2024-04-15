@@ -68,7 +68,7 @@ Most tables throughout the app are sortable and searchable, just look for the se
 
 - This page is used to create new provider user profiles.
 - For providers, the address for this page is: `/app/register/provider/`
-- For providers, the address for this page is: `/app/register/clinician/`
+- For clinicians, the address for this page is: `/app/register/clinician/`
 
 1. Navigate to the registration webpage. This can be done from the 
 login page by clicking on "Click here to register".
@@ -187,7 +187,7 @@ login page by clicking on "Click here to register".
 ### - Navigating to your account profile page
 - Must be logged in
 - Available for providers and clinicians
-- Address for this page: `app/profile/clinician/view/` or `app/profile/provider/view/` respectively
+- Address for this page: `app/profile/`
 1. From anywhere in the app, click on the "Logged in as your username" button in the top right of the navbar.
 
 ![logged in as button](<../Auxiliary Files/Images/User_Images/logged_in_as_button.png>)

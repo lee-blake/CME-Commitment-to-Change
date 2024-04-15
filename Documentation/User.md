@@ -157,6 +157,7 @@ login page by clicking on "Click here to register".
 
 ### - Resetting account password with "Forgot Password"
 - This page is used for resetting your account's password if you have forgotten it.
+- Must be logged out.
 - Address for this page: `accounts/password-reset/`
 
 1. From the [login page](#logging-in), click on the "Forgot your password?" link
@@ -179,11 +180,53 @@ login page by clicking on "Click here to register".
 
 ![reset password complete](<../Auxiliary Files/Images/User_Images/password_reset_complete.png>)
 &nbsp;
+
+
+## Managing your account
+
+### - Navigating to your account profile page
+- Must be logged in
+- Available for providers and clinicians
+- Address for this page: `app/profile/clinician/view/` or `app/profile/provider/view/` respectively
+1. From anywhere in the app, click on the "Logged in as your username" button in the top right of the navbar.
+
+![logged in as button](<../Auxiliary Files/Images/User_Images/logged_in_as_button.png>)
+
+2. This will take you to your profile page where you can view your relevant account information.
+
+![profile page](<../Auxiliary Files/Images/User_Images/clinician_profile_page.png>)
+
+### - Changing your password when logged in
+- Must be logged in
+- Available for providers and clinicians
+- Address for this page: `accounts/password-change/`
+1. From [your profile page](#navigating-to-your-account-profile-page), click on the "Change password" button at the bottom.
+
+2. Enter your old password, your new desired password, and confirm your new password. Then, click on "Change password".
+
+![change password](<../Auxiliary Files/Images/User_Images/change_password.png>)
+
+3. You can now login using your new password.
+
+![change password complete](<../Auxiliary Files/Images/User_Images/change_password_complete.png>)
+
+### - Changing your account information as a Clinician
+- Must be logged in
+- Only available for clinicians
+- Address for this page: `app/profile/clinician/edit/`
+1. From [your profile page](#navigating-to-your-account-profile-page), click on the "Edit Profile" button
+2. Change any fields you wish, then click "Submit".
+
+![edit profile](<../Auxiliary Files/Images/User_Images/edit_profile.png>)
+
+3. Your profile is now updated.
+
+![updated profile](<../Auxiliary Files/Images/User_Images/updated_profile.png>)
+
+&nbsp;
 &nbsp;
 
 ---
-
-
 # Provider Specific Instructions
 ---
 

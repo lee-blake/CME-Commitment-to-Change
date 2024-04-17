@@ -4,8 +4,24 @@ The poster we presented is the standard project poster [here](../Presentations/C
 
 ## Team Photo
 
+<!-- insert photo here -->
+
+Pictured: Lee Blake & North Kaster at the symposium
+
 ## Selected Attendees
 
+<!-- insert photos on each bullet point -->
+
+- The CME Quest Adventures team
+  - Jared Bowman 
+  - Jack Carthew
+  - Justyn Fox
+  - Micah Harker
+  - Ethan Hooper
+- Other attendees
+  - Austen Lowder
+  - Beethoven Meginnis
+  - Daniel O'Dell
 
 ## Reflection
 Reflections from team members on the symposium are included here.
